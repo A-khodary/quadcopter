@@ -8,7 +8,7 @@ if [$1 = "-r"]; then
 	quadcopter
 fi
 
-if [$1 = "rc"]; then
+if [$1 = "-rc"]; then
 	echo "[i] Killing program..."
 	pkill quadcopter
 	echo "[i] Downloading latest source changes from github..."

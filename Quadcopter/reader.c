@@ -1,9 +1,11 @@
+/*
 ##############################################
 #   Reader functionality                     #
 #   Nicolas de Maubeuge and Vivien Billaud   #
 #   October 2014                             #
 #                                            #
 ##############################################
+*/
 
 // Library includes :
 
