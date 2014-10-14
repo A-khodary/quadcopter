@@ -5,11 +5,10 @@
 
 
 #include <Wire.h>
-#include 
 
 // Some hardware defines :
 
-# define RUDDER_PIN 1
+# define RUDDER_PIN 7
 # define THROTTLE_PIN 2
 # define AILERONS_PIN 3
 # define ELEVATOR_PIN 4
@@ -21,13 +20,16 @@
 
 // Sampling global variables :
 
-double PWM_duration[9];
+unsigned long PWM_duration[9];
+byte* PWM_pointer;
+unsigned long value;
 
 // Handling function :
 
+
 void i2cHandler()
 {
-  Wire.write(PWM_duration, sizeof(PWM_duration));
+  Wire.write(PWM_pointer, 9*sizeof(unsigned long));
 }
 
 void setup()
@@ -43,8 +45,21 @@ void setup()
  pinMode(AUX4_PIN, INPUT);
  pinMode(AUX5_PIN, INPUT);
  
- Wire.beginTransmission(1);
+ PWM_duration[0]=0;
+ PWM_duration[1]=0;
+ PWM_duration[2]=0;
+ PWM_duration[3]=0;
+ PWM_duration[4]=0;
+ PWM_duration[5]=0;
+ PWM_duration[6]=0;
+ PWM_duration[7]=0;
+ PWM_duration[8]=0;
+ 
+ Wire.begin(1);
  Wire.onRequest(i2cHandler);
+ PWM_pointer = (byte*) &PWM_duration;
+ 
+ Serial.begin(9600);
  
  
 }
@@ -53,13 +68,17 @@ void setup()
 
 void loop()
 {
-  PWM_duration[0]=pulseIn(RUDDER_PIN, HIGH);
-  PWM_duration[1]=pulseIn(THROTTLE_PIN, HIGH);
-  PWM_duration[2]=pulseIn(AILERONS_PIN, HIGH);
-  PWM_duration[3]=pulseIn(ELEVATOR_PIN, HIGH);
-  PWM_duration[4]=pulseIn(AUX1_PIN, HIGH);
-  PWM_duration[5]=pulseIn(AUX2_PIN, HIGH);
-  PWM_duration[6]=pulseIn(AUX3_PIN, HIGH);
-  PWM_duration[7]=pulseIn(AUX4_PIN, HIGH);
-  PWM_duration[7]=pulseIn(AUX5_PIN, HIGH);
+  value=pulseIn(RUDDER_PIN, HIGH);
+  //PWM_duration[1]=pulseIn(THROTTLE_PIN, HIGH);
+  //PWM_duration[2]=pulseIn(AILERONS_PIN, HIGH);
+  //PWM_duration[3]=pulseIn(ELEVATOR_PIN, HIGH);
+  //PWM_duration[4]=pulseIn(AUX1_PIN, HIGH);
+  //PWM_duration[5]=pulseIn(AUX2_PIN, HIGH);
+  //PWM_duration[6]=pulseIn(AUX3_PIN, HIGH);
+  //PWM_duration[7]=pulseIn(AUX4_PIN, HIGH);
+  //PWM_duration[7]=pulseIn(AUX5_PIN, HIGH);
+  
+  Serial.print(value);
+  Serial.print("\n");
+  delay(500);
 }
