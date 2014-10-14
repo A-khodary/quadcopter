@@ -5,6 +5,7 @@
 		<Option title="Quadcopter" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="Components\;Shared ressources\;Components\Sources\;Components\Headers\;Shared ressources\Sources\;Shared ressources\Headers\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Quadcopter" prefix_auto="1" extension_auto="1" />
@@ -31,11 +32,66 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="autopilot.c">
 			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/" />
+		</Unit>
+		<Unit filename="autopilot.h">
+			<Option virtualFolder="Components/Headers/" />
+		</Unit>
+		<Unit filename="autopilot_global_variables.h">
+			<Option virtualFolder="Shared ressources/Headers/" />
+		</Unit>
+		<Unit filename="data_logger.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/" />
+		</Unit>
+		<Unit filename="data_logger.h">
+			<Option virtualFolder="Components/Headers/" />
+		</Unit>
+		<Unit filename="data_logger_global_variables.h">
+			<Option virtualFolder="Shared ressources/Headers/" />
+		</Unit>
+		<Unit filename="global_functions.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Shared ressources/Sources/" />
+		</Unit>
+		<Unit filename="imu.h">
+			<Option virtualFolder="Components/Headers/" />
+		</Unit>
+		<Unit filename="imu_globals_variables.h">
+			<Option virtualFolder="Shared ressources/Headers/" />
+		</Unit>
+		<Unit filename="osd.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/" />
+		</Unit>
+		<Unit filename="osd.h">
+			<Option virtualFolder="Components/Headers/" />
+		</Unit>
+		<Unit filename="pilot.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/" />
+		</Unit>
+		<Unit filename="pilot.h">
+			<Option virtualFolder="Components/Headers/" />
+		</Unit>
+		<Unit filename="pilot_global_variables.h">
+			<Option virtualFolder="Shared ressources/Headers/" />
+		</Unit>
+		<Unit filename="quadcopter.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/" />
 		</Unit>
 		<Unit filename="reader.c">
 			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/" />
+		</Unit>
+		<Unit filename="reader.h">
+			<Option virtualFolder="Components/Headers/" />
+		</Unit>
+		<Unit filename="reader_global_variables.h">
+			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>
 		<Extensions>
 			<code_completion />
