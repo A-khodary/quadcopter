@@ -3,7 +3,7 @@
 
 
 
-
+/*
 typedef struct position {
         int x;
         int y;
@@ -13,3 +13,4 @@ typedef struct position {
 typedef struct data {
 
 }Data;
+*/
