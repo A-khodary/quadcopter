@@ -37,6 +37,6 @@ if [ $1 = "-c" ]; then
 	cd ../Builds
 	chmod +x quadcopter
 	
-else then
+else
 	echo "[e]What do you want to do ?"
 fi
