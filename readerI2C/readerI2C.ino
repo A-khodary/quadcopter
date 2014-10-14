@@ -8,7 +8,7 @@
 
 // Some hardware defines :
 
-# define RUDDER_PIN 7
+# define RUDDER_PIN 5
 # define THROTTLE_PIN 2
 # define AILERONS_PIN 3
 # define ELEVATOR_PIN 4
@@ -22,7 +22,6 @@
 
 unsigned long PWM_duration[9];
 byte* PWM_pointer;
-unsigned long value;
 
 // Handling function :
 
@@ -33,6 +32,7 @@ void i2cHandler()
 }
 
 void setup()
+
 {
   
  pinMode(RUDDER_PIN, INPUT);
@@ -59,26 +59,71 @@ void setup()
  Wire.onRequest(i2cHandler);
  PWM_pointer = (byte*) &PWM_duration;
  
- Serial.begin(9600);
- 
- 
+ //Serial.begin(9600);
 }
 
 
 
 void loop()
 {
-  value=pulseIn(RUDDER_PIN, HIGH);
-  //PWM_duration[1]=pulseIn(THROTTLE_PIN, HIGH);
-  //PWM_duration[2]=pulseIn(AILERONS_PIN, HIGH);
-  //PWM_duration[3]=pulseIn(ELEVATOR_PIN, HIGH);
-  //PWM_duration[4]=pulseIn(AUX1_PIN, HIGH);
-  //PWM_duration[5]=pulseIn(AUX2_PIN, HIGH);
-  //PWM_duration[6]=pulseIn(AUX3_PIN, HIGH);
-  //PWM_duration[7]=pulseIn(AUX4_PIN, HIGH);
-  //PWM_duration[7]=pulseIn(AUX5_PIN, HIGH);
+  PWM_duration[0]=pulseIn(RUDDER_PIN, HIGH);
+  PWM_duration[1]=pulseIn(THROTTLE_PIN, HIGH);
+  PWM_duration[2]=pulseIn(AILERONS_PIN, HIGH);
+  PWM_duration[3]=pulseIn(ELEVATOR_PIN, HIGH);
+  PWM_duration[4]=pulseIn(AUX1_PIN, HIGH);
+  PWM_duration[5]=pulseIn(AUX2_PIN, HIGH);
+  PWM_duration[6]=pulseIn(AUX3_PIN, HIGH);
+  PWM_duration[7]=pulseIn(AUX4_PIN, HIGH);
+  PWM_duration[8]=pulseIn(AUX5_PIN, HIGH);
   
-  Serial.print(value);
-  Serial.print("\n");
-  delay(500);
+  PWM_duration[0] = PWM_duration[0]*1000/1303; 
+  PWM_duration[1] = PWM_duration[1]*1000/1303;
+  PWM_duration[2] = PWM_duration[2]*1000/1303;
+  PWM_duration[3] = PWM_duration[3]*1000/1303;
+  PWM_duration[4] = PWM_duration[4]*1000/1303;
+  PWM_duration[5] = PWM_duration[5]*1000/1303;
+  PWM_duration[6] = PWM_duration[6]*1000/1303;
+  PWM_duration[7] = PWM_duration[7]*1000/1303;
+  PWM_duration[8] = PWM_duration[8]*1000/1303;
+  
+  // Uncomment for debugging output :
+  
+  // Serial.print("RUDDER :");
+  //Serial.print(PWM_duration[0]);
+  //Serial.print("\n");
+  
+    // Serial.print("THROTTLE:");
+  //Serial.print(PWM_duration[1]);
+  //Serial.print("\n");
+  
+    // Serial.print("AILERONS :");
+  //Serial.print(PWM_duration[2]);
+  //Serial.print("\n");
+  
+    // Serial.print("ELEVATOR :");
+  //Serial.print(PWM_duration[3]);
+  //Serial.print("\n");
+  
+    // Serial.print("AUX1 :");
+  //Serial.print(PWM_duration[4]);
+  //Serial.print("\n");
+  
+    // Serial.print("AUX2 :");
+  //Serial.print(PWM_duration[5]);
+  //Serial.print("\n");
+  
+    // Serial.print("AUX3 :");
+  //Serial.print(PWM_duration[6]);
+  //Serial.print("\n");
+  
+    // Serial.print("AUX4 :");
+  //Serial.print(PWM_duration[7]);
+  //Serial.print("\n");
+  
+    // Serial.print("AUX5 :");
+  //Serial.print(PWM_duration[8]);
+  //Serial.print("\n");
+  
+  // Use to restrain consumption or adding ultrasonic sensor
+  // delay(500);
 }
