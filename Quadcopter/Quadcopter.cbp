@@ -93,6 +93,9 @@
 		<Unit filename="reader_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>
+		<Unit filename="shared_librairies.h">
+			<Option virtualFolder="Shared ressources/Headers/" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
