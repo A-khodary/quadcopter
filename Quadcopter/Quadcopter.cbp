@@ -56,6 +56,9 @@
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Shared ressources/Sources/" />
 		</Unit>
+		<Unit filename="global_functions.h">
+			<Option virtualFolder="Shared ressources/Headers/" />
+		</Unit>
 		<Unit filename="imu.h">
 			<Option virtualFolder="Components/Headers/" />
 		</Unit>
