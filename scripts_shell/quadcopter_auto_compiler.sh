@@ -33,7 +33,7 @@ if [ $1 = "-c" ]; then
 	rm -f  Builds/quadcopter
 	cd Quadcopter
 	echo "[i] Compiling program from sources..."
-	gcc * -o ../Builds/quadcopter
+	gcc *.c -o ../Builds/quadcopter
 	cd ../Builds
 	chmod +x quadcopter
 	
