@@ -27,14 +27,12 @@
 
 #define MPU6050_CACHE_MODE
 
-//  MPU9150 I2C Slave Addresses
+/*//  MPU6050 I2C Slave Addresses
 
 #define MPU6050_ADDRESS0            0x68
 #define MPU6050_ADDRESS1            0x69
 #define MPU6050_ID                  0x68
-
-//#define AK8975_ADDRESS              0x0c
-
+*/
 //  Register map
 
 #define MPU6050_YG_OFFS_TC          0x01
@@ -111,7 +109,7 @@
 #define MPU6050_ACCELFSR_16         0x18                    // +/- 16g
 
 
-//  AK8975 compass registers
+//  HMC5883L compass registers
 
 #define HMC5883L_ADDRESS            0x1E // this device only has one address
 
@@ -176,13 +174,6 @@
 
 #define HMC5883L_STATUS_LOCK_BIT    1
 #define HMC5883L_STATUS_READY_BIT   0
-
-/*
-#define AK8975_DEVICEID             0x0                     // the device ID
-#define AK8975_ST1                  0x02                    // status 1
-#define AK8975_CNTL                 0x0a                    // control reg
-#define AK8975_ASAX                 0x10                    // start of the fuse ROM data
-*/
 
 //  FIFO transfer size
 
