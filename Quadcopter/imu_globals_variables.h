@@ -1,5 +1,3 @@
-
-
 // Global variables structures declaration
 
 typedef struct  flightStateShared {
