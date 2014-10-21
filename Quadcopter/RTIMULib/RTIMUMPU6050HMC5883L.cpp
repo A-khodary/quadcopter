@@ -137,7 +137,7 @@ bool RTIMUMPU6050HMC5883L::setAccelFsr(unsigned char fsr)
 bool RTIMUMPU6050HMC5883L::IMUInit()
 {
     bool compassAvailable = false;
-    
+
     unsigned char result;
     unsigned char resulthmc[4];
 
@@ -226,9 +226,9 @@ bool RTIMUMPU6050HMC5883L::IMUInit()
         compassAvailable = false;
     } else
         compassAvailable = true;
-    
+
     if (compassAvailable) {
-        
+
     if (!I2CWrite(HMC5883L_ADDRESS, HMC5883L_RA_CONFIG_A,
             (HMC5883L_AVERAGING_8 << (HMC5883L_CRA_AVERAGE_BIT - HMC5883L_CRA_AVERAGE_LENGTH + 1)) |
             (HMC5883L_RATE_30 << (HMC5883L_CRA_RATE_BIT - HMC5883L_CRA_RATE_LENGTH + 1)) |
@@ -625,7 +625,7 @@ bool RTIMUMPU6050HMC5883L::IMURead()
     m_imuData.compass.setY(-temp);
     */
 
-    // HMC5853L has data xzy
+    // HMC5883L has data xzy
     temp = m_imuData.compass.z();
     m_imuData.compass.setZ(m_imuData.compass.y());
     m_imuData.compass.setY(temp);

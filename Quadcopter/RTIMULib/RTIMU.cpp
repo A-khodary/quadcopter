@@ -22,8 +22,8 @@
 #include "RTFusionRTQF.h"
 #include "RTIMUSettings.h"
 
-#include "RTIMUNull.h"
-//#include "RTIMUMPU6050HMC5883L.h"
+//#include "RTIMUNull.h"
+#include "RTIMUMPU6050HMC5883L.h"
 
 RTIMU *RTIMU::createIMU(RTIMUSettings *settings)
 {
