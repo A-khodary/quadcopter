@@ -19,7 +19,7 @@
 	<File name="data_logger_global_variables.h" open="1" top="0" tabpos="0">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="global_functions.c" open="0" top="0" tabpos="11">
+	<File name="global_functions.c" open="1" top="1" tabpos="11">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="global_functions.h" open="1" top="0" tabpos="15">
@@ -28,7 +28,7 @@
 	<File name="imu.h" open="0" top="0" tabpos="3">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="imu_globals_variables.h" open="1" top="1" tabpos="0">
+	<File name="imu_globals_variables.h" open="1" top="0" tabpos="0">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="osd.c" open="0" top="0" tabpos="14">
