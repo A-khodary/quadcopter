@@ -4,3 +4,4 @@
 #include "reader_global_variables.h"
 
 void writeCommands();
+void pilotHandler();
