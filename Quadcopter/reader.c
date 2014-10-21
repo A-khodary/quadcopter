@@ -34,6 +34,9 @@
 
 int readCommands()
 {
+    long buffer[9];
+    int fd;
+
     extern userCommands;
     userCommands.ch1=0;
     userCommands.ch2=0;
@@ -46,9 +49,30 @@ int readCommands()
     userCommands.ch9=0;
 
 
-    if (wiringPiI2CSetup (ARDUINO_ADDRESS)) == -1) return -1; // Connecting to Arduino
+    if (fd = wiringPiI2CSetup (ARDUINO_ADDRESS)) < 0)
+    {
+        printDebug("[e] Reader : error connecting to Arduino via I2C")
+        return -1; // Connecting to Arduino
+    }
 
+    // Now we're connected, processing incoming data :
 
+    while(continue)
+{
+    read(fd, buffer, 4*9); //Todo implement connection test
+    userCommands.ch1=buffer[0];
+    userCommands.ch2=buffer[1];
+    userCommands.ch3=buffer[2];
+    userCommands.ch4=buffer[3];
+    userCommands.ch5=buffer[4];
+    userCommands.ch6=buffer[5];
+    userCommands.ch7=buffer[6];
+    userCommands.ch8=buffer[7];
+    userCommands.ch9=buffer[8];
 
+    sleep(SAMPL);
+
+}
+    close(fd);
 
 }
