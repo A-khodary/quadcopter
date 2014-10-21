@@ -23,44 +23,11 @@
 #include "RTIMUSettings.h"
 
 #include "RTIMUNull.h"
-#include "RTIMUMPU9150.h"
-#include "RTIMUGD20HM303D.h"
-#include "RTIMUGD20M303DLHC.h"
-#include "RTIMULSM9DS0.h"
-#include "RTIMUMPU6050HMC5883L.h"
+//#include "RTIMUMPU6050HMC5883L.h"
 
 RTIMU *RTIMU::createIMU(RTIMUSettings *settings)
 {
-    switch (settings->m_imuType) {
-        
-    case RTIMU_TYPE_MPU6050:
-        return new RTIMUMPU6050HMC5883L(settings);
-        
-    case RTIMU_TYPE_MPU9150:
-        return new RTIMUMPU9150(settings);
-
-    case RTIMU_TYPE_GD20HM303D:
-        return new RTIMUGD20HM303D(settings);
-
-    case RTIMU_TYPE_GD20M303DLHC:
-        return new RTIMUGD20M303DLHC(settings);
-
-    case RTIMU_TYPE_LSM9DS0:
-        return new RTIMULSM9DS0(settings);
-
-    case RTIMU_TYPE_AUTODISCOVER:
-        if (settings->discoverIMU(settings->m_imuType, settings->m_I2CSlaveAddress)) {
-            settings->saveSettings();
-            return RTIMU::createIMU(settings);
-        }
-        return NULL;
-
-    case RTIMU_TYPE_NULL:
-        return new RTIMUNull(settings);
-
-    default:
-        return NULL;
-    }
+    RTIMUMPU6050HMC5883L(settings);
 }
 
 

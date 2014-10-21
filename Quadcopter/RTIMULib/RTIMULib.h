@@ -29,11 +29,8 @@
 
 #include "RTIMUHal.h"
 #include "RTIMU.h"
-#include "RTIMUNull.h"
-#include "RTIMUMPU9150.h"
-#include "RTIMUGD20HM303D.h"
-#include "RTIMUGD20M303DLHC.h"
-#include "RTIMULSM9DS0.h"
+//#include "RTIMUNull.h"
+#include "RTIMUMPU6050HMC5883L.h"
 
 #include "RTIMUSettings.h"
 
