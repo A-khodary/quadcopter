@@ -32,64 +32,64 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTFusion.cpp">
+		<Unit filename="RTIMULib/RTFusion.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTFusion.h">
+		<Unit filename="RTIMULib/RTFusion.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTFusionKalman4.cpp">
+		<Unit filename="RTIMULib/RTFusionKalman4.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTFusionKalman4.h">
+		<Unit filename="RTIMULib/RTFusionKalman4.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTFusionRTQF.cpp">
+		<Unit filename="RTIMULib/RTFusionRTQF.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTFusionRTQF.h">
+		<Unit filename="RTIMULib/RTFusionRTQF.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMU.cpp">
+		<Unit filename="RTIMULib/RTIMU.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMU.h">
+		<Unit filename="RTIMULib/RTIMU.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMUHal.cpp">
+		<Unit filename="RTIMULib/RTIMUHal.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMUHal.h">
+		<Unit filename="RTIMULib/RTIMUHal.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMULib.h">
+		<Unit filename="RTIMULib/RTIMULib.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMULibDefs.h">
+		<Unit filename="RTIMULib/RTIMULibDefs.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMUMPU6050HMC5883L.cpp">
+		<Unit filename="RTIMULib/RTIMUMPU6050HMC5883L.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMUMPU6050HMC5883L.h">
+		<Unit filename="RTIMULib/RTIMUMPU6050HMC5883L.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMUNull.cpp">
+		<Unit filename="RTIMULib/RTIMUNull.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMUNull.h">
+		<Unit filename="RTIMULib/RTIMUNull.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMUSettings.cpp">
+		<Unit filename="RTIMULib/RTIMUSettings.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTIMUSettings.h">
+		<Unit filename="RTIMULib/RTIMUSettings.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTMath.cpp">
+		<Unit filename="RTIMULib/RTMath.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="../../../../Desktop/Quadcopter/RTIMULib/RTMath.h">
+		<Unit filename="RTIMULib/RTMath.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
 		<Unit filename="autopilot.c">
