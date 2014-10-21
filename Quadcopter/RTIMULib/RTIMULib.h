@@ -17,6 +17,8 @@
 //  along with RTIMULib.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+/////////////////////////////////// Ensemble des headers de l'IMU /////////////////////////////////////////////////
+
 #ifndef _RTIMULIB_H
 #define	_RTIMULIB_H
 

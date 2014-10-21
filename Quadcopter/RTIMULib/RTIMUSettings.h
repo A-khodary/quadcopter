@@ -56,7 +56,7 @@ public:
     //  This function tries to find an IMU. It stops at the first valid one
     //  and return true or else false
 
-    bool discoverIMU(int& imuType, unsigned char& slaveAddress);
+   bool discoverIMU(int& imuType, unsigned char& slaveAddress);
 
     //  This function loads the local variables from the settings file or uses defaults
 

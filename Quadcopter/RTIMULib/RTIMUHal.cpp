@@ -17,6 +17,8 @@
 //  along with RTIMULib.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+////////////////////////////////////////////////////////// Contrôle et debug du bus I2C ///////////////////////////////////////////////
+
 #include "RTIMU.h"
 
 #include <sys/ioctl.h>

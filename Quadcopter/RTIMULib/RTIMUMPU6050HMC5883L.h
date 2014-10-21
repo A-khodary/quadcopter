@@ -19,6 +19,7 @@
 //
 
 #ifndef _RTIMUMPU6050_H
+
 #define	_RTIMUMPU6050_H
 
 #include "RTIMU.h"
@@ -27,12 +28,11 @@
 
 #define MPU6050_CACHE_MODE
 
-/*//  MPU6050 I2C Slave Addresses
+//  MPU6050 I2C Slave Addresses
 
 #define MPU6050_ADDRESS0            0x68
-#define MPU6050_ADDRESS1            0x69
 #define MPU6050_ID                  0x68
-*/
+
 //  Register map
 
 #define MPU6050_YG_OFFS_TC          0x01
@@ -84,7 +84,7 @@
 #define MPU6050_COMPASSRATE_MIN     1                      // 1 samples per second is the lowest
 #define MPU6050_COMPASSRATE_MAX     100                    // 100 samples per second is maximum
 
-//  LPF options (gyros and accels)
+//  LPF(Low Pass Filter) options (gyros and accels)
 
 #define MPU6050_LPF_256             0                       // gyro: 256Hz, accel: 260Hz
 #define MPU6050_LPF_188             1                       // gyro: 188Hz, accel: 184Hz
@@ -94,7 +94,7 @@
 #define MPU6050_LPF_10              5                       // gyro: 10Hz, accel: 10Hz
 #define MPU6050_LPF_5               6                       // gyro: 5Hz, accel: 5Hz
 
-//  Gyro FSR options
+//  Gyro FSR(Full Scale Range) ( =maximum angular velocity that can be read) options
 
 #define MPU6050_GYROFSR_250         0                       // +/- 250 degrees per second
 #define MPU6050_GYROFSR_500         8                       // +/- 500 degrees per second
@@ -232,7 +232,7 @@ private:
 
     unsigned char m_lpf;                                    // low pass filter setting
     int m_sampleRate;                                       // sample rate in Hz for gyro and accel
-    uint64_t m_sampleInterval;                              // interval between samples in microseonds
+    uint64_t m_sampleInterval;                              // interval between samples in microseconds
     int m_compassRate;                                      // compass sample rate in Hz
     unsigned char m_gyroFsr;
     unsigned char m_accelFsr;
