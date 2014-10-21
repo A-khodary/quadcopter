@@ -18,4 +18,4 @@ typedef struct pilotCommandsShared
 
 // Global variables definitions
 
-autopilotCommandsShared quadcopterPilotCommandsShared;
+pilotCommandsShared quadcopterPilotCommandsShared;

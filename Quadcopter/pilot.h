@@ -2,3 +2,5 @@
 #include "pilot_global_variables.h"
 
 #include "reader_global_variables.h"
+
+void writeCommands();

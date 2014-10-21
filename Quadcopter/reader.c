@@ -60,6 +60,9 @@ int readCommands()
     while(continue)
 {
     read(fd, buffer, 4*9); //Todo implement connection test
+
+    pthread_mutex_lock(userCommands.readWriteMutex);
+
     userCommands.ch1=buffer[0];
     userCommands.ch2=buffer[1];
     userCommands.ch3=buffer[2];
@@ -70,7 +73,9 @@ int readCommands()
     userCommands.ch8=buffer[7];
     userCommands.ch9=buffer[8];
 
-    sleep(SAMPL);
+    pthread_mutex_unlock(userCommands.readWriteMutex);
+
+    sleep(SAMPLING_PERIOD_MS/1000);
 
 }
     close(fd);
