@@ -31,7 +31,14 @@
 
 int main()
 {
-printf("Hello World !");
+
+// Initialization section :
+
+
+
+
+
+
 
 return 0;
 }
