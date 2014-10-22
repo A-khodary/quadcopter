@@ -1,3 +1,17 @@
+// Some defines :
+
+// Objective code defines :
+
+#define LAND 1
+#define GOTO_STANDARD 2
+#define GOTO_HOVERING 3
+#define POSITION_HOLD 4
+
+// Fifo defines :
+
+#define UTOPILOT_OBJECTIVE_FIFO_SIZE 256
+
+
 // Global variables structures declarations :
 
 
@@ -22,17 +36,23 @@ typedef struct autopilotObjective
 
 }autopilotObjective;
 
+typedef struct autopilotObjectiveFifo
+{
+    autopilotObjective* ObjectiveFifo[AUTOPILOT_OBJECTIVE_FIFO_SIZE];
 
-autopilotObjective* ObjectiveFifo[256];
+    int isFifoInitialized;
+    int currentObjectiveIndex;
+    int numberOfObjectivesPending;
+
+    pthread_mutex_t readWrite;
+
+}autopilotObjectiveFifo;
+
+autopilotObjectiveFifo autopilotObjectiveFifo;
 
 
-// Global functions declarations :
 
-int insertObjective(autopilotObjective* objective);
-autopilotObjective* readCurrentObjective();
-int removeCurrentObjective();
 
-autopilotObjective* readSpecificObjective(int objectiveNumber);
-int removeSpecificObjective(int objectiveNumber);
+
 
 
