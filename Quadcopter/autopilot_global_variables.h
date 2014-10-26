@@ -50,7 +50,20 @@ typedef struct autopilotObjectiveFifo
 
 autopilotObjectiveFifo autopilotObjectiveFifo;
 
+//Option : classe=> .hpp//
 
+class autopilotObjective {
+    private:
+
+        int priority;
+        double max_speed;
+
+    public:
+
+        static type de retour pthread_mutex_t readWrite;//type de retour?
+        autopilotObjective(int,double,double,double); //    int code,double destinationX;double destinationY;double destinationZ;
+       ~autopilotObjective();
+};
 
 
 
