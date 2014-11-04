@@ -14,11 +14,14 @@ PID::PID(double p, double i, double d)
     lastTime = tv.tv_sec * 1000 + tv.tv_usec/1000.0 + 0.5;
 }
 
-void PID::setConstants(double p, double i, double d)
+void PID::setConstants (double p, double i, double d)
 {
-    kp = p;
-    ki = i;
-    kd = d;
+    if (p>){}
+    else kp = p;
+    if (i>){}
+    else ki = i;
+    if (d>){}
+    else kd = d;
 }
 
 double PID::compute(double input, double setpoint)

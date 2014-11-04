@@ -2,7 +2,7 @@
 
 // Objective code defines :
 
-#define LAND 1
+#define LAND_TAKEOFF 1
 #define GOTO_STANDARD 2
 #define GOTO_HOVERING 3
 #define POSITION_HOLD 4
@@ -27,8 +27,9 @@ typedef struct autopilotObjective
     double destinationX;
     double destinationY;
     double destinationZ;
+    double directionYAW;//direction de l'objectif
 
-     double max_speed; // Max speed in ms-1
+    double max_speed; // Max speed in ms-1
 
 
 
