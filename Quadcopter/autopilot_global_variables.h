@@ -9,7 +9,7 @@
 
 // Fifo defines :
 
-#define UTOPILOT_OBJECTIVE_FIFO_SIZE 256
+#define AUTOPILOT_OBJECTIVE_FIFO_SIZE 256
 
 
 // Global variables structures declarations :
@@ -60,6 +60,7 @@ class autopilotObjective {
 
     public:
 
+        static char name[64]; // the objective name that will be displayed
         static type de retour pthread_mutex_t readWrite;//type de retour?
         autopilotObjective(int,double,double,double); //    int code,double destinationX;double destinationY;double destinationZ;
        ~autopilotObjective();

@@ -19,7 +19,7 @@
 
 #include "autopilot.h"
 #include "data_logger.h"
-#include "imu.h"
+#include "RTIMULib.h"
 #include "osd.h"
 #include "pilot.h"
 #include "reader.h"
@@ -31,6 +31,15 @@
 
 int main()
 {
+
+
+RTIMU *imu;
+RTIMU_DATA imuData;
+
+
+RTIMUSettings *settings = new RTIMUSettings("wewillfly");
+imu = RTIMU::createIMU(settings);
+imu->IMUInit();
 
 // Initialization section :
 
