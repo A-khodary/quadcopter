@@ -7,13 +7,15 @@
 ##############################################
 */
 
+//TODO : adapter les différents PID à utiliser pour chaque mode
+
 void asserv_trajectoire( autopilotObjective* autopilotObjective) {
 
 double destinationX, destinationY, destinationZ, currentPositionX,currentPositionY, currentPositionZ, x_computed, y_computed, z_computed, yaw_computed, roll_computed, pitch_computed, directionYAW, currentYAW, currentROLL, currentPITCH;
 
 switch(autopilotObjective.code){
 
-case 1 :
+case 1 : //mode  LAND_TAKEOFF
 
     PID x_pid(2,0,0), y_pid(2,0,0), z_pid(2,0,0), yaw_pid(2,0,0);// coefficients à trouver empiriquement
 
@@ -37,7 +39,7 @@ case 1 :
 
     break;
 
-case 2:
+case 2: //mode GOTO_STANDARD
 
     PID x_pid(2,0,0), y_pid(2,0,0), z_pid(2,0,0), yaw_pid(2,0,0);// coefficients à trouver empiriquement
 ,
@@ -60,7 +62,7 @@ case 2:
 
     break;
 
-case 3 :
+case 3 : //mode GOTO_HOVERING
 
     PID x_pid(2,0,0), y_pid(2,0,0), z_pid(2,0,0), yaw_pid(2,0,0);// coefficients à trouver empiriquement
 
@@ -83,11 +85,11 @@ case 3 :
 
     break;
 
-case 4 :
+case 4 : // mode POSITION_HOLD
 
     break;
 
-default :
+default : // mode POSITION_HOLD par défault
 
 
     break;
