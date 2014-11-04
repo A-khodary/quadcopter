@@ -27,7 +27,7 @@
 
 RTIMU *RTIMU::createIMU(RTIMUSettings *settings)
 {
-    RTIMUMPU6050HMC5883L(settings);
+    new RTIMUMPU6050HMC5883L (settings);
 }
 
 

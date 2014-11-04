@@ -18,7 +18,7 @@
 //
 
 #include "RTIMUSettings.h"
-#include 'RTIMUMPU6050HMC5883L.h"
+#include "RTIMUMPU6050HMC5883L.h"
 
 #define RATE_TIMER_INTERVAL 2
 
@@ -79,7 +79,7 @@ bool RTIMUSettings::loadSettings()
 
     //  preset general defaults
 
-    m_imuType = RTIMU_TYPE_AUTODISCOVER;
+    m_imuType = RTIMU_TYPE_MPU6050;
     m_I2CSlaveAddress = 0;
     m_I2CBus = 1;
     m_fusionType = RTFUSION_TYPE_RTQF;

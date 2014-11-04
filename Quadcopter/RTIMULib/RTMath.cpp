@@ -420,7 +420,7 @@ void RTQuaternion::fromAngleVector(const RTFLOAT& angle, const RTVector3& vec)
 }
 
 
-	
+
 //----------------------------------------------------------
 //
 //  The RTMatrix4x4 class

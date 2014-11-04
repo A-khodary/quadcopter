@@ -31,7 +31,8 @@
 //  MPU6050 I2C Slave Addresses
 
 #define MPU6050_ADDRESS0            0x68
-#define MPU6050_ID                  0x68
+#define MPU6050_ADDRESS1            0x69
+#define MPU6050_ID                           0x68
 
 //  Register map
 

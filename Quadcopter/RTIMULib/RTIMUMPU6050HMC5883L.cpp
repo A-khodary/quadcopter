@@ -163,11 +163,11 @@ bool RTIMUMPU6050HMC5883L::IMUInit()
     m_slaveAddr = m_settings->m_I2CSlaveAddress;
     m_bus = m_settings->m_I2CBus;
 
-    setSampleRate(m_settings->m_MPU9150GyroAccelSampleRate);
-    setCompassRate(m_settings->m_MPU9150CompassSampleRate);
-    setLpf(m_settings->m_MPU9150GyroAccelLpf);
-    setGyroFsr(m_settings->m_MPU9150GyroFsr);
-    setAccelFsr(m_settings->m_MPU9150AccelFsr);
+    setSampleRate(m_settings->m_MPU6050GyroAccelSampleRate);
+    setCompassRate(m_settings->m_MPU6050CompassSampleRate);
+    setLpf(m_settings->m_MPU6050GyroAccelLpf);
+    setGyroFsr(m_settings->m_MPU6050GyroFsr);
+    setAccelFsr(m_settings->m_MPU6050AccelFsr);
 
     setCalibrationData(m_settings->m_compassCalValid, m_settings->m_compassCalMin, m_settings->m_compassCalMax);
 

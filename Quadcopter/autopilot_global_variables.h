@@ -50,7 +50,7 @@ typedef struct autopilotObjectiveFifo
 
 autopilotObjectiveFifo autopilotObjectiveFifo;
 
-//Option : classe=> .hpp//
+//Option : classe
 
 class autopilotObjective {
     private:
