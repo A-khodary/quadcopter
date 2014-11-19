@@ -68,6 +68,11 @@ class autopilotObjective {
 };
 
 
+// Global variables definitions
+
+extern float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD // PID coefficients for Land/Takeoff
+
+
 
 
 

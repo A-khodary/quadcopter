@@ -17,6 +17,9 @@
 
 // Library includes :
 
+#include "/linux/i2c.h"
+#include "/linux/i2c-dev.h"
+
 
 // Hardware defines :
 
