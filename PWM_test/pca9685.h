@@ -1,4 +1,5 @@
 #include <wiringPiI2C.h>
+#include "pca9685_reg.h"
 
 void pca9685_init(int address);
 void pca9685_send_all(int address);
