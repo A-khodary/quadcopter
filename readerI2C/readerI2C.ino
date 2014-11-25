@@ -1,4 +1,4 @@
-// Arduino sketch for sending PWM sampling via I2C
+// Arduino sketch for sending PWM sampling via I2C and Ultrasonic Telemetry
 // Quadcopter project ENSEA
 // October 2014
 // Nicolas de Maubeuge, all rights reserved
@@ -10,18 +10,33 @@
 
 # define RUDDER_PIN 5
 # define THROTTLE_PIN 2
-# define AILERONS_PIN 3
-# define ELEVATOR_PIN 4
+# define AILERONS_PIN 12
+# define ELEVATOR_PIN 8
 # define AUX1_PIN 5
 # define AUX2_PIN 6
 # define AUX3_PIN 7
 # define AUX4_PIN 8
 # define AUX5_PIN 9
 
+#define PULSEIN_TIMEOUT 1000
+#define ULTRASONIC_TIMEOUT 1000
+
+#define trigPin 4
+#define echoPin 3
+
+// Some Ultrasonic defines :
+
+#define MAXIMUM_RANGE 5
+#define MINIMUM_RANGE 400
+
 // Sampling global variables :
 
 unsigned long PWM_duration[9];
 byte* PWM_pointer;
+
+// Ultrasonic global variables :
+
+long duration, distance;
 
 // Handling function :
 
@@ -45,6 +60,9 @@ void setup()
  pinMode(AUX4_PIN, INPUT);
  pinMode(AUX5_PIN, INPUT);
  
+ pinMode(trigPin, OUTPUT);
+ pinMode(echoPin, INPUT);
+ 
  PWM_duration[0]=0;
  PWM_duration[1]=0;
  PWM_duration[2]=0;
@@ -59,22 +77,23 @@ void setup()
  Wire.onRequest(i2cHandler);
  PWM_pointer = (byte*) &PWM_duration;
  
- //Serial.begin(9600);
+ Serial.begin(9600);
+ Serial.println("Welcome to Quadcopter Arduino's");
 }
 
 
 
 void loop()
 {
-  PWM_duration[0]=pulseIn(RUDDER_PIN, HIGH);
-  PWM_duration[1]=pulseIn(THROTTLE_PIN, HIGH);
-  PWM_duration[2]=pulseIn(AILERONS_PIN, HIGH);
-  PWM_duration[3]=pulseIn(ELEVATOR_PIN, HIGH);
-  PWM_duration[4]=pulseIn(AUX1_PIN, HIGH);
-  PWM_duration[5]=pulseIn(AUX2_PIN, HIGH);
-  PWM_duration[6]=pulseIn(AUX3_PIN, HIGH);
-  PWM_duration[7]=pulseIn(AUX4_PIN, HIGH);
-  PWM_duration[8]=pulseIn(AUX5_PIN, HIGH);
+  PWM_duration[0]=pulseIn(RUDDER_PIN, HIGH, PULSEIN_TIMEOUT);
+  PWM_duration[1]=pulseIn(THROTTLE_PIN, HIGH, PULSEIN_TIMEOUT);
+  PWM_duration[2]=pulseIn(AILERONS_PIN, HIGH, PULSEIN_TIMEOUT);
+  PWM_duration[3]=pulseIn(ELEVATOR_PIN, HIGH, PULSEIN_TIMEOUT);
+  PWM_duration[4]=pulseIn(AUX1_PIN, HIGH, PULSEIN_TIMEOUT);
+  PWM_duration[5]=pulseIn(AUX2_PIN, HIGH, PULSEIN_TIMEOUT);
+  PWM_duration[6]=pulseIn(AUX3_PIN, HIGH, PULSEIN_TIMEOUT);
+  PWM_duration[7]=pulseIn(AUX4_PIN, HIGH, PULSEIN_TIMEOUT);
+  PWM_duration[8]=pulseIn(AUX5_PIN, HIGH, PULSEIN_TIMEOUT);
   
   PWM_duration[0] = PWM_duration[0]*1000/1303; 
   PWM_duration[1] = PWM_duration[1]*1000/1303;
@@ -125,5 +144,33 @@ void loop()
   //Serial.print("\n");
   
   // Use to restrain consumption or adding ultrasonic sensor
-  // delay(500);
+  delay(500);
+  
+  
+  // Ultrasonic measure :
+  
+ digitalWrite(trigPin, LOW); 
+ delayMicroseconds(2); 
+ digitalWrite(trigPin, HIGH);
+ delayMicroseconds(10); 
+ 
+ digitalWrite(trigPin, LOW);
+ duration = pulseIn(echoPin, HIGH, ULTRASONIC_TIMEOUT);
+ 
+ // Calculate the distance (in cm) based on the speed of sound.
+ distance = duration / 58.2;
+ 
+ if (distance >= MAXIMUM_RANGE || distance <= MINIMUM_RANGE)
+ {
+   
+ //Send a negative number to computer  :
+ Serial.println(distance);
+ distance = -1;
+
+ }
+ 
+ Serial.println(distance);
+ 
+ 
+ 
 }
