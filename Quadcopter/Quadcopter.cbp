@@ -145,6 +145,10 @@
 		<Unit filename="osd.h">
 			<Option virtualFolder="Components/Headers/" />
 		</Unit>
+		<Unit filename="pca9685.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pca9685.h" />
 		<Unit filename="pca9685_reg.h" />
 		<Unit filename="pilot.c">
 			<Option compilerVar="CC" />

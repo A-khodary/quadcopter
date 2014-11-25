@@ -8,15 +8,14 @@
  * Created on April 2, 2012, 8:26 AM
  */
 
-#include <main.h>
-#include <pca9685.h>
+#include "pca9685.h"
 
 void main()
 {
     pca9685_init(LEDDRV1);
     pca9685_brightness(LEDDRV1,22,0);
     long pwm = 0;
-    while(true)
+    while(1)
     {
         output_toggle(PIN_D5);
         delay_ms(5);
