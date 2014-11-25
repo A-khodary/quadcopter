@@ -17,7 +17,7 @@ void main()
     long pwm = 0;
     while(1)
     {
-        output_toggle(PIN_D5);
+        //output_toggle(PIN_D5);
         delay_ms(5);
         if(pwm < 4095)
         {
