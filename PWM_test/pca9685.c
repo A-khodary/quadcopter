@@ -16,29 +16,36 @@ void pca9685_init(int address)
 /* Input:[address of the pc9685 to init]    */
 /* Output:[void]                            */
 /********************************************/
-    i2c_start();                // Start
-    i2c_write(address);         // Slave address
-    i2c_write(MODE1);           // Mode 1 address
-    i2c_write(0b00110001);      // Setting mode to sleep so we can change teh default PWM frequency
-    i2c_stop();                 // Stop
-    delay_ms(1);                // Required 50 us delay
-    i2c_start();                // Start
-    i2c_write(address);         // Slave address
-    i2c_write(0xfe);            // PWM frequency PRE_SCALE address
-    i2c_write(0x04);            // osc_clk/(4096*update_rate) // 25000000/(4096*1500)= 4.069 ~4
-    i2c_stop();                 // Stop
+    wiringPiI2CSetup (address);                 // Start
+
+    //i2c_write(MODE1);           // Mode 1 address
+    //i2c_write(0b00110001);      // Setting mode to sleep so we can change teh default PWM frequency
+    //i2c_stop();                 // Stop
+    wiringPiI2CWriteReg8 (address, MODE1, 0b00110001);
+
+    delay_ms(1);
+
+
+    //i2c_write(0xfe);            // PWM frequency PRE_SCALE address
+    //i2c_write(0x04);            // osc_clk/(4096*update_rate) // 25000000/(4096*1500)= 4.069 ~4
+    wiringPiI2CWriteReg8 (address, 0xfe, 0x04);
+
+
     delay_ms(1);                // delay at least 500 us
-    i2c_start();                // Start
-    i2c_write(address);         // Slave address
-    i2c_write(MODE1);           // Mode 1 register address
-    i2c_write(0xa1);            // Set to our prefered mode[ Reset, INT_CLK, Auto-Increment, Normal Mode]
-    i2c_stop();                 // Stop
+
+
+    //i2c_write(MODE1);           // Mode 1 register address
+    //i2c_write(0xa1);            // Set to our prefered mode[ Reset, INT_CLK, Auto-Increment, Normal Mode]
+    wiringPiI2CWriteReg8 (address, MODE1, 0xa1);
+
+
     delay_ms(1);                // delay at least 500 us
-    i2c_start();                // Start
-    i2c_write(address);         // Slave Address
-    i2c_write(MODE2);           // Mode2 register address
-    i2c_write(0b00000100);      // Set to our prefered mode[Output logic state not inverted, Outputs change on STOP,
-    i2c_stop();                 // totem pole structure, When OE = 1 (output drivers not enabled), LEDn = 0]
+
+    //i2c_write(MODE2);           // Mode2 register address
+    //i2c_write(0b00000100);      // Set to our prefered mode[Output logic state not inverted, Outputs change on STOP,
+    wiringPiI2CWriteReg8 (address, MODE2, 0b00000100);
+
+
 }
 
 void pca9685_send_all(int address)
@@ -52,16 +59,25 @@ void pca9685_send_all(int address)
     int pwm;                    // temp register for PWM
     for(i=0; i<=LEDCOUNT; i++)  // cycle thru all 16 LED
     {
-        i2c_start();            // Start
-        i2c_write(address);     // write to selected pca9685
-        i2c_write(LED0 + 4 * i);// start from LED0 address, each pwm constructed from
-        i2c_write(0x00);        // 4 12bit register, LED_ON_L
-        i2c_write(0x00);        // LED_ON_H
+
+        //i2c_write(LED0 + 4 * i);// start from LED0 address, each pwm constructed from
+        //i2c_write(0x00);        // 4 12bit register, LED_ON_L
+        //i2c_write(0x00);        // LED_ON_H
+
+        wiringPiI2CWriteReg8 (address, LED0 + 4 * i, 0x00);
+        wiringPiI2CWriteReg8 (address, LED0 + 4 * i + 1, 0x00);
+
         pwm = PWMData[i];       // update selected LED data in the array
-        i2c_write(pwm);         // LED_OFF_L
+
+        //i2c_write(pwm);         // LED_OFF_L
+        wiringPiI2CWriteReg8 (address, LED0 + 4 * i + 2, pwm);
+
         pwm = PWMData[i]>>8;    // updtae selected LED data in the array
-        i2c_write(pwm);         // LED_OFF_H
-        i2c_stop();             // Stop
+
+        //i2c_write(pwm);         // LED_OFF_H
+        //i2c_stop();             // Stop
+        wiringPiI2CWriteReg8 (address, LED0 + 4 * i + 3, pwm);
+
     }
 }
 
@@ -77,25 +93,29 @@ void pca9685_send(int address, long value, int led)
     if(value > 4095)            // if larger than 4095 than full on
             value = 4095;       // cant be larger than 4095
     if(led > 15)                // if LED larger than 15 than on other chip
-            led = 15;           //***** need to implement to selecet next pcs9685
-    i2c_start();                // Start
-    i2c_write(address);         // Address of selected pca9685
-    i2c_write(LED0 + 4 * led);  // select slected LED address
-    i2c_write(0x00);            // LED_ON_L
-    i2c_write(0x00);            // LED_ON_H
-    pwm = value;                // PWM value lo byte
-    i2c_write(pwm);             // LED_OFF_L
-    pwm = value>>8;             // pwm 16 bit long, now shift upper 8 to lower 8
-    i2c_write(pwm);             // LED_OFF_H
-    i2c_stop();                 // STop
+            led = 15;
+   wiringPiI2CWriteReg8 (address, LED0 + 4*led, 0x00);
+   wiringPiI2CWriteReg8 (address, LED0 + 4*led+ 1, 0x00);
+
+    pwm = value;       // update selected LED data in the array
+
+    //i2c_write(pwm);         // LED_OFF_L
+    wiringPiI2CWriteReg8 (address, LED0 + 4 * led + 2, pwm);
+
+    pwm = value>>8;    // updtae selected LED data in the array
+
+    //i2c_write(pwm);         // LED_OFF_H
+    //i2c_stop();             // Stop
+    wiringPiI2CWriteReg8 (address, LED0 + 4 * led + 3, pwm);
+
 }
 
 
-void pca9685_brightness(int address, int percent, int led)
+void pca9685_motor_power(int address, int percent, int led)
 {
 /********************************************/
 /* Calculate the register values for a      */
-/* given percentage and dupdate pca9685     */
+/* given percentage and update pca9685     */
 /* Input:[address of the chip where LED is_ */
 /* percent of PWM on period 0%to100%      _ */
 /* LED to set brightness 0to15]             */
@@ -121,12 +141,6 @@ void pca9685_brightness(int address, int percent, int led)
     PWMData[led] = off;                 // update datat array in case we update all LED next
     pca9685_send(address,off,led);      // send it to pca9685
 }
-void PCA9685AllLedOff(int address)
-{
-    i2c_start();                        // Start
-    i2c_write(address);                 // select pca9685
-    i2c_write(0xfc);         // AllLED Off regiter
-    i2c_write(0b00000000);              // data
-    i2c_write(0b00010000);              // data
-    i2c_stop();                         // Stop
-}
+
+
+
