@@ -1,3 +1,5 @@
+#include "data_logger.h"
+
 /*
 ##############################################
 #   Data logger functionnality                     #

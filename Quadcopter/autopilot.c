@@ -1,3 +1,6 @@
+#include "autopilot.h"
+
+
 /*
 ##############################################
 #   Data logger functionnality                     #
