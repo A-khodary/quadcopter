@@ -51,7 +51,9 @@ typedef struct autopilotObjectiveFifo
 
 autopilotObjectiveFifo autopilotObjectiveFifo;
 
-//Option : classe
+//Option : classe (je ne vois pas l'intérêt)
+
+/*
 
 class autopilotObjective {
     private:
@@ -67,11 +69,17 @@ class autopilotObjective {
        ~autopilotObjective();
 };
 
+*/
+
+typedef struct autopilotSharedState
+{
+
+}
+
 
 // Global variables definitions
 
 extern float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD // PID coefficients for Land/Takeoff
-
 
 
 

@@ -85,7 +85,7 @@ void writeCommands()
 
 void pilotHandler()
 {
-    pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
+    int pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
 
 
     printDebug("[i] New pilot Handler Launched");

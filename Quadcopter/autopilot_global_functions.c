@@ -58,3 +58,9 @@ int removeSpecificObjective(int objectiveNumber)
 {
 
 }
+
+int flushFifoObjective()
+{
+
+
+}

@@ -1,3 +1,9 @@
+// Some defines for pilot mode :
+
+#define USER_DIRECT 0
+#define AUTOPILOT 1
+#define MIXED 2
+
 // Global variables structures declaration
 
 typedef struct pilotCommandsShared
@@ -12,8 +18,17 @@ typedef struct pilotCommandsShared
     double chan8; // 0-100%
     double chan9; // 0-100%
 
+    int refreshingPeriod;
+
     pthread_mutex_t readWrite;
+
 } pilotCommandsShared;
+
+typedef struct pilotStateShared // Pilot state for datalogging
+{
+    int pilotMode;
+
+}
 
 
 // Global variables definitions
