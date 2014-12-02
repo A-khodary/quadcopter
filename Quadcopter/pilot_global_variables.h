@@ -33,4 +33,5 @@ typedef struct pilotStateShared // Pilot state for datalogging
 
 // Global variables definitions
 
-pilotCommandsShared quadcopterPilotCommandsShared;
+extern pilotCommandsShared quadcopterPilotCommandsShared;
+

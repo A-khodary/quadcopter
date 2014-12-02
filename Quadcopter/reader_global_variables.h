@@ -22,4 +22,4 @@ typedef struct  receivedCommandsShared {
 
 // Global variables definitions
 
-receivedCommandsShared userCommands;
+extern receivedCommandsShared userCommands;

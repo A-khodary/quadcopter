@@ -133,7 +133,7 @@
 			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>
 		<Unit filename="imu.h">
-			<Option virtualFolder="Components/Headers/" />
+			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
 		<Unit filename="imu_globals_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
@@ -162,12 +162,12 @@
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
-		<Unit filename="reader.c">
+		<Unit filename="reader_global_functions.c">
 			<Option compilerVar="CC" />
-			<Option virtualFolder="Components/Sources/" />
+			<Option virtualFolder="Shared ressources/Sources/" />
 		</Unit>
-		<Unit filename="reader.h">
-			<Option virtualFolder="Components/Headers/" />
+		<Unit filename="reader_global_functions.h">
+			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>
 		<Unit filename="reader_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />

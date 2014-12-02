@@ -35,8 +35,8 @@ typedef struct positionShared {
 
 // Global variables definitions
 
-flightStateShared quadcopterFlightStateShared;
-rawPositionShared quadcopteRawPositionShared;
-positionShared quadcopterPositionFromHomeShared;
+extern flightStateShared quadcopterFlightStateShared;
+extern rawPositionShared quadcopteRawPositionShared;
+extern positionShared quadcopterPositionFromHomeShared;
 
 
