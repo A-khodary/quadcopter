@@ -12,7 +12,7 @@
 #define AUTOPILOT_OBJECTIVE_FIFO_SIZE 256
 
 
-// Global variables structures declarations :
+// Global variables and structures declarations :
 
 
 typedef struct autopilotObjective
@@ -35,7 +35,7 @@ typedef struct autopilotObjective
 
     pthread_mutex_t readWrite;
 
-}autopilotObjective;
+}autopilotObjective_t;
 
 typedef struct autopilotObjectiveFifo
 {
@@ -47,40 +47,24 @@ typedef struct autopilotObjectiveFifo
 
     pthread_mutex_t readWrite;
 
-}autopilotObjectiveFifo;
+}autopilotObjectiveFifo_t;
 
-autopilotObjectiveFifo autopilotObjectiveFifo;
 
-//Option : classe (je ne vois pas l'intérêt)
 
-/*
 
-class autopilotObjective {
-    private:
-
-        int priority;
-        double max_speed;
-
-    public:
-
-        static char name[64]; // the objective name that will be displayed
-        static type de retour pthread_mutex_t readWrite;//type de retour?
-        autopilotObjective(int,double,double,double); //    int code,double destinationX;double destinationY;double destinationZ;
-       ~autopilotObjective();
-};
-
-*/
 
 typedef struct autopilotSharedState
 {
 
-}
+    pthread_mutex_t readWrite;
+
+}autopilotSharedState_t;
 
 
-// Global variables definitions
+// Global variables declarations
 
 extern float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD // PID coefficients for Land/Takeoff
-
-
+extern autopilotObjectiveFifo_t autopilotObjectiveFifo;
+extern autopilotSharedState_t autopilotSharedState;
 
 

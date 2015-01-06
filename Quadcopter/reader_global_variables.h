@@ -17,9 +17,9 @@ typedef struct  receivedCommandsShared {
 
         pthread_mutex_t readWriteMutex;
 
-}receivedCommandsShared;
+}receivedCommandsShared_t;
 
 
 // Global variables definitions
 
-extern receivedCommandsShared userCommands;
+extern receivedCommandsShared_t receivedCommands;

@@ -5,7 +5,7 @@
 		<Option title="Quadcopter" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Components/;Shared ressources/;Components/Sources/;Components/Headers/;Shared ressources/Sources/;Shared ressources/Headers/;Components/Headers/IMU/;Components/Sources/IMU/;Components/Headers/PILOT/;Components/Headers/AUTOPILOT/;Components/Sources/AUTOPILOT/;" />
+		<Option virtualFolders="Components/;Shared ressources/;Components/Sources/;Components/Headers/;Components/Headers/PILOT/;Shared ressources/Sources/;Shared ressources/Headers/;Components/Headers/IMU/;Components/Sources/IMU/;Components/Headers/AUTOPILOT/;Components/Sources/AUTOPILOT/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Quadcopter" prefix_auto="1" extension_auto="1" />
@@ -143,7 +143,7 @@
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
 		<Unit filename="osd.h">
-			<Option virtualFolder="Components/Headers/" />
+			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
 		<Unit filename="pca9685.h">
 			<Option virtualFolder="Components/Headers/PILOT/" />
@@ -162,12 +162,12 @@
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
-		<Unit filename="reader_global_functions.c">
+		<Unit filename="reader.c">
 			<Option compilerVar="CC" />
-			<Option virtualFolder="Shared ressources/Sources/" />
+			<Option virtualFolder="Components/Sources/" />
 		</Unit>
-		<Unit filename="reader_global_functions.h">
-			<Option virtualFolder="Shared ressources/Headers/" />
+		<Unit filename="reader.h">
+			<Option virtualFolder="Components/Headers/" />
 		</Unit>
 		<Unit filename="reader_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />

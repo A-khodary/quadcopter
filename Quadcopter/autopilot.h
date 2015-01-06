@@ -1,6 +1,5 @@
 #include "shared_librairies.h"
 #include "autopilot_global_variables.h"
-
 #include "imu_globals_variables.h"
 
 
@@ -20,4 +19,4 @@
 #define LANDTAKEOFFYAWPD 1
 
 
-void trajAsserv(autopilotObjective* autopilotObjective);
+void trajAsserv(autopilotObjective_t* autopilotObjective);

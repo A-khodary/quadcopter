@@ -7,7 +7,7 @@ typedef struct  flightStateShared {
 
         pthread_mutex_t readWriteMutex;
 
-}flightStateShared;
+}flightStateShared_t;
 
 
 
@@ -19,9 +19,9 @@ typedef struct rawPositionShared {
 
     pthread_mutex_t readWriteMutex;
 
-}rawPositionShared;
+}rawPositionShared_t;
 
-typedef struct positionShared {
+typedef struct positionShared { // Position from home
 
     double x;
     double y;
@@ -29,14 +29,15 @@ typedef struct positionShared {
 
     pthread_mutex_t readWriteMutex;
 
-}positionShared
+}positionShared_t;
 
 
 
-// Global variables definitions
+// Global variables declaration
 
-extern flightStateShared quadcopterFlightStateShared;
-extern rawPositionShared quadcopteRawPositionShared;
-extern positionShared quadcopterPositionFromHomeShared;
+extern flightStateShared_t quadcopterFlightStateShared;
+extern rawPositionShared_t quadcopteRawPositionShared;
+extern positionShared_t quadcopterPositionShared;
+extern rawPositionShared_t homeRawPosition;
 
 

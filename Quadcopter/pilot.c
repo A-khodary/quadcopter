@@ -89,6 +89,7 @@ void pilotHandler()
 
 
     printDebug("[i] New pilot Handler Launched");
+    // TODO Event handler initialization
 
     if (initPca9685() <= 0)
     {
@@ -100,6 +101,7 @@ void pilotHandler()
     {
         writeCommands();
         usleep(pilotCommandsShared.refreshingPeriod);
+        // TODO : event processing
 
     }
 

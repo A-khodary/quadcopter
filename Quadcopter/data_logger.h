@@ -4,3 +4,7 @@
 #include "imu_globals_variables.h"
 #include "reader_global_variables.h"
 #include "autopilot_global_variables.h"
+
+// Struc
+
+

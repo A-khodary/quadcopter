@@ -12,9 +12,9 @@
 
 //TODO : adapter les différents PID à utiliser pour chaque mode
 
-void trajAsserv(autopilotObjective* autopilotObjective) {
+void trajAsserv(autopilotObjective_t* autopilotObjective) {
 
-    extern float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD
+    float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD
     //  TODO : use coeff defines in variables
 
     double destinationX, destinationY, destinationZ, currentPositionX,currentPositionY, currentPositionZ, x_computed, y_computed, z_computed, yaw_computed, roll_computed, pitch_computed, directionYAW, currentYAW, currentROLL, currentPITCH;
@@ -100,3 +100,52 @@ void trajAsserv(autopilotObjective* autopilotObjective) {
 
         break;
 }
+
+int insertObjective(autopilotObjective_t* objective)
+{
+    autopilotObjectiveFifo_t autopilotObjectiveFifo_t;
+    int objectiveIndex;
+
+    pthread_mutex_lock(autopilotObjectiveFifo.readWrite);
+
+    if (autopilotObjectiveFifo.isFifoInitialized != 1)
+    {
+        printDebug("[e] Autopilot : attempting to insert objective in a non initialized Objective FIFO");
+        return -1;
+    }
+
+    if (autopilotObjectiveFifo.numberOfObjectivesPending >= AUTOPILOT_OBJECTIVE_FIFO_SIZE)
+    {
+        printDebug("[e] Autopilot : attempting to insert objective in a full Objective FIFO");
+        return -2;
+    }
+
+
+
+
+
+
+
+
+
+
+}
+/* Return summary :
+-1 Fifo non initialized
+-2 Fifo is full
+ 1 Inserting Ok
+
+
+*/
+
+int removeSpecificObjective(int objectiveNumber)
+{
+
+}
+
+int flushFifoObjective()
+{
+
+
+}
+

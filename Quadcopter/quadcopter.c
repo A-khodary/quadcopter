@@ -24,9 +24,11 @@
 #include "pilot.h"
 #include "reader_global_functions.h"
 
-//          ###     Shared ressources includes      ###
+//          ###     Shared functions includes      ###
 
 #include "global_functions.h"
+#include "autopilot_global_functions.h"
+#include "data_logger_global_functions.h"
 
 
 //          ###     Shared variables includes      ###
@@ -38,6 +40,7 @@
 int main()
 {
 
+// IMU initialization : to place in an IMU.c source
 
 RTIMU *imu;
 RTIMU_DATA imuData;
