@@ -25,7 +25,7 @@
 //  IMU type codes
 
 #define RTIMU_TYPE_MPU6050                  10                  // InvenSense MPU6050 + HMC5883L
-
+#define RTIMU_TYPE_NULL                     9 //??????????
 //  these defines describe the various fusion filter options
 
 #define RTFUSION_TYPE_NULL                  0                   // just a dummy to keep things happy if not needed
