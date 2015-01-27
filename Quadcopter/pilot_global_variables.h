@@ -8,6 +8,8 @@
 #define AUTOPILOT_EMERGENCY_LANDING 2
 #define MANUAL 3
 #define CUTOFF 4
+#define AUTOPILOT_LANDING 5
+#define AUTOPILOT_RTH 6
 
 // Global variables structures declaration
 
@@ -32,6 +34,7 @@ typedef struct pilotCommandsShared
 typedef struct pilotStateShared // Pilot state for datalogging
 {
     int pilotMode;
+    pthread_mutex_t readWriteMutex;
 
 }pilotStateShared;
 
