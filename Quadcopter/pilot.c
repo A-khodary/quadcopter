@@ -32,6 +32,11 @@
 #define PCA_CHAN_8_PIN 7
 #define PCA_CHAN_9_PIN 8
 
+// Some controlling defines :
+
+#define RTH_CHAN 7
+#define EL_CHAN 8
+#define GAZ_CUTOFF_CHAN 9
 
 int initPca9685()
 {
@@ -85,23 +90,68 @@ void writeCommands()
 
 void pilotHandler()
 {
-    int pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
+    // Handler global variables init :
 
+    pilotCommandsShared_t quadcopterPilotCommandsShared;
+    quadcopterPilotCommandsShared.chan1 = 0;
+    quadcopterPilotCommandsShared.chan2 = 0;
+    quadcopterPilotCommandsShared.chan3 = 0;
+    quadcopterPilotCommandsShared.chan4 = 0;
+    quadcopterPilotCommandsShared.chan5 = 0;
+    quadcopterPilotCommandsShared.chan6 = 0;
+    quadcopterPilotCommandsShared.chan7 = 0;
+    quadcopterPilotCommandsShared.chan8 = 0;
+    quadcopterPilotCommandsShared.chan9 = 0;
+
+    pthread_mutex_init(&quadcopterPilotCommandsShared.readWrite);
+
+    quadcopterPilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
+
+    //
 
     printDebug("[i] New pilot Handler Launched");
     // TODO Event handler initialization
 
+
+    // End of TODO
+
     if (initPca9685() <= 0)
     {
-        // TODO, EVENT TO MAIN
+        // TODO, broadcast connection error to main
+
+
+        // END OF TODO
         exit();
     }
 
     while(1)
     {
+        // TODO : event processing
+        {
+
+        }
+
+        pthread_mutex_lock(&receivedCommands.readWriteMutex)
+
+        if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5)
+        {
+        // TODO Broadcast cut off to main
+
+
+        }
+
+        else if (receivedCommands.commands[EL_CHAN] > 0.5)
+        {
+        // TODO Broadcast emergency landing to main
+
+        }
+
+
+        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+
         writeCommands();
         usleep(pilotCommandsShared.refreshingPeriod);
-        // TODO : event processing
+
 
     }
 

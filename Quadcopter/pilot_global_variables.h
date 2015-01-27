@@ -4,6 +4,11 @@
 #define AUTOPILOT 1
 #define MIXED 2
 
+#define AUTOPILOT_NORMAL 1
+#define AUTOPILOT_EMERGENCY_LANDING 2
+#define MANUAL 3
+#define CUTOFF 4
+
 // Global variables structures declaration
 
 typedef struct pilotCommandsShared
