@@ -32,6 +32,12 @@
 #define PCA_CHAN_8_PIN 7
 #define PCA_CHAN_9_PIN 8
 
+// Some controlling defines :
+
+#define AUTOPILOT_MANAGE_CHAN 7
+#define EL_CHAN 8
+#define GAZ_CUTOFF_CHAN 9
+#define MANUAL_CHAN 5
 
 int initPca9685()
 {
@@ -85,25 +91,151 @@ void writeCommands()
 
 void pilotHandler()
 {
-    int pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
+    int isfirst = 1;
 
+    // Handler global variables init :
+
+    pilotCommandsShared_t quadcopterPilotCommandsShared;
+    quadcopterPilotCommandsShared.chan1 = 0;
+    quadcopterPilotCommandsShared.chan2 = 0;
+    quadcopterPilotCommandsShared.chan3 = 0;
+    quadcopterPilotCommandsShared.chan4 = 0;
+    quadcopterPilotCommandsShared.chan5 = 0;
+    quadcopterPilotCommandsShared.chan6 = 0;
+    quadcopterPilotCommandsShared.chan7 = 0;
+    quadcopterPilotCommandsShared.chan8 = 0;
+    quadcopterPilotCommandsShared.chan9 = 0;
+
+    pthread_mutex_init(&quadcopterPilotCommandsShared.readWrite);
+
+    quadcopterPilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
+
+    //
 
     printDebug("[i] New pilot Handler Launched");
     // TODO Event handler initialization
 
+
+    // End of TODO
+
     if (initPca9685() <= 0)
     {
-        // TODO, EVENT TO MAIN
+        // TODO, broadcast connection error to main
+
+
+        // END OF TODO
         exit();
     }
 
     while(1)
     {
+        // TODO : event processing
+        {
+
+
+
+        // Behaviour determination :
+
+        pthread_mutex_lock(&receivedCommands.readWriteMutex);
+        pthread_mutex_lock(&pilotStateShared.readWriteMutex);
+
+         if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
+         {
+             pilotStateShared.pilotMode = CUTOFF;
+             // TODO : notify main of cut off
+         }
+
+         else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared != CUTOFF)
+         {
+             pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
+             // TODO : notify main of emergency landing
+         }
+
+         else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotCommandsShared != CUTOFF && pilotCommandsShared != AUTOPILOT_EMERGENCY_LANDING)
+        {
+            pilotStateShared.pilotMode = MANUAL;
+            // TODO : notify main of manual piloting and adapt speed to manual
+        }
+
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotCommandsShared != CUTOFF && pilotCommandsShared != AUTOPILOT_EMERGENCY_LANDING && pilotCommandsShared != AUTOPILOT_LANDING)
+        {
+             pilotStateShared.pilotMode = AUTOPILOT_LANDING;
+             // TODO : notify main of normal landing
+        }
+
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotCommandsShared != CUTOFF && pilotCommandsShared != AUTOPILOT_EMERGENCY_LANDING && pilotCommandsShared != AUTOPILOT_RTH)
+        {
+             pilotStateShared.pilotMode = AUTOPILOT_RTH;
+             // TODO : notify main of return to home
+        }
+
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotCommandsShared != CUTOFF && pilotCommandsShared != AUTOPILOT_EMERGENCY_LANDING && pilotCommandsShared != AUTOPILOT_NORMAL)
+        {
+             pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+             // TODO : notify main of return to autopilot normal mode
+        }
+
+        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
+        pthread_mutex_lock(&quadcopterPilotCommandsShared.readWrite);
+
+        switch (pilotStateShared.pilotMode)
+        {
+
+
+            case CUTOFF:
+
+                quadcopterPilotCommandsShared.chan1 = 0;
+                quadcopterPilotCommandsShared.chan2 = 0;
+                quadcopterPilotCommandsShared.chan3 = 0;
+                quadcopterPilotCommandsShared.chan4 = 0;
+                quadcopterPilotCommandsShared.chan5 = 0;
+                quadcopterPilotCommandsShared.chan6 = 0;
+                quadcopterPilotCommandsShared.chan7 = 0;
+                quadcopterPilotCommandsShared.chan8 = 0;
+                quadcopterPilotCommandsShared.chan9 = 0;
+
+            break;
+
+            case AUTOPILOT_EMERGENCY_LANDING:
+
+            break;
+
+
+
+            case MANUAL
+
+                quadcopterPilotCommandsShared.chan1 =  receivedCommands.commands[0];
+                quadcopterPilotCommandsShared.chan2 =  receivedCommands.commands[1];
+                quadcopterPilotCommandsShared.chan3 =  receivedCommands.commands[2];
+                quadcopterPilotCommandsShared.chan4 =  receivedCommands.commands[3];
+
+            break;
+
+
+            case AUTOPILOT_NORMAL
+
+            break;
+
+
+            case AUTOPILOT_RTH
+
+            break;
+
+
+            case AUTOPILOT_LANDING
+
+            break;
+
+        }
+
+        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+        pthread_mutex_unlock(&quadcopterPilotCommandsShared.readWrite);
+
         writeCommands();
         usleep(pilotCommandsShared.refreshingPeriod);
-        // TODO : event processing
 
     }
 
 
 }
+
