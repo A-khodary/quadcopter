@@ -1,0 +1,2 @@
+/usr/bin/ar cr libQuadcopterLib.a  CMakeFiles/QuadcopterLib.dir/quadcopter.c.o
+/usr/bin/ranlib libQuadcopterLib.a

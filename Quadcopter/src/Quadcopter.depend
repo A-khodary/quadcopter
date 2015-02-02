@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1415105142 source:c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtimu.cpp
+	"RTIMU.h"
+	"RTFusionKalman4.h"
+	"RTFusionRTQF.h"
+	"RTIMUSettings.h"
+	"RTIMUMPU6050HMC5883L.h"
+
+1413310825 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtimu.h
+	"RTMath.h"
+	"RTIMUHal.h"
+	"RTFusion.h"
+	"RTIMULibDefs.h"
+
+1413898202 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtmath.h
+	"RTIMUHal.h"
+
+1415106123 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtimuhal.h
+	<stdio.h>
+	<math.h>
+	<stdint.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/time.h>
+	<string.h>
+	<stdlib.h>
+
+1413310825 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtfusion.h
+	"RTIMULibDefs.h"
+
+1413890345 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtimulibdefs.h
+	"RTMath.h"
+
+1413310825 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtfusionkalman4.h
+	"RTFusion.h"
+
+1413310825 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtfusionrtqf.h
+	"RTFusion.h"
+
+1413898202 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtimusettings.h
+	"RTMath.h"
+	"RTIMUHal.h"
+
+1415106103 c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtimumpu6050hmc5883l.h
+	"RTIMU.h"
+
+1415105547 source:c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtimumpu6050hmc5883l.cpp
+	"RTIMUMPU6050HMC5883L.h"
+	"RTIMUSettings.h"
+	<iostream>
+
+1413310825 source:c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtfusionkalman4.cpp
+	"RTFusionKalman4.h"
+
+1413310825 source:c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtfusion.cpp
+	"RTFusion.h"
+	"RTIMUHal.h"
+
+1413310825 source:c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtfusionrtqf.cpp
+	"RTFusionRTQF.h"
+
+1415106161 source:c:\users\administrateur\documents\github\quadcopter\quadcopter\rtimulib\rtimusettings.cpp
+	"RTIMUSettings.h"
+	"RTIMUMPU6050HMC5883L.h"
+
