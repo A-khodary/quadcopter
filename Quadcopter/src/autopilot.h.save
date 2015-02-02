@@ -22,7 +22,7 @@
 #define LANDTAKEOFFYAMPI 1
 #define LANDTAKEOFFYAWPD 1
 
-#define OBJECTIVES_PATH objectives.txt
+#define OBJECTIVES_PATH 
 
 
 void trajAsserv(autopilotObjective_t* autopilotObjective);

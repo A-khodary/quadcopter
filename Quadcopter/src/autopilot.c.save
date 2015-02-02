@@ -175,8 +175,7 @@ void* autopilotHandler(void* arg)
     }
     else
     {
-
-
+        
     }
 
 
