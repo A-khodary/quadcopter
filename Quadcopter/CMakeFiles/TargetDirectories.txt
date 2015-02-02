@@ -1,4 +1,1 @@
-/home/nikita/Scripting/quadcopter/Quadcopter/RTIMULib/CMakeFiles/IMULib.dir
-/home/nikita/Scripting/quadcopter/Quadcopter/RTIMULib/CMakeFiles/IMU_exec.dir
-/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/QuadcopterLib.dir
-/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/quadcopter_exec.dir
+/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir

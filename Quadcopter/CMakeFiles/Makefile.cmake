@@ -11,10 +11,10 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeSystem.cmake"
   "CMakeLists.txt"
-  "RTIMULib/CMakeLists.txt"
   "/usr/local/share/cmake-2.8/Modules/CMakeCInformation.cmake"
   "/usr/local/share/cmake-2.8/Modules/CMakeCXXInformation.cmake"
   "/usr/local/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake"
+  "/usr/local/share/cmake-2.8/Modules/CMakeFindCodeBlocks.cmake"
   "/usr/local/share/cmake-2.8/Modules/CMakeGenericSystem.cmake"
   "/usr/local/share/cmake-2.8/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/local/share/cmake-2.8/Modules/Compiler/GNU-C.cmake"
@@ -36,13 +36,9 @@ SET(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 SET(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "RTIMULib/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/QuadcopterLib.dir/DependInfo.cmake"
-  "CMakeFiles/quadcopter_exec.dir/DependInfo.cmake"
-  "RTIMULib/CMakeFiles/IMULib.dir/DependInfo.cmake"
-  "RTIMULib/CMakeFiles/IMU_exec.dir/DependInfo.cmake"
+  "CMakeFiles/Quadcopter_.dir/DependInfo.cmake"
   )

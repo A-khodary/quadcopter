@@ -16,6 +16,9 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -46,7 +49,7 @@ CMAKE_BINARY_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
+	@echo "Running interactive CMake command-line interface..."
 	/usr/local/bin/cmake -i .
 .PHONY : edit_cache
 
@@ -56,7 +59,7 @@ edit_cache/fast: edit_cache
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	@echo "Running CMake to regenerate build system..."
 	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
@@ -96,83 +99,833 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named QuadcopterLib
+# Target rules for targets named Quadcopter_
 
 # Build rule for target.
-QuadcopterLib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QuadcopterLib
-.PHONY : QuadcopterLib
+Quadcopter_: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Quadcopter_
+.PHONY : Quadcopter_
 
 # fast build rule for target.
-QuadcopterLib/fast:
-	$(MAKE) -f CMakeFiles/QuadcopterLib.dir/build.make CMakeFiles/QuadcopterLib.dir/build
-.PHONY : QuadcopterLib/fast
+Quadcopter_/fast:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/build
+.PHONY : Quadcopter_/fast
 
-#=============================================================================
-# Target rules for targets named quadcopter_exec
-
-# Build rule for target.
-quadcopter_exec: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 quadcopter_exec
-.PHONY : quadcopter_exec
-
-# fast build rule for target.
-quadcopter_exec/fast:
-	$(MAKE) -f CMakeFiles/quadcopter_exec.dir/build.make CMakeFiles/quadcopter_exec.dir/build
-.PHONY : quadcopter_exec/fast
-
-#=============================================================================
-# Target rules for targets named IMULib
-
-# Build rule for target.
-IMULib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 IMULib
-.PHONY : IMULib
-
-# fast build rule for target.
-IMULib/fast:
-	$(MAKE) -f RTIMULib/CMakeFiles/IMULib.dir/build.make RTIMULib/CMakeFiles/IMULib.dir/build
-.PHONY : IMULib/fast
-
-#=============================================================================
-# Target rules for targets named IMU_exec
-
-# Build rule for target.
-IMU_exec: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 IMU_exec
-.PHONY : IMU_exec
-
-# fast build rule for target.
-IMU_exec/fast:
-	$(MAKE) -f RTIMULib/CMakeFiles/IMU_exec.dir/build.make RTIMULib/CMakeFiles/IMU_exec.dir/build
-.PHONY : IMU_exec/fast
-
-quadcopter.o: quadcopter.c.o
-.PHONY : quadcopter.o
+src/BMP/Adafruit_BMP085.o: src/BMP/Adafruit_BMP085.cpp.o
+.PHONY : src/BMP/Adafruit_BMP085.o
 
 # target to build an object file
-quadcopter.c.o:
-	$(MAKE) -f CMakeFiles/QuadcopterLib.dir/build.make CMakeFiles/QuadcopterLib.dir/quadcopter.c.o
-	$(MAKE) -f CMakeFiles/quadcopter_exec.dir/build.make CMakeFiles/quadcopter_exec.dir/quadcopter.c.o
-.PHONY : quadcopter.c.o
+src/BMP/Adafruit_BMP085.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o
+.PHONY : src/BMP/Adafruit_BMP085.cpp.o
 
-quadcopter.i: quadcopter.c.i
-.PHONY : quadcopter.i
+src/BMP/Adafruit_BMP085.i: src/BMP/Adafruit_BMP085.cpp.i
+.PHONY : src/BMP/Adafruit_BMP085.i
 
 # target to preprocess a source file
-quadcopter.c.i:
-	$(MAKE) -f CMakeFiles/QuadcopterLib.dir/build.make CMakeFiles/QuadcopterLib.dir/quadcopter.c.i
-	$(MAKE) -f CMakeFiles/quadcopter_exec.dir/build.make CMakeFiles/quadcopter_exec.dir/quadcopter.c.i
-.PHONY : quadcopter.c.i
+src/BMP/Adafruit_BMP085.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i
+.PHONY : src/BMP/Adafruit_BMP085.cpp.i
 
-quadcopter.s: quadcopter.c.s
-.PHONY : quadcopter.s
+src/BMP/Adafruit_BMP085.s: src/BMP/Adafruit_BMP085.cpp.s
+.PHONY : src/BMP/Adafruit_BMP085.s
 
 # target to generate assembly for a file
-quadcopter.c.s:
-	$(MAKE) -f CMakeFiles/QuadcopterLib.dir/build.make CMakeFiles/QuadcopterLib.dir/quadcopter.c.s
-	$(MAKE) -f CMakeFiles/quadcopter_exec.dir/build.make CMakeFiles/quadcopter_exec.dir/quadcopter.c.s
-.PHONY : quadcopter.c.s
+src/BMP/Adafruit_BMP085.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s
+.PHONY : src/BMP/Adafruit_BMP085.cpp.s
+
+src/Inter_thread_messages/inter-thread-messages.o: src/Inter_thread_messages/inter-thread-messages.c.o
+.PHONY : src/Inter_thread_messages/inter-thread-messages.o
+
+# target to build an object file
+src/Inter_thread_messages/inter-thread-messages.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/Inter_thread_messages/inter-thread-messages.c.o
+.PHONY : src/Inter_thread_messages/inter-thread-messages.c.o
+
+src/Inter_thread_messages/inter-thread-messages.i: src/Inter_thread_messages/inter-thread-messages.c.i
+.PHONY : src/Inter_thread_messages/inter-thread-messages.i
+
+# target to preprocess a source file
+src/Inter_thread_messages/inter-thread-messages.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/Inter_thread_messages/inter-thread-messages.c.i
+.PHONY : src/Inter_thread_messages/inter-thread-messages.c.i
+
+src/Inter_thread_messages/inter-thread-messages.s: src/Inter_thread_messages/inter-thread-messages.c.s
+.PHONY : src/Inter_thread_messages/inter-thread-messages.s
+
+# target to generate assembly for a file
+src/Inter_thread_messages/inter-thread-messages.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/Inter_thread_messages/inter-thread-messages.c.s
+.PHONY : src/Inter_thread_messages/inter-thread-messages.c.s
+
+src/PID.o: src/PID.cpp.o
+.PHONY : src/PID.o
+
+# target to build an object file
+src/PID.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.o
+.PHONY : src/PID.cpp.o
+
+src/PID.i: src/PID.cpp.i
+.PHONY : src/PID.i
+
+# target to preprocess a source file
+src/PID.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.i
+.PHONY : src/PID.cpp.i
+
+src/PID.s: src/PID.cpp.s
+.PHONY : src/PID.s
+
+# target to generate assembly for a file
+src/PID.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
+.PHONY : src/PID.cpp.s
+
+src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o
+
+# target to build an object file
+src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
+
+src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.i: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.i
+
+# target to preprocess a source file
+src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i
+
+src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.s: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.s
+
+# target to generate assembly for a file
+src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s
+
+src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o
+
+# target to build an object file
+src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
+
+src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.i: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.i
+
+# target to preprocess a source file
+src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
+
+src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.s: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.s
+
+# target to generate assembly for a file
+src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
+.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
+
+src/RTIMULib/RTFusion.o: src/RTIMULib/RTFusion.cpp.o
+.PHONY : src/RTIMULib/RTFusion.o
+
+# target to build an object file
+src/RTIMULib/RTFusion.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o
+.PHONY : src/RTIMULib/RTFusion.cpp.o
+
+src/RTIMULib/RTFusion.i: src/RTIMULib/RTFusion.cpp.i
+.PHONY : src/RTIMULib/RTFusion.i
+
+# target to preprocess a source file
+src/RTIMULib/RTFusion.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i
+.PHONY : src/RTIMULib/RTFusion.cpp.i
+
+src/RTIMULib/RTFusion.s: src/RTIMULib/RTFusion.cpp.s
+.PHONY : src/RTIMULib/RTFusion.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTFusion.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s
+.PHONY : src/RTIMULib/RTFusion.cpp.s
+
+src/RTIMULib/RTFusionKalman4.o: src/RTIMULib/RTFusionKalman4.cpp.o
+.PHONY : src/RTIMULib/RTFusionKalman4.o
+
+# target to build an object file
+src/RTIMULib/RTFusionKalman4.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o
+.PHONY : src/RTIMULib/RTFusionKalman4.cpp.o
+
+src/RTIMULib/RTFusionKalman4.i: src/RTIMULib/RTFusionKalman4.cpp.i
+.PHONY : src/RTIMULib/RTFusionKalman4.i
+
+# target to preprocess a source file
+src/RTIMULib/RTFusionKalman4.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i
+.PHONY : src/RTIMULib/RTFusionKalman4.cpp.i
+
+src/RTIMULib/RTFusionKalman4.s: src/RTIMULib/RTFusionKalman4.cpp.s
+.PHONY : src/RTIMULib/RTFusionKalman4.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTFusionKalman4.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s
+.PHONY : src/RTIMULib/RTFusionKalman4.cpp.s
+
+src/RTIMULib/RTFusionRTQF.o: src/RTIMULib/RTFusionRTQF.cpp.o
+.PHONY : src/RTIMULib/RTFusionRTQF.o
+
+# target to build an object file
+src/RTIMULib/RTFusionRTQF.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o
+.PHONY : src/RTIMULib/RTFusionRTQF.cpp.o
+
+src/RTIMULib/RTFusionRTQF.i: src/RTIMULib/RTFusionRTQF.cpp.i
+.PHONY : src/RTIMULib/RTFusionRTQF.i
+
+# target to preprocess a source file
+src/RTIMULib/RTFusionRTQF.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i
+.PHONY : src/RTIMULib/RTFusionRTQF.cpp.i
+
+src/RTIMULib/RTFusionRTQF.s: src/RTIMULib/RTFusionRTQF.cpp.s
+.PHONY : src/RTIMULib/RTFusionRTQF.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTFusionRTQF.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s
+.PHONY : src/RTIMULib/RTFusionRTQF.cpp.s
+
+src/RTIMULib/RTIMU.o: src/RTIMULib/RTIMU.cpp.o
+.PHONY : src/RTIMULib/RTIMU.o
+
+# target to build an object file
+src/RTIMULib/RTIMU.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o
+.PHONY : src/RTIMULib/RTIMU.cpp.o
+
+src/RTIMULib/RTIMU.i: src/RTIMULib/RTIMU.cpp.i
+.PHONY : src/RTIMULib/RTIMU.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMU.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i
+.PHONY : src/RTIMULib/RTIMU.cpp.i
+
+src/RTIMULib/RTIMU.s: src/RTIMULib/RTIMU.cpp.s
+.PHONY : src/RTIMULib/RTIMU.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMU.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s
+.PHONY : src/RTIMULib/RTIMU.cpp.s
+
+src/RTIMULib/RTIMUGD20HM303D.o: src/RTIMULib/RTIMUGD20HM303D.cpp.o
+.PHONY : src/RTIMULib/RTIMUGD20HM303D.o
+
+# target to build an object file
+src/RTIMULib/RTIMUGD20HM303D.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20HM303D.cpp.o
+.PHONY : src/RTIMULib/RTIMUGD20HM303D.cpp.o
+
+src/RTIMULib/RTIMUGD20HM303D.i: src/RTIMULib/RTIMUGD20HM303D.cpp.i
+.PHONY : src/RTIMULib/RTIMUGD20HM303D.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMUGD20HM303D.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20HM303D.cpp.i
+.PHONY : src/RTIMULib/RTIMUGD20HM303D.cpp.i
+
+src/RTIMULib/RTIMUGD20HM303D.s: src/RTIMULib/RTIMUGD20HM303D.cpp.s
+.PHONY : src/RTIMULib/RTIMUGD20HM303D.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMUGD20HM303D.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20HM303D.cpp.s
+.PHONY : src/RTIMULib/RTIMUGD20HM303D.cpp.s
+
+src/RTIMULib/RTIMUGD20M303DLHC.o: src/RTIMULib/RTIMUGD20M303DLHC.cpp.o
+.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.o
+
+# target to build an object file
+src/RTIMULib/RTIMUGD20M303DLHC.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20M303DLHC.cpp.o
+.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.cpp.o
+
+src/RTIMULib/RTIMUGD20M303DLHC.i: src/RTIMULib/RTIMUGD20M303DLHC.cpp.i
+.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMUGD20M303DLHC.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20M303DLHC.cpp.i
+.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.cpp.i
+
+src/RTIMULib/RTIMUGD20M303DLHC.s: src/RTIMULib/RTIMUGD20M303DLHC.cpp.s
+.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMUGD20M303DLHC.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20M303DLHC.cpp.s
+.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.cpp.s
+
+src/RTIMULib/RTIMUHal.o: src/RTIMULib/RTIMUHal.cpp.o
+.PHONY : src/RTIMULib/RTIMUHal.o
+
+# target to build an object file
+src/RTIMULib/RTIMUHal.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o
+.PHONY : src/RTIMULib/RTIMUHal.cpp.o
+
+src/RTIMULib/RTIMUHal.i: src/RTIMULib/RTIMUHal.cpp.i
+.PHONY : src/RTIMULib/RTIMUHal.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMUHal.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i
+.PHONY : src/RTIMULib/RTIMUHal.cpp.i
+
+src/RTIMULib/RTIMUHal.s: src/RTIMULib/RTIMUHal.cpp.s
+.PHONY : src/RTIMULib/RTIMUHal.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMUHal.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s
+.PHONY : src/RTIMULib/RTIMUHal.cpp.s
+
+src/RTIMULib/RTIMULSM9DS0.o: src/RTIMULib/RTIMULSM9DS0.cpp.o
+.PHONY : src/RTIMULib/RTIMULSM9DS0.o
+
+# target to build an object file
+src/RTIMULib/RTIMULSM9DS0.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMULSM9DS0.cpp.o
+.PHONY : src/RTIMULib/RTIMULSM9DS0.cpp.o
+
+src/RTIMULib/RTIMULSM9DS0.i: src/RTIMULib/RTIMULSM9DS0.cpp.i
+.PHONY : src/RTIMULib/RTIMULSM9DS0.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMULSM9DS0.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMULSM9DS0.cpp.i
+.PHONY : src/RTIMULib/RTIMULSM9DS0.cpp.i
+
+src/RTIMULib/RTIMULSM9DS0.s: src/RTIMULib/RTIMULSM9DS0.cpp.s
+.PHONY : src/RTIMULib/RTIMULSM9DS0.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMULSM9DS0.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMULSM9DS0.cpp.s
+.PHONY : src/RTIMULib/RTIMULSM9DS0.cpp.s
+
+src/RTIMULib/RTIMUMPU6050HMC5883L.o: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
+.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.o
+
+# target to build an object file
+src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
+.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
+
+src/RTIMULib/RTIMUMPU6050HMC5883L.i: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
+.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
+.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
+
+src/RTIMULib/RTIMUMPU6050HMC5883L.s: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
+.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
+.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
+
+src/RTIMULib/RTIMUMPU9150.o: src/RTIMULib/RTIMUMPU9150.cpp.o
+.PHONY : src/RTIMULib/RTIMUMPU9150.o
+
+# target to build an object file
+src/RTIMULib/RTIMUMPU9150.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU9150.cpp.o
+.PHONY : src/RTIMULib/RTIMUMPU9150.cpp.o
+
+src/RTIMULib/RTIMUMPU9150.i: src/RTIMULib/RTIMUMPU9150.cpp.i
+.PHONY : src/RTIMULib/RTIMUMPU9150.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMUMPU9150.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU9150.cpp.i
+.PHONY : src/RTIMULib/RTIMUMPU9150.cpp.i
+
+src/RTIMULib/RTIMUMPU9150.s: src/RTIMULib/RTIMUMPU9150.cpp.s
+.PHONY : src/RTIMULib/RTIMUMPU9150.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMUMPU9150.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU9150.cpp.s
+.PHONY : src/RTIMULib/RTIMUMPU9150.cpp.s
+
+src/RTIMULib/RTIMUNull.o: src/RTIMULib/RTIMUNull.cpp.o
+.PHONY : src/RTIMULib/RTIMUNull.o
+
+# target to build an object file
+src/RTIMULib/RTIMUNull.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o
+.PHONY : src/RTIMULib/RTIMUNull.cpp.o
+
+src/RTIMULib/RTIMUNull.i: src/RTIMULib/RTIMUNull.cpp.i
+.PHONY : src/RTIMULib/RTIMUNull.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMUNull.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i
+.PHONY : src/RTIMULib/RTIMUNull.cpp.i
+
+src/RTIMULib/RTIMUNull.s: src/RTIMULib/RTIMUNull.cpp.s
+.PHONY : src/RTIMULib/RTIMUNull.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMUNull.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s
+.PHONY : src/RTIMULib/RTIMUNull.cpp.s
+
+src/RTIMULib/RTIMUSettings.o: src/RTIMULib/RTIMUSettings.cpp.o
+.PHONY : src/RTIMULib/RTIMUSettings.o
+
+# target to build an object file
+src/RTIMULib/RTIMUSettings.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o
+.PHONY : src/RTIMULib/RTIMUSettings.cpp.o
+
+src/RTIMULib/RTIMUSettings.i: src/RTIMULib/RTIMUSettings.cpp.i
+.PHONY : src/RTIMULib/RTIMUSettings.i
+
+# target to preprocess a source file
+src/RTIMULib/RTIMUSettings.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i
+.PHONY : src/RTIMULib/RTIMUSettings.cpp.i
+
+src/RTIMULib/RTIMUSettings.s: src/RTIMULib/RTIMUSettings.cpp.s
+.PHONY : src/RTIMULib/RTIMUSettings.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTIMUSettings.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s
+.PHONY : src/RTIMULib/RTIMUSettings.cpp.s
+
+src/RTIMULib/RTMath.o: src/RTIMULib/RTMath.cpp.o
+.PHONY : src/RTIMULib/RTMath.o
+
+# target to build an object file
+src/RTIMULib/RTMath.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o
+.PHONY : src/RTIMULib/RTMath.cpp.o
+
+src/RTIMULib/RTMath.i: src/RTIMULib/RTMath.cpp.i
+.PHONY : src/RTIMULib/RTMath.i
+
+# target to preprocess a source file
+src/RTIMULib/RTMath.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i
+.PHONY : src/RTIMULib/RTMath.cpp.i
+
+src/RTIMULib/RTMath.s: src/RTIMULib/RTMath.cpp.s
+.PHONY : src/RTIMULib/RTMath.s
+
+# target to generate assembly for a file
+src/RTIMULib/RTMath.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
+.PHONY : src/RTIMULib/RTMath.cpp.s
+
+src/autopilot.o: src/autopilot.c.o
+.PHONY : src/autopilot.o
+
+# target to build an object file
+src/autopilot.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.c.o
+.PHONY : src/autopilot.c.o
+
+src/autopilot.i: src/autopilot.c.i
+.PHONY : src/autopilot.i
+
+# target to preprocess a source file
+src/autopilot.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.c.i
+.PHONY : src/autopilot.c.i
+
+src/autopilot.s: src/autopilot.c.s
+.PHONY : src/autopilot.s
+
+# target to generate assembly for a file
+src/autopilot.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.c.s
+.PHONY : src/autopilot.c.s
+
+src/autopilot_global_functions.o: src/autopilot_global_functions.c.o
+.PHONY : src/autopilot_global_functions.o
+
+# target to build an object file
+src/autopilot_global_functions.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o
+.PHONY : src/autopilot_global_functions.c.o
+
+src/autopilot_global_functions.i: src/autopilot_global_functions.c.i
+.PHONY : src/autopilot_global_functions.i
+
+# target to preprocess a source file
+src/autopilot_global_functions.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i
+.PHONY : src/autopilot_global_functions.c.i
+
+src/autopilot_global_functions.s: src/autopilot_global_functions.c.s
+.PHONY : src/autopilot_global_functions.s
+
+# target to generate assembly for a file
+src/autopilot_global_functions.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s
+.PHONY : src/autopilot_global_functions.c.s
+
+src/data_logger.o: src/data_logger.c.o
+.PHONY : src/data_logger.o
+
+# target to build an object file
+src/data_logger.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.c.o
+.PHONY : src/data_logger.c.o
+
+src/data_logger.i: src/data_logger.c.i
+.PHONY : src/data_logger.i
+
+# target to preprocess a source file
+src/data_logger.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.c.i
+.PHONY : src/data_logger.c.i
+
+src/data_logger.s: src/data_logger.c.s
+.PHONY : src/data_logger.s
+
+# target to generate assembly for a file
+src/data_logger.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.c.s
+.PHONY : src/data_logger.c.s
+
+src/global_functions.o: src/global_functions.c.o
+.PHONY : src/global_functions.o
+
+# target to build an object file
+src/global_functions.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.o
+.PHONY : src/global_functions.c.o
+
+src/global_functions.i: src/global_functions.c.i
+.PHONY : src/global_functions.i
+
+# target to preprocess a source file
+src/global_functions.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.i
+.PHONY : src/global_functions.c.i
+
+src/global_functions.s: src/global_functions.c.s
+.PHONY : src/global_functions.s
+
+# target to generate assembly for a file
+src/global_functions.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.s
+.PHONY : src/global_functions.c.s
+
+src/mavlink/examples/linux/mavlink_udp.o: src/mavlink/examples/linux/mavlink_udp.c.o
+.PHONY : src/mavlink/examples/linux/mavlink_udp.o
+
+# target to build an object file
+src/mavlink/examples/linux/mavlink_udp.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o
+.PHONY : src/mavlink/examples/linux/mavlink_udp.c.o
+
+src/mavlink/examples/linux/mavlink_udp.i: src/mavlink/examples/linux/mavlink_udp.c.i
+.PHONY : src/mavlink/examples/linux/mavlink_udp.i
+
+# target to preprocess a source file
+src/mavlink/examples/linux/mavlink_udp.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i
+.PHONY : src/mavlink/examples/linux/mavlink_udp.c.i
+
+src/mavlink/examples/linux/mavlink_udp.s: src/mavlink/examples/linux/mavlink_udp.c.s
+.PHONY : src/mavlink/examples/linux/mavlink_udp.s
+
+# target to generate assembly for a file
+src/mavlink/examples/linux/mavlink_udp.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s
+.PHONY : src/mavlink/examples/linux/mavlink_udp.c.s
+
+src/mavlink/missionlib/mavlink_parameters.o: src/mavlink/missionlib/mavlink_parameters.c.o
+.PHONY : src/mavlink/missionlib/mavlink_parameters.o
+
+# target to build an object file
+src/mavlink/missionlib/mavlink_parameters.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o
+.PHONY : src/mavlink/missionlib/mavlink_parameters.c.o
+
+src/mavlink/missionlib/mavlink_parameters.i: src/mavlink/missionlib/mavlink_parameters.c.i
+.PHONY : src/mavlink/missionlib/mavlink_parameters.i
+
+# target to preprocess a source file
+src/mavlink/missionlib/mavlink_parameters.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i
+.PHONY : src/mavlink/missionlib/mavlink_parameters.c.i
+
+src/mavlink/missionlib/mavlink_parameters.s: src/mavlink/missionlib/mavlink_parameters.c.s
+.PHONY : src/mavlink/missionlib/mavlink_parameters.s
+
+# target to generate assembly for a file
+src/mavlink/missionlib/mavlink_parameters.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s
+.PHONY : src/mavlink/missionlib/mavlink_parameters.c.s
+
+src/mavlink/missionlib/testing/main.o: src/mavlink/missionlib/testing/main.c.o
+.PHONY : src/mavlink/missionlib/testing/main.o
+
+# target to build an object file
+src/mavlink/missionlib/testing/main.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o
+.PHONY : src/mavlink/missionlib/testing/main.c.o
+
+src/mavlink/missionlib/testing/main.i: src/mavlink/missionlib/testing/main.c.i
+.PHONY : src/mavlink/missionlib/testing/main.i
+
+# target to preprocess a source file
+src/mavlink/missionlib/testing/main.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i
+.PHONY : src/mavlink/missionlib/testing/main.c.i
+
+src/mavlink/missionlib/testing/main.s: src/mavlink/missionlib/testing/main.c.s
+.PHONY : src/mavlink/missionlib/testing/main.s
+
+# target to generate assembly for a file
+src/mavlink/missionlib/testing/main.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s
+.PHONY : src/mavlink/missionlib/testing/main.c.s
+
+src/mavlink/missionlib/waypoints.o: src/mavlink/missionlib/waypoints.c.o
+.PHONY : src/mavlink/missionlib/waypoints.o
+
+# target to build an object file
+src/mavlink/missionlib/waypoints.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o
+.PHONY : src/mavlink/missionlib/waypoints.c.o
+
+src/mavlink/missionlib/waypoints.i: src/mavlink/missionlib/waypoints.c.i
+.PHONY : src/mavlink/missionlib/waypoints.i
+
+# target to preprocess a source file
+src/mavlink/missionlib/waypoints.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i
+.PHONY : src/mavlink/missionlib/waypoints.c.i
+
+src/mavlink/missionlib/waypoints.s: src/mavlink/missionlib/waypoints.c.s
+.PHONY : src/mavlink/missionlib/waypoints.s
+
+# target to generate assembly for a file
+src/mavlink/missionlib/waypoints.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s
+.PHONY : src/mavlink/missionlib/waypoints.c.s
+
+src/mavlink/pymavlink/generator/C/test/posix/testmav.o: src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o
+.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.o
+
+# target to build an object file
+src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o
+.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o
+
+src/mavlink/pymavlink/generator/C/test/posix/testmav.i: src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i
+.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.i
+
+# target to preprocess a source file
+src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i
+.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i
+
+src/mavlink/pymavlink/generator/C/test/posix/testmav.s: src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s
+.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.s
+
+# target to generate assembly for a file
+src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s
+.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s
+
+src/mavlink/pymavlink/generator/C/test/windows/stdafx.o: src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.o
+
+# target to build an object file
+src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o
+
+src/mavlink/pymavlink/generator/C/test/windows/stdafx.i: src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.i
+
+# target to preprocess a source file
+src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i
+
+src/mavlink/pymavlink/generator/C/test/windows/stdafx.s: src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.s
+
+# target to generate assembly for a file
+src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s
+
+src/mavlink/pymavlink/generator/C/test/windows/testmav.o: src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.o
+
+# target to build an object file
+src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o
+
+src/mavlink/pymavlink/generator/C/test/windows/testmav.i: src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.i
+
+# target to preprocess a source file
+src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i
+
+src/mavlink/pymavlink/generator/C/test/windows/testmav.s: src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.s
+
+# target to generate assembly for a file
+src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s
+.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s
+
+src/osd.o: src/osd.c.o
+.PHONY : src/osd.o
+
+# target to build an object file
+src/osd.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.c.o
+.PHONY : src/osd.c.o
+
+src/osd.i: src/osd.c.i
+.PHONY : src/osd.i
+
+# target to preprocess a source file
+src/osd.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.c.i
+.PHONY : src/osd.c.i
+
+src/osd.s: src/osd.c.s
+.PHONY : src/osd.s
+
+# target to generate assembly for a file
+src/osd.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.c.s
+.PHONY : src/osd.c.s
+
+src/pilot.o: src/pilot.c.o
+.PHONY : src/pilot.o
+
+# target to build an object file
+src/pilot.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.c.o
+.PHONY : src/pilot.c.o
+
+src/pilot.i: src/pilot.c.i
+.PHONY : src/pilot.i
+
+# target to preprocess a source file
+src/pilot.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.c.i
+.PHONY : src/pilot.c.i
+
+src/pilot.s: src/pilot.c.s
+.PHONY : src/pilot.s
+
+# target to generate assembly for a file
+src/pilot.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.c.s
+.PHONY : src/pilot.c.s
+
+src/quadcopter.o: src/quadcopter.c.o
+.PHONY : src/quadcopter.o
+
+# target to build an object file
+src/quadcopter.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o
+.PHONY : src/quadcopter.c.o
+
+src/quadcopter.i: src/quadcopter.c.i
+.PHONY : src/quadcopter.i
+
+# target to preprocess a source file
+src/quadcopter.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i
+.PHONY : src/quadcopter.c.i
+
+src/quadcopter.s: src/quadcopter.c.s
+.PHONY : src/quadcopter.s
+
+# target to generate assembly for a file
+src/quadcopter.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s
+.PHONY : src/quadcopter.c.s
+
+src/reader.o: src/reader.c.o
+.PHONY : src/reader.o
+
+# target to build an object file
+src/reader.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.c.o
+.PHONY : src/reader.c.o
+
+src/reader.i: src/reader.c.i
+.PHONY : src/reader.i
+
+# target to preprocess a source file
+src/reader.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.c.i
+.PHONY : src/reader.c.i
+
+src/reader.s: src/reader.c.s
+.PHONY : src/reader.s
+
+# target to generate assembly for a file
+src/reader.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.c.s
+.PHONY : src/reader.c.s
+
+src/reader_global_functions.o: src/reader_global_functions.c.o
+.PHONY : src/reader_global_functions.o
+
+# target to build an object file
+src/reader_global_functions.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o
+.PHONY : src/reader_global_functions.c.o
+
+src/reader_global_functions.i: src/reader_global_functions.c.i
+.PHONY : src/reader_global_functions.i
+
+# target to preprocess a source file
+src/reader_global_functions.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i
+.PHONY : src/reader_global_functions.c.i
+
+src/reader_global_functions.s: src/reader_global_functions.c.s
+.PHONY : src/reader_global_functions.s
+
+# target to generate assembly for a file
+src/reader_global_functions.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s
+.PHONY : src/reader_global_functions.c.s
 
 # Help Target
 help:
@@ -180,15 +933,111 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... QuadcopterLib"
+	@echo "... Quadcopter_"
 	@echo "... edit_cache"
-	@echo "... quadcopter_exec"
 	@echo "... rebuild_cache"
-	@echo "... IMULib"
-	@echo "... IMU_exec"
-	@echo "... quadcopter.o"
-	@echo "... quadcopter.i"
-	@echo "... quadcopter.s"
+	@echo "... src/BMP/Adafruit_BMP085.o"
+	@echo "... src/BMP/Adafruit_BMP085.i"
+	@echo "... src/BMP/Adafruit_BMP085.s"
+	@echo "... src/Inter_thread_messages/inter-thread-messages.o"
+	@echo "... src/Inter_thread_messages/inter-thread-messages.i"
+	@echo "... src/Inter_thread_messages/inter-thread-messages.s"
+	@echo "... src/PID.o"
+	@echo "... src/PID.i"
+	@echo "... src/PID.s"
+	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o"
+	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.i"
+	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.s"
+	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o"
+	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.i"
+	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.s"
+	@echo "... src/RTIMULib/RTFusion.o"
+	@echo "... src/RTIMULib/RTFusion.i"
+	@echo "... src/RTIMULib/RTFusion.s"
+	@echo "... src/RTIMULib/RTFusionKalman4.o"
+	@echo "... src/RTIMULib/RTFusionKalman4.i"
+	@echo "... src/RTIMULib/RTFusionKalman4.s"
+	@echo "... src/RTIMULib/RTFusionRTQF.o"
+	@echo "... src/RTIMULib/RTFusionRTQF.i"
+	@echo "... src/RTIMULib/RTFusionRTQF.s"
+	@echo "... src/RTIMULib/RTIMU.o"
+	@echo "... src/RTIMULib/RTIMU.i"
+	@echo "... src/RTIMULib/RTIMU.s"
+	@echo "... src/RTIMULib/RTIMUGD20HM303D.o"
+	@echo "... src/RTIMULib/RTIMUGD20HM303D.i"
+	@echo "... src/RTIMULib/RTIMUGD20HM303D.s"
+	@echo "... src/RTIMULib/RTIMUGD20M303DLHC.o"
+	@echo "... src/RTIMULib/RTIMUGD20M303DLHC.i"
+	@echo "... src/RTIMULib/RTIMUGD20M303DLHC.s"
+	@echo "... src/RTIMULib/RTIMUHal.o"
+	@echo "... src/RTIMULib/RTIMUHal.i"
+	@echo "... src/RTIMULib/RTIMUHal.s"
+	@echo "... src/RTIMULib/RTIMULSM9DS0.o"
+	@echo "... src/RTIMULib/RTIMULSM9DS0.i"
+	@echo "... src/RTIMULib/RTIMULSM9DS0.s"
+	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.o"
+	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.i"
+	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.s"
+	@echo "... src/RTIMULib/RTIMUMPU9150.o"
+	@echo "... src/RTIMULib/RTIMUMPU9150.i"
+	@echo "... src/RTIMULib/RTIMUMPU9150.s"
+	@echo "... src/RTIMULib/RTIMUNull.o"
+	@echo "... src/RTIMULib/RTIMUNull.i"
+	@echo "... src/RTIMULib/RTIMUNull.s"
+	@echo "... src/RTIMULib/RTIMUSettings.o"
+	@echo "... src/RTIMULib/RTIMUSettings.i"
+	@echo "... src/RTIMULib/RTIMUSettings.s"
+	@echo "... src/RTIMULib/RTMath.o"
+	@echo "... src/RTIMULib/RTMath.i"
+	@echo "... src/RTIMULib/RTMath.s"
+	@echo "... src/autopilot.o"
+	@echo "... src/autopilot.i"
+	@echo "... src/autopilot.s"
+	@echo "... src/autopilot_global_functions.o"
+	@echo "... src/autopilot_global_functions.i"
+	@echo "... src/autopilot_global_functions.s"
+	@echo "... src/data_logger.o"
+	@echo "... src/data_logger.i"
+	@echo "... src/data_logger.s"
+	@echo "... src/global_functions.o"
+	@echo "... src/global_functions.i"
+	@echo "... src/global_functions.s"
+	@echo "... src/mavlink/examples/linux/mavlink_udp.o"
+	@echo "... src/mavlink/examples/linux/mavlink_udp.i"
+	@echo "... src/mavlink/examples/linux/mavlink_udp.s"
+	@echo "... src/mavlink/missionlib/mavlink_parameters.o"
+	@echo "... src/mavlink/missionlib/mavlink_parameters.i"
+	@echo "... src/mavlink/missionlib/mavlink_parameters.s"
+	@echo "... src/mavlink/missionlib/testing/main.o"
+	@echo "... src/mavlink/missionlib/testing/main.i"
+	@echo "... src/mavlink/missionlib/testing/main.s"
+	@echo "... src/mavlink/missionlib/waypoints.o"
+	@echo "... src/mavlink/missionlib/waypoints.i"
+	@echo "... src/mavlink/missionlib/waypoints.s"
+	@echo "... src/mavlink/pymavlink/generator/C/test/posix/testmav.o"
+	@echo "... src/mavlink/pymavlink/generator/C/test/posix/testmav.i"
+	@echo "... src/mavlink/pymavlink/generator/C/test/posix/testmav.s"
+	@echo "... src/mavlink/pymavlink/generator/C/test/windows/stdafx.o"
+	@echo "... src/mavlink/pymavlink/generator/C/test/windows/stdafx.i"
+	@echo "... src/mavlink/pymavlink/generator/C/test/windows/stdafx.s"
+	@echo "... src/mavlink/pymavlink/generator/C/test/windows/testmav.o"
+	@echo "... src/mavlink/pymavlink/generator/C/test/windows/testmav.i"
+	@echo "... src/mavlink/pymavlink/generator/C/test/windows/testmav.s"
+	@echo "... src/osd.o"
+	@echo "... src/osd.i"
+	@echo "... src/osd.s"
+	@echo "... src/pilot.o"
+	@echo "... src/pilot.i"
+	@echo "... src/pilot.s"
+	@echo "... src/quadcopter.o"
+	@echo "... src/quadcopter.i"
+	@echo "... src/quadcopter.s"
+	@echo "... src/reader.o"
+	@echo "... src/reader.i"
+	@echo "... src/reader.s"
+	@echo "... src/reader_global_functions.o"
+	@echo "... src/reader_global_functions.i"
+	@echo "... src/reader_global_functions.s"
 .PHONY : help
 
 
