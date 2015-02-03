@@ -1,4 +1,4 @@
-void initialize_mutex(pthread_t* mutex)
+void initialize_mutex(pthread_mutex_t* mutex)
 {
     *mutex = PTHREAD_MUTEX_INITIALIZER;
 }

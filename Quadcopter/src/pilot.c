@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "pilot.h"
 #include "global_functions.h"
 
@@ -126,7 +127,7 @@ void* pilotHandler(void* arg)
 
 
         // END OF TODO
-        exit();
+        exit(0);
     }
 
     while(1)
@@ -147,31 +148,31 @@ void* pilotHandler(void* arg)
              // TODO : notify main of cut off
          }
 
-         else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared != CUTOFF)
+         else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
          {
              pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
              // TODO : notify main of emergency landing
          }
 
-         else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotCommandsShared != CUTOFF && pilotCommandsShared != AUTOPILOT_EMERGENCY_LANDING)
+         else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
         {
             pilotStateShared.pilotMode = MANUAL;
             // TODO : notify main of manual piloting and adapt speed to manual
         }
 
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotCommandsShared != CUTOFF && pilotCommandsShared != AUTOPILOT_EMERGENCY_LANDING && pilotCommandsShared != AUTOPILOT_LANDING)
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
         {
              pilotStateShared.pilotMode = AUTOPILOT_LANDING;
              // TODO : notify main of normal landing
         }
 
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotCommandsShared != CUTOFF && pilotCommandsShared != AUTOPILOT_EMERGENCY_LANDING && pilotCommandsShared != AUTOPILOT_RTH)
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
         {
              pilotStateShared.pilotMode = AUTOPILOT_RTH;
              // TODO : notify main of return to home
         }
 
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotCommandsShared != CUTOFF && pilotCommandsShared != AUTOPILOT_EMERGENCY_LANDING && pilotCommandsShared != AUTOPILOT_NORMAL)
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
         {
              pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
              // TODO : notify main of return to autopilot normal mode
@@ -204,7 +205,7 @@ void* pilotHandler(void* arg)
 
 
 
-            case MANUAL
+            case MANUAL:
 
                 pilotCommandsShared.chan1 =  receivedCommands.commands[0];
                 pilotCommandsShared.chan2 =  receivedCommands.commands[1];
@@ -214,17 +215,17 @@ void* pilotHandler(void* arg)
             break;
 
 
-            case AUTOPILOT_NORMAL
+            case AUTOPILOT_NORMAL:
 
             break;
 
 
-            case AUTOPILOT_RTH
+            case AUTOPILOT_RTH:
 
             break;
 
 
-            case AUTOPILOT_LANDING
+            case AUTOPILOT_LANDING:
 
             break;
 
@@ -238,6 +239,8 @@ void* pilotHandler(void* arg)
 
     }
 
+
+}
 
 }
 
