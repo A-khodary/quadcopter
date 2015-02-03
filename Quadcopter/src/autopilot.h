@@ -52,7 +52,8 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
 
 // Servo controlling prototypes :
 
-make
+servoControl_t buildServoControl(autopilotObjective_t autopilotObjective);
+
 
 
 // Structures declarations :
@@ -66,6 +67,24 @@ typedef struct autopilotObjectiveFifo_t
     autopilotObjective_t firstObjective;
 
 }autopilotObjectiveFifo_t;
+
+
+typedef struct oneWayServoControl
+{
+    char type[32];
+    double consign;
+    float kp;
+    float ki;
+    float kd;
+
+}oneWayServoControl;
+
+typedef struct servoControl_t
+{
+    int oneWayNumber;
+    oneWayServoControl* ServoControlData;
+
+}servoControl_t;
 
 
 #endif
