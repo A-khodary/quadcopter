@@ -12,7 +12,7 @@
 
 //TODO : adapter les différents PID à utiliser pour chaque mode
 
-void trajAsserv(autopilotObjective_t* autopilotObjective) {
+void makeAsserv(autopilotObjective_t* autopilotObjective) {
 
     float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD
     //  TODO : use coeff defines in variables
@@ -138,16 +138,45 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
 
 */
 
-int removeSpecificObjective(int objectiveNumber)
+
+// TODO FIFO Management functions
+
+int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
 
 }
 
-int flushFifoObjective()
+int flushFifo(autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
 
 
 }
+
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+{
+
+}
+
+
+int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo)
+{
+
+}
+
+
+autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+{
+
+}
+
+
+autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+{
+
+}
+
+// End of TODO section
+
 
 void* autopilotHandler(void* arg)
 {
@@ -157,9 +186,20 @@ void* autopilotHandler(void* arg)
     //TODO send init message to main
     autopilotObjectiveFifo_t autopilotObjectiveFifo;
 
+    bidirectionalHandler_t* bidirectionalHandler;
+    bidirectionalHandler = (bidirectionalHandler_t*)arg;
+
+    handler_t* mainITMHandler;
+    handler_t* autopilotITMHandler;
+
+    mainITMHandler = bidirectionalHandler.mainITMHandler;
+    autopilotITMHandler = bidirectionalHandler.componentITMHandler;
+    message_t* receivedMessage;
+    message_t currentMessage;
+
     FILE* writtenObjectives;
     char readLine[1024];
-    int lineNumber = 0;
+    int lineNumber = 1;
 
     char readObjectiveName[64];
     int readObjectiveCode=0;
@@ -169,6 +209,7 @@ void* autopilotHandler(void* arg)
     double readObjectiveMaxSpeed=5;
 
     autopilotObjective_t readObjective;
+    autopilotObjective_t* currentObjective;
 
     autopilotObjectiveFifo_t autopilotObjectiveFifo;
     autopilotObjectiveFifo.firstObjective = NULL;
@@ -186,11 +227,11 @@ void* autopilotHandler(void* arg)
         // TODO sent event to main
     }
     else
-    {)
+    {
         while (fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", &readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != 0)
         {
             // Verifying the readed objective :
-            if ((readObjectiveCode == GOT0_STANDARD) || (readObjectiveCode == GOT0_HOVERING) || (readObjectiveCode == LAND_TAKEOFF) || (readObjectiveCode == POSITION_HOLD))
+            if ((readObjectiveCode == GOTO_STANDARD) || (readObjectiveCode == GOTO_HOVERING) || (readObjectiveCode == LAND_TAKEOFF) || (readObjectiveCode == POSITION_HOLD))
             {
                 if ((readObjectiveDestinationLat >= 0) && (readObjectiveDestinationLong >= 0) && (readObjectiveDestinationAlt >= 0) && (readObjectiveMaxSpeed >= 0))
                 {
@@ -202,12 +243,45 @@ void* autopilotHandler(void* arg)
                     readObjective.maxSpeed = readObjectiveMaxSpeed;
 
                     // Now we add the objective to the fifo
-
+                    if (insertObjective(&readObjective))
+                    {
+                        printDebug("Insertion of a new autopilot objective success !")
+                        lineNumber++;
+                    }
+                    else printDebug("Insertion of a new autopilot objective error");
                 }
-            }
+                else printDebug("Autopilot objective speed, or destination is incorrect")
 
-            lineNumber++;
+            }
+            else printDebug("Autopilot objective type is incorrect");
         }
+        printDebug("%d Objectives added to Autopilot FIFO", lineNumber);
+        lineNumber = 0;
+    }
+
+    // TODO : notify main thread of end of init
+
+    while (1) // This loop iterates each time an objective is reached
+    {
+        receivedMessage = retrieveMessage(autopilotITMHandler
+        if (receivedMessage != NULL)
+        {
+             // TODO : process message
+             printDebug("New ITM message received by autopilot");
+        }
+       else
+       {
+           usleep(AUTOPILOT_REFRESHING_PERIOD);
+       }
+
+       currentObjective = readCurrentObjective()
+
+
+        while () // This loop iterates after each ITMhandler execution and calculation
+        {
+
+        }
+
 
 
     }

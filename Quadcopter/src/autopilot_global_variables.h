@@ -37,10 +37,6 @@ typedef struct autopilotObjective_t
 
     double maxSpeed; // Max speed in ms-1
 
-
-
-    pthread_mutex_t readWrite;
-
 }autopilotObjective_t;
 
 
