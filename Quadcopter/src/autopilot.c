@@ -269,16 +269,25 @@ void* autopilotHandler(void* arg)
              // TODO : process message
              printDebug("New ITM message received by autopilot");
         }
-       else
-       {
-           usleep(AUTOPILOT_REFRESHING_PERIOD);
-       }
+
 
        currentObjective = readCurrentObjective()
 
 
         while () // This loop iterates after each ITMhandler execution and calculation
         {
+
+            receivedMessage = retrieveMessage(autopilotITMHandler
+            if (receivedMessage != NULL)
+            {
+                // TODO : process message
+                printDebug("New ITM message received by autopilot");
+            }
+            else
+            {
+                usleep(AUTOPILOT_REFRESHING_PERIOD);
+            }
+
 
         }
 
