@@ -1,0 +1,1 @@
+/usr/bin/gcc     CMakeFiles/quadcopter_exec.dir/quadcopter.c.o  -o quadcopter_exec -rdynamic -lLINK_PUBLIC libQuadcopterLib.a 
