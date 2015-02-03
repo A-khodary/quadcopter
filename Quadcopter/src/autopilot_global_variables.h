@@ -1,3 +1,5 @@
+#include "shared_librairies.h"
+
 // Some defines :
 
 // Objective code defines :
@@ -15,7 +17,7 @@
 // Global variables and structures declarations :
 
 
-typedef struct autopilotObjective
+typedef struct autopilotObjective_t
 {
     char name[64]; // the objective name that will be displayed
     int priority; // Priority from 0 to 100
@@ -29,7 +31,11 @@ typedef struct autopilotObjective
     double destinationZ;
     double directionYAW;//direction de l'objectif
 
-    double max_speed; // Max speed in ms-1
+    double destinationLat;
+    double destinationLong;
+    double destinationAlt;
+
+    double maxSpeed; // Max speed in ms-1
 
 
 
@@ -51,7 +57,7 @@ typedef struct autopilotSharedState
 
 // Global variables declarations
 
-extern float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD // PID coefficients for Land/Takeoff
+extern float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD;// PID coefficients for Land/Takeoff
 extern autopilotSharedState_t autopilotSharedState;
 
 

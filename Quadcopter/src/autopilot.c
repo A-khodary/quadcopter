@@ -102,9 +102,8 @@ void trajAsserv(autopilotObjective_t* autopilotObjective) {
 }
 }
 
-int insertObjective(autopilotObjective_t* objective)
+int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
-    autopilotObjectiveFifo_t autopilotObjectiveFifo_t;
     int objectiveIndex;
 
     pthread_mutex_lock(autopilotObjectiveFifo.readWrite);
@@ -156,7 +155,20 @@ void* autopilotHandler(void* arg)
 
 
     //TODO send init message to main
+    autopilotObjectiveFifo_t autopilotObjectiveFifo;
+
     FILE* writtenObjectives;
+    char readLine[1024];
+    int lineNumber = 0;
+
+    char readObjectiveName[64];
+    int readObjectiveCode=0;
+    double readObjectiveDestinationLat=0;
+    double readObjectiveDestinationLong=0;
+    double readObjectiveDestinationAlt=0;
+    double readObjectiveMaxSpeed=5;
+
+    autopilotObjective_t readObjective;
 
     autopilotObjectiveFifo_t autopilotObjectiveFifo;
     autopilotObjectiveFifo.firstObjective = NULL;
@@ -174,7 +186,28 @@ void* autopilotHandler(void* arg)
         // TODO sent event to main
     }
     else
-    {
+    {)
+        while (fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", &readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != 0)
+        {
+            // Verifying the readed objective :
+            if ((readObjectiveCode == GOT0_STANDARD) || (readObjectiveCode == GOT0_HOVERING) || (readObjectiveCode == LAND_TAKEOFF) || (readObjectiveCode == POSITION_HOLD))
+            {
+                if ((readObjectiveDestinationLat >= 0) && (readObjectiveDestinationLong >= 0) && (readObjectiveDestinationAlt >= 0) && (readObjectiveMaxSpeed >= 0))
+                {
+                    // Now we're clear, we have to fill in the readObjective strucuture
+                    readObjective.code = readObjectiveCode;
+                    readObjective.destinationLat = readObjectiveDestinationLat;
+                    readObjective.destinationLong = readObjectiveDestinationLong;
+                    readObjective.destinationAlt = readObjectiveDestinationAlt;
+                    readObjective.maxSpeed = readObjectiveMaxSpeed;
+
+                    // Now we add the objective to the fifo
+
+                }
+            }
+
+            lineNumber++;
+        }
 
 
     }

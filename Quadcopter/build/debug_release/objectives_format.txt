@@ -1,0 +1,2 @@
+Objective_name Objective_type_code Destination_lat Destination_long Destination_alt Max_speed_ms	
+

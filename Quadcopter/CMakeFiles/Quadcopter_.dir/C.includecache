@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c
+inter-thread-messages.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+stdlib.h
+-
+stdio.h
+-
+pthread.h
+-
+wiringPiI2C.h
+-
+unistd.h
+-
+inter-thread-messages.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+
