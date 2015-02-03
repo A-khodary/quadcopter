@@ -135,30 +135,6 @@ src/BMP/Adafruit_BMP085.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s
 .PHONY : src/BMP/Adafruit_BMP085.cpp.s
 
-src/Inter_thread_messages/inter-thread-messages.o: src/Inter_thread_messages/inter-thread-messages.c.o
-.PHONY : src/Inter_thread_messages/inter-thread-messages.o
-
-# target to build an object file
-src/Inter_thread_messages/inter-thread-messages.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/Inter_thread_messages/inter-thread-messages.c.o
-.PHONY : src/Inter_thread_messages/inter-thread-messages.c.o
-
-src/Inter_thread_messages/inter-thread-messages.i: src/Inter_thread_messages/inter-thread-messages.c.i
-.PHONY : src/Inter_thread_messages/inter-thread-messages.i
-
-# target to preprocess a source file
-src/Inter_thread_messages/inter-thread-messages.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/Inter_thread_messages/inter-thread-messages.c.i
-.PHONY : src/Inter_thread_messages/inter-thread-messages.c.i
-
-src/Inter_thread_messages/inter-thread-messages.s: src/Inter_thread_messages/inter-thread-messages.c.s
-.PHONY : src/Inter_thread_messages/inter-thread-messages.s
-
-# target to generate assembly for a file
-src/Inter_thread_messages/inter-thread-messages.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/Inter_thread_messages/inter-thread-messages.c.s
-.PHONY : src/Inter_thread_messages/inter-thread-messages.c.s
-
 src/PID.o: src/PID.cpp.o
 .PHONY : src/PID.o
 
@@ -327,54 +303,6 @@ src/RTIMULib/RTIMU.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s
 .PHONY : src/RTIMULib/RTIMU.cpp.s
 
-src/RTIMULib/RTIMUGD20HM303D.o: src/RTIMULib/RTIMUGD20HM303D.cpp.o
-.PHONY : src/RTIMULib/RTIMUGD20HM303D.o
-
-# target to build an object file
-src/RTIMULib/RTIMUGD20HM303D.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20HM303D.cpp.o
-.PHONY : src/RTIMULib/RTIMUGD20HM303D.cpp.o
-
-src/RTIMULib/RTIMUGD20HM303D.i: src/RTIMULib/RTIMUGD20HM303D.cpp.i
-.PHONY : src/RTIMULib/RTIMUGD20HM303D.i
-
-# target to preprocess a source file
-src/RTIMULib/RTIMUGD20HM303D.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20HM303D.cpp.i
-.PHONY : src/RTIMULib/RTIMUGD20HM303D.cpp.i
-
-src/RTIMULib/RTIMUGD20HM303D.s: src/RTIMULib/RTIMUGD20HM303D.cpp.s
-.PHONY : src/RTIMULib/RTIMUGD20HM303D.s
-
-# target to generate assembly for a file
-src/RTIMULib/RTIMUGD20HM303D.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20HM303D.cpp.s
-.PHONY : src/RTIMULib/RTIMUGD20HM303D.cpp.s
-
-src/RTIMULib/RTIMUGD20M303DLHC.o: src/RTIMULib/RTIMUGD20M303DLHC.cpp.o
-.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.o
-
-# target to build an object file
-src/RTIMULib/RTIMUGD20M303DLHC.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20M303DLHC.cpp.o
-.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.cpp.o
-
-src/RTIMULib/RTIMUGD20M303DLHC.i: src/RTIMULib/RTIMUGD20M303DLHC.cpp.i
-.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.i
-
-# target to preprocess a source file
-src/RTIMULib/RTIMUGD20M303DLHC.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20M303DLHC.cpp.i
-.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.cpp.i
-
-src/RTIMULib/RTIMUGD20M303DLHC.s: src/RTIMULib/RTIMUGD20M303DLHC.cpp.s
-.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.s
-
-# target to generate assembly for a file
-src/RTIMULib/RTIMUGD20M303DLHC.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUGD20M303DLHC.cpp.s
-.PHONY : src/RTIMULib/RTIMUGD20M303DLHC.cpp.s
-
 src/RTIMULib/RTIMUHal.o: src/RTIMULib/RTIMUHal.cpp.o
 .PHONY : src/RTIMULib/RTIMUHal.o
 
@@ -399,30 +327,6 @@ src/RTIMULib/RTIMUHal.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s
 .PHONY : src/RTIMULib/RTIMUHal.cpp.s
 
-src/RTIMULib/RTIMULSM9DS0.o: src/RTIMULib/RTIMULSM9DS0.cpp.o
-.PHONY : src/RTIMULib/RTIMULSM9DS0.o
-
-# target to build an object file
-src/RTIMULib/RTIMULSM9DS0.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMULSM9DS0.cpp.o
-.PHONY : src/RTIMULib/RTIMULSM9DS0.cpp.o
-
-src/RTIMULib/RTIMULSM9DS0.i: src/RTIMULib/RTIMULSM9DS0.cpp.i
-.PHONY : src/RTIMULib/RTIMULSM9DS0.i
-
-# target to preprocess a source file
-src/RTIMULib/RTIMULSM9DS0.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMULSM9DS0.cpp.i
-.PHONY : src/RTIMULib/RTIMULSM9DS0.cpp.i
-
-src/RTIMULib/RTIMULSM9DS0.s: src/RTIMULib/RTIMULSM9DS0.cpp.s
-.PHONY : src/RTIMULib/RTIMULSM9DS0.s
-
-# target to generate assembly for a file
-src/RTIMULib/RTIMULSM9DS0.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMULSM9DS0.cpp.s
-.PHONY : src/RTIMULib/RTIMULSM9DS0.cpp.s
-
 src/RTIMULib/RTIMUMPU6050HMC5883L.o: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
 .PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.o
 
@@ -446,30 +350,6 @@ src/RTIMULib/RTIMUMPU6050HMC5883L.s: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
 src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
 .PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
-
-src/RTIMULib/RTIMUMPU9150.o: src/RTIMULib/RTIMUMPU9150.cpp.o
-.PHONY : src/RTIMULib/RTIMUMPU9150.o
-
-# target to build an object file
-src/RTIMULib/RTIMUMPU9150.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU9150.cpp.o
-.PHONY : src/RTIMULib/RTIMUMPU9150.cpp.o
-
-src/RTIMULib/RTIMUMPU9150.i: src/RTIMULib/RTIMUMPU9150.cpp.i
-.PHONY : src/RTIMULib/RTIMUMPU9150.i
-
-# target to preprocess a source file
-src/RTIMULib/RTIMUMPU9150.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU9150.cpp.i
-.PHONY : src/RTIMULib/RTIMUMPU9150.cpp.i
-
-src/RTIMULib/RTIMUMPU9150.s: src/RTIMULib/RTIMUMPU9150.cpp.s
-.PHONY : src/RTIMULib/RTIMUMPU9150.s
-
-# target to generate assembly for a file
-src/RTIMULib/RTIMUMPU9150.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU9150.cpp.s
-.PHONY : src/RTIMULib/RTIMUMPU9150.cpp.s
 
 src/RTIMULib/RTIMUNull.o: src/RTIMULib/RTIMUNull.cpp.o
 .PHONY : src/RTIMULib/RTIMUNull.o
@@ -638,6 +518,30 @@ src/global_functions.s: src/global_functions.c.s
 src/global_functions.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.s
 .PHONY : src/global_functions.c.s
+
+src/inter-thread-messages.o: src/inter-thread-messages.c.o
+.PHONY : src/inter-thread-messages.o
+
+# target to build an object file
+src/inter-thread-messages.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o
+.PHONY : src/inter-thread-messages.c.o
+
+src/inter-thread-messages.i: src/inter-thread-messages.c.i
+.PHONY : src/inter-thread-messages.i
+
+# target to preprocess a source file
+src/inter-thread-messages.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i
+.PHONY : src/inter-thread-messages.c.i
+
+src/inter-thread-messages.s: src/inter-thread-messages.c.s
+.PHONY : src/inter-thread-messages.s
+
+# target to generate assembly for a file
+src/inter-thread-messages.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s
+.PHONY : src/inter-thread-messages.c.s
 
 src/mavlink/examples/linux/mavlink_udp.o: src/mavlink/examples/linux/mavlink_udp.c.o
 .PHONY : src/mavlink/examples/linux/mavlink_udp.o
@@ -939,9 +843,6 @@ help:
 	@echo "... src/BMP/Adafruit_BMP085.o"
 	@echo "... src/BMP/Adafruit_BMP085.i"
 	@echo "... src/BMP/Adafruit_BMP085.s"
-	@echo "... src/Inter_thread_messages/inter-thread-messages.o"
-	@echo "... src/Inter_thread_messages/inter-thread-messages.i"
-	@echo "... src/Inter_thread_messages/inter-thread-messages.s"
 	@echo "... src/PID.o"
 	@echo "... src/PID.i"
 	@echo "... src/PID.s"
@@ -963,24 +864,12 @@ help:
 	@echo "... src/RTIMULib/RTIMU.o"
 	@echo "... src/RTIMULib/RTIMU.i"
 	@echo "... src/RTIMULib/RTIMU.s"
-	@echo "... src/RTIMULib/RTIMUGD20HM303D.o"
-	@echo "... src/RTIMULib/RTIMUGD20HM303D.i"
-	@echo "... src/RTIMULib/RTIMUGD20HM303D.s"
-	@echo "... src/RTIMULib/RTIMUGD20M303DLHC.o"
-	@echo "... src/RTIMULib/RTIMUGD20M303DLHC.i"
-	@echo "... src/RTIMULib/RTIMUGD20M303DLHC.s"
 	@echo "... src/RTIMULib/RTIMUHal.o"
 	@echo "... src/RTIMULib/RTIMUHal.i"
 	@echo "... src/RTIMULib/RTIMUHal.s"
-	@echo "... src/RTIMULib/RTIMULSM9DS0.o"
-	@echo "... src/RTIMULib/RTIMULSM9DS0.i"
-	@echo "... src/RTIMULib/RTIMULSM9DS0.s"
 	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.o"
 	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.i"
 	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.s"
-	@echo "... src/RTIMULib/RTIMUMPU9150.o"
-	@echo "... src/RTIMULib/RTIMUMPU9150.i"
-	@echo "... src/RTIMULib/RTIMUMPU9150.s"
 	@echo "... src/RTIMULib/RTIMUNull.o"
 	@echo "... src/RTIMULib/RTIMUNull.i"
 	@echo "... src/RTIMULib/RTIMUNull.s"
@@ -1002,6 +891,9 @@ help:
 	@echo "... src/global_functions.o"
 	@echo "... src/global_functions.i"
 	@echo "... src/global_functions.s"
+	@echo "... src/inter-thread-messages.o"
+	@echo "... src/inter-thread-messages.i"
+	@echo "... src/inter-thread-messages.s"
 	@echo "... src/mavlink/examples/linux/mavlink_udp.o"
 	@echo "... src/mavlink/examples/linux/mavlink_udp.i"
 	@echo "... src/mavlink/examples/linux/mavlink_udp.s"
