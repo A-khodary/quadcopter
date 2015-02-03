@@ -1,4 +1,5 @@
 #include "pilot.h"
+#include "global_functions.h"
 
 /*
 ##############################################
@@ -59,21 +60,21 @@ int initPca9685()
 
 void writeCommands()
 {
-    int pwm1, pwm2, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pmw9;
+    int pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
-    pilotRefreshingPeriodShared = REFRESHING_PERIOD_DEFAULT;
+    int pilotRefreshingPeriodShared = REFRESHING_PERIOD_DEFAULT;
 
-    pthread_mutex_lock(quadcopterPilotCommandsShared.readWrite); // Locking mutex to prevent race conditions
+    pthread_mutex_lock(&pilotCommandsShared.readWrite); // Locking mutex to prevent race conditions
 
-    pwm1 = quadcopterPilotCommandsShared.chan1*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm2 = quadcopterPilotCommandsShared.chan2*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm3 = quadcopterPilotCommandsShared.chan3*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm4 = quadcopterPilotCommandsShared.chan4*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm5 = quadcopterPilotCommandsShared.chan5*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm6 = quadcopterPilotCommandsShared.chan6*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm7 = quadcopterPilotCommandsShared.chan7*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm8 = quadcopterPilotCommandsShared.chan8*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm9 = quadcopterPilotCommandsShared.chan9*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm1 = pilotCommandsShared.chan1*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm2 = pilotCommandsShared.chan2*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm3 = pilotCommandsShared.chan3*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm4 = pilotCommandsShared.chan4*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm5 = pilotCommandsShared.chan5*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm6 = pilotCommandsShared.chan6*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm7 = pilotCommandsShared.chan7*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm8 = pilotCommandsShared.chan8*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm9 = pilotCommandsShared.chan9*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
 
 
     pwmWrite(PCA_PINBASE, pwm1);
@@ -95,20 +96,21 @@ void* pilotHandler(void* arg)
 
     // Handler global variables init :
 
-    pilotCommandsShared_t quadcopterPilotCommandsShared;
-    quadcopterPilotCommandsShared.chan1 = 0;
-    quadcopterPilotCommandsShared.chan2 = 0;
-    quadcopterPilotCommandsShared.chan3 = 0;
-    quadcopterPilotCommandsShared.chan4 = 0;
-    quadcopterPilotCommandsShared.chan5 = 0;
-    quadcopterPilotCommandsShared.chan6 = 0;
-    quadcopterPilotCommandsShared.chan7 = 0;
-    quadcopterPilotCommandsShared.chan8 = 0;
-    quadcopterPilotCommandsShared.chan9 = 0;
+    pilotCommandsShared_t pilotCommandsShared;
 
-    pthread_mutex_init(&quadcopterPilotCommandsShared.readWrite);
+    pilotCommandsShared.chan1 = 0;
+    pilotCommandsShared.chan2 = 0;
+    pilotCommandsShared.chan3 = 0;
+    pilotCommandsShared.chan4 = 0;
+    pilotCommandsShared.chan5 = 0;
+    pilotCommandsShared.chan6 = 0;
+    pilotCommandsShared.chan7 = 0;
+    pilotCommandsShared.chan8 = 0;
+    pilotCommandsShared.chan9 = 0;
 
-    quadcopterPilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
+   initialize_mutex(&pilotCommandsShared.readWrite);
+
+    pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
 
     //
 
@@ -176,7 +178,7 @@ void* pilotHandler(void* arg)
         }
 
         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-        pthread_mutex_lock(&quadcopterPilotCommandsShared.readWrite);
+        pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
         switch (pilotStateShared.pilotMode)
         {
@@ -184,15 +186,15 @@ void* pilotHandler(void* arg)
 
             case CUTOFF:
 
-                quadcopterPilotCommandsShared.chan1 = 0;
-                quadcopterPilotCommandsShared.chan2 = 0;
-                quadcopterPilotCommandsShared.chan3 = 0;
-                quadcopterPilotCommandsShared.chan4 = 0;
-                quadcopterPilotCommandsShared.chan5 = 0;
-                quadcopterPilotCommandsShared.chan6 = 0;
-                quadcopterPilotCommandsShared.chan7 = 0;
-                quadcopterPilotCommandsShared.chan8 = 0;
-                quadcopterPilotCommandsShared.chan9 = 0;
+                pilotCommandsShared.chan1 = 0;
+                pilotCommandsShared.chan2 = 0;
+                pilotCommandsShared.chan3 = 0;
+                pilotCommandsShared.chan4 = 0;
+                pilotCommandsShared.chan5 = 0;
+                pilotCommandsShared.chan6 = 0;
+                pilotCommandsShared.chan7 = 0;
+                pilotCommandsShared.chan8 = 0;
+                pilotCommandsShared.chan9 = 0;
 
             break;
 
@@ -204,10 +206,10 @@ void* pilotHandler(void* arg)
 
             case MANUAL
 
-                quadcopterPilotCommandsShared.chan1 =  receivedCommands.commands[0];
-                quadcopterPilotCommandsShared.chan2 =  receivedCommands.commands[1];
-                quadcopterPilotCommandsShared.chan3 =  receivedCommands.commands[2];
-                quadcopterPilotCommandsShared.chan4 =  receivedCommands.commands[3];
+                pilotCommandsShared.chan1 =  receivedCommands.commands[0];
+                pilotCommandsShared.chan2 =  receivedCommands.commands[1];
+                pilotCommandsShared.chan3 =  receivedCommands.commands[2];
+                pilotCommandsShared.chan4 =  receivedCommands.commands[3];
 
             break;
 
@@ -229,7 +231,7 @@ void* pilotHandler(void* arg)
         }
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
-        pthread_mutex_unlock(&quadcopterPilotCommandsShared.readWrite);
+        pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
         writeCommands();
         usleep(pilotCommandsShared.refreshingPeriod);

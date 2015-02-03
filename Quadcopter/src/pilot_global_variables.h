@@ -40,12 +40,12 @@ typedef struct pilotStateShared // Pilot state for datalogging
     int pilotMode;
     pthread_mutex_t readWriteMutex;
 
-}pilotStateShared;
+}pilotStateShared_t;
 
 
 // Global variables definitions
 
-extern pilotCommandsShared_t quadcopterPilotCommandsShared;
+extern pilotCommandsShared_t pilotCommandsShared;
 extern pilotStateShared_t pilotStateShared;
 
 #endif

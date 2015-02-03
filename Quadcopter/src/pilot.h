@@ -7,7 +7,7 @@
 #include "reader_global_variables.h"
 
 
-int writeCommands();
+void writeCommands();
 void* pilotHandler(void* arg);
 int initPca9685();
 
