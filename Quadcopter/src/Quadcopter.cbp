@@ -105,13 +105,6 @@
 		<Unit filename="autopilot.h">
 			<Option virtualFolder="Components/Headers/AUTOPILOT/" />
 		</Unit>
-		<Unit filename="autopilot_global_functions.c">
-			<Option compilerVar="CC" />
-			<Option virtualFolder="Shared ressources/Sources/" />
-		</Unit>
-		<Unit filename="autopilot_global_functions.h">
-			<Option virtualFolder="Shared ressources/Headers/" />
-		</Unit>
 		<Unit filename="autopilot_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>

@@ -6,6 +6,9 @@
 #include "autopilot_global_functions.h"
 #include "imu_globals_variables.h"
 
+// Some component defines :
+
+#define AUTOPILOT_REFRESHING_PERIOD 100
 
 // Some PID coefficient defines :
 
@@ -22,6 +25,8 @@
 #define LANDTAKEOFFYAMPI 1
 #define LANDTAKEOFFYAWPD 1
 
+// Objective text file list path :
+
 #define OBJECTIVES_PATH objectives.txt
 
 // Some mode defines :
@@ -31,19 +36,34 @@
 #define GOTO_OVERING 3
 #define POSITION_HOLD 4
 
+// Fifo managing functions prototypes :
 
 void trajAsserv(autopilotObjective_t* autopilotObjective);
 void * autopilotHandler(void * arg);
 
-typedef struct autopilotObjectiveFifo
+int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int flushFifoObjective(autopilotOjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+
+// Servo controlling prototypes :
+
+make
+
+
+// Structures declarations :
+
+typedef struct autopilotObjectiveFifo_t
 {
     autopilotObjective* ObjectiveFifo[AUTOPILOT_OBJECTIVE_FIFO_SIZE];
 
     int currentObjectivePriority;
     int numberOfObjectivesPending;
     autopilotObjective_t firstObjective;
-
-    pthread_mutex_t readWrite;
 
 }autopilotObjectiveFifo_t;
 
