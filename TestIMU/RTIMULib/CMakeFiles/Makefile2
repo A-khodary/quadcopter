@@ -44,44 +44,44 @@ CMAKE_COMMAND = /usr/local/bin/cmake
 RM = /usr/local/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
+CMAKE_SOURCE_DIR = /home/nikita/Scripting/quadcopter/TestIMU/RTIMULib
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
+CMAKE_BINARY_DIR = /home/nikita/Scripting/quadcopter/TestIMU/RTIMULib
 
 #=============================================================================
-# Target rules for target CMakeFiles/Quadcopter_.dir
+# Target rules for target CMakeFiles/IMULib.dir
 
 # All Build rule for target.
-CMakeFiles/Quadcopter_.dir/all:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/depend
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
-	@echo "Built target Quadcopter_"
-.PHONY : CMakeFiles/Quadcopter_.dir/all
+CMakeFiles/IMULib.dir/all:
+	$(MAKE) -f CMakeFiles/IMULib.dir/build.make CMakeFiles/IMULib.dir/depend
+	$(MAKE) -f CMakeFiles/IMULib.dir/build.make CMakeFiles/IMULib.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/TestIMU/RTIMULib/CMakeFiles  1 2 3 4 5 6 7 8 9 10
+	@echo "Built target IMULib"
+.PHONY : CMakeFiles/IMULib.dir/all
 
 # Include target in all.
-all: CMakeFiles/Quadcopter_.dir/all
+all: CMakeFiles/IMULib.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Quadcopter_.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles 30
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Quadcopter_.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles 0
-.PHONY : CMakeFiles/Quadcopter_.dir/rule
+CMakeFiles/IMULib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/TestIMU/RTIMULib/CMakeFiles 10
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/IMULib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/TestIMU/RTIMULib/CMakeFiles 0
+.PHONY : CMakeFiles/IMULib.dir/rule
 
 # Convenience name for target.
-Quadcopter_: CMakeFiles/Quadcopter_.dir/rule
-.PHONY : Quadcopter_
+IMULib: CMakeFiles/IMULib.dir/rule
+.PHONY : IMULib
 
 # clean rule for target.
-CMakeFiles/Quadcopter_.dir/clean:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/clean
-.PHONY : CMakeFiles/Quadcopter_.dir/clean
+CMakeFiles/IMULib.dir/clean:
+	$(MAKE) -f CMakeFiles/IMULib.dir/build.make CMakeFiles/IMULib.dir/clean
+.PHONY : CMakeFiles/IMULib.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/Quadcopter_.dir/clean
+clean: CMakeFiles/IMULib.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="RTIMULib/RTFusion.cpp" open="1" top="0" tabpos="1">
+	<File name="RTIMULib/RTFusion.cpp" open="1" top="0" tabpos="2">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="RTIMULib/RTIMU.cpp" open="1" top="0" tabpos="0">
+	<File name="RTIMULib/RTIMU.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="RTIMULib/RTIMU.h" open="0" top="0" tabpos="0">
 		<Cursor position="0" topLine="13" />
 	</File>
-	<File name="RTIMULib/RTIMULibDefs.h" open="1" top="0" tabpos="2">
+	<File name="RTIMULib/RTIMULibDefs.h" open="1" top="0" tabpos="3">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="RTIMULib/RTIMUMPU6050HMC5883L.cpp" open="0" top="0" tabpos="0">
@@ -19,11 +19,11 @@
 	<File name="RTIMULib/RTIMUNull.h" open="0" top="0" tabpos="2">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="autopilot.c" open="1" top="1" tabpos="6">
-		<Cursor position="5487" topLine="141" />
+	<File name="autopilot.c" open="0" top="0" tabpos="6">
+		<Cursor position="4168" topLine="174" />
 	</File>
-	<File name="autopilot.h" open="1" top="0" tabpos="8">
-		<Cursor position="942" topLine="0" />
+	<File name="autopilot.h" open="0" top="0" tabpos="8">
+		<Cursor position="680" topLine="6" />
 	</File>
 	<File name="autopilot_global_functions.c" open="0" top="0" tabpos="8">
 		<Cursor position="47" topLine="0" />
@@ -31,8 +31,8 @@
 	<File name="autopilot_global_functions.h" open="0" top="0" tabpos="9">
 		<Cursor position="108" topLine="0" />
 	</File>
-	<File name="autopilot_global_variables.h" open="1" top="0" tabpos="5">
-		<Cursor position="1100" topLine="12" />
+	<File name="autopilot_global_variables.h" open="0" top="0" tabpos="5">
+		<Cursor position="823" topLine="15" />
 	</File>
 	<File name="data_logger.c" open="0" top="0" tabpos="2">
 		<Cursor position="354" topLine="0" />

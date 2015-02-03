@@ -12,9 +12,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -52,15 +49,15 @@ include CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/osd.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/osd.c.o: src/osd.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_1)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/osd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/osd.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/osd.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c
 
 CMakeFiles/Quadcopter_.dir/src/osd.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/osd.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/osd.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c > CMakeFiles/Quadcopter_.dir/src/osd.c.i
 
 CMakeFiles/Quadcopter_.dir/src/osd.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/osd.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/osd.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c -o CMakeFiles/Quadcopter_.dir/src/osd.c.s
 
 CMakeFiles/Quadcopter_.dir/src/osd.c.o.requires:
@@ -76,15 +73,15 @@ CMakeFiles/Quadcopter_.dir/src/osd.c.o.provides.build: CMakeFiles/Quadcopter_.di
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: src/RTIMULib/RTMath.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_2)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.requires:
@@ -100,15 +97,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.provides.build: CMakeFiles/
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o: src/RTIMULib/RTIMUHal.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_3)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.requires:
@@ -124,15 +121,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.provides.build: CMakeFile
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_4)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o.requires:
@@ -148,15 +145,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompile
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_5)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c > CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o.requires:
@@ -172,15 +169,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o: src/RTIMULib/RTFusionKalman4.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_6)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o.requires:
@@ -196,15 +193,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o.provides.build: CM
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_7)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.requires:
@@ -220,15 +217,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.provides.buil
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o: src/RTIMULib/RTIMU.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_8)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o.requires:
@@ -244,15 +241,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o.provides.build: CMakeFiles/Q
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o: src/RTIMULib/RTIMUNull.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_9)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o.requires:
@@ -268,15 +265,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o.provides.build: CMakeFil
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o: src/RTIMULib/RTFusionRTQF.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_10)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o.requires:
@@ -292,15 +289,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o.provides.build: CMake
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o: src/RTIMULib/RTIMUSettings.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_11)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o.requires:
@@ -316,15 +313,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o.provides.build: CMak
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o: src/RTIMULib/RTFusion.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_12)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o.requires:
@@ -340,15 +337,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o.provides.build: CMakeFile
 CMakeFiles/Quadcopter_.dir/src/pilot.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/pilot.c.o: src/pilot.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_13)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/pilot.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/pilot.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/pilot.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c
 
 CMakeFiles/Quadcopter_.dir/src/pilot.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/pilot.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/pilot.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c > CMakeFiles/Quadcopter_.dir/src/pilot.c.i
 
 CMakeFiles/Quadcopter_.dir/src/pilot.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/pilot.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/pilot.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c -o CMakeFiles/Quadcopter_.dir/src/pilot.c.s
 
 CMakeFiles/Quadcopter_.dir/src/pilot.c.o.requires:
@@ -364,15 +361,15 @@ CMakeFiles/Quadcopter_.dir/src/pilot.c.o.provides.build: CMakeFiles/Quadcopter_.
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: src/autopilot_global_functions.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_14)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c
 
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c > CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i
 
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c -o CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s
 
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o.requires:
@@ -388,15 +385,15 @@ CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o.provides.build: CM
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o: src/BMP/Adafruit_BMP085.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_15)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp
 
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp > CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp -o CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.requires:
@@ -412,15 +409,15 @@ CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.provides.build: CMakeFi
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/data_logger.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_16)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/data_logger.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/data_logger.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/data_logger.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c
 
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/data_logger.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/data_logger.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c > CMakeFiles/Quadcopter_.dir/src/data_logger.c.i
 
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/data_logger.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/data_logger.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c -o CMakeFiles/Quadcopter_.dir/src/data_logger.c.s
 
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.requires:
@@ -436,15 +433,15 @@ CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.provides.build: CMakeFiles/Quadco
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: src/reader_global_functions.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_17)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c
 
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c > CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i
 
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c -o CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s
 
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.requires:
@@ -460,15 +457,15 @@ CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.provides.build: CMake
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/autopilot.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_18)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/autopilot.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c
 
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c > CMakeFiles/Quadcopter_.dir/src/autopilot.c.i
 
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c -o CMakeFiles/Quadcopter_.dir/src/autopilot.c.s
 
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.requires:
@@ -484,15 +481,15 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.provides.build: CMakeFiles/Quadcopt
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: src/reader.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_19)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/reader.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/reader.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/reader.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c > CMakeFiles/Quadcopter_.dir/src/reader.c.i
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c -o CMakeFiles/Quadcopter_.dir/src/reader.c.s
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.o.requires:
@@ -508,15 +505,15 @@ CMakeFiles/Quadcopter_.dir/src/reader.c.o.provides.build: CMakeFiles/Quadcopter_
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o: src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_20)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp > CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.requires:
@@ -532,15 +529,15 @@ CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o: src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_21)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp > CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.requires:
@@ -556,15 +553,15 @@ CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testma
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o: src/mavlink/pymavlink/generator/C/test/posix/testmav.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_22)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/testmav.c
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/testmav.c > CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/testmav.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.requires:
@@ -580,15 +577,15 @@ CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.
 CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o: src/mavlink/examples/linux/mavlink_udp.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_23)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/mavlink_udp.c
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/mavlink_udp.c > CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/mavlink_udp.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.requires:
@@ -604,15 +601,15 @@ CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.provides.b
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o: src/mavlink/missionlib/mavlink_parameters.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_24)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_parameters.c
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_parameters.c > CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_parameters.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.requires:
@@ -628,15 +625,15 @@ CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.provide
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o: src/mavlink/missionlib/testing/main.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_25)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/main.c
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/main.c > CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/main.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.requires:
@@ -652,15 +649,15 @@ CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.provides.buil
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o: src/mavlink/missionlib/waypoints.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_26)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/waypoints.c
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/waypoints.c > CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/waypoints.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s
 
 CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.requires:
@@ -676,15 +673,15 @@ CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.provides.build: 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/inter-thread-messages.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_27)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c
 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c > CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i
 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c -o CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s
 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.requires:
@@ -700,15 +697,15 @@ CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.provides.build: CMakeFi
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: src/global_functions.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_28)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/global_functions.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/global_functions.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c > CMakeFiles/Quadcopter_.dir/src/global_functions.c.i
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/global_functions.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/global_functions.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c -o CMakeFiles/Quadcopter_.dir/src/global_functions.c.s
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.requires:
@@ -724,15 +721,15 @@ CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.provides.build: CMakeFiles/Q
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/PID.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_29)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/PID.cpp.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/PID.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp > CMakeFiles/Quadcopter_.dir/src/PID.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/PID.cpp.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/PID.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.requires:
@@ -748,15 +745,15 @@ CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.provides.build: CMakeFiles/Quadcopter_.
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/quadcopter.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_30)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c > CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c -o CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.requires:
@@ -873,7 +870,7 @@ build/Quadcopter_: src/RTIMULib/CMakeFiles/IMU_exec.dir/RTIMUNull.cpp.o
 build/Quadcopter_: src/RTIMULib/CMakeFiles/IMU_exec.dir/RTFusion.cpp.o
 build/Quadcopter_: src/RTIMULib/CMakeFiles/IMU_exec.dir/RTMath.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/link.txt
-	@echo "Linking CXX executable build/Quadcopter_"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable build/Quadcopter_"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Quadcopter_.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
