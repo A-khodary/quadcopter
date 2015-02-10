@@ -1,5 +1,5 @@
 #include "autopilot.h"
-#include "autopilot_global_variables.h"//variables globales définies 2 fois => choisir fichier
+#include "autopilot_global_variables.h"
 
 /*
 ##############################################
@@ -10,11 +10,13 @@
 ##############################################
 */
 
-//TODO : adapter les différents PID à utiliser pour chaque mode
+// TODO : adapter les différents PID à utiliser pour chaque mode
+
+// cartesian servo-controling and if not robust enough =>composite
 
 void makeAsserv(autopilotObjective_t* autopilotObjective) {
 
-    float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD
+    float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD;
     //  TODO : use coeff defines in variables
 
     double destinationX, destinationY, destinationZ, currentPositionX,currentPositionY, currentPositionZ, x_computed, y_computed, z_computed, yaw_computed, roll_computed, pitch_computed, directionYAW, currentYAW, currentROLL, currentPITCH;
