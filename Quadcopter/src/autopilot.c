@@ -1,5 +1,5 @@
 #include "autopilot.h"
-
+#include "autopilot_global_variables.h"//variables globales définies 2 fois => choisir fichier
 
 /*
 ##############################################
@@ -105,6 +105,8 @@ void makeAsserv(autopilotObjective_t* autopilotObjective) {
 int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
     int objectiveIndex;
+    autopilotObjective_t* currentObjective;
+    autopilotObjective_t* lastObjective;
 
     pthread_mutex_lock(autopilotObjectiveFifo.readWrite);
 
@@ -120,14 +122,49 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
         return -2;
     }
 
+    // Locating last objective :
 
+    currentObjective = autopilotObjectiveFifo->firstObjective;
+    while (currentObjective->nextObjective != NULL) currentObjective = currentObjective->nextObjective;
+    lastObjective = currentObjective;
 
+     // Checking last objective priority :
 
+    if (lastObjective->priority < Objective>priority)
+    {
+        // Now we have to search the last objective corresponding to priority :
 
+        currentObjective = lastObjective;
+        while (currentObjective->previousObjective != NULL || currentObjective->priority < Objective->priority) currentObjective = currentObjective->previousObjective;
 
+        if (currentObjective->previousObjective == NULL) currentObjective->previousObjective = Objective; // We have reached the first element of the fifo
+        else // We need to insert our objective between two
+        {
+            // Preparing our objective :
+            Objective->nextObjective= currentObjective->nextObjective;
+            Objective->previousObjective = currentObjective;
 
+            // Inserting it :
+            currentObjective->nextObjective->previousObjective = Objective;
+            currentObjective->nextObjective = Objective;
+        }
 
+    }
+    else
+    {
+        // Preparing our Objective :
+        Objective->previousObjective = lastObjective;
+        Objective->nextObjective = NULL;
 
+        // Inserting it :
+        lastObjective->nextObjective = Objective;
+    }
+
+        autopilotObjectiveFifo.numberOfObjectivesPending++;
+        pthread_mutex_unlock(autopilotObjectiveFifo.readWrite);
+
+        return 1;
+}
 
 }
 /* Return summary :
@@ -138,6 +175,8 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
 
 */
 
+<<<<<<< HEAD
+=======
 // TODO Servo controlling functions
 
 servoControl_t buildServoControl(autopilotObjective_t autopilotObjective)
@@ -218,41 +257,99 @@ servoControl_t buildServoControl(autopilotObjective_t autopilotObjective)
 
 // TODO FIFO Management functions
 
+>>>>>>> origin/master
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
+    autopilotObjective_t* currentObjective;
 
+    if (AUTOPILOT_OBJECTIVE_FIFO_SIZE<objectiveNumber*sizeof(autopilotObjective_t))
+    {
+        printDebug("[e] Autopilot : not as many objectives as asked");
+        return -1;
+    }
+
+   else
+   {
+       if (objectiveNumber == 1)  removeCurrentObjective(autopilotObjectiveFifo);
+       else
+    {
+        currentObjective = &autopilotObjectiveFifo + objectiveNumber*sizeof(autopilotObjective_t);
+       currentObjective->nextObjective->previousObjective = currentObjective->previousObjective;
+       currentObjective->previousObjective->nextObjective = currentObjective->nextObjective;
+       currentObjective->previousObjective = NULL;
+       currentObjective->nextObjective = NULL;
+       autopilotObjectiveFifo.numberOfObjectivesPending--;
+   }
 }
 
 int flushFifo(autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
+     if (autopilotObjectiveFifo.numberOfObjectivesPending !=0)
+     {
 
+         autopilotObjective_t* currentObjective;
+         autopilotObjective_t* nextCurrentObjective;
 
+         currentObjective =  autopilotObjectiveFifo->firstObjective;
+
+         for (i=0,i< autopilotObjectiveFifo.numberOfObjectivesPending*sizeof(autopilotObjective_t),i++)
+         {
+            nextCurrentObjective = currentObjective->nextObjective;
+            currentObjective->previousObjective = NULL;
+            currentObjective->nextObjective = NULL;
+            currentObjective = nextCurrentObjective;
+            autopilotObjectiveFifo.numberOfObjectivesPending--;
+         }
+         autopilotObjectiveFifo->firstObjective = NULL;
+         autopilotObjectiveFifo.currentObjectivePriority = 0;
+         return 1;
+     }
+     else return -1;
 }
 
 autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
 {
-
+    return autopilotObjectiveFifo->firstObjective;
 }
 
 
 int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
-
+      autopilotObjective_t objective;
+      objective = autopilotObjectiveFifo->firstObjective->previousObjective;
+      autopilotObjectiveFifo->firstObjective->previousObjective->nextObjective = NULL;
+      autopilotObjectiveFifo->firstObjective->previousObjective = NULL;
+      autopilotObjectiveFifo->firstObjective = objective;
+      autopilotObjectiveFifo.numberOfObjectivesPending--;
+      autopilotObjectiveFifo.currentObjectivePriority = autopilotObjectiveFifo->firstObjective.priority;
+      return 1;
 }
 
 
 autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
-
+   if (AUTOPILOT_OBJECTIVE_FIFO_SIZE<objectiveNumber*sizeof(autopilotObjective_t)) printDebug("[e] Autopilot : not as many objectives as asked");
+   else return &autopilotObjectiveFifo + objectiveNumber*sizeof(autopilotObjective_t);
 }
 
 
 autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
+    autopilotObjective_t* currentObjective;
+    currentObjective = autopilotObjectiveFifo->firstObjective;
 
+    for (i=0,i< autopilotObjectiveFifo.numberOfObjectivesPending*sizeof(autopilotObjective_t)+1,i++)
+    {
+        if(currentObjective.name == objectiveName)
+        {
+            return currentObjective;
+        }
+        else
+        {
+            currentObjective = currentObjective->previousObjective;
+        }
+    }
 }
-
-// End of TODO section
 
 
 void* autopilotHandler(void* arg)
@@ -359,7 +456,7 @@ void* autopilotHandler(void* arg)
         }
 
 
-       currentObjective = readCurrentObjective()
+       currentObjective = readCurrentObjective();
 
 
         while () // This loop iterates after each ITMhandler execution and calculation
