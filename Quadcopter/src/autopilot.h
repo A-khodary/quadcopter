@@ -8,7 +8,7 @@
 
 // Some component defines :
 
-#define AUTOPILOT_REFRESHING_PERIOD 100
+#define AUTOPILOT_REFRESHING_PERIOD 100 //us
 
 // Some PID coefficient defines :
 
@@ -45,8 +45,8 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 int flushFifoObjective(autopilotOjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
 int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 
