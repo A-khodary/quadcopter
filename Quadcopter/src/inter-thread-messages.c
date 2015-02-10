@@ -19,10 +19,16 @@ handler_t* initializeHandler()
     return handler;
 }
 
-int sendMessage(handler_t* handler, message_t* message)
+int sendMessage(handler_t* handler, message_t messageByValues)
 {
     message_t* currentMessage;
     message_t* lastMessage;
+
+    // Dynamic copy of the parameter :
+
+    message_t* message = malloc(sizeof(message_t));
+    *message = messageByValues;
+
 
     if (!handler->handlerInitialized) return -1; // Not initialized : returning -1
 

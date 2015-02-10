@@ -146,6 +146,16 @@ while(1)
 
     // TODO handling message :
 
+    /* Handling message documentation :
+
+    autopilot_init
+    autopilot_end_init
+    autopilot_objective_file_not_found
+
+
+
+    */
+
 
     //
 }

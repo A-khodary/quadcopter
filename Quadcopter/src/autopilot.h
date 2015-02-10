@@ -53,6 +53,7 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
 // Servo controlling prototypes :
 
 servoControl_t buildServoControl(autopilotObjective_t autopilotObjective);
+double updateServoControl(oneWayServoControl);
 
 
 

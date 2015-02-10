@@ -170,7 +170,7 @@
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
 		<Unit filename="reader.h">
-			<Option virtualFolder="Components/Sources/" />
+			<Option virtualFolder="Components/Headers/" />
 		</Unit>
 		<Unit filename="reader_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
