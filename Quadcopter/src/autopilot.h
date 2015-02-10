@@ -49,6 +49,8 @@ int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+void initCalculation(autopilotObjective_t* autopilotObjective);
+void updateCalculation(autopilotObjective_t* autopilotObjective);
 
 // Servo controlling prototypes :
 

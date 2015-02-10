@@ -175,8 +175,7 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
 
 */
 
-<<<<<<< HEAD
-=======
+
 // TODO Servo controlling functions
 
 servoControl_t buildServoControl(autopilotObjective_t autopilotObjective)
@@ -257,7 +256,7 @@ servoControl_t buildServoControl(autopilotObjective_t autopilotObjective)
 
 // TODO FIFO Management functions
 
->>>>>>> origin/master
+
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
@@ -350,6 +349,23 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
         }
     }
 }
+
+
+void initCalculation(autopilotObjective_t* autopilotObjective)
+{
+
+
+}
+
+void updateCalculation(autopilotObjective_t* autopilotObjective)
+{
+
+
+}
+
+
+
+
 
 
 void* autopilotHandler(void* arg)
