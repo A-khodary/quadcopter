@@ -11,7 +11,7 @@ typedef struct  flightStateShared {
 
 
 
-typedef struct rawPositionShared {
+typedef struct rawPositionShared_t {
 
     double latitude;
     double longitude;
@@ -21,7 +21,7 @@ typedef struct rawPositionShared {
 
 }rawPositionShared_t;
 
-typedef struct positionShared { // Position from home
+typedef struct positionShared_t { // Position from home
 
     double x;
     double y;
@@ -31,6 +31,17 @@ typedef struct positionShared { // Position from home
 
 }positionShared_t;
 
+typedef struct homePosition_t { // Position of home in the 1866 Clark ellipsoid format
+
+
+    double x;
+    double y;
+
+    double latitude; // in °
+    double longitude; // in °
+
+}homePosition_t;
+
 
 
 // Global variables declaration
@@ -39,5 +50,6 @@ extern flightStateShared_t quadcopterFlightStateShared;
 extern rawPositionShared_t quadcopteRawPositionShared;
 extern positionShared_t quadcopterPositionShared;
 extern rawPositionShared_t homeRawPosition;
+extern homePosition_t homePosition;
 
 

@@ -11,3 +11,6 @@ typedef struct bidirectionalHandler_t
     handler_t* componentITMHandler;
 }birectionnalHandler_t;
 
+//Projecting from Lat/Long to XY function :
+
+void convertToxy(double* x, double* y, double latitude, double longitude);
