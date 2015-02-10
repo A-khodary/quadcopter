@@ -5,7 +5,7 @@
 		<Option title="Quadcopter" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Components/;Shared ressources/;Components/Sources/;Components/Headers/;Components/Headers/AUTOPILOT/;Components/Headers/PILOT/;Shared ressources/Sources/;Shared ressources/Headers/;Components/Headers/IMU/;Components/Sources/IMU/;Components/Sources/AUTOPILOT/;" />
+		<Option virtualFolders="Components/;Shared ressources/;Components/Sources/;Components/Sources/Headers/;Shared ressources/Sources/;Shared ressources/Headers/;Components/Sources/IMU/;Components/Sources/AUTOPILOT/;Components/Sources/Headers/AUTOPILOT/;Components/Sources/Headers/IMU/;Components/Sources/Headers/PILOT/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Quadcopter" prefix_auto="1" extension_auto="1" />
@@ -36,74 +36,74 @@
 			<Option virtualFolder="Components/Sources/AUTOPILOT/" />
 		</Unit>
 		<Unit filename="PID.h">
-			<Option virtualFolder="Components/Headers/AUTOPILOT/" />
+			<Option virtualFolder="Components/Sources/Headers/AUTOPILOT/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTFusion.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTFusion.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTFusionKalman4.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTFusionKalman4.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTFusionRTQF.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTFusionRTQF.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMU.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMU.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMUHal.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMUHal.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMULib.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMULibDefs.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMUMPU6050HMC5883L.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMUMPU6050HMC5883L.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMUNull.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMUNull.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMUSettings.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTIMUSettings.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTMath.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/RTMath.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="autopilot.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Components/Sources/AUTOPILOT/" />
 		</Unit>
 		<Unit filename="autopilot.h">
-			<Option virtualFolder="Components/Headers/AUTOPILOT/" />
+			<Option virtualFolder="Components/Sources/Headers/AUTOPILOT/" />
 		</Unit>
 		<Unit filename="autopilot_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
@@ -113,7 +113,7 @@
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
 		<Unit filename="data_logger.h">
-			<Option virtualFolder="Components/Headers/" />
+			<Option virtualFolder="Components/Sources/Headers/" />
 		</Unit>
 		<Unit filename="data_logger_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
@@ -126,7 +126,7 @@
 			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>
 		<Unit filename="imu.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="imu_globals_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
@@ -138,23 +138,22 @@
 		<Unit filename="inter-thread-messages.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>
-		<Unit filename="main.h" />
 		<Unit filename="osd.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
 		<Unit filename="osd.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
+			<Option virtualFolder="Components/Sources/Headers/IMU/" />
 		</Unit>
 		<Unit filename="pca9685.h">
-			<Option virtualFolder="Components/Headers/PILOT/" />
+			<Option virtualFolder="Components/Sources/Headers/PILOT/" />
 		</Unit>
 		<Unit filename="pilot.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
 		<Unit filename="pilot.h">
-			<Option virtualFolder="Components/Headers/PILOT/" />
+			<Option virtualFolder="Components/Sources/Headers/PILOT/" />
 		</Unit>
 		<Unit filename="pilot_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />

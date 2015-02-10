@@ -41,7 +41,7 @@ typedef struct handler_t
 // Functions declarations :
 
 handler_t* initializeHandler();
-int sendMessage(handler_t* Handler, message_t* message);
+int sendMessage(handler_t* Handler, message_t message);
 message_t* retrieveMessage(handler_t* Handler);
 
 #endif
