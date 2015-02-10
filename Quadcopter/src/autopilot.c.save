@@ -176,6 +176,7 @@ void* autopilotHandler(void* arg)
     else
     {
         
+        fclose(writtenObjectives);
     }
 
 
