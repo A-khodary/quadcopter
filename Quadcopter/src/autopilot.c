@@ -353,6 +353,10 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
 
 void initCalculation(autopilotObjective_t* autopilotObjective)
 {
+    double x;
+    double y;
+
+
 
 
 }
