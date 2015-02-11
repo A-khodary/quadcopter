@@ -6,6 +6,10 @@
 #include "autopilot_global_functions.h"
 #include "imu_globals_variables.h"
 
+// Some component defines :
+
+#define AUTOPILOT_REFRESHING_PERIOD 100 //us
+#define MESSAGE_CHECKING_LIMIT 200000 // in loop 
 
 // Some PID coefficient defines :
 
@@ -22,13 +26,38 @@
 #define LANDTAKEOFFYAMPI 1
 #define LANDTAKEOFFYAWPD 1
 
-#define OBJECTIVES_PATH 
+// Objective text file list path :
 
+#define OBJECTIVES_PATH objectives.txt
+
+// Fifo managing functions prototypes :
 
 void trajAsserv(autopilotObjective_t* autopilotObjective);
 void * autopilotHandler(void * arg);
 
-typedef struct autopilotObjectiveFifo
+int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int flushFifoObjective(autopilotOjectiveFifo_t autopilotObjectiveFifo);
+int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+
+// Servo controlling prototypes :
+
+servoControl_t buildServoControl(autopilotObjective_t autopilotObjective);
+double updateServoControl(oneWayServoControl);
+
+// Objective calculations prototypes :
+
+int initCalculation(autopilotObjective_t* autopilotObjective);
+void updateCalculation(autopilotObjective_t* autopilotObjective);
+
+
+// Structures declarations :
+
+typedef struct autopilotObjectiveFifo_t
 {
     autopilotObjective* ObjectiveFifo[AUTOPILOT_OBJECTIVE_FIFO_SIZE];
 
@@ -36,9 +65,25 @@ typedef struct autopilotObjectiveFifo
     int numberOfObjectivesPending;
     autopilotObjective_t firstObjective;
 
-    pthread_mutex_t readWrite;
-
 }autopilotObjectiveFifo_t;
+
+
+typedef struct oneWayServoControl
+{
+    char type[32];
+    double consign;
+    float kp;
+    float ki;
+    float kd;
+
+}oneWayServoControl;
+
+typedef struct servoControl_t
+{
+    int oneWayNumber;
+    oneWayServoControl* ServoControlData;
+
+}servoControl_t;
 
 
 #endif

@@ -29,7 +29,7 @@ typedef struct autopilotObjective_t
     double destinationX;
     double destinationY;
     double destinationZ;
-    double directionYAW;//direction de l'objectif
+    double directionBearing;//direction de l'objectif
 
     double destinationLat;
     double destinationLong;

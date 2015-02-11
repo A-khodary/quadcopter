@@ -19,7 +19,5 @@ typedef struct bidirectionalHandler_t
 
 int convertPlanar(double* x, double* y, double latitude, double longitude);
 int convertPlanarToHome(double* x, double* y, double latitude, double longitude);
-<<<<<<< HEAD
-=======
+
 double calculateBearing(double positionX, double positionY, double destinationX, double destinationY) // returns the necessary bearing to meet objective in degrees
->>>>>>> origin/master

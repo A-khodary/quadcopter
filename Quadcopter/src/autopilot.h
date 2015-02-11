@@ -9,6 +9,7 @@
 // Some component defines :
 
 #define AUTOPILOT_REFRESHING_PERIOD 100 //us
+#define MESSAGE_CHECKING_LIMIT 200000 // in loop iterations : will be implemented as a timer in the future
 
 // Some PID coefficient defines :
 
@@ -43,13 +44,15 @@ autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObj
 autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 
-void updateCalculation(autopilotObjective_t* autopilotObjective);
-
 // Servo controlling prototypes :
 
 servoControl_t buildServoControl(autopilotObjective_t autopilotObjective);
 double updateServoControl(oneWayServoControl);
 
+// Objective calculations prototypes :
+
+int initCalculation(autopilotObjective_t* autopilotObjective);
+void updateCalculation(autopilotObjective_t* autopilotObjective);
 
 
 // Structures declarations :

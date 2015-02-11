@@ -353,7 +353,7 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
 }
 
 
-<<<<<<< HEAD
+
 int initCalculation(autopilotObjective_t* autopilotObjective)
 {
     if(convertPlanar(&autopilotObjective->destinationX, &autopilotObjective->destinationY, autopilotObjective->destinationLat, autopilotObjective->destinationLong))
@@ -367,19 +367,18 @@ int initCalculation(autopilotObjective_t* autopilotObjective)
 
 }
 // does the first bearing calculation and projections
-=======
 
->>>>>>> origin/master
 
 void updateCalculation(autopilotObjective_t* autopilotObjective)
 {
-    autopilotObjective->
+    // Locking the position relative mutex :
+    pthread_mutex_lock(&positionShared.readWriteMutex);
 
+    autopilotObjective->directionBearing = calculateBearing(positionShared.x, positionShared.y, autopilotObjective->destinationX, autopilotObjective->destinationY);
 
-
-
-
-}
+    //Now we're done, unlocking mutex :
+    pthread_mutex_unlock(&positionShared.readWriteMutex);
+} // For just computes the bearing, will modify max_speed in the future relative to distance to objective
 
 
 
@@ -406,6 +405,8 @@ void* autopilotHandler(void* arg)
 
     currentMessage.message = "autopilot_init"
     currentMessage.priority = 20;
+
+    int tickCounter=0;
 
     //Send init message to main
     sendMessage(mainITMHandler, currentMessage);
@@ -491,12 +492,15 @@ void* autopilotHandler(void* arg)
 
 
        currentObjective = readCurrentObjective();
+       initCalculation(currentObjective);
 
 
         while () // This loop iterates after each ITMhandler execution and calculation
         {
             if(tickCounter == MESSAGE_CHECKING_LIMIT)
             {
+                tickCounter=0;
+
                 receivedMessage = retrieveMessage(autopilotITMHandler);
                 if (receivedMessage != NULL)
                 {
@@ -535,8 +539,10 @@ void* autopilotHandler(void* arg)
 
             else
             {
+                tickCounter++;
                 usleep(AUTOPILOT_REFRESHING_PERIOD);
             }
+            // Calculation Area
 
 
         }
