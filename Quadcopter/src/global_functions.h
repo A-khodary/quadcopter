@@ -13,4 +13,5 @@ typedef struct bidirectionalHandler_t
 
 //Projecting from Lat/Long to XY function :
 
-void convertToxy(double* x, double* y, double latitude, double longitude);
+int convertPlanar(double* x, double* y, double latitude, double longitude);
+int convertPlanarToHome(double* x, double* y, double latitude, double longitude);
