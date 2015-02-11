@@ -353,18 +353,13 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
 }
 
 
-void initCalculation(autopilotObjective_t* autopilotObjective)
-{
-    double x;
-    double y;
 
-
-
-
-}
 
 void updateCalculation(autopilotObjective_t* autopilotObjective)
 {
+    autopilotObjective->
+
+
 
 
 }
