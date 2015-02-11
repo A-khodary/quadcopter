@@ -353,6 +353,7 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
 }
 
 
+<<<<<<< HEAD
 int initCalculation(autopilotObjective_t* autopilotObjective)
 {
     if(convertPlanar(&autopilotObjective->destinationX, &autopilotObjective->destinationY, autopilotObjective->destinationLat, autopilotObjective->destinationLong))
@@ -366,9 +367,15 @@ int initCalculation(autopilotObjective_t* autopilotObjective)
 
 }
 // does the first bearing calculation and projections
+=======
+
+>>>>>>> origin/master
 
 void updateCalculation(autopilotObjective_t* autopilotObjective)
 {
+    autopilotObjective->
+
+
 
 
 
