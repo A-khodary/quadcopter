@@ -29,13 +29,6 @@
 
 #define OBJECTIVES_PATH objectives.txt
 
-// Some mode defines :
-
-#define GOTO_STANDARD 1
-#define LAND_TAKEOFF 2
-#define GOTO_OVERING 3
-#define POSITION_HOLD 4
-
 // Fifo managing functions prototypes :
 
 void trajAsserv(autopilotObjective_t* autopilotObjective);
