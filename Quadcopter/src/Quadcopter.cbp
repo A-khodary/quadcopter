@@ -38,6 +38,13 @@
 		<Unit filename="PID.h">
 			<Option virtualFolder="Components/Headers/AUTOPILOT/" />
 		</Unit>
+		<Unit filename="RTIMULib/BMP085.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/IMU/" />
+		</Unit>
+		<Unit filename="RTIMULib/BMP085.h">
+			<Option virtualFolder="Components/Headers/IMU/" />
+		</Unit>
 		<Unit filename="RTIMULib/RTFusion.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
@@ -98,6 +105,10 @@
 		<Unit filename="RTIMULib/RTMath.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
+		<Unit filename="RTIMULib/testBMP085.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/IMU/" />
+		</Unit>
 		<Unit filename="autopilot.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Components/Sources/AUTOPILOT/" />
@@ -137,9 +148,6 @@
 		</Unit>
 		<Unit filename="inter-thread-messages.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
-		</Unit>
-		<Unit filename="main.h">
-			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
 		<Unit filename="osd.c">
 			<Option compilerVar="CC" />
