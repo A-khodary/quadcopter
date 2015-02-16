@@ -182,6 +182,8 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
 
 servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
 {
+    int i,j;
+
     if (autopilotObjective == NULL)
     {
         printDebug("The autopilot objective passed to buildServoControl was NULL");
@@ -200,6 +202,8 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
 
         currentServoControl->oneWayNumber = 4;
         currentServoControl->ServoControlData = (malloc(4*sizeof(oneWayServoControl));
+
+        // Basic initialization of commands :
         currentServoControl->ServoControlData[0]->type="x";
         currentServoControl->ServoControlData[1]->type="y";
         currentServoControl->ServoControlData[2]->type="z";
@@ -217,57 +221,73 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
         currentServoControl->ServoControlData[2]->consign = autopilotObjective->destinationZ;
         currentServoControl->ServoControlData[3]->consign = 0; // For now, we set landing/takeoff heading to north //TODO : improve
 
+        for (i=0 ; i < currentServoControl->oneWayNumber ; i++)
+        {
 
-        currentServoControl->ServoControlData[0]->kp = landTakeoffXP;
-        currentServoControl->ServoControlData[0]->kd = landTakeoffXPD;
-        currentServoControl->ServoControlData[0]->ki = landTakeoffXPI;
+            for (j=0 ; j < 3 ; j++)
+            {
+                // Filling-in coefficients :
+                if (j==0) currentServoControl->servoControlData[i]->kp = landTakeOffCoeff[i][j];
+                if (j==1) currentServoControl->servoControlData[i]->kd = landTakeOffCoeff[i][j];
+                if (j==2) currentServoControl->servoControlData[i]->ki = landTakeOffCoeff[i][j];
 
+            }
 
-        currentServoControl->ServoControlData[1]->kp = landTakeoffYP;
-        currentServoControl->ServoControlData[1]->kd = landTakeoffYPD;
-        currentServoControl->ServoControlData[1]->ki = landTakeoffYPI;
+            // Creating the PID instance :
+            currentServoControl->servoControlData[i]->pid = new PID(currentServoControl->servoControlData[i]->kp, currentServoControl->servoControlData[i]->ki, currentServoControl->servoControlData[i]->kd);
 
-
-        currentServoControl->ServoControlData[2]->kp = landTakeoffZP;
-        currentServoControl->ServoControlData[2]->kd = landTakeoffZPD;
-        currentServoControl->ServoControlData[2]->ki = landTakeoffZPI;
-
-        currentServoControl->ServoControlData[3]->kp = landTakeoffZP;
-        currentServoControl->ServoControlData[3]->kd = landTakeoffZPD;
-        currentServoControl->ServoControlData[3]->ki = landTakeoffZPI;
-
-        currentServoControl->ServoControlData[0]->pid = new PID(currentServoControl->ServoControlData[0]->kp, currentServoControl->ServoControlData[1]->ki, currentServoControl->ServoControlData[0]->kd);
-
-
+        }
 
 
         break;
 
     case GOTO_STANDARD: //mode GOTO_STANDARD
 
-        PID x_pid(2,0,0), y_pid(2,0,0), z_pid(2,0,0), yaw_pid(2,0,0);// coefficients à trouver empiriquement
-    ,
-        currentPositionX = positionShared.x;
-        currentPositionY = positionShared.y;
-        currentPositionZ = positionShared.z;
-        currentYAW =  flightStateShared.yaw;
-        currentROLL =  flightStateShared.roll;
-        currentPITCH =  flightStateShared.pitch;
+        currentServoControl->oneWayNumber = 2;
+        currentServoControl->ServoControlData = (malloc(2*sizeof(oneWayServoControl));
 
-        destinationX = autopilotObjective.destinationX;
-        destinationY = autopilotObjective.destinationY;
-        destinationZ = autopilotObjective.destinationZ;
-        directionYAW = autopilotObjective.directionYAW;
+        // Basic initialization of commands :
+        currentServoControl->ServoControlData[0]->type="x";
+        currentServoControl->ServoControlData[1]->type="y";
+        currentServoControl->ServoControlData[2]->type="z";
+        currentServoControl->ServoControlData[3]->type="yaw";
 
-        x_computed = x_pid.compute(currentPositionX, destinationX);
-        y_computed = y_pid.compute(currentPositionY, destinationY);
-        z_computed = z_pid.compute(currentPositionZ, destinationZ);
-        yaw_computed = yaw_pid.compute(currentYAW,  directionYAW);
+        //locking position mutex in order to get position
+        pthread_mutex_lock(&positionShared->readWriteMutex);
+
+        currentServoControl->ServoControlData[0]->consign = positionShared->x;
+        currentServoControl->ServoControlData[1]->consign = positionShared->y;
+
+        //Unlocking mutex now we don't need the position anymore :
+        pthread_mutex_unlock(&positionShared->readWriteMutex);
+
+        currentServoControl->ServoControlData[2]->consign = autopilotObjective->destinationZ;
+        currentServoControl->ServoControlData[3]->consign = 0; // For now, we set landing/takeoff heading to north //TODO : improve
+
+        for (i=0 ; i < currentServoControl->oneWayNumber ; i++)
+        {
+
+            for (j=0 ; j < 3 ; j++)
+            {
+                // Filling-in coefficients :
+                if (j==0) currentServoControl->servoControlData[i]->kp = landTakeOffCoeff[i][j];
+                if (j==1) currentServoControl->servoControlData[i]->kd = landTakeOffCoeff[i][j];
+                if (j==2) currentServoControl->servoControlData[i]->ki = landTakeOffCoeff[i][j];
+
+            }
+
+            // Creating the PID instance :
+            currentServoControl->servoControlData[i]->pid = new PID(currentServoControl->servoControlData[i]->kp, currentServoControl->servoControlData[i]->ki, currentServoControl->servoControlData[i]->kd);
+
+        }
+
 
         break;
 
     case GOTO_HOVERING : //mode GOTO_HOVERING
 
+       /*
+
         PID x_pid(2,0,0), y_pid(2,0,0), z_pid(2,0,0), yaw_pid(2,0,0);// coefficients à trouver empiriquement
 
         currentPositionX = positionShared.x;
@@ -286,6 +306,9 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
         y_computed = y_pid.compute(currentPositionY, destinationY);
         z_computed = z_pid.compute(currentPositionZ, destinationZ);
         yaw_computed = yaw_pid.compute(currentYAW,  directionYAW);
+
+
+        */
 
         break;
 
@@ -293,11 +316,13 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
 
         break;
 
-    default : // mode POSITION_HOLD par défault
+    default : // Notify the objective is not recognize
 
 
         break;
     }
+
+
 
 }
 
@@ -470,21 +495,21 @@ void* autopilotHandler(void* arg)
     gotoStandardCoeff[2][3];
 
 
-    landTakeoffXP=LANDTAKEOFFXP;
-    landTakeoffXPD=LANDTAKEOFFXPD;
-    landTakeoffXPI=LANDTAKEOFFXPI;
+    landTakeoff[0][0]=LANDTAKEOFFXP;
+    landTakeoffXPD[0][1]=LANDTAKEOFFXPD;
+    landTakeoffXPI[0][2]=LANDTAKEOFFXPI;
 
-    landTakeoffYP=LANDTAKEOFFYP;
-    landTakeoffYPD=LANDTAKEOFFYPD;
-    landTakeoffYPI=LANDTAKEOFFYPI;
+    landTakeoffYP[1][0]=LANDTAKEOFFYP;
+    landTakeoffYPD[1][1]=LANDTAKEOFFYPD;
+    landTakeoffYPI[1][2]=LANDTAKEOFFYPI;
 
-    landTakeoffZP=LANDTAKEOFFZP;
-    landTakeoffZPD=LANDTAKEOFFZPD;
-    landTakeoffZPI=LANDTAKEOFFZPI;
+    landTakeoffZP[2][0]=LANDTAKEOFFZP;
+    landTakeoffZPD[2][1]=LANDTAKEOFFZPD;
+    landTakeoffZPI[2][2]=LANDTAKEOFFZPI;
 
-    landTakeoffYawP=LANDTAKEOFFYAWP;
-    landTakeoffYawPD=LANDTAKEOFFYAWPD;
-    landTakeoffYawPI=LANDTAKEOFFYAWPI;
+    landTakeoffYawP[3][0]=LANDTAKEOFFYAWP;
+    landTakeoffYawPD[3][1]=LANDTAKEOFFYAWPD;
+    landTakeoffYawPI[3][2]=LANDTAKEOFFYAWPI;
 
     //TODO : the same for the other modes
 
