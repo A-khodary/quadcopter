@@ -110,8 +110,6 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
     autopilotObjective_t* currentObjective;
     autopilotObjective_t* lastObjective;
 
-    pthread_mutex_lock(autopilotObjectiveFifo.readWrite);
-
     if (autopilotObjectiveFifo.isFifoInitialized != 1)
     {
         printDebug("[e] Autopilot : attempting to insert objective in a non initialized Objective FIFO");
@@ -163,8 +161,6 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
     }
 
         autopilotObjectiveFifo.numberOfObjectivesPending++;
-        pthread_mutex_unlock(autopilotObjectiveFifo.readWrite);
-
         return 1;
 }
 
