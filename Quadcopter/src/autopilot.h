@@ -5,6 +5,7 @@
 #include "autopilot_global_variables.h"
 #include "autopilot_global_functions.h"
 #include "imu_globals_variables.h"
+#include "PID.h"
 
 // Some component defines :
 
@@ -35,6 +36,8 @@
 void trajAsserv(autopilotObjective_t* autopilotObjective);
 void * autopilotHandler(void * arg);
 
+//TODO : add all the required freeing features :
+
 int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
@@ -44,10 +47,12 @@ autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObj
 autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 
+
 // Servo controlling prototypes :
 
-servoControl_t buildServoControl(autopilotObjective_t autopilotObjective);
-double updateServoControl(oneWayServoControl);
+servoControl_t* buildServoControl(autopilotObjective_t autopilotObjective);
+void updateServoControl(servoControl_t servoControl);
+void freeServoControl(servoControl_t*);
 
 // Objective calculations prototypes :
 
@@ -75,6 +80,8 @@ typedef struct oneWayServoControl
     float kp;
     float ki;
     float kd;
+
+    PID pid;
 
 }oneWayServoControl;
 

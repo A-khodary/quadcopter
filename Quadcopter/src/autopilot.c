@@ -180,19 +180,65 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
 
 // TODO Servo controlling functions
 
-servoControl_t buildServoControl(autopilotObjective_t autopilotObjective)
+servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
 {
-    servoControl_t currentServoControl;
+    if (autopilotObjective == NULL)
+    {
+        printDebug("The autopilot objective passed to buildServoControl was NULL");
+        return NULL
+    }
+
+    servoControl_t* currentServoControl;
+    currentServoControl = (servoControl_t)malloc(sizeof(servoControl_t));
 
 
-    switch(autopilotObjective.code)
+
+    switch(autopilotObjective->code)
     {
 
     case LAND_TAKEOFF : //mode  LAND_TAKEOFF
 
-        currentServoControl.oneWayNumber = 3;
-        currentServoControl.ServoControlData = (malloc(3*sizeof(oneWayServoControl));
-        currentServoControl.ServoControlData[0].type=
+        currentServoControl->oneWayNumber = 4;
+        currentServoControl->ServoControlData = (malloc(4*sizeof(oneWayServoControl));
+        currentServoControl->ServoControlData[0]->type="x";
+        currentServoControl->ServoControlData[1]->type="y";
+        currentServoControl->ServoControlData[2]->type="z";
+        currentServoControl->ServoControlData[3]->type="yaw";
+
+        //locking position mutex in order to get position
+        pthread_mutex_lock(&positionShared->readWriteMutex);
+
+        currentServoControl->ServoControlData[0]->consign = positionShared->x;
+        currentServoControl->ServoControlData[1]->consign = positionShared->y;
+
+        //Unlocking mutex now we don't need the position anymore :
+        pthread_mutex_unlock(&positionShared->readWriteMutex);
+
+        currentServoControl->ServoControlData[2]->consign = autopilotObjective->destinationZ;
+        currentServoControl->ServoControlData[3]->consign = 0; // For now, we set landing/takeoff heading to north //TODO : improve
+
+
+        currentServoControl->ServoControlData[0]->kp = landTakeoffXP;
+        currentServoControl->ServoControlData[0]->kd = landTakeoffXPD;
+        currentServoControl->ServoControlData[0]->ki = landTakeoffXPI;
+
+
+        currentServoControl->ServoControlData[1]->kp = landTakeoffYP;
+        currentServoControl->ServoControlData[1]->kd = landTakeoffYPD;
+        currentServoControl->ServoControlData[1]->ki = landTakeoffYPI;
+
+
+        currentServoControl->ServoControlData[2]->kp = landTakeoffZP;
+        currentServoControl->ServoControlData[2]->kd = landTakeoffZPD;
+        currentServoControl->ServoControlData[2]->ki = landTakeoffZPI;
+
+        currentServoControl->ServoControlData[3]->kp = landTakeoffZP;
+        currentServoControl->ServoControlData[3]->kd = landTakeoffZPD;
+        currentServoControl->ServoControlData[3]->ki = landTakeoffZPI;
+
+        currentServoControl->ServoControlData[0]->pid = new PID(currentServoControl->ServoControlData[0]->kp, currentServoControl->ServoControlData[1]->ki, currentServoControl->ServoControlData[0]->kd);
+
+
 
 
         break;
@@ -255,6 +301,10 @@ servoControl_t buildServoControl(autopilotObjective_t autopilotObjective)
 
 }
 
+servoControl_t freeServoControl(autopilotObjective_t autopilotObjective)
+{
+
+}
 
 // TODO FIFO Management functions
 
@@ -281,6 +331,7 @@ int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_
        currentObjective->nextObjective = NULL;
        autopilotObjectiveFifo.numberOfObjectivesPending--;
    }
+    }
 }
 
 int flushFifo(autopilotObjectiveFifo_t autopilotObjectiveFifo)
@@ -403,10 +454,39 @@ void* autopilotHandler(void* arg)
     message_t receivedMessage;
     message_t currentMessage;
 
+    servoControl_t currentServoControl;
+    currentServoControl.oneWayNumber = 0;
+    currentServoControl.
+
     currentMessage.message = "autopilot_init"
     currentMessage.priority = 20;
 
     int tickCounter=0;
+
+    // Coefficients definitions :
+
+    landTakeOffCoeff[4][3];
+    gotoHoverCoeff[4][3];
+    gotoStandardCoeff[2][3];
+
+
+    landTakeoffXP=LANDTAKEOFFXP;
+    landTakeoffXPD=LANDTAKEOFFXPD;
+    landTakeoffXPI=LANDTAKEOFFXPI;
+
+    landTakeoffYP=LANDTAKEOFFYP;
+    landTakeoffYPD=LANDTAKEOFFYPD;
+    landTakeoffYPI=LANDTAKEOFFYPI;
+
+    landTakeoffZP=LANDTAKEOFFZP;
+    landTakeoffZPD=LANDTAKEOFFZPD;
+    landTakeoffZPI=LANDTAKEOFFZPI;
+
+    landTakeoffYawP=LANDTAKEOFFYAWP;
+    landTakeoffYawPD=LANDTAKEOFFYAWPD;
+    landTakeoffYawPI=LANDTAKEOFFYAWPI;
+
+    //TODO : the same for the other modes
 
     //Send init message to main
     sendMessage(mainITMHandler, currentMessage);
@@ -493,6 +573,7 @@ void* autopilotHandler(void* arg)
 
        currentObjective = readCurrentObjective();
        initCalculation(currentObjective);
+       ini
 
 
         while () // This loop iterates after each ITMhandler execution and calculation

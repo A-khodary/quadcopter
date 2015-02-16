@@ -56,7 +56,12 @@ typedef struct autopilotSharedState
 
 // Global variables declarations
 
-extern float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD;// PID coefficients for Land/Takeoff
+
+extern float landTakeOffCoeff[4][3]; // PID coefficients for Land/Takeoff
+extern float gotoStandardCoeff[2][3]; // PID coefficients for goto_standard
+extern float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
+
+
 extern autopilotSharedState_t autopilotSharedState;
 
 
