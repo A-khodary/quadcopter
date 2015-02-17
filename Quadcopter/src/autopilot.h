@@ -31,10 +31,12 @@
 
 #define OBJECTIVES_PATH objectives.txt
 
+
+
+void * autopilotHandler(void * arg);
+
 // Fifo managing functions prototypes :
 
-void trajAsserv(autopilotObjective_t* autopilotObjective);
-void * autopilotHandler(void * arg);
 
 //TODO : add all the required freeing features :
 
@@ -76,10 +78,10 @@ typedef struct autopilotObjectiveFifo_t
 typedef struct oneWayServoControl
 {
     char type[32];
-    double consign;
-    float kp;
-    float ki;
-    float kd;
+    double *consign;
+    float *kp;
+    float *ki;
+    float *kd;
 
     PID pid;
 

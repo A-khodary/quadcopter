@@ -35,6 +35,9 @@ typedef struct autopilotObjective_t
     double destinationLong;
     double destinationAlt;
 
+    double destinationDistXY; // Distance in m on the X-Y plan
+    double maxSpeedXY; // Max speed in m*s-1 on the X-Y plan
+
     double maxSpeed; // Max speed in m*s-1
 
     struct autopilotObjective_t* previousObjective;

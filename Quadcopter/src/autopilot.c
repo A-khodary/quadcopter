@@ -10,99 +10,6 @@
 ##############################################
 */
 
-// TODO : adapter les différents PID à utiliser pour chaque mode
-
-// cartesian servo-controling and if not robust enough =>composite
-
-void makeAsserv(autopilotObjective_t* autopilotObjective) {
-
-    float landTakeoffXP, landTakeoffXPI, landTakeoffXPD, landTakeoffYP, landTakeoffYPI, landTakeoffYPD, landTakeoffZP, landTakeoffZPI, landTakeoffZPD, landTakeoffYawP, landTakeoffYawPI, landTakeoffYawPD;
-    //  TODO : use coeff defines in variables
-
-    double destinationX, destinationY, destinationZ, currentPositionX,currentPositionY, currentPositionZ, x_computed, y_computed, z_computed, yaw_computed, roll_computed, pitch_computed, directionYAW, currentYAW, currentROLL, currentPITCH;
-
-    switch(autopilotObjective.code){
-
-    case 1 : //mode  LAND_TAKEOFF
-
-        PID x_pid(landTakeoffXP,landTakeoffXPI,landTakeoffXPD), y_pid(landTakeoffYP,landTakeoffYPI,landTakeoffYPD), z_pid(landTakeoffZP,landTakeoffZPI,landTakeoffZPD), yaw_pid(landTakeoffYawP,landTakeoffYawPI,landTakeoffYawPD);// coefficients à trouver empiriquement
-
-        currentPositionX = positionShared.x;
-        currentPositionY = positionShared.y;
-        currentPositionZ = positionShared.z;
-        currentYAW =  flightStateShared.yaw;
-        currentROLL =  flightStateShared.roll;
-        currentPITCH =  flightStateShared.pitch;
-
-
-        destinationX = autopilotObjective.destinationX;
-        destinationY = autopilotObjective.destinationY;
-        destinationZ = autopilotObjective.destinationZ;
-        directionYAW = autopilotObjective.directionYAW;
-
-        x_computed = x_pid.compute(currentPositionX, destinationX);
-        y_computed = y_pid.compute(currentPositionY, destinationY);
-        z_computed = z_pid.compute(currentPositionZ, destinationZ);
-        yaw_computed = yaw_pid.compute(currentYAW,  directionYAW);
-
-        break;
-
-    case 2: //mode GOTO_STANDARD
-
-        PID x_pid(2,0,0), y_pid(2,0,0), z_pid(2,0,0), yaw_pid(2,0,0);// coefficients à trouver empiriquement
-    ,
-        currentPositionX = positionShared.x;
-        currentPositionY = positionShared.y;
-        currentPositionZ = positionShared.z;
-        currentYAW =  flightStateShared.yaw;
-        currentROLL =  flightStateShared.roll;
-        currentPITCH =  flightStateShared.pitch;
-
-        destinationX = autopilotObjective.destinationX;
-        destinationY = autopilotObjective.destinationY;
-        destinationZ = autopilotObjective.destinationZ;
-        directionYAW = autopilotObjective.directionYAW;
-
-        x_computed = x_pid.compute(currentPositionX, destinationX);
-        y_computed = y_pid.compute(currentPositionY, destinationY);
-        z_computed = z_pid.compute(currentPositionZ, destinationZ);
-        yaw_computed = yaw_pid.compute(currentYAW,  directionYAW);
-
-        break;
-
-    case 3 : //mode GOTO_HOVERING
-
-        PID x_pid(2,0,0), y_pid(2,0,0), z_pid(2,0,0), yaw_pid(2,0,0);// coefficients à trouver empiriquement
-
-        currentPositionX = positionShared.x;
-        currentPositionY = positionShared.y;
-        currentPositionZ = positionShared.z;
-        currentYAW =  flightStateShared.yaw;
-        currentROLL =  flightStateShared.roll;
-        currentPITCH =  flightStateShared.pitch;
-
-        destinationX = autopilotObjective.destinationX;
-        destinationY = autopilotObjective.destinationY;
-        destinationZ = autopilotObjective.destinationZ;
-        directionYAW = autopilotObjective.directionYAW;
-
-        x_computed = x_pid.compute(currentPositionX, destinationX);
-        y_computed = y_pid.compute(currentPositionY, destinationY);
-        z_computed = z_pid.compute(currentPositionZ, destinationZ);
-        yaw_computed = yaw_pid.compute(currentYAW,  directionYAW);
-
-        break;
-
-    case 4 : // mode POSITION_HOLD
-
-        break;
-
-    default : // mode POSITION_HOLD par défault
-
-
-        break;
-}
-}
 
 int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
@@ -208,14 +115,14 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
         //locking position mutex in order to get position
         pthread_mutex_lock(&positionShared->readWriteMutex);
 
-        currentServoControl->ServoControlData[0]->consign = positionShared->x;
-        currentServoControl->ServoControlData[1]->consign = positionShared->y;
+        currentServoControl->ServoControlData[0]->consign = &positionShared->x;
+        currentServoControl->ServoControlData[1]->consign = &positionShared->y;
 
         //Unlocking mutex now we don't need the position anymore :
         pthread_mutex_unlock(&positionShared->readWriteMutex);
 
-        currentServoControl->ServoControlData[2]->consign = autopilotObjective->destinationZ;
-        currentServoControl->ServoControlData[3]->consign = 0; // For now, we set landing/takeoff heading to north //TODO : improve
+        currentServoControl->ServoControlData[2]->consign = &autopilotObjective->destinationZ;
+        currentServoControl->ServoControlData[3]->consign = &autopilotObjective->directionBearing;
 
         for (i=0 ; i < currentServoControl->oneWayNumber ; i++)
         {
@@ -223,14 +130,14 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
             for (j=0 ; j < 3 ; j++)
             {
                 // Filling-in coefficients :
-                if (j==0) currentServoControl->servoControlData[i]->kp = landTakeOffCoeff[i][j];
-                if (j==1) currentServoControl->servoControlData[i]->kd = landTakeOffCoeff[i][j];
-                if (j==2) currentServoControl->servoControlData[i]->ki = landTakeOffCoeff[i][j];
+                if (j==0) currentServoControl->servoControlData[i]->kp &landTakeOffCoeff[i][j];
+                if (j==1) currentServoControl->servoControlData[i]->kd &landTakeOffCoeff[i][j];
+                if (j==2) currentServoControl->servoControlData[i]->ki &landTakeOffCoeff[i][j];
 
             }
 
             // Creating the PID instance :
-            currentServoControl->servoControlData[i]->pid = new PID(currentServoControl->servoControlData[i]->kp, currentServoControl->servoControlData[i]->ki, currentServoControl->servoControlData[i]->kd);
+            currentServoControl->servoControlData[i]->pid = new PID(*currentServoControl->servoControlData[i]->kp, currentServoControl->servoControlData[i]->ki, currentServoControl->servoControlData[i]->kd);
 
         }
 
@@ -239,26 +146,23 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
 
     case GOTO_STANDARD: //mode GOTO_STANDARD
 
-        currentServoControl->oneWayNumber = 2;
+        currentServoControl->oneWayNumber = 3;
         currentServoControl->ServoControlData = (malloc(2*sizeof(oneWayServoControl));
 
         // Basic initialization of commands :
-        currentServoControl->ServoControlData[0]->type="x";
-        currentServoControl->ServoControlData[1]->type="y";
-        currentServoControl->ServoControlData[2]->type="z";
-        currentServoControl->ServoControlData[3]->type="yaw";
+        currentServoControl->ServoControlData[0]->type="z";
+        currentServoControl->ServoControlData[1]->type="yaw";
+        currentServoControl->ServoControlData[2]->type="dist";
 
-        //locking position mutex in order to get position
-        pthread_mutex_lock(&positionShared->readWriteMutex);
 
-        currentServoControl->ServoControlData[0]->consign = positionShared->x;
-        currentServoControl->ServoControlData[1]->consign = positionShared->y;
+        currentServoControl->ServoControlData[0]->consign = &autopilotObjective->destinationZ;
 
-        //Unlocking mutex now we don't need the position anymore :
-        pthread_mutex_unlock(&positionShared->readWriteMutex);
+        //Linking distance and bearing to the autopilot Objective ones :
+        currentServoControl->ServoControlData[1]->consign = &autopilotObjective->destinationBearing;
 
-        currentServoControl->ServoControlData[2]->consign = autopilotObjective->destinationZ;
-        currentServoControl->ServoControlData[3]->consign = 0; // For now, we set landing/takeoff heading to north //TODO : improve
+        // Dealing with altitude :
+        currentServoControl->ServoControlData[2]->consign = &autopilotObjective->destinationZ;
+
 
         for (i=0 ; i < currentServoControl->oneWayNumber ; i++)
         {
@@ -266,9 +170,9 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
             for (j=0 ; j < 3 ; j++)
             {
                 // Filling-in coefficients :
-                if (j==0) currentServoControl->servoControlData[i]->kp = landTakeOffCoeff[i][j];
-                if (j==1) currentServoControl->servoControlData[i]->kd = landTakeOffCoeff[i][j];
-                if (j==2) currentServoControl->servoControlData[i]->ki = landTakeOffCoeff[i][j];
+                if (j==0) currentServoControl->servoControlData[i]->kp = &landTakeOffCoeff[i][j];
+                if (j==1) currentServoControl->servoControlData[i]->kd = &landTakeOffCoeff[i][j];
+                if (j==2) currentServoControl->servoControlData[i]->ki = &landTakeOffCoeff[i][j];
 
             }
 
@@ -282,49 +186,35 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
 
     case GOTO_HOVERING : //mode GOTO_HOVERING
 
-       /*
+    // TODO
 
-        PID x_pid(2,0,0), y_pid(2,0,0), z_pid(2,0,0), yaw_pid(2,0,0);// coefficients à trouver empiriquement
-
-        currentPositionX = positionShared.x;
-        currentPositionY = positionShared.y;
-        currentPositionZ = positionShared.z;
-        currentYAW =  flightStateShared.yaw;
-        currentROLL =  flightStateShared.roll;
-        currentPITCH =  flightStateShared.pitch;
-
-        destinationX = autopilotObjective.destinationX;
-        destinationY = autopilotObjective.destinationY;
-        destinationZ = autopilotObjective.destinationZ;
-        directionYAW = autopilotObjective.directionYAW;
-
-        x_computed = x_pid.compute(currentPositionX, destinationX);
-        y_computed = y_pid.compute(currentPositionY, destinationY);
-        z_computed = z_pid.compute(currentPositionZ, destinationZ);
-        yaw_computed = yaw_pid.compute(currentYAW,  directionYAW);
-
-
-        */
 
         break;
 
     case 4 : // mode POSITION_HOLD
 
+    // TODO
+
         break;
 
-    default : // Notify the objective is not recognize
+    default : // Notify the objective is not recognized
+
+    printDebug("Invalid autopilot Objective code !")
+    return NULL;
 
 
         break;
     }
 
-
+return currentServoControl;
 
 }
 
-servoControl_t freeServoControl(autopilotObjective_t autopilotObjective)
+freeServoControl(servoControl_t* servoControl)
 {
-
+    int i;
+    for (i=0; i < servoControl->oneWayNumber; i++) free(servoControl->ServoControlData[i]);
+    free(servoControl);
 }
 
 // TODO FIFO Management functions
@@ -443,14 +333,22 @@ int initCalculation(autopilotObjective_t* autopilotObjective)
 
 void updateCalculation(autopilotObjective_t* autopilotObjective)
 {
-    // Locking the position relative mutex :
-    pthread_mutex_lock(&positionShared.readWriteMutex);
 
-    autopilotObjective->directionBearing = calculateBearing(positionShared.x, positionShared.y, autopilotObjective->destinationX, autopilotObjective->destinationY);
+    if (autopilotObjective->code == GOTO_STANDARD)
+    {
+         // Locking the position relative mutex :
+        pthread_mutex_lock(&positionShared.readWriteMutex);
 
-    //Now we're done, unlocking mutex :
-    pthread_mutex_unlock(&positionShared.readWriteMutex);
-} // For just computes the bearing, will modify max_speed in the future relative to distance to objective
+        //Updating bearing :
+        autopilotObjective->directionBearing = calculateBearing(positionShared.x, positionShared.y, autopilotObjective->destinationX, autopilotObjective->destinationY);
+
+        // Updating distance to Objective :
+        autopilotObjective->destinationDistXY =sqrt( pow(2, autopilotObjective->destinationX - positionShared.x) + pow(2, autopilotObjective->destinationY - positionShared.Y) );
+
+        //Now we're done, unlocking mutex :
+        pthread_mutex_unlock(&positionShared.readWriteMutex);
+    }
+} // For now just computes the bearing, will modify max_speed in the future relative to distance to objective
 
 
 
