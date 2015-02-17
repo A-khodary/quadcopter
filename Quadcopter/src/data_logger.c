@@ -40,7 +40,7 @@ void* dataLoggerHandler(void* arg)
         // Message retrieving and handling area :
 
         receivedMessage = retrieveMessage(dataLoggerHandler);
-        if (receivedMessage->message ==
+        //if (receivedMessage->message ==
 
 
 

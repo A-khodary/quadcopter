@@ -1,0 +1,74 @@
+The main thread receives all and redistributes to the differents components
+
+struct of a message : "destination"_"sender"_"resp/order"_"message"
+protocol : -no ack
+	   - "resp" , "order", "info" is the command state
+
+
+Main Handler messages :
+
+from IMU :
+
+endofinit
+genericfault INFO
+
+
+from Reader :
+
+endofinit
+genericfault INFO
+
+
+from Writer :
+
+endofinit
+genericfault INFO
+
+from autopilot :
+
+endofinit INFO
+genericfault INFO
+crashed INFO
+objectiveReached [Data on objective] INFO
+landed [coordinates] INFO
+takingoff INFO
+
+from dataLogger :
+
+endofinit INFO
+connectionestablished INFO
+connectionlost INFO
+
+
+
+
+Autopilot Handler messages :
+
+cuttoff ORD
+emergencylanding ORD
+normallanding ORD
+manualmode ORD
+autopilotmode ORD
+
+newobjective [objective in data] ORD  
+newcurrentobjective [objective in data] ORD
+getobjectivenumber [objective number] RESP/ORD
+getcurrentobjective RESP/ORD
+getcurrentobjectiveCompletition RESP/ORD
+getCoefficients RESP /ORD
+setCoefficients ORD [coefficients in data]
+cancelcurrent ORD
+flushfifo ORD
+
+Data Logger Handler messages :
+
+notifycrash [crashSite] ORD
+notifylanded [landSite] ORD
+
+
+
+
+
+
+
+
