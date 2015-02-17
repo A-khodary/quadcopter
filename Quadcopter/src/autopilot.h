@@ -27,6 +27,11 @@
 #define LANDTAKEOFFYAMPI 1
 #define LANDTAKEOFFYAWPD 1
 
+// Some speed definitions :
+
+#define MAXSPEED 3
+#define MAXSPEEDXY 2
+
 // Objective text file list path :
 
 #define OBJECTIVES_PATH objectives.txt
@@ -48,6 +53,7 @@ int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+void freeAutopilotObjective (autopilotObjective_t* autopilotObjective);
 
 
 // Servo controlling prototypes :
@@ -55,6 +61,7 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
 servoControl_t* buildServoControl(autopilotObjective_t autopilotObjective);
 void updateServoControl(servoControl_t servoControl);
 void freeServoControl(servoControl_t*);
+void makeAsserv(servoControl_t* currentServoControl);
 
 // Objective calculations prototypes :
 
@@ -78,10 +85,10 @@ typedef struct autopilotObjectiveFifo_t
 typedef struct oneWayServoControl
 {
     char type[32];
-    double *consign;
-    float *kp;
-    float *ki;
-    float *kd;
+    double consign;
+    float kp;
+    float ki;
+    float kd;
 
     PID pid;
 

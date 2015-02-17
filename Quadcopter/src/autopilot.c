@@ -35,7 +35,7 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
     while (currentObjective->nextObjective != NULL) currentObjective = currentObjective->nextObjective;
     lastObjective = currentObjective;
 
-     // Checking last objective priority :
+    // Checking last objective priority :
 
     if (lastObjective->priority < Objective>priority)
     {
@@ -67,8 +67,8 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
         lastObjective->nextObjective = Objective;
     }
 
-        autopilotObjectiveFifo.numberOfObjectivesPending++;
-        return 1;
+    autopilotObjectiveFifo.numberOfObjectivesPending++;
+    return 1;
 }
 
 }
@@ -106,63 +106,23 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
         currentServoControl->oneWayNumber = 4;
         currentServoControl->ServoControlData = (malloc(4*sizeof(oneWayServoControl));
 
-        // Basic initialization of commands :
-        currentServoControl->ServoControlData[0]->type="x";
-        currentServoControl->ServoControlData[1]->type="y";
-        currentServoControl->ServoControlData[2]->type="z";
-        currentServoControl->ServoControlData[3]->type="yaw";
+                                                // Basic initialization of commands :
+                                                currentServoControl->ServoControlData[0]->type="x";
+                                                currentServoControl->ServoControlData[1]->type="y";
+                                                currentServoControl->ServoControlData[2]->type="z";
+                                                currentServoControl->ServoControlData[3]->type="yaw";
 
-        //locking position mutex in order to get position
-        pthread_mutex_lock(&positionShared->readWriteMutex);
+                                                //locking position mutex in order to get position
+                                                pthread_mutex_lock(&positionShared->readWriteMutex);
 
-        currentServoControl->ServoControlData[0]->consign = &positionShared->x;
-        currentServoControl->ServoControlData[1]->consign = &positionShared->y;
+                                                currentServoControl->ServoControlData[0]->consign = positionShared->x;
+                                                currentServoControl->ServoControlData[1]->consign = positionShared->y;
 
-        //Unlocking mutex now we don't need the position anymore :
-        pthread_mutex_unlock(&positionShared->readWriteMutex);
+                                                //Unlocking mutex now we don't need the position anymore :
+                                                pthread_mutex_unlock(&positionShared->readWriteMutex);
 
-        currentServoControl->ServoControlData[2]->consign = &autopilotObjective->destinationZ;
-        currentServoControl->ServoControlData[3]->consign = &autopilotObjective->directionBearing;
-
-        for (i=0 ; i < currentServoControl->oneWayNumber ; i++)
-        {
-
-            for (j=0 ; j < 3 ; j++)
-            {
-                // Filling-in coefficients :
-                if (j==0) currentServoControl->servoControlData[i]->kp &landTakeOffCoeff[i][j];
-                if (j==1) currentServoControl->servoControlData[i]->kd &landTakeOffCoeff[i][j];
-                if (j==2) currentServoControl->servoControlData[i]->ki &landTakeOffCoeff[i][j];
-
-            }
-
-            // Creating the PID instance :
-            currentServoControl->servoControlData[i]->pid = new PID(*currentServoControl->servoControlData[i]->kp, currentServoControl->servoControlData[i]->ki, currentServoControl->servoControlData[i]->kd);
-
-        }
-
-
-        break;
-
-    case GOTO_STANDARD: //mode GOTO_STANDARD
-
-        currentServoControl->oneWayNumber = 3;
-        currentServoControl->ServoControlData = (malloc(2*sizeof(oneWayServoControl));
-
-        // Basic initialization of commands :
-        currentServoControl->ServoControlData[0]->type="z";
-        currentServoControl->ServoControlData[1]->type="yaw";
-        currentServoControl->ServoControlData[2]->type="dist";
-
-
-        currentServoControl->ServoControlData[0]->consign = &autopilotObjective->destinationZ;
-
-        //Linking distance and bearing to the autopilot Objective ones :
-        currentServoControl->ServoControlData[1]->consign = &autopilotObjective->destinationBearing;
-
-        // Dealing with altitude :
-        currentServoControl->ServoControlData[2]->consign = &autopilotObjective->destinationZ;
-
+                                                currentServoControl->ServoControlData[2]->consign = autopilotObjective->destinationZ;
+                                                currentServoControl->ServoControlData[3]->consign = autopilotObjective->directionBearing;
 
         for (i=0 ; i < currentServoControl->oneWayNumber ; i++)
         {
@@ -170,9 +130,9 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
             for (j=0 ; j < 3 ; j++)
             {
                 // Filling-in coefficients :
-                if (j==0) currentServoControl->servoControlData[i]->kp = &landTakeOffCoeff[i][j];
-                if (j==1) currentServoControl->servoControlData[i]->kd = &landTakeOffCoeff[i][j];
-                if (j==2) currentServoControl->servoControlData[i]->ki = &landTakeOffCoeff[i][j];
+                if (j==0) currentServoControl->servoControlData[i]->kp landTakeOffCoeff[i][j];
+                if (j==1) currentServoControl->servoControlData[i]->kd landTakeOffCoeff[i][j];
+                if (j==2) currentServoControl->servoControlData[i]->ki landTakeOffCoeff[i][j];
 
             }
 
@@ -182,42 +142,81 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
         }
 
 
-        break;
+    break;
 
-    case GOTO_HOVERING : //mode GOTO_HOVERING
+    case GOTO_STANDARD: //mode GOTO_STANDARD
 
-    // TODO
+            currentServoControl->oneWayNumber = 3;
+            currentServoControl->ServoControlData = (malloc(2*sizeof(oneWayServoControl));
 
-
-        break;
-
-    case 4 : // mode POSITION_HOLD
-
-    // TODO
-
-        break;
-
-    default : // Notify the objective is not recognized
-
-    printDebug("Invalid autopilot Objective code !")
-    return NULL;
+                                                    // Basic initialization of commands :
+                                                    currentServoControl->ServoControlData[0]->type="z";
+                                                    currentServoControl->ServoControlData[1]->type="yaw";
+                                                    currentServoControl->ServoControlData[2]->type="dist";
 
 
-        break;
+                                                    currentServoControl->ServoControlData[0]->consign = autopilotObjective->destinationZ;
+
+                                                    //Linking distance and bearing to the autopilot Objective ones :
+                                                    currentServoControl->ServoControlData[1]->consign = autopilotObjective->destinationBearing;
+
+                                                    // Dealing with altitude :
+                                                    currentServoControl->ServoControlData[2]->consign = autopilotObjective->destinationZ;
+
+
+        for (i=0 ; i < currentServoControl->oneWayNumber ; i++)
+        {
+
+            for (j=0 ; j < 3 ; j++)
+                {
+                    // Filling-in coefficients :
+                    if (j==0) currentServoControl->servoControlData[i]->kp = landTakeOffCoeff[i][j];
+                    if (j==1) currentServoControl->servoControlData[i]->kd = landTakeOffCoeff[i][j];
+                    if (j==2) currentServoControl->servoControlData[i]->ki = landTakeOffCoeff[i][j];
+
+                }
+
+            // Creating the PID instance :
+            currentServoControl->servoControlData[i]->pid = new PID(currentServoControl->servoControlData[i]->kp, currentServoControl->servoControlData[i]->ki, currentServoControl->servoControlData[i]->kd);
+        }
+
+
+    break;
+
+    case GOTO_HOVERING: //mode GOTO_HOVERING
+
+            // TODO
+
+
+    break;
+
+    case POSITION_HOLD: // mode POSITION_HOLD
+
+                // TODO
+
+    break;
+
+    default: // Notify the objective is not recognized
+
+        printDebug("Invalid autopilot Objective code !");
+        return NULL;
+
+
+    break;
     }
 
 return currentServoControl;
-
 }
 
-freeServoControl(servoControl_t* servoControl)
+
+void freeServoControl(servoControl_t* servoControl)
 {
     int i;
     for (i=0; i < servoControl->oneWayNumber; i++) free(servoControl->ServoControlData[i]);
     free(servoControl);
 }
 
-// TODO FIFO Management functions
+
 
 
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
@@ -230,44 +229,44 @@ int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_
         return -1;
     }
 
-   else
-   {
-       if (objectiveNumber == 1)  removeCurrentObjective(autopilotObjectiveFifo);
-       else
+    else
     {
-        currentObjective = &autopilotObjectiveFifo + objectiveNumber*sizeof(autopilotObjective_t);
-       currentObjective->nextObjective->previousObjective = currentObjective->previousObjective;
-       currentObjective->previousObjective->nextObjective = currentObjective->nextObjective;
-       currentObjective->previousObjective = NULL;
-       currentObjective->nextObjective = NULL;
-       autopilotObjectiveFifo.numberOfObjectivesPending--;
-   }
+        if (objectiveNumber == 1)  removeCurrentObjective(autopilotObjectiveFifo);
+        else
+        {
+            currentObjective = &autopilotObjectiveFifo + objectiveNumber*sizeof(autopilotObjective_t);
+            currentObjective->nextObjective->previousObjective = currentObjective->previousObjective;
+            currentObjective->previousObjective->nextObjective = currentObjective->nextObjective;
+            currentObjective->previousObjective = NULL;
+            currentObjective->nextObjective = NULL;
+            autopilotObjectiveFifo.numberOfObjectivesPending--;
+        }
     }
 }
 
 int flushFifo(autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
-     if (autopilotObjectiveFifo.numberOfObjectivesPending !=0)
-     {
+    if (autopilotObjectiveFifo.numberOfObjectivesPending !=0)
+    {
 
-         autopilotObjective_t* currentObjective;
-         autopilotObjective_t* nextCurrentObjective;
+        autopilotObjective_t* currentObjective;
+        autopilotObjective_t* nextCurrentObjective;
 
-         currentObjective =  autopilotObjectiveFifo->firstObjective;
+        currentObjective =  autopilotObjectiveFifo->firstObjective;
 
-         for (i=0,i< autopilotObjectiveFifo.numberOfObjectivesPending*sizeof(autopilotObjective_t),i++)
-         {
+        for (i=0,i< autopilotObjectiveFifo.numberOfObjectivesPending*sizeof(autopilotObjective_t),i++)
+        {
             nextCurrentObjective = currentObjective->nextObjective;
             currentObjective->previousObjective = NULL;
             currentObjective->nextObjective = NULL;
             currentObjective = nextCurrentObjective;
             autopilotObjectiveFifo.numberOfObjectivesPending--;
-         }
-         autopilotObjectiveFifo->firstObjective = NULL;
-         autopilotObjectiveFifo.currentObjectivePriority = 0;
-         return 1;
-     }
-     else return -1;
+        }
+        autopilotObjectiveFifo->firstObjective = NULL;
+        autopilotObjectiveFifo.currentObjectivePriority = 0;
+        return 1;
+    }
+    else return -1;
 }
 
 autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
@@ -278,21 +277,21 @@ autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObj
 
 int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
-      autopilotObjective_t objective;
-      objective = autopilotObjectiveFifo->firstObjective->previousObjective;
-      autopilotObjectiveFifo->firstObjective->previousObjective->nextObjective = NULL;
-      autopilotObjectiveFifo->firstObjective->previousObjective = NULL;
-      autopilotObjectiveFifo->firstObjective = objective;
-      autopilotObjectiveFifo.numberOfObjectivesPending--;
-      autopilotObjectiveFifo.currentObjectivePriority = autopilotObjectiveFifo->firstObjective.priority;
-      return 1;
+    autopilotObjective_t objective;
+    objective = autopilotObjectiveFifo->firstObjective->previousObjective;
+    autopilotObjectiveFifo->firstObjective->previousObjective->nextObjective = NULL;
+    autopilotObjectiveFifo->firstObjective->previousObjective = NULL;
+    autopilotObjectiveFifo->firstObjective = objective;
+    autopilotObjectiveFifo.numberOfObjectivesPending--;
+    autopilotObjectiveFifo.currentObjectivePriority = autopilotObjectiveFifo->firstObjective.priority;
+    return 1;
 }
 
 
 autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
-   if (AUTOPILOT_OBJECTIVE_FIFO_SIZE<objectiveNumber*sizeof(autopilotObjective_t)) printDebug("[e] Autopilot : not as many objectives as asked");
-   else return &autopilotObjectiveFifo + objectiveNumber*sizeof(autopilotObjective_t);
+    if (AUTOPILOT_OBJECTIVE_FIFO_SIZE<objectiveNumber*sizeof(autopilotObjective_t)) printDebug("[e] Autopilot : not as many objectives as asked");
+    else return &autopilotObjectiveFifo + objectiveNumber*sizeof(autopilotObjective_t);
 }
 
 
@@ -314,6 +313,11 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
     }
 }
 
+void freeAutopilotObjective (autopilotObjective_t* autopilotObjective)
+{
+    free(autopilotObjective);
+}
+
 
 
 int initCalculation(autopilotObjective_t* autopilotObjective)
@@ -323,6 +327,8 @@ int initCalculation(autopilotObjective_t* autopilotObjective)
         printDebug("Error in autopilot objective initialization");
         exit(1);
     }
+    autopilotObjective->maxSpeed = MAXSPEED;
+    autopilotObjective->maxSpeedXY = MAXSPEEDXY;
     updateCalculation(autopilotObjective);
     exit(0);
 
@@ -336,7 +342,7 @@ void updateCalculation(autopilotObjective_t* autopilotObjective)
 
     if (autopilotObjective->code == GOTO_STANDARD)
     {
-         // Locking the position relative mutex :
+        // Locking the position relative mutex :
         pthread_mutex_lock(&positionShared.readWriteMutex);
 
         //Updating bearing :
@@ -351,6 +357,32 @@ void updateCalculation(autopilotObjective_t* autopilotObjective)
 } // For now just computes the bearing, will modify max_speed in the future relative to distance to objective
 
 
+void makeAsserv(servoControl_t* currentServoControl)
+{
+    int i,
+
+    if (currentServoControl == NULL)
+    {
+        printDebug("Trying to make the asserv of a NULL servoControl_t structure");
+        return -1;
+    }
+
+    double* commands = malloc(sizeof(double)*currentServoControl->oneWayNumber);
+    for (i=0; i< currentServoControl->oneWayNumber; i++ )
+    {
+        //TODO : to continue
+
+        /*
+        command[i]=currentServoControl->ServoControlData[i]->pid()
+
+        */
+    }
+
+
+
+
+    return completitionPercent;
+} // This function computes the PID and writes the commands
 
 
 
@@ -373,12 +405,10 @@ void* autopilotHandler(void* arg)
     message_t receivedMessage;
     message_t currentMessage;
 
-    servoControl_t currentServoControl;
-    currentServoControl.oneWayNumber = 0;
-    currentServoControl.
+    servoControl_t* currentServoControl;
 
     currentMessage.message = "autopilot_init"
-    currentMessage.priority = 20;
+                             currentMessage.priority = 20;
 
     int tickCounter=0;
 
@@ -430,9 +460,9 @@ void* autopilotHandler(void* arg)
     autopilotObjectiveFifo.numberOfObjectivesPending = 0
 
 
-    // File reading for basic configuration
+            // File reading for basic configuration
 
-    writtenObjectives = fopen(OBJECTIVES_PATH, "r");
+            writtenObjectives = fopen(OBJECTIVES_PATH, "r");
     if (writtenObjectives == NULL)
     {
         printDebug("Autopilot objective file not found");
@@ -459,23 +489,24 @@ void* autopilotHandler(void* arg)
                     // Now we add the objective to the fifo
                     if (insertObjective(&readObjective))
                     {
-                        printDebug("Insertion of a new autopilot objective success !")
+                        printDebug("Insertion of a new autopilot objective success !");
                         lineNumber++;
                     }
                     else printDebug("Insertion of a new autopilot objective error");
                 }
                 else printDebug("Autopilot objective speed, or destination is incorrect")
 
-            }
+                }
             else printDebug("Autopilot objective type is incorrect");
         }
         printDebug("%d Objectives added to Autopilot FIFO", lineNumber);
         lineNumber = 0;
+        fclose(writtenObjectives);
     }
 
     //Notify main thread of end of init
 
-    currentMessage.message = "end_of_init"
+    currentMessage.message = "end_of_init";
     currentMessage.priority = 20;
 
     sendMessage(mainITMHandler, currentMessage);
@@ -483,21 +514,27 @@ void* autopilotHandler(void* arg)
     while (1) // This loop iterates each time an objective is reached
     {
         receivedMessage = retrieveMessage(autopilotITMHandler
-        if (receivedMessage != NULL)
-        {
-             // TODO : process message
-             printDebug("New ITM message received by autopilot");
+                                          if (receivedMessage != NULL)
+    {
+        // TODO : process message
+        printDebug("New ITM message received by autopilot");
         }
 
 
-       currentObjective = readCurrentObjective();
-       initCalculation(currentObjective);
-       ini
+        currentObjective = readCurrentObjective();
+        initCalculation(currentObjective);
+        currentServoControl = buildServoControl(currentObjective);
+        if (currentServoControl == NULL)
+    {
+        printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");
+            freeAutopilotObjective(currentObjective);
+            continue;
+        }
 
 
         while () // This loop iterates after each ITMhandler execution and calculation
-        {
-            if(tickCounter == MESSAGE_CHECKING_LIMIT)
+    {
+        if(tickCounter == MESSAGE_CHECKING_LIMIT)
             {
                 tickCounter=0;
 
@@ -509,7 +546,7 @@ void* autopilotHandler(void* arg)
 
                     if(receivedMessage->message == "autopilot_new_objective")
                     {
-                       //TODO : behaviour
+                        //TODO : behaviour
                     }
 
                     else if (receivedMessage->message == "autopilot_emergency_landing")
@@ -531,7 +568,7 @@ void* autopilotHandler(void* arg)
                 else
                 {
 
-                usleep(AUTOPILOT_REFRESHING_PERIOD);
+                    usleep(AUTOPILOT_REFRESHING_PERIOD);
 
                 }
 
@@ -548,7 +585,10 @@ void* autopilotHandler(void* arg)
         }
 
 
-        fclose(writtenObjectives);
+        // Now the objective is reached, we need to free the ressources used :
+        freeServoControl(currentServoControl);
+        freeAutopilotObjective(currentObjective);
+
     }
 
 
