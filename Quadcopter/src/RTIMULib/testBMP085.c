@@ -1,8 +1,11 @@
+#include "BMP085.h"
+
 int main(int argc, char **argv)
 {
     unsigned int temperature, pressure;
 
 	bmp085_Calibration();
+
 	temperature = bmp085_GetTemperature(bmp085_ReadUT());
 	pressure = bmp085_GetPressure(bmp085_ReadUP());
 
