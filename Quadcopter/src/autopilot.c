@@ -402,7 +402,7 @@ void* autopilotHandler(void* arg)
     mainITMHandler = bidirectionalHandler.mainITMHandler;
     autopilotITMHandler = bidirectionalHandler.componentITMHandler;
 
-    message_t receivedMessage;
+    message_t* receivedMessage;
     message_t currentMessage;
 
     servoControl_t* currentServoControl;

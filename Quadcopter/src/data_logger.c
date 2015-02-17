@@ -11,8 +11,55 @@
 
 void* dataLoggerHandler(void* arg)
 {
+    // Initialization :
 
-}
+    bidirectionalHandler_t* bidirectionnalHandler;
+    bidirectionnalHandler = (bidirectionalHandler_t)arg;
+
+    handler_t* mainITMHandler;
+    handler_t* dataLoggerITMHandler;
+
+    mainITMHandler = bidirectionalHandler.mainITMHandler;
+    dataLoggerITMHandler = bidirectionalHandler.componentITMHandler;
+
+    message_t* receivedMessage;
+    message_t currentMessage;
+
+    int tickCounter=0;
+
+
+    //TODO : notify main handler of end of init
+
+    while(1)
+    {
+        // External connection management Area : (Mavlink)
+
+
+
+
+        // Message retrieving and handling area :
+
+        receivedMessage = retrieveMessage(dataLoggerHandler);
+        if (receivedMessage->message ==
+
+
+
+        // DataLogging area :
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 
 sendData()
 {
