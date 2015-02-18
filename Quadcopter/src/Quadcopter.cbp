@@ -5,7 +5,7 @@
 		<Option title="Quadcopter" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Components\;Shared ressources\;Components\Sources\;Components\Headers\;Components\Headers\AUTOPILOT\;Components\Headers\PILOT\;Shared ressources\Sources\;Shared ressources\Headers\;Components\Headers\IMU\;Components\Sources\IMU\;Components\Sources\AUTOPILOT\;" />
+		<Option virtualFolders="Components/;Shared ressources/;Components/Sources/;Components/Headers/;Components/Headers/AUTOPILOT/;Components/Headers/PILOT/;Shared ressources/Sources/;Shared ressources/Headers/;Components/Headers/IMU/;Components/Sources/IMU/;Components/Sources/AUTOPILOT/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Quadcopter" prefix_auto="1" extension_auto="1" />
@@ -142,6 +142,10 @@
 		</Unit>
 		<Unit filename="global_functions.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
+		</Unit>
+		<Unit filename="imu.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="imu.h">
 			<Option virtualFolder="Components/Headers/IMU/" />

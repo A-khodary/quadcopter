@@ -1,12 +1,17 @@
 #include "NEO-6M.h"
 
+<<<<<<< HEAD
 dataGPS* getDataGPS(void)
+=======
+int neo()
+>>>>>>> origin/master
 {
 
     dataGPS dataGPS;
 
     char gps[65]; //gps string array
 
+<<<<<<< HEAD
     char hours[];
     char mins[];
     char secs[];
@@ -14,6 +19,15 @@ dataGPS* getDataGPS(void)
     char latitude[];
     char nuSat[];
     char alt[];
+=======
+char hours[2];
+char mins[2];
+char secs[2];
+char longitude[11];
+char latitude[11];
+char nuSat[2];
+char alt[5];
+>>>>>>> origin/master
 
     int fd; //handler
     int flag;

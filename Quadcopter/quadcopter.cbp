@@ -62,9 +62,13 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.c">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp">
       </Unit>
@@ -84,6 +88,8 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/testBMP085.c">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c">
@@ -92,25 +98,331 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/mavlink_udp.c">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_parameters.c">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/main.c">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/waypoints.c">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/testmav.c">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aea.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aeqd.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_airy.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aitoff.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_august.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bacon.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bipc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_boggs.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bonne.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cass.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cea.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_chamb.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_collg.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_crast.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_denoy.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck1.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck2.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck3.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck4.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck5.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqdc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fahey.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fouc_s.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gall.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_geos.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gins8.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gn_sinu.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gnom.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_goode.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gstmerc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hammer.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hatano.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_healpix.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_igh.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_imw_p.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_isea.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_krovak.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_labrd.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_laea.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lagrng.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_larr.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lask.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcca.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_loxim.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lsat.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbt_fps.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpp.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpq.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_merc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mill.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mod_ster.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_moll.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_natearth.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell_h.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nocol.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nsper.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nzmg.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ob_tran.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ocea.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_oea.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_omerc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ortho.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_poly.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp2.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp3.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp4p.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp5.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp6.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_robin.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_rpoly.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sconics.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_somerc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_stere.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sterea.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sts.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcea.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tmerc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tpeqd.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urm5.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urmfps.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg2.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg4.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag2.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag3.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag7.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink1.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink2.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/aasincos.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/adjlon.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bch2bps.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bchgen.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/biveval.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/cs2cs.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/dmstor.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/emess.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/gen_cheb.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geocent.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_for.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_inv.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_set.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/jniproj.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/mk_cheby.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/multistresstest.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad2bin.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_cvt.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_init.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_intr.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/p_series.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_gridshift.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_vgridshift.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_auth.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ctx.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datum_set.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datums.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_deriv.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ell_set.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ellps.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_errno.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_factors.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_fwd.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gauss.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_geocent.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridinfo.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridlist.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_init.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_initcache.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_inv.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_latlong.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_list.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_log.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_malloc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mlfn.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_msfn.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mutex.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_open_lib.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_param.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_phi2.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_pr_list.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_qsfn.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_release.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_strerrno.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_transform.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_tsfn.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_units.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_utils.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_zpoly1.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_etmerc.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_mdist.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_rouss.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/rtodms.c">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/vector1.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c">
       </Unit>
@@ -135,6 +447,8 @@
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/Quadcopter.depend">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/Quadcopter.layout">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.h">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeCache.txt">
       </Unit>
@@ -280,6 +594,8 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/Makefile">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.h">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.h">
@@ -356,467 +672,13 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h.save">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h">
       </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/COMMIT_EDITMSG">
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/main.h">
       </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/HEAD">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/config">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/description">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/hooks/applypatch-msg.sample">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/hooks/commit-msg.sample">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/hooks/post-update.sample">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/hooks/pre-applypatch.sample">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/hooks/pre-commit.sample">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/hooks/pre-rebase.sample">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/hooks/prepare-commit-msg.sample">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/hooks/update.sample">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/index">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/info/exclude">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/logs/HEAD">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/logs/refs/heads/master">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/logs/refs/remotes/origin/HEAD">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/objects/pack/pack-5d739798117f6945fdc4c9a6b1882f55722645f3.idx">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/objects/pack/pack-5d739798117f6945fdc4c9a6b1882f55722645f3.pack">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/packed-refs">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/refs/heads/master">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.git/refs/remotes/origin/HEAD">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.gitignore">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.gitmodules">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/.travis.yml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/CMakeLists.txt">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/COPYING">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/README.md">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/.gitignore">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/WELCOME.txt">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/arkcmake/DefineCMakeDefaults.cmake">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/arkcmake/DefineCompilerFlags.cmake">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/arkcmake/ExternalProjectWithFilename.cmake">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/arkcmake/MacroCheckCCompilerFlagSSP.cmake">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/arkcmake/MacroEnsureOutOfSourceBuild.cmake">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/arkcmake/updateArkcmake.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/mavlink.bmp">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/cmake/mavlink.png">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/config.h.in">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/doc/Doxyfile">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/doc/README">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/doc/mavlink.css">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/doc/mavlink.php">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/doc/mavlink_to_html_table.xsl">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/.gitignore">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/README">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/mavgenerate.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v0.9/ardupilotmega.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v0.9/common.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v0.9/minimal.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v0.9/pixhawk.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v0.9/slugs.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v0.9/test.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v0.9/ualberta.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/ASLUAV.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/ardupilotmega.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/autoquad.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/common.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/matrixpilot.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/minimal.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/pixhawk.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/python_array_test.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/slugs.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/test.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/message_definitions/v1.0/ualberta.xml">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_missionlib_data.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_parameters.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/.gitignore">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/Makefile">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/mavlink_missionlib_data.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/udptest.xcodeproj/project.pbxproj">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/waypoints.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pc.in">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/.gitignore">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/APM_Mavtest/APM_Mavtest.pde">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/APM_Mavtest/Makefile">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/DFReader.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/README.txt">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/dialects/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/dialects/v09/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/dialects/v10/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/apmsetrate.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/bwtest.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/magtest.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/mav2pcap.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/mav_accel.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/mavgps.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/mavtcpsniff.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/mavtest.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/mavtester.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/examples/wptogpx.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/fgFDM.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/files/archlinux/PKGBUILD">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/.gitignore">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/checksum.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/mavlink_helpers.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/mavlink_types.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/protocol.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/test/mavlink.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/test/mavlink_msg_test_types.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/test/test.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/test/testsuite.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v0.9/test/version.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/checksum.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/mavlink_conversions.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/mavlink_helpers.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/mavlink_types.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/protocol.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/test/mavlink.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/test/mavlink_msg_test_types.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/test/test.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/test/testsuite.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/include_v1.0/test/version.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/.gitignore">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/Makefile">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/stdafx.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/targetver.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.sln">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.suo">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.vcxproj">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/CS/common/ByteArrayUtil.cs">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/CS/common/FrameworkBitConverter.cs">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/CS/common/Mavlink.cs">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/gen_all.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/gen_all.sh">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/gen_js.sh">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/java/lib/Messages/MAVLinkMessage.java">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/java/lib/Messages/MAVLinkPayload.java">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/java/lib/Messages/MAVLinkStats.java">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/java/lib/Parser.java">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/javascript/.gitignore">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/javascript/Makefile">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/javascript/README.md">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/javascript/package.json">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/javascript/test/capture.mavlink">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/javascript/test/mavlink.js">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/javascript/test/message.js">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/README.txt">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmlif4Dom.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmlifApi.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmlifBase.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmlifDom.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmlifElementTree.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmlifMinidom.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmlifODict.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmlifUtils.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/genxmlif/xmliftest.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/README.txt">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/XInclude.xsd">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/XMLSchema-instance.xsd">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/XMLSchema.xsd">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/datatypes.xsd">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/minixsv">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/minixsvWrapper.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/pyxsval.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/xml.xsd">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/xsvalBase.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/xsvalErrorHandler.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/xsvalSchema.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/xsvalSimpleTypes.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/xsvalUtils.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/lib/minixsv/xsvalXmlIf.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavcrc.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavgen.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavgen_c.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavgen_cs.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavgen_java.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavgen_javascript.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavgen_objc.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavgen_python.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavgen_wlua.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavparse.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavschema.xsd">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavtemplate.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/mavtestgen.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/mavextra.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/mavparm.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/mavutil.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/mavwp.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/mission.proto">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/mission2.pb">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/quaternion.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/rotmat.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/setup.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/AccelSearch.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/MPU6KSearch.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/__init__.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/images/gtk-quit.gif">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/images/media-playback-pause.gif">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/images/media-playback-start.gif">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/images/media-playback-stop.gif">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/images/media-seek-backward.gif">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/images/media-seek-forward.gif">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/images/player_end.gif">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/magfit.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/magfit_delta.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/magfit_gps.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/magfit_motors.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/magfit_rotation_gps.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/magfit_rotation_gyro.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavextract.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavflightmodes.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavflighttime.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavgen.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavgpslag.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavgpslock.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavgraph.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavkml.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavlogdump.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavloss.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavmission.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavparmdiff.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavparms.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavplayback.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavsearch.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavsigloss.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavsummarize.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavtogpx.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/mavtomfile.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/python_array_test_recv.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/python_array_test_send.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/tools/quaterniontest.py">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/scripts/travis_update_generated_repos.sh">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/scripts/update_c_library.sh">
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/messages.txt">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h">
       </Unit>
@@ -825,6 +687,30 @@
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/Makefile.am">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/Makefile.in">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/emess.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geocent.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geodesic.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/makefile.vc">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/org_proj4_Projections.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_list.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj.def">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_config.h.in">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c.save">
       </Unit>

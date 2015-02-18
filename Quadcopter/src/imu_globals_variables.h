@@ -1,17 +1,23 @@
+#ifndef imu_globals_variables_H
+#define imu_globals_variables_H
+
+
 // Global variables structures declaration
 
-typedef struct  flightStateShared {
-        double yaw;
-        double pitch;
-        double roll;
+typedef struct
+{
+    double yaw;
+    double pitch;
+    double roll;
 
-        pthread_mutex_t readWriteMutex;
+    pthread_mutex_t readWriteMutex;
 
-}flightStateShared_t;
+} flightStateShared_t;
 
 
 
-typedef struct rawPositionShared_t {
+typedef struct
+{
 
     double latitude;
     double longitude;
@@ -19,9 +25,11 @@ typedef struct rawPositionShared_t {
 
     pthread_mutex_t readWriteMutex;
 
-}rawPositionShared_t;
+} rawPositionShared_t;
 
-typedef struct positionShared_t { // Position from home
+typedef struct
+{
+    // Position from home
 
     double x;
     double y;
@@ -29,9 +37,11 @@ typedef struct positionShared_t { // Position from home
 
     pthread_mutex_t readWriteMutex;
 
-}positionShared_t;
+} positionShared_t;
 
-typedef struct homePosition_t { // Position of home in the 1866 Clark ellipsoid format
+typedef struct
+{
+    // Position of home in the 1866 Clark ellipsoid format
 
 
     double x;
@@ -40,7 +50,7 @@ typedef struct homePosition_t { // Position of home in the 1866 Clark ellipsoid 
     double latitude; // in °
     double longitude; // in °
 
-}homePosition_t;
+} homePosition_t;
 
 
 
@@ -52,4 +62,4 @@ extern positionShared_t positionShared;
 extern rawPositionShared_t homeRawPosition;
 extern homePosition_t homePosition;
 
-
+#endif

@@ -359,9 +359,14 @@ int updateCalculation(autopilotObjective_t* autopilotObjective)
     //Now we're done, unlocking the position mutex :
     pthread_mutex_unlock(&positionShared.readWriteMutex);
 
-    return autopilotObjective->destinationDist; // returning the destination distance in meters
+     //Objective reaching determination :
 
-} // For now just computes the bearing and several distances, will modify max_speed in the future relative to distance to objective. Returns the distance to objective in meters
+     //TODO
+
+     return0
+
+
+} // For now just computes the bearing and several distances, will modify max_speed in the future relative to distance to objective. Returns a boolean that indicates when objective is reached
 
 
 void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t* relativeObjective) //If the autopilotObjective_t passed is not null, makeAsserv will do the servo control relatively (allows dynamic setpoint)
@@ -571,6 +576,8 @@ void* autopilotHandler(void* arg)
     currentMessage.message = "autopilot_init"
     currentMessage.priority = 20;
 
+    double distanceToObjective;
+
     int tickCounter=0;
 
     // Coefficients definitions :
@@ -674,9 +681,9 @@ void* autopilotHandler(void* arg)
 
     while (1) // This loop iterates each time an objective is reached
     {
-        receivedMessage = retrieveMessage(autopilotITMHandler
-                                          if (receivedMessage != NULL)
-    {
+        receivedMessage = retrieveMessage(autopilotITMHandler);
+        if (receivedMessage != NULL)
+        {
         // TODO : process message
         printDebug("New ITM message received by autopilot");
         }
@@ -693,7 +700,7 @@ void* autopilotHandler(void* arg)
         }
 
 
-        while () // This loop iterates after each ITMhandler execution and calculation
+        while (1) // This loop iterates after each ITMhandler execution and calculation
     {
         if(tickCounter == MESSAGE_CHECKING_LIMIT)
             {
@@ -741,14 +748,25 @@ void* autopilotHandler(void* arg)
                 usleep(AUTOPILOT_REFRESHING_PERIOD);
             }
             // Calculation Area
+            ObjectiveReached = updateCalculation(currentOjective);
+            makeAsserv(currentServoControl, currentObjective);
+
+            if(ObjectiveReached)
+            {
+                //TODO : notify main of the objective completition
+
+                // Now the objective is reached, we need to free the ressources used :
+                freeServoControl(currentServoControl);
+                freeAutopilotObjective(currentObjective);
+
+
+            }
 
 
         }
 
 
-        // Now the objective is reached, we need to free the ressources used :
-        freeServoControl(currentServoControl);
-        freeAutopilotObjective(currentObjective);
+
 
     }
 

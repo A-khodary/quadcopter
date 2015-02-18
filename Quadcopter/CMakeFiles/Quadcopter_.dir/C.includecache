@@ -6,18 +6,36 @@
 
 #IncludeRegexTransform: 
 
-/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c
-inter-thread-messages.h
-/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c
+imu.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
 
 /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
 shared_librairies.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 
+/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+math.h
+-
+stdlib.h
+-
+
 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 stdlib.h
 -
 stdio.h
+-
+math.h
+-
+string.h
 -
 pthread.h
 -
@@ -25,6 +43,14 @@ wiringPiI2C.h
 -
 unistd.h
 -
+signal.h
+-
+time.h
+-
 inter-thread-messages.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+proj/proj_api.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
 
