@@ -118,7 +118,48 @@ bidirectionalHandler_t dataLoggerBidirectionalHandler;
 dataLoggerBidirectionalHandler.mainITMHandler = &mainITMHandler;
 dataLoggerBidirectionalHandler.componentITMHandler = &dataLoggerITMHandler;
 
+/*
 
+//  IMU
+
+handler_t* imuITMHandler() = initializeHandler();
+if (pilotITMHandler == NULL)
+{
+    printDebug("IMU handler init error");
+    return 0;
+}
+
+bidirectionalHandler_t imuBidirectionalHandler;
+imuBidirectionalHandler.mainITMHandler = &mainITMHandler;
+imuBidirectionalHandler.componentITMHandler = &imuTMHandler;
+
+//  Writter
+
+handler_t* writterITMHandler() = initializeHandler();
+if (writterITMHandler == NULL)
+{
+    printDebug("Writter handler init error");
+    return 0;
+}
+
+bidirectionalHandler_t writterBidirectionalHandler;
+writterBidirectionalHandler.mainITMHandler = &mainITMHandler;
+writterBidirectionalHandler.componentITMHandler = &writterITMHandler;
+
+// Reader
+
+handler_t* readerITMHandler() = initializeHandler();
+if (readerITMHandler == NULL)
+{
+    printDebug("Reader handler init error");
+    return 0;
+}
+
+bidirectionalHandler_t readerBidirectionalHandler;
+readerBidirectionalHandler.mainITMHandler = &mainITMHandler;
+readerBidirectionalHandler.componentITMHandler = &readerITMHandler;
+
+*/
 
 // Test initialization :
 
@@ -155,11 +196,55 @@ while(1)
 
 
     */
+    switch(retrieveDestination(currentMessage))
+    {
+
+    case "Autopilot" :
 
 
-    //
+
+    break;
+
+    case "Pilot" :
+
+
+
+    break;
+
+    case "DataLogger" :
+
+
+
+    break;
+
+    case "IMU" :
+
+
+
+    break;
+
+    case "Writter" :
+
+
+
+    break;
+
+    case "Reader" :
+
+
+
+    break;
+
+    default :
+
+        printDebug("Invalid destination for message !");
+
+    break;
+    }
+
+
 }
-//
+
 
 
 

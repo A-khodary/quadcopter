@@ -8,15 +8,15 @@
 
 typedef struct dataGPS_t
 {
-    /*int hours;
+    int hours;
     int mins;
     int secs;
     double longitude;
     double latitude;
     int nuSat;//Number of satellites being tracked
-    int alt;//Altitude, Meters, above mean sea level*/
+    int alt;//Altitude, Meters, above mean sea level
 
-    char hours[2];
+    /*char hours[2];
     char mins[2];
     char secs[2];
     char longitude[10];

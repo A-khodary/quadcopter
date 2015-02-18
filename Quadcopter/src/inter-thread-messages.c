@@ -108,3 +108,106 @@ message_t* retrieveMessage(handler_t* handler)
     pthread_mutex_unlock(handler->fifoMutex);
     return message;
 }
+
+/*int removeCurrentMessage(handler_t* handler)
+{
+    handler_t Handler;
+    Handler = hanldler->firstObjective->previousObjective;
+    autopilotObjectiveFifo->firstObjective->previousObjective->nextObjective = NULL;
+    autopilotObjectiveFifo->firstObjective->previousObjective = NULL;
+    autopilotObjectiveFifo->firstObjective = objective;
+    autopilotObjectiveFifo.numberOfObjectivesPending--;
+    autopilotObjectiveFifo.currentObjectivePriority = autopilotObjectiveFifo->firstObjective.priority;
+    return 1;
+}
+*/
+
+char[] retrieveDestination(message_t* message)
+{
+    int i;
+    char[] destination;
+
+    for (i=0;i<30;i++)
+    {
+        while(message.message!="_")
+        {
+            destnination[i] = message.message[i];
+        }
+    return destination;
+    }
+}
+
+char[] retrieveSender(message_t* message)
+{
+    int i,j;
+    char[] sender;
+
+    for (i=0;i<30;i++)
+    {
+        while(message.message[i]=="_")
+        {
+            for (j=0;j<30;j++)
+            {
+                destnination[i+j] = message.message[i+j];
+            }
+        return sender;
+        }
+    }
+}
+
+char[] retrieveResponseOrder(message_t* message)
+{
+    int i,j,k;
+    char[] responseorder;
+
+    for (i=0;i<30;i++)
+    {
+        while(message.message[i]=="_")
+        {
+            for (j=0;j<30;j++)
+            {
+                while(message.message[i+j]=="_")
+                {
+                    for (k=0;k<30;k++)
+                    {
+                        destnination[i+j+k] = message.message[i+j+k];
+                    }
+                    return responseorder;
+                }
+            }
+        }
+    }
+}
+
+
+char[] retrieveMessageOfMessage(message_t* message)
+{
+    int i,j,k,l;
+    char[] MessageOfMessage;
+
+    for (i=0;i<30;i++)
+    {
+        while(message.message[i]=="_")
+        {
+            for (j=0;j<30;j++)
+            {
+                while(message.message[i+j]=="_")
+                {
+                    for (k=0;k<30;k++)
+                    {
+                        while(message.message[i+j+k]=="_")
+                        {
+                            for (l=0;l<30;l++)
+                            {
+                                destnination[i+j+k+l] = message.message[i+j+k+l];
+                            }
+                            return MessageOfMessage;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -481,7 +481,7 @@ void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t* relat
 
         else if (currentServoControl->ServoControlData[i]->type == "z")
         {
-                        // Locking the position mutex in order to obtain the x value :
+            // Locking the position mutex in order to obtain the x value :
             pthread_mutex_lock(&positionShared.readWriteMutex);
 
             value = positionShared.z;

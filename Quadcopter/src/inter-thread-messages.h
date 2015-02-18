@@ -44,4 +44,9 @@ handler_t* initializeHandler();
 int sendMessage(handler_t* Handler, message_t message);
 message_t* retrieveMessage(handler_t* Handler);
 
+char[] retrieveDestination(message_t* message);
+char[] retrieveSender(message_t* message);
+char[] retrieveResponseOrder(message_t* message);
+char[] retrieveMessageOfMessage(message_t* message);
+
 #endif
