@@ -40,247 +40,215 @@
 int main()
 {
 
-printDebug("Main thread is initializing...")
+    printDebug("Main thread is initializing...")
 
 
-// Threads declaration
+    // Threads declaration
 
-pthread readerThread, writerThread, pilotThread, dataLoggerThread, autopilotThread, imuThread;
+    pthread readerThread, writerThread, pilotThread, dataLoggerThread, autopilotThread, imuThread;
 
+    // Message declarations :
 
-
-// IMU initialization : to place in an IMU.c source
-
-RTIMU *imu;
-RTIMU_DATA imuData;
-
-
-RTIMUSettings *settings = new RTIMUSettings("wewillfly");
-imu = RTIMU::createIMU(settings);
-imu->IMUInit();
-
-
-// Global variables definition : (normally defined in specific component handler init)
-
-
-// Main handler init :
-
-handler_t* mainITMHandler = initializeHandler();
-if (mainITMHandler == NULL)
-{
-    printDebug("Main handler init error");
-    return 0;
-}
-
-
-
-// Thread handler filling in :
-
-//  Autopilot :
-
-
-handler_t* autopilotITMHandler() = initializeHandler();
-if (autopilotITMHandler == NULL)
-{
-    printDebug("Autopilot handler init error");
-    return 0;
-}
-
-bidirectionalHandler_t autopilotBidirectionalHandler;
-autopilotBidirectionalHandler.mainITMHandler = &mainITMHandler;
-autopilotBidirectionalHandler.componentITMHandler = &autopilotITMHandler;
-
-
-//  Pilot
-
-handler_t* pilotITMHandler() = initializeHandler();
-if (pilotITMHandler == NULL)
-{
-    printDebug("Pilot handler init error");
-    return 0;
-}
-
-bidirectionalHandler_t pilotBidirectionalHandler;
-pilotBidirectionalHandler.mainITMHandler = &mainITMHandler;
-pilotBidirectionalHandler.componentITMHandler = &pilotITMHandler;
-
-// Data logger :
-
-handler_t* dataLoggerITMHandler() = initializeHandler();
-if (dataLoggerITMHandler == NULL)
-{
-    printDebug("Data Logger handler init error");
-    return 0;
-}
-
-
-bidirectionalHandler_t dataLoggerBidirectionalHandler;
-dataLoggerBidirectionalHandler.mainITMHandler = &mainITMHandler;
-dataLoggerBidirectionalHandler.componentITMHandler = &dataLoggerITMHandler;
-
-
-//  IMU
-
-handler_t* imuITMHandler() = initializeHandler();
-if (pilotITMHandler == NULL)
-{
-    printDebug("IMU handler init error");
-    return 0;
-}
-/*
-bidirectionalHandler_t imuBidirectionalHandler;
-imuBidirectionalHandler.mainITMHandler = &mainITMHandler;
-imuBidirectionalHandler.componentITMHandler = &imuTMHandler;
-*/
-
-//  Writter
-
-handler_t* writterITMHandler() = initializeHandler();
-if (writterITMHandler == NULL)
-{
-    printDebug("Writter handler init error");
-    return 0;
-}
-
-/*
-bidirectionalHandler_t writterBidirectionalHandler;
-writterBidirectionalHandler.mainITMHandler = &mainITMHandler;
-writterBidirectionalHandler.componentITMHandler = &writterITMHandler;
-*/
-
-// Reader
-
-handler_t* readerITMHandler() = initializeHandler();
-if (readerITMHandler == NULL)
-{
-    printDebug("Reader handler init error");
-    return 0;
-}
-
-/*
-bidirectionalHandler_t readerBidirectionalHandler;
-readerBidirectionalHandler.mainITMHandler = &mainITMHandler;
-readerBidirectionalHandler.componentITMHandler = &readerITMHandler;
-
-*/
-
-
-// Test initialization :
-
-
-// End of test initialization
-
-
-printDebug("Launching components threads...")
-
-
-pthread_create(&readerThread, NULL, readerHandler, (void*)mainITMHandler);
-pthread_create(&writerThread, NULL, writerHandler, (void*)mainITMHandler);
-pthread_create(&pilotThread, NULL, pilotHandler, (void*)pilotBidirectionalHandler);
-pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)dataLoggerBidirectionalHandler);
-pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)autopilotBidirectionalHandler);
-pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
-
-// Message handling :
-
-while(1)
-{
     message_t* currentMessage;
-    currentMessage = retrieveMessage(mainITMHandler);
+    messageDecoded_t currentDecodedMessage;
+
+    // IMU initialization : to place in an IMU.c source
+
+    RTIMU *imu;
+    RTIMU_DATA imuData;
 
 
-    // TODO handling message :
-
-    /* Handling message documentation :
-
-    autopilot_init
-    autopilot_end_init
-    autopilot_objective_file_not_found
+    RTIMUSettings *settings = new RTIMUSettings("wewillfly");
+    imu = RTIMU::createIMU(settings);
+    imu->IMUInit();
 
 
+    // Global variables definition : (normally defined in specific component handler init)
 
-    */
-    switch(retrieveDestination(currentMessage))
+
+    // Main handler init :
+
+    handler_t* mainITMHandler = initializeHandler();
+    if (mainITMHandler == NULL)
     {
+        printDebug("Main handler init error");
+        return 0;
+    }
 
-    case "Autopilot" :
+    // ITM handler of components filling in :
 
-        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(autopilotThread);
-        else
+    //  Autopilot :
+
+    handler_t* autopilotITMHandler() = initializeHandler();
+    if (autopilotITMHandler == NULL) printDebug("Autopilot handler init error");
+
+
+    bidirectionalHandler_t autopilotBidirectionalHandler;
+    autopilotBidirectionalHandler.mainITMHandler = &mainITMHandler;
+    autopilotBidirectionalHandler.componentITMHandler = &autopilotITMHandler;
+
+    //  Pilot
+
+    handler_t* pilotITMHandler() = initializeHandler();
+    if (pilotITMHandler == NULL) printDebug("Pilot handler init error");
+
+    bidirectionalHandler_t pilotBidirectionalHandler;
+    pilotBidirectionalHandler.mainITMHandler = &mainITMHandler;
+    pilotBidirectionalHandler.componentITMHandler = &pilotITMHandler;
+
+    // Data logger :
+
+    handler_t* dataLoggerITMHandler() = initializeHandler();
+    if (dataLoggerITMHandler == NULL) printDebug("Data Logger handler init error");
+
+
+    bidirectionalHandler_t dataLoggerBidirectionalHandler;
+    dataLoggerBidirectionalHandler.mainITMHandler = &mainITMHandler;
+    dataLoggerBidirectionalHandler.componentITMHandler = &dataLoggerITMHandler;
+
+
+    // Reader
+
+    handler_t* readerITMHandler() = initializeHandler();
+    if (readerITMHandler == NULL) printDebug("Reader handler init error");
+
+    bidirectionalHandler_t readerBidirectionalHandler;
+    readerBidirectionalHandler.mainITMHandler = &mainITMHandler;
+    readerBidirectionalHandler.componentITMHandler = &readerITMHandler;
+
+
+    // Test initialization :
+
+
+
+
+
+    // End of test initialization
+
+
+    printDebug("Launching components threads...")
+
+
+    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+    pthread_create(&writerThread, NULL, writerHandler, (void*)mainITMHandler);
+    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionalHandler);
+    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
+    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionalHandler);
+    pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+
+
+    while(1)
+    {
+        // Message processing Area :
+
+        currentMessage = retrieveMessage(mainITMHandler);
+        currentDecodedMessage = decodeMessage(currentMessage)
+
+
+
+                                // TODO handling message :
+
+                                if(currentDecodedMessage.destination == "autopilot")
         {
-            sendMessage(autopilotHandler,currentMessage);
-            removeCurrentMessage(mainITMHandler);
+            printDebug("Main Thread is dispatching a message to autopilot : %s", currentDecodedMessage.message);
+            sendMessage(&autopilotITMHandler, currentMessage);
+
         }
 
-    break;
-
-    case "Pilot" :
-
-        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(pilotThread);
-        else
+        if(currentDecodedMessage.destination == "pilot")
         {
-            sendMessage(pilotHandler,currentMessage);
-            removeCurrentMessage(mainITMHandler);
+            printDebug("Main Thread is dispatching a message to pilot : %s", currentDecodedMessage.message);
+            sendMessage(&pilotITMHandler, currentMessage);
+
         }
 
-    break;
-
-    case "DataLogger" :
-
-        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(dataLoggerThread);
-        else
+        if(currentDecodedMessage.destination == "datalogger")
         {
-            sendMessage(dataLoggerHandler,currentMessage);
-            removeCurrentMessage(mainITMHandler);
+            printDebug("Main Thread is dispatching a message to datalogger : %s", currentDecodedMessage.message);
+            sendMessage(&dataLoggerITMHandler, currentMessage);
         }
 
-    break;
-
-    case "IMU" :
-
-        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(imuThread);
-        else
+        if(currentDecodedMessage.destination == "reader")
         {
-            sendMessage(imuHandler,currentMessage);
-            removeCurrentMessage(mainITMHandler);
+            printDebug("Main Thread is dispatching a message to reader : %s", currentDecodedMessage.message);
+            sendMessage(&readerITMHandler, currentMessage);
         }
 
-    break;
-
-    case "Writter" :
-
-        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(writterThread);
-        else
+        if(currentDecodedMessage.destination == "main")
         {
-            sendMessage(writterHandler,currentMessage);
-            removeCurrentMessage(mainITMHandler);
+
+            if(currentDecodedMessage.operation == INFO)
+            {
+
+                if (currentDecodedMessage.message == "restartthreadautopilot")
+                {
+                    pthread_cancel(autopilotThread);
+                    // TODO : make restart
+                }
+                else if (currentDecodedMessage.message == "restartthreaddatalogger")
+                {
+                    pthread_cancel(dataLoggerThread);
+                    // TODO : make restart
+                }
+
+                else if (currentDecodedMessage.message == "restartthreadpilot")
+                {
+                    pthread_cancel(pilotThead);
+                    // TODO : make restart
+                }
+                // TODO : do it for all threads
+
+                else if (currentDecodedMessage.message == "emergencylanding") // the autopilot can notify main of such event
+                {
+
+                    // TODO
+                }
+
+                else if (currentDecodedMessage.message == "landed") // the autopilot can notify main of such event
+                {
+
+                    // TODO
+                }
+
+                else if (currentDecodedMessage.message == "crashed") // the autopilot can notify main of such event
+                {
+
+                    // TODO
+                }
+
+                else if (currentDecodedMessage.message == "takeoffed") // the autopilot can notify main of such event
+                {
+
+                    // TODO
+                }
+
+                else if (currentDecodedMessage.message == "invalidobjectivepath") // the autopilot can notify main of such event
+                {
+
+                    // TODO
+                }
+
+
+            }
+
+            else
+            {
+                printDebug("Main thread received a message, but it was not recognized");
+            }
+
+
         }
 
-    break;
-
-    case "Reader" :
-
-        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(readerThread);
         else
         {
-            sendMessage(readerHandler,currentMessage);
-            removeCurrentMessage(mainITMHandler);
+            printDebug("Invalid destination for message !");
         }
 
-    break;
 
-    default :
-
-        printDebug("Invalid destination for message !");
-
-    break;
     }
 
 
-}
 
 
-
-
-return 0;
+    return 0;
 }

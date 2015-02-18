@@ -46,7 +46,7 @@ typedef struct messageDecoded_t
     char source[16];
     char message[64];
     int operation;
-
+    
 } messageDecoded_t;
 
 
