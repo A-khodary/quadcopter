@@ -118,7 +118,6 @@ bidirectionalHandler_t dataLoggerBidirectionalHandler;
 dataLoggerBidirectionalHandler.mainITMHandler = &mainITMHandler;
 dataLoggerBidirectionalHandler.componentITMHandler = &dataLoggerITMHandler;
 
-/*
 
 //  IMU
 
@@ -128,10 +127,11 @@ if (pilotITMHandler == NULL)
     printDebug("IMU handler init error");
     return 0;
 }
-
+/*
 bidirectionalHandler_t imuBidirectionalHandler;
 imuBidirectionalHandler.mainITMHandler = &mainITMHandler;
 imuBidirectionalHandler.componentITMHandler = &imuTMHandler;
+*/
 
 //  Writter
 
@@ -142,9 +142,11 @@ if (writterITMHandler == NULL)
     return 0;
 }
 
+/*
 bidirectionalHandler_t writterBidirectionalHandler;
 writterBidirectionalHandler.mainITMHandler = &mainITMHandler;
 writterBidirectionalHandler.componentITMHandler = &writterITMHandler;
+*/
 
 // Reader
 
@@ -155,11 +157,13 @@ if (readerITMHandler == NULL)
     return 0;
 }
 
+/*
 bidirectionalHandler_t readerBidirectionalHandler;
 readerBidirectionalHandler.mainITMHandler = &mainITMHandler;
 readerBidirectionalHandler.componentITMHandler = &readerITMHandler;
 
 */
+
 
 // Test initialization :
 
@@ -175,7 +179,7 @@ pthread_create(&writerThread, NULL, writerHandler, (void*)mainITMHandler);
 pthread_create(&pilotThread, NULL, pilotHandler, (void*)pilotBidirectionalHandler);
 pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)dataLoggerBidirectionalHandler);
 pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)autopilotBidirectionalHandler);
-pthread_create(&imuThread, NULL, imuHandler, (void*)autopilotBidirectionalHandler);
+pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
 // Message handling :
 
@@ -201,37 +205,43 @@ while(1)
 
     case "Autopilot" :
 
-
+        sendMessage(autopilotHandler,currentMessage);
+        removeCurrentMessage(mainITMHandler);
 
     break;
 
     case "Pilot" :
 
-
+        sendMessage(pilotHandler,currentMessage);
+        removeCurrentMessage(mainITMHandler);
 
     break;
 
     case "DataLogger" :
 
-
+        sendMessage(dataLoggerHandler,currentMessage);
+        removeCurrentMessage(mainITMHandler);
 
     break;
 
     case "IMU" :
 
-
+        sendMessage(imuHandler,currentMessage);
+        removeCurrentMessage(mainITMHandler);
 
     break;
 
     case "Writter" :
 
-
+        sendMessage(writterHandler,currentMessage);
+        removeCurrentMessage(mainITMHandler);
 
     break;
 
     case "Reader" :
 
-
+        sendMessage(readerHandler,currentMessage);
+        removeCurrentMessage(mainITMHandler);
 
     break;
 

@@ -43,6 +43,7 @@ typedef struct handler_t
 handler_t* initializeHandler();
 int sendMessage(handler_t* Handler, message_t message);
 message_t* retrieveMessage(handler_t* Handler);
+int removeCurrentMessage(handler_t* handler);
 
 char[] retrieveDestination(message_t* message);
 char[] retrieveSender(message_t* message);

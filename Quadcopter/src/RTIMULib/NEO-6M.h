@@ -26,4 +26,7 @@ typedef struct dataGPS_t
 
 }dataGPS;
 
-int neo();
+int initializeDataGPS(void);
+
+extern dataGPS dataGPS;
+

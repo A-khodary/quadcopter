@@ -1,33 +1,18 @@
 #include "NEO-6M.h"
 
-<<<<<<< HEAD
-dataGPS* getDataGPS(void)
-=======
-int neo()
->>>>>>> origin/master
-{
+int initializeDataGPS(void)
 
-    dataGPS dataGPS;
+{
 
     char gps[65]; //gps string array
 
-<<<<<<< HEAD
-    char hours[];
-    char mins[];
-    char secs[];
-    char longitude[];
-    char latitude[];
-    char nuSat[];
-    char alt[];
-=======
-char hours[2];
-char mins[2];
-char secs[2];
-char longitude[11];
-char latitude[11];
-char nuSat[2];
-char alt[5];
->>>>>>> origin/master
+    char hours[2];
+    char mins[2];
+    char secs[2];
+    char longitude[9];
+    char latitude[10];
+    char nuSat[2];
+    char alt[5];
 
     int fd; //handler
     int flag;
@@ -39,11 +24,13 @@ char alt[5];
     if ((fd = serialOpen ("/dev/ttyAMA0", 9600)) < 0) //device adress, baudrate
     {
         fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
+        return -1;
     }
 
     if (wiringPiSetup () == -1)
     {
         fprintf (stdout, "Unable to start wiringPi: %s\n", strerror (errno)) ;
+        return -1;
     }
 
     while(1)
@@ -115,13 +102,9 @@ char alt[5];
             dataGPS.alt = atoi(&alt);
             //*dataGPS.alt = &alt;
 
-            //serialClose(fd);
-            //flag = 0;
-
-            return dataGPS;
-
         }
-
+    serialClose(fd);
+    flag = 0;
     }
 }
 

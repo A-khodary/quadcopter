@@ -109,18 +109,18 @@ message_t* retrieveMessage(handler_t* handler)
     return message;
 }
 
-/*int removeCurrentMessage(handler_t* handler)
+int removeCurrentMessage(handler_t* handler)
 {
     handler_t Handler;
-    Handler = hanldler->firstObjective->previousObjective;
-    autopilotObjectiveFifo->firstObjective->previousObjective->nextObjective = NULL;
-    autopilotObjectiveFifo->firstObjective->previousObjective = NULL;
-    autopilotObjectiveFifo->firstObjective = objective;
-    autopilotObjectiveFifo.numberOfObjectivesPending--;
-    autopilotObjectiveFifo.currentObjectivePriority = autopilotObjectiveFifo->firstObjective.priority;
+    Handler = handler->fifoFirstElement->previousMessage;
+    handler->fifoFirstElement->previousMessage->nextMessage = NULL;
+    handler->fifoFirstElement->previousMessage = NULL;
+    handler->fifoFirstElement = Handler;
+    handler.messagesToProcess--;
+    handler.fifoProcessingPriority = autopilotObjectiveFifo->fifoFirstElement.priority;
     return 1;
 }
-*/
+
 
 char[] retrieveDestination(message_t* message)
 {
