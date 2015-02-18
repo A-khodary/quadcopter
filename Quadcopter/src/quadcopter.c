@@ -205,43 +205,67 @@ while(1)
 
     case "Autopilot" :
 
-        sendMessage(autopilotHandler,currentMessage);
-        removeCurrentMessage(mainITMHandler);
+        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(autopilotThread);
+        else
+        {
+            sendMessage(autopilotHandler,currentMessage);
+            removeCurrentMessage(mainITMHandler);
+        }
 
     break;
 
     case "Pilot" :
 
-        sendMessage(pilotHandler,currentMessage);
-        removeCurrentMessage(mainITMHandler);
+        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(pilotThread);
+        else
+        {
+            sendMessage(pilotHandler,currentMessage);
+            removeCurrentMessage(mainITMHandler);
+        }
 
     break;
 
     case "DataLogger" :
 
-        sendMessage(dataLoggerHandler,currentMessage);
-        removeCurrentMessage(mainITMHandler);
+        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(dataLoggerThread);
+        else
+        {
+            sendMessage(dataLoggerHandler,currentMessage);
+            removeCurrentMessage(mainITMHandler);
+        }
 
     break;
 
     case "IMU" :
 
-        sendMessage(imuHandler,currentMessage);
-        removeCurrentMessage(mainITMHandler);
+        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(imuThread);
+        else
+        {
+            sendMessage(imuHandler,currentMessage);
+            removeCurrentMessage(mainITMHandler);
+        }
 
     break;
 
     case "Writter" :
 
-        sendMessage(writterHandler,currentMessage);
-        removeCurrentMessage(mainITMHandler);
+        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(writterThread);
+        else
+        {
+            sendMessage(writterHandler,currentMessage);
+            removeCurrentMessage(mainITMHandler);
+        }
 
     break;
 
     case "Reader" :
 
-        sendMessage(readerHandler,currentMessage);
-        removeCurrentMessage(mainITMHandler);
+        if (retrieveMessageOfMessage(currentMessage)=="KillThread")  pthread_cancel(readerThread);
+        else
+        {
+            sendMessage(readerHandler,currentMessage);
+            removeCurrentMessage(mainITMHandler);
+        }
 
     break;
 
