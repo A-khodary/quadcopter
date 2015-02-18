@@ -10,29 +10,6 @@
 */
 
 
-/* Function return documentation :
-
--1 : Arduino not detected on I2C
-
-
-*/
-
-
-
-
-
-// Library includes :
-
-
-
-
-// Hardware defines :
-
-# define RUDDER_PIN 1
-# define THROTTLE_PIN 2
-# define AILERONS_PIN 3
-# define ELEVATOR_PIN 4
-
 // Software defines :
 
 #define ARDUINO_ADDRESS 1
@@ -42,6 +19,30 @@
 
 void* readerHandler(void* arg)
 {
+    int isUltrasonicOn = 0;
+    float* ultrasonicSampleList;
+    float filteredValue;
+
+
+    bidirectionalHandler_t* bidirectionalHandler;
+    bidirectionalHandler = (bidirectionalHandler_t*)arg;
+
+    handler_t* mainITMHandler;
+    handler_t* readerITMHandler;
+
+    mainITMHandler = bidirectionalHandler.mainITMHandler;
+    readerITMHandler = bidirectionalHandler.componentITMHandler;
+
+    message_t* receivedMessage;
+    message_t currentMessage;
+
+    currentMessage.message="main_reader_init";
+    currentMessage.priority=20;
+
+    sendMessage(mainITMHandler, currentMessage);
+
+
+
     long buffer[9];
     int fd;
 
@@ -60,33 +61,79 @@ void* readerHandler(void* arg)
     if (fd = wiringPiI2CSetup (ARDUINO_ADDRESS)) < 0)
     {
         printDebug("[e] Reader : error connecting to Arduino via I2C")
-        return -1; // Connecting to Arduino
+        // TODO : notify main thread
     }
 
     // Now we're connected, processing incoming data :
 
-    while(continue)
+    while(1)
 {
-    read(fd, buffer, 4*9); //Todo implement connection test
+    // Message processing AREA :
+    receivedMessage = retrieveMessage(readerITMHandler);
 
-    pthread_mutex_lock(userCommands.readWriteMutex);
+        //TODO : make message parser
+        if(receivedMessage.message == "ultrasonicon")
+        {
+            if (isUltrasonicOn)
+            {
+                printDebug("Something strange in reader : asked to turn on an already on ultrasonic")
+            }
+            ultrasonicSampleList = initUltrasonic();
+            isUltrasonicOn = 1;
+        }
 
-    userCommands.ch1=buffer[0];
-    userCommands.ch2=buffer[1];
-    userCommands.ch3=buffer[2];
-    userCommands.ch4=buffer[3];
-    userCommands.ch5=buffer[4];
-    userCommands.ch6=buffer[5];
-    userCommands.ch7=buffer[6];
-    userCommands.ch8=buffer[7];
-    userCommands.ch9=buffer[8];
+        if (receivedMessage.message == "ultrasonicoff")
+        {
+            if(!isUltrasonicOn)
+            {
+                printDebug("Something strange in reader : asked to turn off an already off ultrasonic")
+            }
+            shutdownUltrasonic(ultrasonicSampleList);
+            isUltrasonicOn = 0;
+        }
 
-    pthread_mutex_unlock(userCommands.readWriteMutex);
 
-    sleep(SAMPLING_PERIOD_MS/1000);
 
-}
+        read(fd, buffer, 4*9); //TODO implement connection test and ultrasonic reading
+
+        if (isUltrasonicOn)
+        {
+            addToSampleList(VALUE. ultrasonicSampleList);
+            filteredValue = getFilteredUltrasonic(ultrasonicSampleList);
+        }
+
+        // TODO : integrate ultrasonic
+
+        pthread_mutex_lock(receivedCommands.readWriteMutex);
+
+        for (int i=0; i<=8, i++)
+        {
+            receivedCommands.commands[i] = buffer[i];
+        }
+
+        receivedCommands.ultrasonicTelemeter = filteredValue;
+
+
+
+        pthread_mutex_unlock(userCommands.readWriteMutex);
+
+        sleep(SAMPLING_PERIOD_MS/1000);
+
+    }
     close(fd);
 
 }
+
+float* initUltrasonic()
+{
+    float* list;
+    list = (float*)malloc(SAMPLESIZE*sizeof(float));
+}
+
+
+void* addToSampleList(float sample, float* sampleList);
+float getFilteredUltrasonic(float* sampleList);
+shutdownUltrasonic(float* sampleList);
+
+
 

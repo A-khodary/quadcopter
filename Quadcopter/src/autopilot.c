@@ -569,7 +569,7 @@ void* autopilotHandler(void* arg)
     servoControl_t* currentServoControl;
 
     currentMessage.message = "autopilot_init"
-                             currentMessage.priority = 20;
+    currentMessage.priority = 20;
 
     int tickCounter=0;
 
