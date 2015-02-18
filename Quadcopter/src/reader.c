@@ -126,14 +126,57 @@ void* readerHandler(void* arg)
 
 float* initUltrasonic()
 {
-    float* list;
-    list = (float*)malloc(SAMPLESIZE*sizeof(float));
+    sampleList_t* list;
+    list = (sampleList_t*)malloc(SAMPLESIZE*sizeof(sampleList_t));
+    list.lastEntryIndex = -1;
+    list.NumberOfSamples = 0;
+
+    return list;
 }
 
 
-void* addToSampleList(float sample, float* sampleList);
-float getFilteredUltrasonic(float* sampleList);
-shutdownUltrasonic(float* sampleList);
+void* addToSampleList(float sample, sampleList_t list)
+{
+    int toBeInsertedIndex;
+
+
+    if (list.lastEntryIndex + 1 > SAMPLESIZE-1) tobeInsertedIndex = 0;
+    else tobeInsertedIndex = list.lastEntryIndex +1;
+
+    list.list[toBeInsertedIndex] = sample;
+    list.lastEntryIndex = toBeInsertedIndex;
+
+    if (list.numberOfSamples < SAMPLESIZE) list.numberOfSamples++;
+}
+
+float getFilteredUltrasonic(sampleList_t sampleList)
+{
+    float result;
+    float sampleCopy[SAMPLESIZE];
+
+    for (int i; i<SAMPLESIZE; i++ sampleCopy[i] = sampleList.list[i]; // In order to sort the table, we need to copy it
+    qsort(sampleCopy, SAMPLESIZE, sizeof(float), comp);
+
+    result = (sampleCopy[SAMPLESIZE/2] + sampleCopy[SAMPLESIZE/2 +1])/2; // As it it as pair number, me take this as a median
+
+    return result;
+}
+
+shutdownUltrasonic(sampleList_t* sampleList)
+{
+    free(sampleList);
+
+}
+
+comp(const void *a, const void *b)
+{
+    int *x = (int *) a;
+    int *y = (int *) b;
+    return *x - *y;
+}
+
+
+
 
 
 
