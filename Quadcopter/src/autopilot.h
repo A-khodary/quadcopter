@@ -32,6 +32,14 @@
 #define MAXSPEED 3
 #define MAXSPEEDXY 2
 
+// Some commands restrictions
+
+#define MAXYAW 80
+#define MAXGAZ 70
+#define MAXELEV 70
+#define MAXROLL 70
+
+
 // Objective text file list path :
 
 #define OBJECTIVES_PATH objectives.txt
@@ -59,14 +67,13 @@ void freeAutopilotObjective (autopilotObjective_t* autopilotObjective);
 // Servo controlling prototypes :
 
 servoControl_t* buildServoControl(autopilotObjective_t autopilotObjective);
-void updateServoControl(servoControl_t servoControl);
 void freeServoControl(servoControl_t*);
-void makeAsserv(servoControl_t* currentServoControl);
+void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t relativeObjective);
 
 // Objective calculations prototypes :
 
 int initCalculation(autopilotObjective_t* autopilotObjective);
-void updateCalculation(autopilotObjective_t* autopilotObjective);
+int updateCalculation(autopilotObjective_t* autopilotObjective);
 
 
 // Structures declarations :

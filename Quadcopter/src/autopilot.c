@@ -337,29 +337,39 @@ int initCalculation(autopilotObjective_t* autopilotObjective)
 // does the first bearing calculation and projections
 
 
-void updateCalculation(autopilotObjective_t* autopilotObjective)
+int updateCalculation(autopilotObjective_t* autopilotObjective)
 {
+    // Locking the position relative mutex :
+    pthread_mutex_lock(&positionShared.readWriteMutex);
+
 
     if (autopilotObjective->code == GOTO_STANDARD)
     {
-        // Locking the position relative mutex :
-        pthread_mutex_lock(&positionShared.readWriteMutex);
+
 
         //Updating bearing :
         autopilotObjective->directionBearing = calculateBearing(positionShared.x, positionShared.y, autopilotObjective->destinationX, autopilotObjective->destinationY);
 
-        // Updating distance to Objective :
-        autopilotObjective->destinationDistXY =sqrt( pow(2, autopilotObjective->destinationX - positionShared.x) + pow(2, autopilotObjective->destinationY - positionShared.Y) );
-
-        //Now we're done, unlocking mutex :
-        pthread_mutex_unlock(&positionShared.readWriteMutex);
     }
-} // For now just computes the bearing, will modify max_speed in the future relative to distance to objective
+
+    // Updating distances to Objective :
+    autopilotObjective->destinationDistXY =sqrt( pow(2, autopilotObjective->destinationX - positionShared.x) + pow(2, autopilotObjective->destinationY - positionShared.Y) );
+    autopilotObjective->destinationDist =sqrt( pow(2, autopilotObjective->destinationX - positionShared.x) + pow(2, autopilotObjective->destinationY - positionShared.Y) + pow(2, autopilotObjective->destinationZ - positionShared.Z) );
+
+    //Now we're done, unlocking the position mutex :
+    pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+    return autopilotObjective->destinationDist; // returning the destination distance in meters
+
+} // For now just computes the bearing and several distances, will modify max_speed in the future relative to distance to objective. Returns the distance to objective in meters
 
 
-void makeAsserv(servoControl_t* currentServoControl)
+void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t* relativeObjective) //If the autopilotObjective_t passed is not null, makeAsserv will do the servo control relatively (allows dynamic setpoint)
 {
     int i,
+    double command;
+    double value;
+
 
     if (currentServoControl == NULL)
     {
@@ -367,22 +377,173 @@ void makeAsserv(servoControl_t* currentServoControl)
         return -1;
     }
 
-    double* commands = malloc(sizeof(double)*currentServoControl->oneWayNumber);
+
     for (i=0; i< currentServoControl->oneWayNumber; i++ )
     {
-        //TODO : to continue
+        if (currentServoControl->ServoControlData[i]->type == "yaw")
+        {
+            // Locking the position mutex in order to obtain the bearing value :
+            pthread_mutex_lock(&flightStateShared.readWriteMutex);
 
-        /*
-        command[i]=currentServoControl->ServoControlData[i]->pid()
+            value = flightStateShared.yaw;
 
-        */
+            // Unlocking the mutex :
+            pthread_mutex_unlock(&flightStateShared.readWriteMutex);
+
+            // Checking if the relative autopilot objective is null :
+            if (relativeObjective != NULL) currentServoControl->servoControlData[i]->consign = relativeObjective ->directionBearing;
+
+
+            // Now we have everything, lets compute :
+            command =currentServoControl->servoControlData[i]->pid.compute(value, currentServoControl->servoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXYAW/2 ) command = 50 + MAXYAW/2;
+            if (command < 50 - MAXYAW/2 ) command = 50 - MAXYAW/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan1 = command; //TODO : identify the right channel
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+        }
+
+
+        else if (currentServoControl->ServoControlData[i]->type == "x")
+        {
+            // Locking the position mutex in order to obtain the x value :
+            pthread_mutex_lock(&positionShared.readWriteMutex);
+
+            value = positionShared.x;
+
+            // Unlocking the mutex :
+            pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+            // Now we have everything, lets compute :
+            command =currentServoControl->servoControlData[i]->pid.compute(value, currentServoControl->servoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXELEV/2 ) command = 50 + MAXELEV/2;
+            if (command < 50 - MAXELEV/2 ) command = 50 - MAXELEV/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan2 = command; //TODO : identify the right channel(FORWARD/BACK)
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+
+        }
+
+        else if (currentServoControl->ServoControlData[i]->type == "y")
+        {
+            // Locking the position mutex in order to obtain the x value :
+            pthread_mutex_lock(&positionShared.readWriteMutex);
+
+            value = positionShared.y;
+
+            // Unlocking the mutex :
+            pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+            // Now we have everything, lets compute :
+            command =currentServoControl->servoControlData[i]->pid.compute(value, currentServoControl->servoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXROLL/2 ) command = 50 + MAXROLL/2;
+            if (command < 50 - MAXROLL/2 ) command = 50 - MAXROLL/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan3 = command; //TODO : identify the right channel (RIGHT/LEFT)
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+
+        }
+
+        else if (currentServoControl->ServoControlData[i]->type == "z")
+        {
+                        // Locking the position mutex in order to obtain the x value :
+            pthread_mutex_lock(&positionShared.readWriteMutex);
+
+            value = positionShared.z;
+
+            // Unlocking the mutex :
+            pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+            // Now we have everything, lets compute :
+            command =currentServoControl->servoControlData[i]->pid.compute(value, currentServoControl->servoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXGAZ/2 ) command = 50 + MAXGAZ/2;
+            if (command < 50 - MAXGAZ/2 ) command = 50 - MAXGAZ/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan4 = command; //TODO : identify the right channel (GAZ)
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+        }
+
+        else if (currentServoControl->ServoControlData[i]->type == "dist")
+        {
+            // Checking if the relative autopilot objective is null :
+            if (relativeObjective != NULL) currentServoControl->servoControlData[i]->consign = relativeObjective->destinationDistXY;
+
+
+            // Now we have everything, lets compute :
+            command =currentServoControl->servoControlData[i]->pid.compute(value, currentServoControl->servoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXELEV/2 ) command = 50 + MAXELEV/2;
+            if (command < 50 - MAXELEV/2 ) command = 50 - MAXELEV/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan2 = command; //TODO : identify the right channel(FORWARD/BACK)
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+        }
+
+
+
+
     }
 
 
-
-
-    return completitionPercent;
-} // This function computes the PID and writes the commands
+}
 
 
 
