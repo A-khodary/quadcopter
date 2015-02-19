@@ -52,17 +52,6 @@ int main()
     message_t* currentMessage;
     messageDecoded_t currentDecodedMessage;
 
-    // IMU initialization : to place in an IMU.c source
-
-    RTIMU *imu;
-    RTIMU_DATA imuData;
-
-
-    RTIMUSettings *settings = new RTIMUSettings("wewillfly");
-    imu = RTIMU::createIMU(settings);
-    imu->IMUInit();
-
-
     // Global variables definition : (normally defined in specific component handler init)
 
 
