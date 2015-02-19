@@ -12,6 +12,9 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -46,18 +49,42 @@ include CMakeFiles/Quadcopter_.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Quadcopter_.dir/flags.make
 
+CMakeFiles/Quadcopter_.dir/src/imu.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/imu.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_1)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/imu.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/imu.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c
+
+CMakeFiles/Quadcopter_.dir/src/imu.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/imu.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c > CMakeFiles/Quadcopter_.dir/src/imu.c.i
+
+CMakeFiles/Quadcopter_.dir/src/imu.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/imu.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c -o CMakeFiles/Quadcopter_.dir/src/imu.c.s
+
+CMakeFiles/Quadcopter_.dir/src/imu.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/imu.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides: CMakeFiles/Quadcopter_.dir/src/imu.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/imu.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides.build
+
 CMakeFiles/Quadcopter_.dir/src/osd.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/osd.c.o: src/osd.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/osd.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_2)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/osd.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/osd.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c
 
 CMakeFiles/Quadcopter_.dir/src/osd.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/osd.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/osd.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c > CMakeFiles/Quadcopter_.dir/src/osd.c.i
 
 CMakeFiles/Quadcopter_.dir/src/osd.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/osd.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/osd.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c -o CMakeFiles/Quadcopter_.dir/src/osd.c.s
 
 CMakeFiles/Quadcopter_.dir/src/osd.c.o.requires:
@@ -72,16 +99,16 @@ CMakeFiles/Quadcopter_.dir/src/osd.c.o.provides.build: CMakeFiles/Quadcopter_.di
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: src/RTIMULib/RTMath.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_3)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.requires:
@@ -96,16 +123,16 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o: src/RTIMULib/RTIMUHal.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_4)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.requires:
@@ -118,18 +145,42 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.provides: CMakeFiles/Quad
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.provides.build
 
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o: src/RTIMULib/NEO-6M.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_5)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.c
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.c > CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.i
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.c -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.s
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.provides: CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.provides.build
+
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_6)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o.requires:
@@ -144,16 +195,16 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompile
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_7)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c > CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o.requires:
@@ -166,18 +217,42 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o.provides.build
 
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o: src/RTIMULib/testBMP085.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_8)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/testBMP085.c
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/testBMP085.c > CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.i
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/testBMP085.c -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.s
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.provides: CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.provides.build
+
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o: src/RTIMULib/RTFusionKalman4.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_6)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_9)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o.requires:
@@ -192,16 +267,16 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o.provides.build: CM
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_10)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.requires:
@@ -214,18 +289,42 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.provides: CMa
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.provides.build
 
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o: src/RTIMULib/BMP085.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_11)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.c
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.c > CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.i
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.c -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.s
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.provides: CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.provides.build
+
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o: src/RTIMULib/RTIMU.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_12)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o.requires:
@@ -240,16 +339,16 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o.provides.build: CMakeFiles/Q
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o: src/RTIMULib/RTIMUNull.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_9)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_13)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o.requires:
@@ -264,16 +363,16 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o: src/RTIMULib/RTFusionRTQF.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_14)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o.requires:
@@ -288,16 +387,16 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o.provides.build: CMake
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o: src/RTIMULib/RTIMUSettings.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_11)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_15)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o.requires:
@@ -312,16 +411,16 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o.provides.build: CMak
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o: src/RTIMULib/RTFusion.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_12)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_16)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o.requires:
@@ -336,16 +435,16 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/Quadcopter_.dir/src/pilot.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/pilot.c.o: src/pilot.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/pilot.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_17)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/pilot.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/pilot.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c
 
 CMakeFiles/Quadcopter_.dir/src/pilot.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/pilot.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/pilot.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c > CMakeFiles/Quadcopter_.dir/src/pilot.c.i
 
 CMakeFiles/Quadcopter_.dir/src/pilot.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/pilot.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/pilot.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c -o CMakeFiles/Quadcopter_.dir/src/pilot.c.s
 
 CMakeFiles/Quadcopter_.dir/src/pilot.c.o.requires:
@@ -360,16 +459,16 @@ CMakeFiles/Quadcopter_.dir/src/pilot.c.o.provides.build: CMakeFiles/Quadcopter_.
 
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: src/autopilot_global_functions.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_14)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_18)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c
 
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c > CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i
 
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c -o CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s
 
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o.requires:
@@ -382,18 +481,3834 @@ CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o.provides: CMakeFil
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o.provides.build
 
+CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o: src/proj/pj_factors.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_19)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_factors.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_factors.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_factors.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o: src/proj/PJ_urmfps.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_20)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urmfps.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urmfps.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urmfps.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o: src/proj/pj_datums.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_21)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datums.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datums.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datums.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o: src/proj/pj_malloc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_22)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_malloc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_malloc.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_malloc.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o: src/proj/nad_init.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_23)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_init.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_init.c > CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_init.c -o CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o: src/proj/PJ_putp5.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_24)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp5.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp5.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp5.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o: src/proj/PJ_eck1.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_25)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck1.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck1.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck1.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o: src/proj/PJ_mbtfpq.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_26)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpq.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpq.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpq.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o: src/proj/proj_rouss.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_27)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_rouss.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_rouss.c > CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_rouss.c -o CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o: src/proj/pj_fwd.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_28)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_fwd.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_fwd.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_fwd.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o: src/proj/PJ_gall.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_29)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gall.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gall.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gall.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o: src/proj/pj_gridlist.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_30)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridlist.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridlist.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridlist.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o: src/proj/pj_mutex.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_31)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mutex.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mutex.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mutex.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o: src/proj/PJ_august.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_32)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_august.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_august.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_august.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o: src/proj/pj_strerrno.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_33)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_strerrno.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_strerrno.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_strerrno.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o: src/proj/PJ_goode.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_34)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_goode.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_goode.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_goode.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o: src/proj/PJ_aeqd.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_35)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aeqd.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aeqd.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aeqd.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o: src/proj/pj_datum_set.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_36)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datum_set.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datum_set.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datum_set.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o: src/proj/geocent.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_37)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geocent.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geocent.c > CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geocent.c -o CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o: src/proj/bchgen.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_38)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bchgen.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bchgen.c > CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bchgen.c -o CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o: src/proj/PJ_loxim.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_39)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_loxim.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_loxim.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_loxim.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o: src/proj/PJ_nzmg.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_40)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nzmg.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nzmg.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nzmg.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o: src/proj/nad2bin.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_41)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad2bin.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad2bin.c > CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad2bin.c -o CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o: src/proj/pj_inv.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_42)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_inv.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_inv.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_inv.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o: src/proj/pj_log.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_43)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_log.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_log.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_log.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o: src/proj/PJ_labrd.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_44)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_labrd.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_labrd.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_labrd.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o: src/proj/PJ_boggs.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_45)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_boggs.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_boggs.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_boggs.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o: src/proj/PJ_urm5.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_46)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urm5.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urm5.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urm5.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o: src/proj/PJ_somerc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_47)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_somerc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_somerc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_somerc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o: src/proj/PJ_airy.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_48)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_airy.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_airy.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_airy.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o: src/proj/PJ_rpoly.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_49)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_rpoly.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_rpoly.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_rpoly.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o: src/proj/PJ_eqdc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_50)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqdc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqdc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqdc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o: src/proj/proj_mdist.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_51)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_mdist.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_mdist.c > CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_mdist.c -o CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o: src/proj/proj_etmerc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_52)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_etmerc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_etmerc.c > CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_etmerc.c -o CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o: src/proj/pj_phi2.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_53)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_phi2.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_phi2.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_phi2.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o: src/proj/PJ_lcc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_54)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o: src/proj/pj_auth.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_55)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_auth.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_auth.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_auth.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o: src/proj/dmstor.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_56)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/dmstor.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/dmstor.c > CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/dmstor.c -o CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o: src/proj/PJ_sts.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_57)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sts.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sts.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sts.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o: src/proj/PJ_tcea.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_58)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcea.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcea.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcea.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o: src/proj/PJ_gnom.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_59)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gnom.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gnom.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gnom.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o: src/proj/pj_units.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_60)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_units.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_units.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_units.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o: src/proj/geod_inv.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_61)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_inv.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_inv.c > CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_inv.c -o CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o: src/proj/PJ_mill.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_62)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mill.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mill.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mill.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o: src/proj/PJ_nell_h.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_63)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell_h.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell_h.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell_h.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o: src/proj/PJ_tpeqd.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_64)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tpeqd.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tpeqd.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tpeqd.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o: src/proj/PJ_hammer.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_65)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hammer.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hammer.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hammer.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o: src/proj/nad_cvt.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_66)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_cvt.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_cvt.c > CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_cvt.c -o CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o: src/proj/multistresstest.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_67)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/multistresstest.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/multistresstest.c > CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/multistresstest.c -o CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o: src/proj/bch2bps.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_68)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bch2bps.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bch2bps.c > CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bch2bps.c -o CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o: src/proj/PJ_bacon.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_69)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bacon.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bacon.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bacon.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o: src/proj/PJ_geos.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_70)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_geos.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_geos.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_geos.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o: src/proj/PJ_fouc_s.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_71)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fouc_s.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fouc_s.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fouc_s.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o: src/proj/pj_initcache.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_72)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_initcache.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_initcache.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_initcache.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o: src/proj/nad_intr.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_73)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_intr.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_intr.c > CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_intr.c -o CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o: src/proj/pj_transform.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_74)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_transform.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_transform.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_transform.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o: src/proj/PJ_denoy.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_75)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_denoy.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_denoy.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_denoy.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o: src/proj/pj_list.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_76)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_list.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_list.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_list.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o: src/proj/PJ_stere.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_77)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_stere.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_stere.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_stere.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o: src/proj/PJ_gstmerc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_78)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gstmerc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gstmerc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gstmerc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o: src/proj/cs2cs.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_79)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/cs2cs.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/cs2cs.c > CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/cs2cs.c -o CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o: src/proj/PJ_hatano.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_80)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hatano.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hatano.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hatano.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o: src/proj/pj_apply_gridshift.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_81)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_gridshift.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_gridshift.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_gridshift.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o: src/proj/pj_init.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_82)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_init.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_init.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_init.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o: src/proj/PJ_ortho.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_83)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ortho.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ortho.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ortho.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o: src/proj/PJ_vandg2.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_84)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg2.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg2.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg2.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o: src/proj/PJ_robin.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_85)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_robin.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_robin.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_robin.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o: src/proj/pj_tsfn.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_86)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_tsfn.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_tsfn.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_tsfn.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o: src/proj/pj_qsfn.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_87)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_qsfn.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_qsfn.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_qsfn.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o: src/proj/aasincos.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_88)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/aasincos.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/aasincos.c > CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/aasincos.c -o CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o: src/proj/PJ_eck5.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_89)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck5.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck5.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck5.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o: src/proj/PJ_wink1.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_90)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink1.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink1.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink1.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o: src/proj/pj_msfn.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_91)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_msfn.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_msfn.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_msfn.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o: src/proj/PJ_ocea.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_92)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ocea.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ocea.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ocea.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o: src/proj/pj_apply_vgridshift.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_93)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_vgridshift.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_vgridshift.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_vgridshift.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o: src/proj/PJ_fahey.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_94)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fahey.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fahey.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fahey.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o: src/proj/jniproj.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_95)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/jniproj.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/jniproj.c > CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/jniproj.c -o CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o: src/proj/PJ_collg.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_96)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_collg.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_collg.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_collg.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o: src/proj/PJ_cea.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_97)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cea.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cea.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cea.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o: src/proj/PJ_cass.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_98)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cass.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cass.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cass.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o: src/proj/gen_cheb.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_99)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/gen_cheb.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/gen_cheb.c > CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/gen_cheb.c -o CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o: src/proj/PJ_wink2.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_100)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink2.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink2.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink2.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o: src/proj/PJ_nocol.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_101)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nocol.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nocol.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nocol.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o: src/proj/PJ_vandg.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_102)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o: src/proj/PJ_mbtfpp.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_103)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpp.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpp.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpp.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o: src/proj/vector1.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_104)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/vector1.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/vector1.c > CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/vector1.c -o CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o: src/proj/emess.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_105)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/emess.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/emess.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/emess.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/emess.c > CMakeFiles/Quadcopter_.dir/src/proj/emess.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/emess.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/emess.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/emess.c -o CMakeFiles/Quadcopter_.dir/src/proj/emess.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o: src/proj/PJ_lask.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_106)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lask.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lask.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lask.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o: src/proj/pj_open_lib.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_107)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_open_lib.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_open_lib.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_open_lib.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o: src/proj/pj_param.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_108)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_param.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_param.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_param.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o: src/proj/adjlon.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_109)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/adjlon.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/adjlon.c > CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/adjlon.c -o CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o: src/proj/PJ_cc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_110)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o: src/proj/PJ_wag7.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_111)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag7.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag7.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag7.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o: src/proj/rtodms.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_112)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/rtodms.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/rtodms.c > CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/rtodms.c -o CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o: src/proj/PJ_sconics.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_113)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sconics.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sconics.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sconics.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o: src/proj/PJ_wag2.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_114)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag2.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag2.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag2.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o: src/proj/mk_cheby.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_115)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/mk_cheby.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/mk_cheby.c > CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/mk_cheby.c -o CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o: src/proj/PJ_moll.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_116)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_moll.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_moll.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_moll.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o: src/proj/pj_zpoly1.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_117)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_zpoly1.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_zpoly1.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_zpoly1.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o: src/proj/PJ_nell.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_118)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o: src/proj/pj_errno.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_119)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_errno.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_errno.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_errno.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o: src/proj/PJ_oea.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_120)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_oea.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_oea.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_oea.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o: src/proj/PJ_eqc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_121)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o: src/proj/pj_latlong.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_122)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_latlong.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_latlong.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_latlong.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o: src/proj/pj_ell_set.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_123)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ell_set.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ell_set.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ell_set.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o: src/proj/geod_set.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_124)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_set.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_set.c > CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_set.c -o CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o: src/proj/PJ_merc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_125)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_merc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_merc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_merc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o: src/proj/proj.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_126)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/proj.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj.c > CMakeFiles/Quadcopter_.dir/src/proj/proj.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/proj.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj.c -o CMakeFiles/Quadcopter_.dir/src/proj/proj.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o: src/proj/PJ_isea.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_127)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_isea.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_isea.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_isea.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o: src/proj/PJ_wag3.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_128)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag3.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag3.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag3.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o: src/proj/pj_ctx.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_129)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ctx.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ctx.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ctx.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o: src/proj/PJ_mod_ster.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_130)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mod_ster.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mod_ster.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mod_ster.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o: src/proj/PJ_gn_sinu.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_131)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gn_sinu.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gn_sinu.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gn_sinu.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o: src/proj/PJ_putp2.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_132)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp2.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp2.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp2.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o: src/proj/PJ_healpix.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_133)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_healpix.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_healpix.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_healpix.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o: src/proj/PJ_vandg4.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_134)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg4.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg4.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg4.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o: src/proj/PJ_sterea.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_135)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sterea.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sterea.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sterea.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o: src/proj/pj_ellps.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_136)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ellps.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ellps.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ellps.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o: src/proj/PJ_lagrng.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_137)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lagrng.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lagrng.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lagrng.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o: src/proj/PJ_lsat.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_138)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lsat.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lsat.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lsat.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o: src/proj/PJ_bonne.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_139)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bonne.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bonne.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bonne.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o: src/proj/geod_for.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_140)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_for.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_for.c > CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod_for.c -o CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o: src/proj/PJ_omerc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_141)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_omerc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_omerc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_omerc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o: src/proj/PJ_ob_tran.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_142)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ob_tran.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ob_tran.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ob_tran.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o: src/proj/PJ_imw_p.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_143)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_imw_p.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_imw_p.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_imw_p.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o: src/proj/PJ_tmerc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_144)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tmerc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tmerc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tmerc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o: src/proj/PJ_crast.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_145)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_crast.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_crast.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_crast.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o: src/proj/PJ_gins8.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_146)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gins8.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gins8.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gins8.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o: src/proj/pj_geocent.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_147)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_geocent.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_geocent.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_geocent.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o: src/proj/PJ_bipc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_148)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bipc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bipc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bipc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o: src/proj/PJ_eck4.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_149)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck4.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck4.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck4.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o: src/proj/biveval.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_150)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/biveval.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/biveval.c > CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/biveval.c -o CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o: src/proj/p_series.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_151)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/p_series.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/p_series.c > CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/p_series.c -o CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o: src/proj/PJ_larr.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_152)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_larr.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_larr.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_larr.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o: src/proj/PJ_laea.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_153)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_laea.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_laea.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_laea.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o: src/proj/PJ_poly.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_154)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_poly.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_poly.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_poly.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o: src/proj/pj_deriv.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_155)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_deriv.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_deriv.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_deriv.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o: src/proj/PJ_nsper.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_156)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nsper.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nsper.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nsper.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o: src/proj/pj_utils.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_157)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_utils.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_utils.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_utils.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o: src/proj/pj_gridinfo.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_158)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridinfo.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridinfo.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridinfo.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o: src/proj/PJ_aea.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_159)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aea.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aea.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aea.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o: src/proj/PJ_chamb.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_160)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_chamb.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_chamb.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_chamb.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o: src/proj/pj_mlfn.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_161)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mlfn.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mlfn.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mlfn.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o: src/proj/pj_release.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_162)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_release.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_release.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_release.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o: src/proj/PJ_aitoff.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_163)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aitoff.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aitoff.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aitoff.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o: src/proj/PJ_krovak.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_164)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_krovak.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_krovak.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_krovak.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o: src/proj/PJ_igh.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_165)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_igh.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_igh.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_igh.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o: src/proj/PJ_mbt_fps.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_166)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbt_fps.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbt_fps.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbt_fps.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o: src/proj/PJ_natearth.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_167)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_natearth.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_natearth.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_natearth.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o: src/proj/PJ_putp4p.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_168)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp4p.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp4p.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp4p.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o: src/proj/PJ_eck3.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_169)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck3.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck3.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck3.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o: src/proj/geod.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_170)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/geod.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod.c > CMakeFiles/Quadcopter_.dir/src/proj/geod.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/geod.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geod.c -o CMakeFiles/Quadcopter_.dir/src/proj/geod.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o: src/proj/PJ_lcca.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_171)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcca.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcca.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcca.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o: src/proj/pj_gauss.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_172)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gauss.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gauss.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gauss.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o: src/proj/pj_pr_list.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_173)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_pr_list.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_pr_list.c > CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_pr_list.c -o CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o: src/proj/PJ_tcc.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_174)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcc.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcc.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcc.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o: src/proj/PJ_putp3.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_175)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp3.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp3.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp3.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o: src/proj/PJ_eck2.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_176)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck2.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck2.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck2.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.provides.build
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o: src/proj/PJ_putp6.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_177)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp6.c
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.i: cmake_force
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp6.c > CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.i
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.s: cmake_force
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp6.c -o CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.s
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.provides: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.provides.build
+
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o: src/BMP/Adafruit_BMP085.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_15)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_178)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp
 
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp > CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp -o CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.requires:
@@ -408,16 +4323,16 @@ CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/data_logger.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_16)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/data_logger.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_179)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/data_logger.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/data_logger.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c
 
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/data_logger.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/data_logger.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c > CMakeFiles/Quadcopter_.dir/src/data_logger.c.i
 
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/data_logger.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/data_logger.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c -o CMakeFiles/Quadcopter_.dir/src/data_logger.c.s
 
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.requires:
@@ -432,16 +4347,16 @@ CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.provides.build: CMakeFiles/Quadco
 
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: src/reader_global_functions.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_17)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_180)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c
 
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c > CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i
 
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c -o CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s
 
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.requires:
@@ -456,16 +4371,16 @@ CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.provides.build: CMake
 
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/autopilot.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_18)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_181)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/autopilot.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c
 
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c > CMakeFiles/Quadcopter_.dir/src/autopilot.c.i
 
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c -o CMakeFiles/Quadcopter_.dir/src/autopilot.c.s
 
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.requires:
@@ -480,16 +4395,16 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.provides.build: CMakeFiles/Quadcopt
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: src/reader.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_19)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/reader.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_182)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/reader.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/reader.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c > CMakeFiles/Quadcopter_.dir/src/reader.c.i
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c -o CMakeFiles/Quadcopter_.dir/src/reader.c.s
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.o.requires:
@@ -502,186 +4417,18 @@ CMakeFiles/Quadcopter_.dir/src/reader.c.o.provides: CMakeFiles/Quadcopter_.dir/s
 CMakeFiles/Quadcopter_.dir/src/reader.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/reader.c.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/reader.c.o.provides.build
 
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o: src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_20)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp > CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.provides: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.provides.build
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o: src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_21)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp > CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.provides: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.provides.build
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o: src/mavlink/pymavlink/generator/C/test/posix/testmav.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_22)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/testmav.c
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/testmav.c > CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/pymavlink/generator/C/test/posix/testmav.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.provides: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.provides.build
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o: src/mavlink/examples/linux/mavlink_udp.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_23)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/mavlink_udp.c
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/mavlink_udp.c > CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/examples/linux/mavlink_udp.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.provides: CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.provides.build
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o: src/mavlink/missionlib/mavlink_parameters.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_24)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_parameters.c
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_parameters.c > CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/mavlink_parameters.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.provides: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.provides.build
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o: src/mavlink/missionlib/testing/main.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_25)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/main.c
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/main.c > CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/testing/main.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.provides: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.provides.build
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o: src/mavlink/missionlib/waypoints.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_26)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/waypoints.c
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/waypoints.c > CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/mavlink/missionlib/waypoints.c -o CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.provides: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.provides.build
-
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/inter-thread-messages.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_27)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_183)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c
 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c > CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i
 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c -o CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s
 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.requires:
@@ -696,16 +4443,16 @@ CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.provides.build: CMakeFi
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: src/global_functions.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_28)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_184)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/global_functions.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/global_functions.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c > CMakeFiles/Quadcopter_.dir/src/global_functions.c.i
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/global_functions.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/global_functions.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c -o CMakeFiles/Quadcopter_.dir/src/global_functions.c.s
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.requires:
@@ -720,16 +4467,16 @@ CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.provides.build: CMakeFiles/Q
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/PID.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_29)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_185)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/PID.cpp.i"
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/PID.cpp.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp > CMakeFiles/Quadcopter_.dir/src/PID.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/PID.cpp.s"
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/PID.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.requires:
@@ -744,16 +4491,16 @@ CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.provides.build: CMakeFiles/Quadcopter_.
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/quadcopter.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_30)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_186)
+	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i"
+	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c > CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s"
+	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c -o CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.requires:
@@ -768,13 +4515,17 @@ CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.provides.build: CMakeFiles/Quadcop
 
 # Object files for target Quadcopter_
 Quadcopter__OBJECTS = \
+"CMakeFiles/Quadcopter_.dir/src/imu.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/osd.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o" \
+"CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o" \
+"CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o" \
@@ -782,18 +4533,170 @@ Quadcopter__OBJECTS = \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/pilot.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/data_logger.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/autopilot.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/reader.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o" \
-"CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o" \
-"CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/global_functions.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/PID.cpp.o" \
@@ -820,13 +4723,17 @@ Quadcopter__EXTERNAL_OBJECTS = \
 "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/IMU_exec.dir/RTFusion.cpp.o" \
 "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/IMU_exec.dir/RTMath.cpp.o"
 
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/imu.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/osd.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o
@@ -834,18 +4741,170 @@ build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/pilot.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/data_logger.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/autopilot.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/reader.c.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/global_functions.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/PID.cpp.o
@@ -870,20 +4929,24 @@ build/Quadcopter_: src/RTIMULib/CMakeFiles/IMU_exec.dir/RTIMUNull.cpp.o
 build/Quadcopter_: src/RTIMULib/CMakeFiles/IMU_exec.dir/RTFusion.cpp.o
 build/Quadcopter_: src/RTIMULib/CMakeFiles/IMU_exec.dir/RTMath.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable build/Quadcopter_"
+	@echo "Linking CXX executable build/Quadcopter_"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Quadcopter_.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 CMakeFiles/Quadcopter_.dir/build: build/Quadcopter_
 .PHONY : CMakeFiles/Quadcopter_.dir/build
 
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/imu.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/osd.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o.requires
@@ -891,18 +4954,170 @@ CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTI
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/pilot.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/reader.c.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.requires

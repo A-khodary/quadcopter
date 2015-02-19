@@ -16,6 +16,9 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -46,7 +49,7 @@ CMAKE_BINARY_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
+	@echo "Running interactive CMake command-line interface..."
 	/usr/local/bin/cmake -i .
 .PHONY : edit_cache
 
@@ -56,7 +59,7 @@ edit_cache/fast: edit_cache
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	@echo "Running CMake to regenerate build system..."
 	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
@@ -156,6 +159,30 @@ src/PID.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
 .PHONY : src/PID.cpp.s
 
+src/RTIMULib/BMP085.o: src/RTIMULib/BMP085.c.o
+.PHONY : src/RTIMULib/BMP085.o
+
+# target to build an object file
+src/RTIMULib/BMP085.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o
+.PHONY : src/RTIMULib/BMP085.c.o
+
+src/RTIMULib/BMP085.i: src/RTIMULib/BMP085.c.i
+.PHONY : src/RTIMULib/BMP085.i
+
+# target to preprocess a source file
+src/RTIMULib/BMP085.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.i
+.PHONY : src/RTIMULib/BMP085.c.i
+
+src/RTIMULib/BMP085.s: src/RTIMULib/BMP085.c.s
+.PHONY : src/RTIMULib/BMP085.s
+
+# target to generate assembly for a file
+src/RTIMULib/BMP085.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.s
+.PHONY : src/RTIMULib/BMP085.c.s
+
 src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
 .PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o
 
@@ -203,6 +230,30 @@ src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.s: src/RTIMULib/CMakeFi
 src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
 .PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
+
+src/RTIMULib/NEO-6M.o: src/RTIMULib/NEO-6M.c.o
+.PHONY : src/RTIMULib/NEO-6M.o
+
+# target to build an object file
+src/RTIMULib/NEO-6M.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o
+.PHONY : src/RTIMULib/NEO-6M.c.o
+
+src/RTIMULib/NEO-6M.i: src/RTIMULib/NEO-6M.c.i
+.PHONY : src/RTIMULib/NEO-6M.i
+
+# target to preprocess a source file
+src/RTIMULib/NEO-6M.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.i
+.PHONY : src/RTIMULib/NEO-6M.c.i
+
+src/RTIMULib/NEO-6M.s: src/RTIMULib/NEO-6M.c.s
+.PHONY : src/RTIMULib/NEO-6M.s
+
+# target to generate assembly for a file
+src/RTIMULib/NEO-6M.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.s
+.PHONY : src/RTIMULib/NEO-6M.c.s
 
 src/RTIMULib/RTFusion.o: src/RTIMULib/RTFusion.cpp.o
 .PHONY : src/RTIMULib/RTFusion.o
@@ -420,6 +471,30 @@ src/RTIMULib/RTMath.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
 .PHONY : src/RTIMULib/RTMath.cpp.s
 
+src/RTIMULib/testBMP085.o: src/RTIMULib/testBMP085.c.o
+.PHONY : src/RTIMULib/testBMP085.o
+
+# target to build an object file
+src/RTIMULib/testBMP085.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o
+.PHONY : src/RTIMULib/testBMP085.c.o
+
+src/RTIMULib/testBMP085.i: src/RTIMULib/testBMP085.c.i
+.PHONY : src/RTIMULib/testBMP085.i
+
+# target to preprocess a source file
+src/RTIMULib/testBMP085.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.i
+.PHONY : src/RTIMULib/testBMP085.c.i
+
+src/RTIMULib/testBMP085.s: src/RTIMULib/testBMP085.c.s
+.PHONY : src/RTIMULib/testBMP085.s
+
+# target to generate assembly for a file
+src/RTIMULib/testBMP085.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.s
+.PHONY : src/RTIMULib/testBMP085.c.s
+
 src/autopilot.o: src/autopilot.c.o
 .PHONY : src/autopilot.o
 
@@ -516,6 +591,30 @@ src/global_functions.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.s
 .PHONY : src/global_functions.c.s
 
+src/imu.o: src/imu.c.o
+.PHONY : src/imu.o
+
+# target to build an object file
+src/imu.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.c.o
+.PHONY : src/imu.c.o
+
+src/imu.i: src/imu.c.i
+.PHONY : src/imu.i
+
+# target to preprocess a source file
+src/imu.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.c.i
+.PHONY : src/imu.c.i
+
+src/imu.s: src/imu.c.s
+.PHONY : src/imu.s
+
+# target to generate assembly for a file
+src/imu.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.c.s
+.PHONY : src/imu.c.s
+
 src/inter-thread-messages.o: src/inter-thread-messages.c.o
 .PHONY : src/inter-thread-messages.o
 
@@ -539,174 +638,6 @@ src/inter-thread-messages.s: src/inter-thread-messages.c.s
 src/inter-thread-messages.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s
 .PHONY : src/inter-thread-messages.c.s
-
-src/mavlink/examples/linux/mavlink_udp.o: src/mavlink/examples/linux/mavlink_udp.c.o
-.PHONY : src/mavlink/examples/linux/mavlink_udp.o
-
-# target to build an object file
-src/mavlink/examples/linux/mavlink_udp.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.o
-.PHONY : src/mavlink/examples/linux/mavlink_udp.c.o
-
-src/mavlink/examples/linux/mavlink_udp.i: src/mavlink/examples/linux/mavlink_udp.c.i
-.PHONY : src/mavlink/examples/linux/mavlink_udp.i
-
-# target to preprocess a source file
-src/mavlink/examples/linux/mavlink_udp.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.i
-.PHONY : src/mavlink/examples/linux/mavlink_udp.c.i
-
-src/mavlink/examples/linux/mavlink_udp.s: src/mavlink/examples/linux/mavlink_udp.c.s
-.PHONY : src/mavlink/examples/linux/mavlink_udp.s
-
-# target to generate assembly for a file
-src/mavlink/examples/linux/mavlink_udp.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/examples/linux/mavlink_udp.c.s
-.PHONY : src/mavlink/examples/linux/mavlink_udp.c.s
-
-src/mavlink/missionlib/mavlink_parameters.o: src/mavlink/missionlib/mavlink_parameters.c.o
-.PHONY : src/mavlink/missionlib/mavlink_parameters.o
-
-# target to build an object file
-src/mavlink/missionlib/mavlink_parameters.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.o
-.PHONY : src/mavlink/missionlib/mavlink_parameters.c.o
-
-src/mavlink/missionlib/mavlink_parameters.i: src/mavlink/missionlib/mavlink_parameters.c.i
-.PHONY : src/mavlink/missionlib/mavlink_parameters.i
-
-# target to preprocess a source file
-src/mavlink/missionlib/mavlink_parameters.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.i
-.PHONY : src/mavlink/missionlib/mavlink_parameters.c.i
-
-src/mavlink/missionlib/mavlink_parameters.s: src/mavlink/missionlib/mavlink_parameters.c.s
-.PHONY : src/mavlink/missionlib/mavlink_parameters.s
-
-# target to generate assembly for a file
-src/mavlink/missionlib/mavlink_parameters.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/mavlink_parameters.c.s
-.PHONY : src/mavlink/missionlib/mavlink_parameters.c.s
-
-src/mavlink/missionlib/testing/main.o: src/mavlink/missionlib/testing/main.c.o
-.PHONY : src/mavlink/missionlib/testing/main.o
-
-# target to build an object file
-src/mavlink/missionlib/testing/main.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.o
-.PHONY : src/mavlink/missionlib/testing/main.c.o
-
-src/mavlink/missionlib/testing/main.i: src/mavlink/missionlib/testing/main.c.i
-.PHONY : src/mavlink/missionlib/testing/main.i
-
-# target to preprocess a source file
-src/mavlink/missionlib/testing/main.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.i
-.PHONY : src/mavlink/missionlib/testing/main.c.i
-
-src/mavlink/missionlib/testing/main.s: src/mavlink/missionlib/testing/main.c.s
-.PHONY : src/mavlink/missionlib/testing/main.s
-
-# target to generate assembly for a file
-src/mavlink/missionlib/testing/main.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/testing/main.c.s
-.PHONY : src/mavlink/missionlib/testing/main.c.s
-
-src/mavlink/missionlib/waypoints.o: src/mavlink/missionlib/waypoints.c.o
-.PHONY : src/mavlink/missionlib/waypoints.o
-
-# target to build an object file
-src/mavlink/missionlib/waypoints.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.o
-.PHONY : src/mavlink/missionlib/waypoints.c.o
-
-src/mavlink/missionlib/waypoints.i: src/mavlink/missionlib/waypoints.c.i
-.PHONY : src/mavlink/missionlib/waypoints.i
-
-# target to preprocess a source file
-src/mavlink/missionlib/waypoints.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.i
-.PHONY : src/mavlink/missionlib/waypoints.c.i
-
-src/mavlink/missionlib/waypoints.s: src/mavlink/missionlib/waypoints.c.s
-.PHONY : src/mavlink/missionlib/waypoints.s
-
-# target to generate assembly for a file
-src/mavlink/missionlib/waypoints.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/missionlib/waypoints.c.s
-.PHONY : src/mavlink/missionlib/waypoints.c.s
-
-src/mavlink/pymavlink/generator/C/test/posix/testmav.o: src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o
-.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.o
-
-# target to build an object file
-src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o
-.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.c.o
-
-src/mavlink/pymavlink/generator/C/test/posix/testmav.i: src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i
-.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.i
-
-# target to preprocess a source file
-src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i
-.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.c.i
-
-src/mavlink/pymavlink/generator/C/test/posix/testmav.s: src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s
-.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.s
-
-# target to generate assembly for a file
-src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s
-.PHONY : src/mavlink/pymavlink/generator/C/test/posix/testmav.c.s
-
-src/mavlink/pymavlink/generator/C/test/windows/stdafx.o: src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.o
-
-# target to build an object file
-src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.o
-
-src/mavlink/pymavlink/generator/C/test/windows/stdafx.i: src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.i
-
-# target to preprocess a source file
-src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.i
-
-src/mavlink/pymavlink/generator/C/test/windows/stdafx.s: src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.s
-
-# target to generate assembly for a file
-src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/stdafx.cpp.s
-
-src/mavlink/pymavlink/generator/C/test/windows/testmav.o: src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.o
-
-# target to build an object file
-src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.o
-
-src/mavlink/pymavlink/generator/C/test/windows/testmav.i: src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.i
-
-# target to preprocess a source file
-src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.i
-
-src/mavlink/pymavlink/generator/C/test/windows/testmav.s: src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.s
-
-# target to generate assembly for a file
-src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s
-.PHONY : src/mavlink/pymavlink/generator/C/test/windows/testmav.cpp.s
 
 src/osd.o: src/osd.c.o
 .PHONY : src/osd.o
@@ -755,6 +686,3822 @@ src/pilot.s: src/pilot.c.s
 src/pilot.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.c.s
 .PHONY : src/pilot.c.s
+
+src/proj/PJ_aea.o: src/proj/PJ_aea.c.o
+.PHONY : src/proj/PJ_aea.o
+
+# target to build an object file
+src/proj/PJ_aea.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o
+.PHONY : src/proj/PJ_aea.c.o
+
+src/proj/PJ_aea.i: src/proj/PJ_aea.c.i
+.PHONY : src/proj/PJ_aea.i
+
+# target to preprocess a source file
+src/proj/PJ_aea.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.i
+.PHONY : src/proj/PJ_aea.c.i
+
+src/proj/PJ_aea.s: src/proj/PJ_aea.c.s
+.PHONY : src/proj/PJ_aea.s
+
+# target to generate assembly for a file
+src/proj/PJ_aea.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.s
+.PHONY : src/proj/PJ_aea.c.s
+
+src/proj/PJ_aeqd.o: src/proj/PJ_aeqd.c.o
+.PHONY : src/proj/PJ_aeqd.o
+
+# target to build an object file
+src/proj/PJ_aeqd.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o
+.PHONY : src/proj/PJ_aeqd.c.o
+
+src/proj/PJ_aeqd.i: src/proj/PJ_aeqd.c.i
+.PHONY : src/proj/PJ_aeqd.i
+
+# target to preprocess a source file
+src/proj/PJ_aeqd.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.i
+.PHONY : src/proj/PJ_aeqd.c.i
+
+src/proj/PJ_aeqd.s: src/proj/PJ_aeqd.c.s
+.PHONY : src/proj/PJ_aeqd.s
+
+# target to generate assembly for a file
+src/proj/PJ_aeqd.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.s
+.PHONY : src/proj/PJ_aeqd.c.s
+
+src/proj/PJ_airy.o: src/proj/PJ_airy.c.o
+.PHONY : src/proj/PJ_airy.o
+
+# target to build an object file
+src/proj/PJ_airy.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o
+.PHONY : src/proj/PJ_airy.c.o
+
+src/proj/PJ_airy.i: src/proj/PJ_airy.c.i
+.PHONY : src/proj/PJ_airy.i
+
+# target to preprocess a source file
+src/proj/PJ_airy.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.i
+.PHONY : src/proj/PJ_airy.c.i
+
+src/proj/PJ_airy.s: src/proj/PJ_airy.c.s
+.PHONY : src/proj/PJ_airy.s
+
+# target to generate assembly for a file
+src/proj/PJ_airy.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.s
+.PHONY : src/proj/PJ_airy.c.s
+
+src/proj/PJ_aitoff.o: src/proj/PJ_aitoff.c.o
+.PHONY : src/proj/PJ_aitoff.o
+
+# target to build an object file
+src/proj/PJ_aitoff.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o
+.PHONY : src/proj/PJ_aitoff.c.o
+
+src/proj/PJ_aitoff.i: src/proj/PJ_aitoff.c.i
+.PHONY : src/proj/PJ_aitoff.i
+
+# target to preprocess a source file
+src/proj/PJ_aitoff.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.i
+.PHONY : src/proj/PJ_aitoff.c.i
+
+src/proj/PJ_aitoff.s: src/proj/PJ_aitoff.c.s
+.PHONY : src/proj/PJ_aitoff.s
+
+# target to generate assembly for a file
+src/proj/PJ_aitoff.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.s
+.PHONY : src/proj/PJ_aitoff.c.s
+
+src/proj/PJ_august.o: src/proj/PJ_august.c.o
+.PHONY : src/proj/PJ_august.o
+
+# target to build an object file
+src/proj/PJ_august.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o
+.PHONY : src/proj/PJ_august.c.o
+
+src/proj/PJ_august.i: src/proj/PJ_august.c.i
+.PHONY : src/proj/PJ_august.i
+
+# target to preprocess a source file
+src/proj/PJ_august.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.i
+.PHONY : src/proj/PJ_august.c.i
+
+src/proj/PJ_august.s: src/proj/PJ_august.c.s
+.PHONY : src/proj/PJ_august.s
+
+# target to generate assembly for a file
+src/proj/PJ_august.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.s
+.PHONY : src/proj/PJ_august.c.s
+
+src/proj/PJ_bacon.o: src/proj/PJ_bacon.c.o
+.PHONY : src/proj/PJ_bacon.o
+
+# target to build an object file
+src/proj/PJ_bacon.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o
+.PHONY : src/proj/PJ_bacon.c.o
+
+src/proj/PJ_bacon.i: src/proj/PJ_bacon.c.i
+.PHONY : src/proj/PJ_bacon.i
+
+# target to preprocess a source file
+src/proj/PJ_bacon.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.i
+.PHONY : src/proj/PJ_bacon.c.i
+
+src/proj/PJ_bacon.s: src/proj/PJ_bacon.c.s
+.PHONY : src/proj/PJ_bacon.s
+
+# target to generate assembly for a file
+src/proj/PJ_bacon.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.s
+.PHONY : src/proj/PJ_bacon.c.s
+
+src/proj/PJ_bipc.o: src/proj/PJ_bipc.c.o
+.PHONY : src/proj/PJ_bipc.o
+
+# target to build an object file
+src/proj/PJ_bipc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o
+.PHONY : src/proj/PJ_bipc.c.o
+
+src/proj/PJ_bipc.i: src/proj/PJ_bipc.c.i
+.PHONY : src/proj/PJ_bipc.i
+
+# target to preprocess a source file
+src/proj/PJ_bipc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.i
+.PHONY : src/proj/PJ_bipc.c.i
+
+src/proj/PJ_bipc.s: src/proj/PJ_bipc.c.s
+.PHONY : src/proj/PJ_bipc.s
+
+# target to generate assembly for a file
+src/proj/PJ_bipc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.s
+.PHONY : src/proj/PJ_bipc.c.s
+
+src/proj/PJ_boggs.o: src/proj/PJ_boggs.c.o
+.PHONY : src/proj/PJ_boggs.o
+
+# target to build an object file
+src/proj/PJ_boggs.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o
+.PHONY : src/proj/PJ_boggs.c.o
+
+src/proj/PJ_boggs.i: src/proj/PJ_boggs.c.i
+.PHONY : src/proj/PJ_boggs.i
+
+# target to preprocess a source file
+src/proj/PJ_boggs.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.i
+.PHONY : src/proj/PJ_boggs.c.i
+
+src/proj/PJ_boggs.s: src/proj/PJ_boggs.c.s
+.PHONY : src/proj/PJ_boggs.s
+
+# target to generate assembly for a file
+src/proj/PJ_boggs.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.s
+.PHONY : src/proj/PJ_boggs.c.s
+
+src/proj/PJ_bonne.o: src/proj/PJ_bonne.c.o
+.PHONY : src/proj/PJ_bonne.o
+
+# target to build an object file
+src/proj/PJ_bonne.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o
+.PHONY : src/proj/PJ_bonne.c.o
+
+src/proj/PJ_bonne.i: src/proj/PJ_bonne.c.i
+.PHONY : src/proj/PJ_bonne.i
+
+# target to preprocess a source file
+src/proj/PJ_bonne.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.i
+.PHONY : src/proj/PJ_bonne.c.i
+
+src/proj/PJ_bonne.s: src/proj/PJ_bonne.c.s
+.PHONY : src/proj/PJ_bonne.s
+
+# target to generate assembly for a file
+src/proj/PJ_bonne.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.s
+.PHONY : src/proj/PJ_bonne.c.s
+
+src/proj/PJ_cass.o: src/proj/PJ_cass.c.o
+.PHONY : src/proj/PJ_cass.o
+
+# target to build an object file
+src/proj/PJ_cass.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o
+.PHONY : src/proj/PJ_cass.c.o
+
+src/proj/PJ_cass.i: src/proj/PJ_cass.c.i
+.PHONY : src/proj/PJ_cass.i
+
+# target to preprocess a source file
+src/proj/PJ_cass.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.i
+.PHONY : src/proj/PJ_cass.c.i
+
+src/proj/PJ_cass.s: src/proj/PJ_cass.c.s
+.PHONY : src/proj/PJ_cass.s
+
+# target to generate assembly for a file
+src/proj/PJ_cass.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.s
+.PHONY : src/proj/PJ_cass.c.s
+
+src/proj/PJ_cc.o: src/proj/PJ_cc.c.o
+.PHONY : src/proj/PJ_cc.o
+
+# target to build an object file
+src/proj/PJ_cc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o
+.PHONY : src/proj/PJ_cc.c.o
+
+src/proj/PJ_cc.i: src/proj/PJ_cc.c.i
+.PHONY : src/proj/PJ_cc.i
+
+# target to preprocess a source file
+src/proj/PJ_cc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.i
+.PHONY : src/proj/PJ_cc.c.i
+
+src/proj/PJ_cc.s: src/proj/PJ_cc.c.s
+.PHONY : src/proj/PJ_cc.s
+
+# target to generate assembly for a file
+src/proj/PJ_cc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.s
+.PHONY : src/proj/PJ_cc.c.s
+
+src/proj/PJ_cea.o: src/proj/PJ_cea.c.o
+.PHONY : src/proj/PJ_cea.o
+
+# target to build an object file
+src/proj/PJ_cea.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o
+.PHONY : src/proj/PJ_cea.c.o
+
+src/proj/PJ_cea.i: src/proj/PJ_cea.c.i
+.PHONY : src/proj/PJ_cea.i
+
+# target to preprocess a source file
+src/proj/PJ_cea.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.i
+.PHONY : src/proj/PJ_cea.c.i
+
+src/proj/PJ_cea.s: src/proj/PJ_cea.c.s
+.PHONY : src/proj/PJ_cea.s
+
+# target to generate assembly for a file
+src/proj/PJ_cea.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.s
+.PHONY : src/proj/PJ_cea.c.s
+
+src/proj/PJ_chamb.o: src/proj/PJ_chamb.c.o
+.PHONY : src/proj/PJ_chamb.o
+
+# target to build an object file
+src/proj/PJ_chamb.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o
+.PHONY : src/proj/PJ_chamb.c.o
+
+src/proj/PJ_chamb.i: src/proj/PJ_chamb.c.i
+.PHONY : src/proj/PJ_chamb.i
+
+# target to preprocess a source file
+src/proj/PJ_chamb.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.i
+.PHONY : src/proj/PJ_chamb.c.i
+
+src/proj/PJ_chamb.s: src/proj/PJ_chamb.c.s
+.PHONY : src/proj/PJ_chamb.s
+
+# target to generate assembly for a file
+src/proj/PJ_chamb.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.s
+.PHONY : src/proj/PJ_chamb.c.s
+
+src/proj/PJ_collg.o: src/proj/PJ_collg.c.o
+.PHONY : src/proj/PJ_collg.o
+
+# target to build an object file
+src/proj/PJ_collg.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o
+.PHONY : src/proj/PJ_collg.c.o
+
+src/proj/PJ_collg.i: src/proj/PJ_collg.c.i
+.PHONY : src/proj/PJ_collg.i
+
+# target to preprocess a source file
+src/proj/PJ_collg.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.i
+.PHONY : src/proj/PJ_collg.c.i
+
+src/proj/PJ_collg.s: src/proj/PJ_collg.c.s
+.PHONY : src/proj/PJ_collg.s
+
+# target to generate assembly for a file
+src/proj/PJ_collg.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.s
+.PHONY : src/proj/PJ_collg.c.s
+
+src/proj/PJ_crast.o: src/proj/PJ_crast.c.o
+.PHONY : src/proj/PJ_crast.o
+
+# target to build an object file
+src/proj/PJ_crast.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o
+.PHONY : src/proj/PJ_crast.c.o
+
+src/proj/PJ_crast.i: src/proj/PJ_crast.c.i
+.PHONY : src/proj/PJ_crast.i
+
+# target to preprocess a source file
+src/proj/PJ_crast.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.i
+.PHONY : src/proj/PJ_crast.c.i
+
+src/proj/PJ_crast.s: src/proj/PJ_crast.c.s
+.PHONY : src/proj/PJ_crast.s
+
+# target to generate assembly for a file
+src/proj/PJ_crast.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.s
+.PHONY : src/proj/PJ_crast.c.s
+
+src/proj/PJ_denoy.o: src/proj/PJ_denoy.c.o
+.PHONY : src/proj/PJ_denoy.o
+
+# target to build an object file
+src/proj/PJ_denoy.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o
+.PHONY : src/proj/PJ_denoy.c.o
+
+src/proj/PJ_denoy.i: src/proj/PJ_denoy.c.i
+.PHONY : src/proj/PJ_denoy.i
+
+# target to preprocess a source file
+src/proj/PJ_denoy.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.i
+.PHONY : src/proj/PJ_denoy.c.i
+
+src/proj/PJ_denoy.s: src/proj/PJ_denoy.c.s
+.PHONY : src/proj/PJ_denoy.s
+
+# target to generate assembly for a file
+src/proj/PJ_denoy.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.s
+.PHONY : src/proj/PJ_denoy.c.s
+
+src/proj/PJ_eck1.o: src/proj/PJ_eck1.c.o
+.PHONY : src/proj/PJ_eck1.o
+
+# target to build an object file
+src/proj/PJ_eck1.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o
+.PHONY : src/proj/PJ_eck1.c.o
+
+src/proj/PJ_eck1.i: src/proj/PJ_eck1.c.i
+.PHONY : src/proj/PJ_eck1.i
+
+# target to preprocess a source file
+src/proj/PJ_eck1.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.i
+.PHONY : src/proj/PJ_eck1.c.i
+
+src/proj/PJ_eck1.s: src/proj/PJ_eck1.c.s
+.PHONY : src/proj/PJ_eck1.s
+
+# target to generate assembly for a file
+src/proj/PJ_eck1.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.s
+.PHONY : src/proj/PJ_eck1.c.s
+
+src/proj/PJ_eck2.o: src/proj/PJ_eck2.c.o
+.PHONY : src/proj/PJ_eck2.o
+
+# target to build an object file
+src/proj/PJ_eck2.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o
+.PHONY : src/proj/PJ_eck2.c.o
+
+src/proj/PJ_eck2.i: src/proj/PJ_eck2.c.i
+.PHONY : src/proj/PJ_eck2.i
+
+# target to preprocess a source file
+src/proj/PJ_eck2.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.i
+.PHONY : src/proj/PJ_eck2.c.i
+
+src/proj/PJ_eck2.s: src/proj/PJ_eck2.c.s
+.PHONY : src/proj/PJ_eck2.s
+
+# target to generate assembly for a file
+src/proj/PJ_eck2.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.s
+.PHONY : src/proj/PJ_eck2.c.s
+
+src/proj/PJ_eck3.o: src/proj/PJ_eck3.c.o
+.PHONY : src/proj/PJ_eck3.o
+
+# target to build an object file
+src/proj/PJ_eck3.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o
+.PHONY : src/proj/PJ_eck3.c.o
+
+src/proj/PJ_eck3.i: src/proj/PJ_eck3.c.i
+.PHONY : src/proj/PJ_eck3.i
+
+# target to preprocess a source file
+src/proj/PJ_eck3.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.i
+.PHONY : src/proj/PJ_eck3.c.i
+
+src/proj/PJ_eck3.s: src/proj/PJ_eck3.c.s
+.PHONY : src/proj/PJ_eck3.s
+
+# target to generate assembly for a file
+src/proj/PJ_eck3.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.s
+.PHONY : src/proj/PJ_eck3.c.s
+
+src/proj/PJ_eck4.o: src/proj/PJ_eck4.c.o
+.PHONY : src/proj/PJ_eck4.o
+
+# target to build an object file
+src/proj/PJ_eck4.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o
+.PHONY : src/proj/PJ_eck4.c.o
+
+src/proj/PJ_eck4.i: src/proj/PJ_eck4.c.i
+.PHONY : src/proj/PJ_eck4.i
+
+# target to preprocess a source file
+src/proj/PJ_eck4.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.i
+.PHONY : src/proj/PJ_eck4.c.i
+
+src/proj/PJ_eck4.s: src/proj/PJ_eck4.c.s
+.PHONY : src/proj/PJ_eck4.s
+
+# target to generate assembly for a file
+src/proj/PJ_eck4.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.s
+.PHONY : src/proj/PJ_eck4.c.s
+
+src/proj/PJ_eck5.o: src/proj/PJ_eck5.c.o
+.PHONY : src/proj/PJ_eck5.o
+
+# target to build an object file
+src/proj/PJ_eck5.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o
+.PHONY : src/proj/PJ_eck5.c.o
+
+src/proj/PJ_eck5.i: src/proj/PJ_eck5.c.i
+.PHONY : src/proj/PJ_eck5.i
+
+# target to preprocess a source file
+src/proj/PJ_eck5.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.i
+.PHONY : src/proj/PJ_eck5.c.i
+
+src/proj/PJ_eck5.s: src/proj/PJ_eck5.c.s
+.PHONY : src/proj/PJ_eck5.s
+
+# target to generate assembly for a file
+src/proj/PJ_eck5.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.s
+.PHONY : src/proj/PJ_eck5.c.s
+
+src/proj/PJ_eqc.o: src/proj/PJ_eqc.c.o
+.PHONY : src/proj/PJ_eqc.o
+
+# target to build an object file
+src/proj/PJ_eqc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o
+.PHONY : src/proj/PJ_eqc.c.o
+
+src/proj/PJ_eqc.i: src/proj/PJ_eqc.c.i
+.PHONY : src/proj/PJ_eqc.i
+
+# target to preprocess a source file
+src/proj/PJ_eqc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.i
+.PHONY : src/proj/PJ_eqc.c.i
+
+src/proj/PJ_eqc.s: src/proj/PJ_eqc.c.s
+.PHONY : src/proj/PJ_eqc.s
+
+# target to generate assembly for a file
+src/proj/PJ_eqc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.s
+.PHONY : src/proj/PJ_eqc.c.s
+
+src/proj/PJ_eqdc.o: src/proj/PJ_eqdc.c.o
+.PHONY : src/proj/PJ_eqdc.o
+
+# target to build an object file
+src/proj/PJ_eqdc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o
+.PHONY : src/proj/PJ_eqdc.c.o
+
+src/proj/PJ_eqdc.i: src/proj/PJ_eqdc.c.i
+.PHONY : src/proj/PJ_eqdc.i
+
+# target to preprocess a source file
+src/proj/PJ_eqdc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.i
+.PHONY : src/proj/PJ_eqdc.c.i
+
+src/proj/PJ_eqdc.s: src/proj/PJ_eqdc.c.s
+.PHONY : src/proj/PJ_eqdc.s
+
+# target to generate assembly for a file
+src/proj/PJ_eqdc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.s
+.PHONY : src/proj/PJ_eqdc.c.s
+
+src/proj/PJ_fahey.o: src/proj/PJ_fahey.c.o
+.PHONY : src/proj/PJ_fahey.o
+
+# target to build an object file
+src/proj/PJ_fahey.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o
+.PHONY : src/proj/PJ_fahey.c.o
+
+src/proj/PJ_fahey.i: src/proj/PJ_fahey.c.i
+.PHONY : src/proj/PJ_fahey.i
+
+# target to preprocess a source file
+src/proj/PJ_fahey.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.i
+.PHONY : src/proj/PJ_fahey.c.i
+
+src/proj/PJ_fahey.s: src/proj/PJ_fahey.c.s
+.PHONY : src/proj/PJ_fahey.s
+
+# target to generate assembly for a file
+src/proj/PJ_fahey.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.s
+.PHONY : src/proj/PJ_fahey.c.s
+
+src/proj/PJ_fouc_s.o: src/proj/PJ_fouc_s.c.o
+.PHONY : src/proj/PJ_fouc_s.o
+
+# target to build an object file
+src/proj/PJ_fouc_s.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o
+.PHONY : src/proj/PJ_fouc_s.c.o
+
+src/proj/PJ_fouc_s.i: src/proj/PJ_fouc_s.c.i
+.PHONY : src/proj/PJ_fouc_s.i
+
+# target to preprocess a source file
+src/proj/PJ_fouc_s.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.i
+.PHONY : src/proj/PJ_fouc_s.c.i
+
+src/proj/PJ_fouc_s.s: src/proj/PJ_fouc_s.c.s
+.PHONY : src/proj/PJ_fouc_s.s
+
+# target to generate assembly for a file
+src/proj/PJ_fouc_s.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.s
+.PHONY : src/proj/PJ_fouc_s.c.s
+
+src/proj/PJ_gall.o: src/proj/PJ_gall.c.o
+.PHONY : src/proj/PJ_gall.o
+
+# target to build an object file
+src/proj/PJ_gall.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o
+.PHONY : src/proj/PJ_gall.c.o
+
+src/proj/PJ_gall.i: src/proj/PJ_gall.c.i
+.PHONY : src/proj/PJ_gall.i
+
+# target to preprocess a source file
+src/proj/PJ_gall.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.i
+.PHONY : src/proj/PJ_gall.c.i
+
+src/proj/PJ_gall.s: src/proj/PJ_gall.c.s
+.PHONY : src/proj/PJ_gall.s
+
+# target to generate assembly for a file
+src/proj/PJ_gall.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.s
+.PHONY : src/proj/PJ_gall.c.s
+
+src/proj/PJ_geos.o: src/proj/PJ_geos.c.o
+.PHONY : src/proj/PJ_geos.o
+
+# target to build an object file
+src/proj/PJ_geos.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o
+.PHONY : src/proj/PJ_geos.c.o
+
+src/proj/PJ_geos.i: src/proj/PJ_geos.c.i
+.PHONY : src/proj/PJ_geos.i
+
+# target to preprocess a source file
+src/proj/PJ_geos.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.i
+.PHONY : src/proj/PJ_geos.c.i
+
+src/proj/PJ_geos.s: src/proj/PJ_geos.c.s
+.PHONY : src/proj/PJ_geos.s
+
+# target to generate assembly for a file
+src/proj/PJ_geos.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.s
+.PHONY : src/proj/PJ_geos.c.s
+
+src/proj/PJ_gins8.o: src/proj/PJ_gins8.c.o
+.PHONY : src/proj/PJ_gins8.o
+
+# target to build an object file
+src/proj/PJ_gins8.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o
+.PHONY : src/proj/PJ_gins8.c.o
+
+src/proj/PJ_gins8.i: src/proj/PJ_gins8.c.i
+.PHONY : src/proj/PJ_gins8.i
+
+# target to preprocess a source file
+src/proj/PJ_gins8.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.i
+.PHONY : src/proj/PJ_gins8.c.i
+
+src/proj/PJ_gins8.s: src/proj/PJ_gins8.c.s
+.PHONY : src/proj/PJ_gins8.s
+
+# target to generate assembly for a file
+src/proj/PJ_gins8.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.s
+.PHONY : src/proj/PJ_gins8.c.s
+
+src/proj/PJ_gn_sinu.o: src/proj/PJ_gn_sinu.c.o
+.PHONY : src/proj/PJ_gn_sinu.o
+
+# target to build an object file
+src/proj/PJ_gn_sinu.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o
+.PHONY : src/proj/PJ_gn_sinu.c.o
+
+src/proj/PJ_gn_sinu.i: src/proj/PJ_gn_sinu.c.i
+.PHONY : src/proj/PJ_gn_sinu.i
+
+# target to preprocess a source file
+src/proj/PJ_gn_sinu.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.i
+.PHONY : src/proj/PJ_gn_sinu.c.i
+
+src/proj/PJ_gn_sinu.s: src/proj/PJ_gn_sinu.c.s
+.PHONY : src/proj/PJ_gn_sinu.s
+
+# target to generate assembly for a file
+src/proj/PJ_gn_sinu.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.s
+.PHONY : src/proj/PJ_gn_sinu.c.s
+
+src/proj/PJ_gnom.o: src/proj/PJ_gnom.c.o
+.PHONY : src/proj/PJ_gnom.o
+
+# target to build an object file
+src/proj/PJ_gnom.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o
+.PHONY : src/proj/PJ_gnom.c.o
+
+src/proj/PJ_gnom.i: src/proj/PJ_gnom.c.i
+.PHONY : src/proj/PJ_gnom.i
+
+# target to preprocess a source file
+src/proj/PJ_gnom.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.i
+.PHONY : src/proj/PJ_gnom.c.i
+
+src/proj/PJ_gnom.s: src/proj/PJ_gnom.c.s
+.PHONY : src/proj/PJ_gnom.s
+
+# target to generate assembly for a file
+src/proj/PJ_gnom.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.s
+.PHONY : src/proj/PJ_gnom.c.s
+
+src/proj/PJ_goode.o: src/proj/PJ_goode.c.o
+.PHONY : src/proj/PJ_goode.o
+
+# target to build an object file
+src/proj/PJ_goode.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o
+.PHONY : src/proj/PJ_goode.c.o
+
+src/proj/PJ_goode.i: src/proj/PJ_goode.c.i
+.PHONY : src/proj/PJ_goode.i
+
+# target to preprocess a source file
+src/proj/PJ_goode.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.i
+.PHONY : src/proj/PJ_goode.c.i
+
+src/proj/PJ_goode.s: src/proj/PJ_goode.c.s
+.PHONY : src/proj/PJ_goode.s
+
+# target to generate assembly for a file
+src/proj/PJ_goode.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.s
+.PHONY : src/proj/PJ_goode.c.s
+
+src/proj/PJ_gstmerc.o: src/proj/PJ_gstmerc.c.o
+.PHONY : src/proj/PJ_gstmerc.o
+
+# target to build an object file
+src/proj/PJ_gstmerc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o
+.PHONY : src/proj/PJ_gstmerc.c.o
+
+src/proj/PJ_gstmerc.i: src/proj/PJ_gstmerc.c.i
+.PHONY : src/proj/PJ_gstmerc.i
+
+# target to preprocess a source file
+src/proj/PJ_gstmerc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.i
+.PHONY : src/proj/PJ_gstmerc.c.i
+
+src/proj/PJ_gstmerc.s: src/proj/PJ_gstmerc.c.s
+.PHONY : src/proj/PJ_gstmerc.s
+
+# target to generate assembly for a file
+src/proj/PJ_gstmerc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.s
+.PHONY : src/proj/PJ_gstmerc.c.s
+
+src/proj/PJ_hammer.o: src/proj/PJ_hammer.c.o
+.PHONY : src/proj/PJ_hammer.o
+
+# target to build an object file
+src/proj/PJ_hammer.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o
+.PHONY : src/proj/PJ_hammer.c.o
+
+src/proj/PJ_hammer.i: src/proj/PJ_hammer.c.i
+.PHONY : src/proj/PJ_hammer.i
+
+# target to preprocess a source file
+src/proj/PJ_hammer.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.i
+.PHONY : src/proj/PJ_hammer.c.i
+
+src/proj/PJ_hammer.s: src/proj/PJ_hammer.c.s
+.PHONY : src/proj/PJ_hammer.s
+
+# target to generate assembly for a file
+src/proj/PJ_hammer.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.s
+.PHONY : src/proj/PJ_hammer.c.s
+
+src/proj/PJ_hatano.o: src/proj/PJ_hatano.c.o
+.PHONY : src/proj/PJ_hatano.o
+
+# target to build an object file
+src/proj/PJ_hatano.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o
+.PHONY : src/proj/PJ_hatano.c.o
+
+src/proj/PJ_hatano.i: src/proj/PJ_hatano.c.i
+.PHONY : src/proj/PJ_hatano.i
+
+# target to preprocess a source file
+src/proj/PJ_hatano.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.i
+.PHONY : src/proj/PJ_hatano.c.i
+
+src/proj/PJ_hatano.s: src/proj/PJ_hatano.c.s
+.PHONY : src/proj/PJ_hatano.s
+
+# target to generate assembly for a file
+src/proj/PJ_hatano.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.s
+.PHONY : src/proj/PJ_hatano.c.s
+
+src/proj/PJ_healpix.o: src/proj/PJ_healpix.c.o
+.PHONY : src/proj/PJ_healpix.o
+
+# target to build an object file
+src/proj/PJ_healpix.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o
+.PHONY : src/proj/PJ_healpix.c.o
+
+src/proj/PJ_healpix.i: src/proj/PJ_healpix.c.i
+.PHONY : src/proj/PJ_healpix.i
+
+# target to preprocess a source file
+src/proj/PJ_healpix.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.i
+.PHONY : src/proj/PJ_healpix.c.i
+
+src/proj/PJ_healpix.s: src/proj/PJ_healpix.c.s
+.PHONY : src/proj/PJ_healpix.s
+
+# target to generate assembly for a file
+src/proj/PJ_healpix.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.s
+.PHONY : src/proj/PJ_healpix.c.s
+
+src/proj/PJ_igh.o: src/proj/PJ_igh.c.o
+.PHONY : src/proj/PJ_igh.o
+
+# target to build an object file
+src/proj/PJ_igh.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o
+.PHONY : src/proj/PJ_igh.c.o
+
+src/proj/PJ_igh.i: src/proj/PJ_igh.c.i
+.PHONY : src/proj/PJ_igh.i
+
+# target to preprocess a source file
+src/proj/PJ_igh.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.i
+.PHONY : src/proj/PJ_igh.c.i
+
+src/proj/PJ_igh.s: src/proj/PJ_igh.c.s
+.PHONY : src/proj/PJ_igh.s
+
+# target to generate assembly for a file
+src/proj/PJ_igh.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.s
+.PHONY : src/proj/PJ_igh.c.s
+
+src/proj/PJ_imw_p.o: src/proj/PJ_imw_p.c.o
+.PHONY : src/proj/PJ_imw_p.o
+
+# target to build an object file
+src/proj/PJ_imw_p.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o
+.PHONY : src/proj/PJ_imw_p.c.o
+
+src/proj/PJ_imw_p.i: src/proj/PJ_imw_p.c.i
+.PHONY : src/proj/PJ_imw_p.i
+
+# target to preprocess a source file
+src/proj/PJ_imw_p.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.i
+.PHONY : src/proj/PJ_imw_p.c.i
+
+src/proj/PJ_imw_p.s: src/proj/PJ_imw_p.c.s
+.PHONY : src/proj/PJ_imw_p.s
+
+# target to generate assembly for a file
+src/proj/PJ_imw_p.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.s
+.PHONY : src/proj/PJ_imw_p.c.s
+
+src/proj/PJ_isea.o: src/proj/PJ_isea.c.o
+.PHONY : src/proj/PJ_isea.o
+
+# target to build an object file
+src/proj/PJ_isea.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o
+.PHONY : src/proj/PJ_isea.c.o
+
+src/proj/PJ_isea.i: src/proj/PJ_isea.c.i
+.PHONY : src/proj/PJ_isea.i
+
+# target to preprocess a source file
+src/proj/PJ_isea.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.i
+.PHONY : src/proj/PJ_isea.c.i
+
+src/proj/PJ_isea.s: src/proj/PJ_isea.c.s
+.PHONY : src/proj/PJ_isea.s
+
+# target to generate assembly for a file
+src/proj/PJ_isea.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.s
+.PHONY : src/proj/PJ_isea.c.s
+
+src/proj/PJ_krovak.o: src/proj/PJ_krovak.c.o
+.PHONY : src/proj/PJ_krovak.o
+
+# target to build an object file
+src/proj/PJ_krovak.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o
+.PHONY : src/proj/PJ_krovak.c.o
+
+src/proj/PJ_krovak.i: src/proj/PJ_krovak.c.i
+.PHONY : src/proj/PJ_krovak.i
+
+# target to preprocess a source file
+src/proj/PJ_krovak.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.i
+.PHONY : src/proj/PJ_krovak.c.i
+
+src/proj/PJ_krovak.s: src/proj/PJ_krovak.c.s
+.PHONY : src/proj/PJ_krovak.s
+
+# target to generate assembly for a file
+src/proj/PJ_krovak.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.s
+.PHONY : src/proj/PJ_krovak.c.s
+
+src/proj/PJ_labrd.o: src/proj/PJ_labrd.c.o
+.PHONY : src/proj/PJ_labrd.o
+
+# target to build an object file
+src/proj/PJ_labrd.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o
+.PHONY : src/proj/PJ_labrd.c.o
+
+src/proj/PJ_labrd.i: src/proj/PJ_labrd.c.i
+.PHONY : src/proj/PJ_labrd.i
+
+# target to preprocess a source file
+src/proj/PJ_labrd.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.i
+.PHONY : src/proj/PJ_labrd.c.i
+
+src/proj/PJ_labrd.s: src/proj/PJ_labrd.c.s
+.PHONY : src/proj/PJ_labrd.s
+
+# target to generate assembly for a file
+src/proj/PJ_labrd.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.s
+.PHONY : src/proj/PJ_labrd.c.s
+
+src/proj/PJ_laea.o: src/proj/PJ_laea.c.o
+.PHONY : src/proj/PJ_laea.o
+
+# target to build an object file
+src/proj/PJ_laea.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o
+.PHONY : src/proj/PJ_laea.c.o
+
+src/proj/PJ_laea.i: src/proj/PJ_laea.c.i
+.PHONY : src/proj/PJ_laea.i
+
+# target to preprocess a source file
+src/proj/PJ_laea.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.i
+.PHONY : src/proj/PJ_laea.c.i
+
+src/proj/PJ_laea.s: src/proj/PJ_laea.c.s
+.PHONY : src/proj/PJ_laea.s
+
+# target to generate assembly for a file
+src/proj/PJ_laea.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.s
+.PHONY : src/proj/PJ_laea.c.s
+
+src/proj/PJ_lagrng.o: src/proj/PJ_lagrng.c.o
+.PHONY : src/proj/PJ_lagrng.o
+
+# target to build an object file
+src/proj/PJ_lagrng.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o
+.PHONY : src/proj/PJ_lagrng.c.o
+
+src/proj/PJ_lagrng.i: src/proj/PJ_lagrng.c.i
+.PHONY : src/proj/PJ_lagrng.i
+
+# target to preprocess a source file
+src/proj/PJ_lagrng.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.i
+.PHONY : src/proj/PJ_lagrng.c.i
+
+src/proj/PJ_lagrng.s: src/proj/PJ_lagrng.c.s
+.PHONY : src/proj/PJ_lagrng.s
+
+# target to generate assembly for a file
+src/proj/PJ_lagrng.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.s
+.PHONY : src/proj/PJ_lagrng.c.s
+
+src/proj/PJ_larr.o: src/proj/PJ_larr.c.o
+.PHONY : src/proj/PJ_larr.o
+
+# target to build an object file
+src/proj/PJ_larr.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o
+.PHONY : src/proj/PJ_larr.c.o
+
+src/proj/PJ_larr.i: src/proj/PJ_larr.c.i
+.PHONY : src/proj/PJ_larr.i
+
+# target to preprocess a source file
+src/proj/PJ_larr.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.i
+.PHONY : src/proj/PJ_larr.c.i
+
+src/proj/PJ_larr.s: src/proj/PJ_larr.c.s
+.PHONY : src/proj/PJ_larr.s
+
+# target to generate assembly for a file
+src/proj/PJ_larr.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.s
+.PHONY : src/proj/PJ_larr.c.s
+
+src/proj/PJ_lask.o: src/proj/PJ_lask.c.o
+.PHONY : src/proj/PJ_lask.o
+
+# target to build an object file
+src/proj/PJ_lask.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o
+.PHONY : src/proj/PJ_lask.c.o
+
+src/proj/PJ_lask.i: src/proj/PJ_lask.c.i
+.PHONY : src/proj/PJ_lask.i
+
+# target to preprocess a source file
+src/proj/PJ_lask.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.i
+.PHONY : src/proj/PJ_lask.c.i
+
+src/proj/PJ_lask.s: src/proj/PJ_lask.c.s
+.PHONY : src/proj/PJ_lask.s
+
+# target to generate assembly for a file
+src/proj/PJ_lask.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.s
+.PHONY : src/proj/PJ_lask.c.s
+
+src/proj/PJ_lcc.o: src/proj/PJ_lcc.c.o
+.PHONY : src/proj/PJ_lcc.o
+
+# target to build an object file
+src/proj/PJ_lcc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o
+.PHONY : src/proj/PJ_lcc.c.o
+
+src/proj/PJ_lcc.i: src/proj/PJ_lcc.c.i
+.PHONY : src/proj/PJ_lcc.i
+
+# target to preprocess a source file
+src/proj/PJ_lcc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.i
+.PHONY : src/proj/PJ_lcc.c.i
+
+src/proj/PJ_lcc.s: src/proj/PJ_lcc.c.s
+.PHONY : src/proj/PJ_lcc.s
+
+# target to generate assembly for a file
+src/proj/PJ_lcc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.s
+.PHONY : src/proj/PJ_lcc.c.s
+
+src/proj/PJ_lcca.o: src/proj/PJ_lcca.c.o
+.PHONY : src/proj/PJ_lcca.o
+
+# target to build an object file
+src/proj/PJ_lcca.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o
+.PHONY : src/proj/PJ_lcca.c.o
+
+src/proj/PJ_lcca.i: src/proj/PJ_lcca.c.i
+.PHONY : src/proj/PJ_lcca.i
+
+# target to preprocess a source file
+src/proj/PJ_lcca.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.i
+.PHONY : src/proj/PJ_lcca.c.i
+
+src/proj/PJ_lcca.s: src/proj/PJ_lcca.c.s
+.PHONY : src/proj/PJ_lcca.s
+
+# target to generate assembly for a file
+src/proj/PJ_lcca.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.s
+.PHONY : src/proj/PJ_lcca.c.s
+
+src/proj/PJ_loxim.o: src/proj/PJ_loxim.c.o
+.PHONY : src/proj/PJ_loxim.o
+
+# target to build an object file
+src/proj/PJ_loxim.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o
+.PHONY : src/proj/PJ_loxim.c.o
+
+src/proj/PJ_loxim.i: src/proj/PJ_loxim.c.i
+.PHONY : src/proj/PJ_loxim.i
+
+# target to preprocess a source file
+src/proj/PJ_loxim.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.i
+.PHONY : src/proj/PJ_loxim.c.i
+
+src/proj/PJ_loxim.s: src/proj/PJ_loxim.c.s
+.PHONY : src/proj/PJ_loxim.s
+
+# target to generate assembly for a file
+src/proj/PJ_loxim.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.s
+.PHONY : src/proj/PJ_loxim.c.s
+
+src/proj/PJ_lsat.o: src/proj/PJ_lsat.c.o
+.PHONY : src/proj/PJ_lsat.o
+
+# target to build an object file
+src/proj/PJ_lsat.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o
+.PHONY : src/proj/PJ_lsat.c.o
+
+src/proj/PJ_lsat.i: src/proj/PJ_lsat.c.i
+.PHONY : src/proj/PJ_lsat.i
+
+# target to preprocess a source file
+src/proj/PJ_lsat.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.i
+.PHONY : src/proj/PJ_lsat.c.i
+
+src/proj/PJ_lsat.s: src/proj/PJ_lsat.c.s
+.PHONY : src/proj/PJ_lsat.s
+
+# target to generate assembly for a file
+src/proj/PJ_lsat.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.s
+.PHONY : src/proj/PJ_lsat.c.s
+
+src/proj/PJ_mbt_fps.o: src/proj/PJ_mbt_fps.c.o
+.PHONY : src/proj/PJ_mbt_fps.o
+
+# target to build an object file
+src/proj/PJ_mbt_fps.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o
+.PHONY : src/proj/PJ_mbt_fps.c.o
+
+src/proj/PJ_mbt_fps.i: src/proj/PJ_mbt_fps.c.i
+.PHONY : src/proj/PJ_mbt_fps.i
+
+# target to preprocess a source file
+src/proj/PJ_mbt_fps.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.i
+.PHONY : src/proj/PJ_mbt_fps.c.i
+
+src/proj/PJ_mbt_fps.s: src/proj/PJ_mbt_fps.c.s
+.PHONY : src/proj/PJ_mbt_fps.s
+
+# target to generate assembly for a file
+src/proj/PJ_mbt_fps.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.s
+.PHONY : src/proj/PJ_mbt_fps.c.s
+
+src/proj/PJ_mbtfpp.o: src/proj/PJ_mbtfpp.c.o
+.PHONY : src/proj/PJ_mbtfpp.o
+
+# target to build an object file
+src/proj/PJ_mbtfpp.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o
+.PHONY : src/proj/PJ_mbtfpp.c.o
+
+src/proj/PJ_mbtfpp.i: src/proj/PJ_mbtfpp.c.i
+.PHONY : src/proj/PJ_mbtfpp.i
+
+# target to preprocess a source file
+src/proj/PJ_mbtfpp.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.i
+.PHONY : src/proj/PJ_mbtfpp.c.i
+
+src/proj/PJ_mbtfpp.s: src/proj/PJ_mbtfpp.c.s
+.PHONY : src/proj/PJ_mbtfpp.s
+
+# target to generate assembly for a file
+src/proj/PJ_mbtfpp.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.s
+.PHONY : src/proj/PJ_mbtfpp.c.s
+
+src/proj/PJ_mbtfpq.o: src/proj/PJ_mbtfpq.c.o
+.PHONY : src/proj/PJ_mbtfpq.o
+
+# target to build an object file
+src/proj/PJ_mbtfpq.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o
+.PHONY : src/proj/PJ_mbtfpq.c.o
+
+src/proj/PJ_mbtfpq.i: src/proj/PJ_mbtfpq.c.i
+.PHONY : src/proj/PJ_mbtfpq.i
+
+# target to preprocess a source file
+src/proj/PJ_mbtfpq.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.i
+.PHONY : src/proj/PJ_mbtfpq.c.i
+
+src/proj/PJ_mbtfpq.s: src/proj/PJ_mbtfpq.c.s
+.PHONY : src/proj/PJ_mbtfpq.s
+
+# target to generate assembly for a file
+src/proj/PJ_mbtfpq.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.s
+.PHONY : src/proj/PJ_mbtfpq.c.s
+
+src/proj/PJ_merc.o: src/proj/PJ_merc.c.o
+.PHONY : src/proj/PJ_merc.o
+
+# target to build an object file
+src/proj/PJ_merc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o
+.PHONY : src/proj/PJ_merc.c.o
+
+src/proj/PJ_merc.i: src/proj/PJ_merc.c.i
+.PHONY : src/proj/PJ_merc.i
+
+# target to preprocess a source file
+src/proj/PJ_merc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.i
+.PHONY : src/proj/PJ_merc.c.i
+
+src/proj/PJ_merc.s: src/proj/PJ_merc.c.s
+.PHONY : src/proj/PJ_merc.s
+
+# target to generate assembly for a file
+src/proj/PJ_merc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.s
+.PHONY : src/proj/PJ_merc.c.s
+
+src/proj/PJ_mill.o: src/proj/PJ_mill.c.o
+.PHONY : src/proj/PJ_mill.o
+
+# target to build an object file
+src/proj/PJ_mill.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o
+.PHONY : src/proj/PJ_mill.c.o
+
+src/proj/PJ_mill.i: src/proj/PJ_mill.c.i
+.PHONY : src/proj/PJ_mill.i
+
+# target to preprocess a source file
+src/proj/PJ_mill.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.i
+.PHONY : src/proj/PJ_mill.c.i
+
+src/proj/PJ_mill.s: src/proj/PJ_mill.c.s
+.PHONY : src/proj/PJ_mill.s
+
+# target to generate assembly for a file
+src/proj/PJ_mill.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.s
+.PHONY : src/proj/PJ_mill.c.s
+
+src/proj/PJ_mod_ster.o: src/proj/PJ_mod_ster.c.o
+.PHONY : src/proj/PJ_mod_ster.o
+
+# target to build an object file
+src/proj/PJ_mod_ster.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o
+.PHONY : src/proj/PJ_mod_ster.c.o
+
+src/proj/PJ_mod_ster.i: src/proj/PJ_mod_ster.c.i
+.PHONY : src/proj/PJ_mod_ster.i
+
+# target to preprocess a source file
+src/proj/PJ_mod_ster.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.i
+.PHONY : src/proj/PJ_mod_ster.c.i
+
+src/proj/PJ_mod_ster.s: src/proj/PJ_mod_ster.c.s
+.PHONY : src/proj/PJ_mod_ster.s
+
+# target to generate assembly for a file
+src/proj/PJ_mod_ster.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.s
+.PHONY : src/proj/PJ_mod_ster.c.s
+
+src/proj/PJ_moll.o: src/proj/PJ_moll.c.o
+.PHONY : src/proj/PJ_moll.o
+
+# target to build an object file
+src/proj/PJ_moll.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o
+.PHONY : src/proj/PJ_moll.c.o
+
+src/proj/PJ_moll.i: src/proj/PJ_moll.c.i
+.PHONY : src/proj/PJ_moll.i
+
+# target to preprocess a source file
+src/proj/PJ_moll.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.i
+.PHONY : src/proj/PJ_moll.c.i
+
+src/proj/PJ_moll.s: src/proj/PJ_moll.c.s
+.PHONY : src/proj/PJ_moll.s
+
+# target to generate assembly for a file
+src/proj/PJ_moll.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.s
+.PHONY : src/proj/PJ_moll.c.s
+
+src/proj/PJ_natearth.o: src/proj/PJ_natearth.c.o
+.PHONY : src/proj/PJ_natearth.o
+
+# target to build an object file
+src/proj/PJ_natearth.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o
+.PHONY : src/proj/PJ_natearth.c.o
+
+src/proj/PJ_natearth.i: src/proj/PJ_natearth.c.i
+.PHONY : src/proj/PJ_natearth.i
+
+# target to preprocess a source file
+src/proj/PJ_natearth.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.i
+.PHONY : src/proj/PJ_natearth.c.i
+
+src/proj/PJ_natearth.s: src/proj/PJ_natearth.c.s
+.PHONY : src/proj/PJ_natearth.s
+
+# target to generate assembly for a file
+src/proj/PJ_natearth.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.s
+.PHONY : src/proj/PJ_natearth.c.s
+
+src/proj/PJ_nell.o: src/proj/PJ_nell.c.o
+.PHONY : src/proj/PJ_nell.o
+
+# target to build an object file
+src/proj/PJ_nell.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o
+.PHONY : src/proj/PJ_nell.c.o
+
+src/proj/PJ_nell.i: src/proj/PJ_nell.c.i
+.PHONY : src/proj/PJ_nell.i
+
+# target to preprocess a source file
+src/proj/PJ_nell.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.i
+.PHONY : src/proj/PJ_nell.c.i
+
+src/proj/PJ_nell.s: src/proj/PJ_nell.c.s
+.PHONY : src/proj/PJ_nell.s
+
+# target to generate assembly for a file
+src/proj/PJ_nell.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.s
+.PHONY : src/proj/PJ_nell.c.s
+
+src/proj/PJ_nell_h.o: src/proj/PJ_nell_h.c.o
+.PHONY : src/proj/PJ_nell_h.o
+
+# target to build an object file
+src/proj/PJ_nell_h.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o
+.PHONY : src/proj/PJ_nell_h.c.o
+
+src/proj/PJ_nell_h.i: src/proj/PJ_nell_h.c.i
+.PHONY : src/proj/PJ_nell_h.i
+
+# target to preprocess a source file
+src/proj/PJ_nell_h.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.i
+.PHONY : src/proj/PJ_nell_h.c.i
+
+src/proj/PJ_nell_h.s: src/proj/PJ_nell_h.c.s
+.PHONY : src/proj/PJ_nell_h.s
+
+# target to generate assembly for a file
+src/proj/PJ_nell_h.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.s
+.PHONY : src/proj/PJ_nell_h.c.s
+
+src/proj/PJ_nocol.o: src/proj/PJ_nocol.c.o
+.PHONY : src/proj/PJ_nocol.o
+
+# target to build an object file
+src/proj/PJ_nocol.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o
+.PHONY : src/proj/PJ_nocol.c.o
+
+src/proj/PJ_nocol.i: src/proj/PJ_nocol.c.i
+.PHONY : src/proj/PJ_nocol.i
+
+# target to preprocess a source file
+src/proj/PJ_nocol.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.i
+.PHONY : src/proj/PJ_nocol.c.i
+
+src/proj/PJ_nocol.s: src/proj/PJ_nocol.c.s
+.PHONY : src/proj/PJ_nocol.s
+
+# target to generate assembly for a file
+src/proj/PJ_nocol.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.s
+.PHONY : src/proj/PJ_nocol.c.s
+
+src/proj/PJ_nsper.o: src/proj/PJ_nsper.c.o
+.PHONY : src/proj/PJ_nsper.o
+
+# target to build an object file
+src/proj/PJ_nsper.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o
+.PHONY : src/proj/PJ_nsper.c.o
+
+src/proj/PJ_nsper.i: src/proj/PJ_nsper.c.i
+.PHONY : src/proj/PJ_nsper.i
+
+# target to preprocess a source file
+src/proj/PJ_nsper.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.i
+.PHONY : src/proj/PJ_nsper.c.i
+
+src/proj/PJ_nsper.s: src/proj/PJ_nsper.c.s
+.PHONY : src/proj/PJ_nsper.s
+
+# target to generate assembly for a file
+src/proj/PJ_nsper.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.s
+.PHONY : src/proj/PJ_nsper.c.s
+
+src/proj/PJ_nzmg.o: src/proj/PJ_nzmg.c.o
+.PHONY : src/proj/PJ_nzmg.o
+
+# target to build an object file
+src/proj/PJ_nzmg.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o
+.PHONY : src/proj/PJ_nzmg.c.o
+
+src/proj/PJ_nzmg.i: src/proj/PJ_nzmg.c.i
+.PHONY : src/proj/PJ_nzmg.i
+
+# target to preprocess a source file
+src/proj/PJ_nzmg.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.i
+.PHONY : src/proj/PJ_nzmg.c.i
+
+src/proj/PJ_nzmg.s: src/proj/PJ_nzmg.c.s
+.PHONY : src/proj/PJ_nzmg.s
+
+# target to generate assembly for a file
+src/proj/PJ_nzmg.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.s
+.PHONY : src/proj/PJ_nzmg.c.s
+
+src/proj/PJ_ob_tran.o: src/proj/PJ_ob_tran.c.o
+.PHONY : src/proj/PJ_ob_tran.o
+
+# target to build an object file
+src/proj/PJ_ob_tran.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o
+.PHONY : src/proj/PJ_ob_tran.c.o
+
+src/proj/PJ_ob_tran.i: src/proj/PJ_ob_tran.c.i
+.PHONY : src/proj/PJ_ob_tran.i
+
+# target to preprocess a source file
+src/proj/PJ_ob_tran.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.i
+.PHONY : src/proj/PJ_ob_tran.c.i
+
+src/proj/PJ_ob_tran.s: src/proj/PJ_ob_tran.c.s
+.PHONY : src/proj/PJ_ob_tran.s
+
+# target to generate assembly for a file
+src/proj/PJ_ob_tran.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.s
+.PHONY : src/proj/PJ_ob_tran.c.s
+
+src/proj/PJ_ocea.o: src/proj/PJ_ocea.c.o
+.PHONY : src/proj/PJ_ocea.o
+
+# target to build an object file
+src/proj/PJ_ocea.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o
+.PHONY : src/proj/PJ_ocea.c.o
+
+src/proj/PJ_ocea.i: src/proj/PJ_ocea.c.i
+.PHONY : src/proj/PJ_ocea.i
+
+# target to preprocess a source file
+src/proj/PJ_ocea.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.i
+.PHONY : src/proj/PJ_ocea.c.i
+
+src/proj/PJ_ocea.s: src/proj/PJ_ocea.c.s
+.PHONY : src/proj/PJ_ocea.s
+
+# target to generate assembly for a file
+src/proj/PJ_ocea.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.s
+.PHONY : src/proj/PJ_ocea.c.s
+
+src/proj/PJ_oea.o: src/proj/PJ_oea.c.o
+.PHONY : src/proj/PJ_oea.o
+
+# target to build an object file
+src/proj/PJ_oea.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o
+.PHONY : src/proj/PJ_oea.c.o
+
+src/proj/PJ_oea.i: src/proj/PJ_oea.c.i
+.PHONY : src/proj/PJ_oea.i
+
+# target to preprocess a source file
+src/proj/PJ_oea.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.i
+.PHONY : src/proj/PJ_oea.c.i
+
+src/proj/PJ_oea.s: src/proj/PJ_oea.c.s
+.PHONY : src/proj/PJ_oea.s
+
+# target to generate assembly for a file
+src/proj/PJ_oea.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.s
+.PHONY : src/proj/PJ_oea.c.s
+
+src/proj/PJ_omerc.o: src/proj/PJ_omerc.c.o
+.PHONY : src/proj/PJ_omerc.o
+
+# target to build an object file
+src/proj/PJ_omerc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o
+.PHONY : src/proj/PJ_omerc.c.o
+
+src/proj/PJ_omerc.i: src/proj/PJ_omerc.c.i
+.PHONY : src/proj/PJ_omerc.i
+
+# target to preprocess a source file
+src/proj/PJ_omerc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.i
+.PHONY : src/proj/PJ_omerc.c.i
+
+src/proj/PJ_omerc.s: src/proj/PJ_omerc.c.s
+.PHONY : src/proj/PJ_omerc.s
+
+# target to generate assembly for a file
+src/proj/PJ_omerc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.s
+.PHONY : src/proj/PJ_omerc.c.s
+
+src/proj/PJ_ortho.o: src/proj/PJ_ortho.c.o
+.PHONY : src/proj/PJ_ortho.o
+
+# target to build an object file
+src/proj/PJ_ortho.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o
+.PHONY : src/proj/PJ_ortho.c.o
+
+src/proj/PJ_ortho.i: src/proj/PJ_ortho.c.i
+.PHONY : src/proj/PJ_ortho.i
+
+# target to preprocess a source file
+src/proj/PJ_ortho.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.i
+.PHONY : src/proj/PJ_ortho.c.i
+
+src/proj/PJ_ortho.s: src/proj/PJ_ortho.c.s
+.PHONY : src/proj/PJ_ortho.s
+
+# target to generate assembly for a file
+src/proj/PJ_ortho.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.s
+.PHONY : src/proj/PJ_ortho.c.s
+
+src/proj/PJ_poly.o: src/proj/PJ_poly.c.o
+.PHONY : src/proj/PJ_poly.o
+
+# target to build an object file
+src/proj/PJ_poly.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o
+.PHONY : src/proj/PJ_poly.c.o
+
+src/proj/PJ_poly.i: src/proj/PJ_poly.c.i
+.PHONY : src/proj/PJ_poly.i
+
+# target to preprocess a source file
+src/proj/PJ_poly.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.i
+.PHONY : src/proj/PJ_poly.c.i
+
+src/proj/PJ_poly.s: src/proj/PJ_poly.c.s
+.PHONY : src/proj/PJ_poly.s
+
+# target to generate assembly for a file
+src/proj/PJ_poly.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.s
+.PHONY : src/proj/PJ_poly.c.s
+
+src/proj/PJ_putp2.o: src/proj/PJ_putp2.c.o
+.PHONY : src/proj/PJ_putp2.o
+
+# target to build an object file
+src/proj/PJ_putp2.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o
+.PHONY : src/proj/PJ_putp2.c.o
+
+src/proj/PJ_putp2.i: src/proj/PJ_putp2.c.i
+.PHONY : src/proj/PJ_putp2.i
+
+# target to preprocess a source file
+src/proj/PJ_putp2.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.i
+.PHONY : src/proj/PJ_putp2.c.i
+
+src/proj/PJ_putp2.s: src/proj/PJ_putp2.c.s
+.PHONY : src/proj/PJ_putp2.s
+
+# target to generate assembly for a file
+src/proj/PJ_putp2.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.s
+.PHONY : src/proj/PJ_putp2.c.s
+
+src/proj/PJ_putp3.o: src/proj/PJ_putp3.c.o
+.PHONY : src/proj/PJ_putp3.o
+
+# target to build an object file
+src/proj/PJ_putp3.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o
+.PHONY : src/proj/PJ_putp3.c.o
+
+src/proj/PJ_putp3.i: src/proj/PJ_putp3.c.i
+.PHONY : src/proj/PJ_putp3.i
+
+# target to preprocess a source file
+src/proj/PJ_putp3.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.i
+.PHONY : src/proj/PJ_putp3.c.i
+
+src/proj/PJ_putp3.s: src/proj/PJ_putp3.c.s
+.PHONY : src/proj/PJ_putp3.s
+
+# target to generate assembly for a file
+src/proj/PJ_putp3.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.s
+.PHONY : src/proj/PJ_putp3.c.s
+
+src/proj/PJ_putp4p.o: src/proj/PJ_putp4p.c.o
+.PHONY : src/proj/PJ_putp4p.o
+
+# target to build an object file
+src/proj/PJ_putp4p.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o
+.PHONY : src/proj/PJ_putp4p.c.o
+
+src/proj/PJ_putp4p.i: src/proj/PJ_putp4p.c.i
+.PHONY : src/proj/PJ_putp4p.i
+
+# target to preprocess a source file
+src/proj/PJ_putp4p.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.i
+.PHONY : src/proj/PJ_putp4p.c.i
+
+src/proj/PJ_putp4p.s: src/proj/PJ_putp4p.c.s
+.PHONY : src/proj/PJ_putp4p.s
+
+# target to generate assembly for a file
+src/proj/PJ_putp4p.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.s
+.PHONY : src/proj/PJ_putp4p.c.s
+
+src/proj/PJ_putp5.o: src/proj/PJ_putp5.c.o
+.PHONY : src/proj/PJ_putp5.o
+
+# target to build an object file
+src/proj/PJ_putp5.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o
+.PHONY : src/proj/PJ_putp5.c.o
+
+src/proj/PJ_putp5.i: src/proj/PJ_putp5.c.i
+.PHONY : src/proj/PJ_putp5.i
+
+# target to preprocess a source file
+src/proj/PJ_putp5.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.i
+.PHONY : src/proj/PJ_putp5.c.i
+
+src/proj/PJ_putp5.s: src/proj/PJ_putp5.c.s
+.PHONY : src/proj/PJ_putp5.s
+
+# target to generate assembly for a file
+src/proj/PJ_putp5.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.s
+.PHONY : src/proj/PJ_putp5.c.s
+
+src/proj/PJ_putp6.o: src/proj/PJ_putp6.c.o
+.PHONY : src/proj/PJ_putp6.o
+
+# target to build an object file
+src/proj/PJ_putp6.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o
+.PHONY : src/proj/PJ_putp6.c.o
+
+src/proj/PJ_putp6.i: src/proj/PJ_putp6.c.i
+.PHONY : src/proj/PJ_putp6.i
+
+# target to preprocess a source file
+src/proj/PJ_putp6.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.i
+.PHONY : src/proj/PJ_putp6.c.i
+
+src/proj/PJ_putp6.s: src/proj/PJ_putp6.c.s
+.PHONY : src/proj/PJ_putp6.s
+
+# target to generate assembly for a file
+src/proj/PJ_putp6.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.s
+.PHONY : src/proj/PJ_putp6.c.s
+
+src/proj/PJ_robin.o: src/proj/PJ_robin.c.o
+.PHONY : src/proj/PJ_robin.o
+
+# target to build an object file
+src/proj/PJ_robin.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o
+.PHONY : src/proj/PJ_robin.c.o
+
+src/proj/PJ_robin.i: src/proj/PJ_robin.c.i
+.PHONY : src/proj/PJ_robin.i
+
+# target to preprocess a source file
+src/proj/PJ_robin.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.i
+.PHONY : src/proj/PJ_robin.c.i
+
+src/proj/PJ_robin.s: src/proj/PJ_robin.c.s
+.PHONY : src/proj/PJ_robin.s
+
+# target to generate assembly for a file
+src/proj/PJ_robin.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.s
+.PHONY : src/proj/PJ_robin.c.s
+
+src/proj/PJ_rpoly.o: src/proj/PJ_rpoly.c.o
+.PHONY : src/proj/PJ_rpoly.o
+
+# target to build an object file
+src/proj/PJ_rpoly.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o
+.PHONY : src/proj/PJ_rpoly.c.o
+
+src/proj/PJ_rpoly.i: src/proj/PJ_rpoly.c.i
+.PHONY : src/proj/PJ_rpoly.i
+
+# target to preprocess a source file
+src/proj/PJ_rpoly.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.i
+.PHONY : src/proj/PJ_rpoly.c.i
+
+src/proj/PJ_rpoly.s: src/proj/PJ_rpoly.c.s
+.PHONY : src/proj/PJ_rpoly.s
+
+# target to generate assembly for a file
+src/proj/PJ_rpoly.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.s
+.PHONY : src/proj/PJ_rpoly.c.s
+
+src/proj/PJ_sconics.o: src/proj/PJ_sconics.c.o
+.PHONY : src/proj/PJ_sconics.o
+
+# target to build an object file
+src/proj/PJ_sconics.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o
+.PHONY : src/proj/PJ_sconics.c.o
+
+src/proj/PJ_sconics.i: src/proj/PJ_sconics.c.i
+.PHONY : src/proj/PJ_sconics.i
+
+# target to preprocess a source file
+src/proj/PJ_sconics.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.i
+.PHONY : src/proj/PJ_sconics.c.i
+
+src/proj/PJ_sconics.s: src/proj/PJ_sconics.c.s
+.PHONY : src/proj/PJ_sconics.s
+
+# target to generate assembly for a file
+src/proj/PJ_sconics.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.s
+.PHONY : src/proj/PJ_sconics.c.s
+
+src/proj/PJ_somerc.o: src/proj/PJ_somerc.c.o
+.PHONY : src/proj/PJ_somerc.o
+
+# target to build an object file
+src/proj/PJ_somerc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o
+.PHONY : src/proj/PJ_somerc.c.o
+
+src/proj/PJ_somerc.i: src/proj/PJ_somerc.c.i
+.PHONY : src/proj/PJ_somerc.i
+
+# target to preprocess a source file
+src/proj/PJ_somerc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.i
+.PHONY : src/proj/PJ_somerc.c.i
+
+src/proj/PJ_somerc.s: src/proj/PJ_somerc.c.s
+.PHONY : src/proj/PJ_somerc.s
+
+# target to generate assembly for a file
+src/proj/PJ_somerc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.s
+.PHONY : src/proj/PJ_somerc.c.s
+
+src/proj/PJ_stere.o: src/proj/PJ_stere.c.o
+.PHONY : src/proj/PJ_stere.o
+
+# target to build an object file
+src/proj/PJ_stere.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o
+.PHONY : src/proj/PJ_stere.c.o
+
+src/proj/PJ_stere.i: src/proj/PJ_stere.c.i
+.PHONY : src/proj/PJ_stere.i
+
+# target to preprocess a source file
+src/proj/PJ_stere.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.i
+.PHONY : src/proj/PJ_stere.c.i
+
+src/proj/PJ_stere.s: src/proj/PJ_stere.c.s
+.PHONY : src/proj/PJ_stere.s
+
+# target to generate assembly for a file
+src/proj/PJ_stere.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.s
+.PHONY : src/proj/PJ_stere.c.s
+
+src/proj/PJ_sterea.o: src/proj/PJ_sterea.c.o
+.PHONY : src/proj/PJ_sterea.o
+
+# target to build an object file
+src/proj/PJ_sterea.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o
+.PHONY : src/proj/PJ_sterea.c.o
+
+src/proj/PJ_sterea.i: src/proj/PJ_sterea.c.i
+.PHONY : src/proj/PJ_sterea.i
+
+# target to preprocess a source file
+src/proj/PJ_sterea.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.i
+.PHONY : src/proj/PJ_sterea.c.i
+
+src/proj/PJ_sterea.s: src/proj/PJ_sterea.c.s
+.PHONY : src/proj/PJ_sterea.s
+
+# target to generate assembly for a file
+src/proj/PJ_sterea.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.s
+.PHONY : src/proj/PJ_sterea.c.s
+
+src/proj/PJ_sts.o: src/proj/PJ_sts.c.o
+.PHONY : src/proj/PJ_sts.o
+
+# target to build an object file
+src/proj/PJ_sts.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o
+.PHONY : src/proj/PJ_sts.c.o
+
+src/proj/PJ_sts.i: src/proj/PJ_sts.c.i
+.PHONY : src/proj/PJ_sts.i
+
+# target to preprocess a source file
+src/proj/PJ_sts.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.i
+.PHONY : src/proj/PJ_sts.c.i
+
+src/proj/PJ_sts.s: src/proj/PJ_sts.c.s
+.PHONY : src/proj/PJ_sts.s
+
+# target to generate assembly for a file
+src/proj/PJ_sts.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.s
+.PHONY : src/proj/PJ_sts.c.s
+
+src/proj/PJ_tcc.o: src/proj/PJ_tcc.c.o
+.PHONY : src/proj/PJ_tcc.o
+
+# target to build an object file
+src/proj/PJ_tcc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o
+.PHONY : src/proj/PJ_tcc.c.o
+
+src/proj/PJ_tcc.i: src/proj/PJ_tcc.c.i
+.PHONY : src/proj/PJ_tcc.i
+
+# target to preprocess a source file
+src/proj/PJ_tcc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.i
+.PHONY : src/proj/PJ_tcc.c.i
+
+src/proj/PJ_tcc.s: src/proj/PJ_tcc.c.s
+.PHONY : src/proj/PJ_tcc.s
+
+# target to generate assembly for a file
+src/proj/PJ_tcc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.s
+.PHONY : src/proj/PJ_tcc.c.s
+
+src/proj/PJ_tcea.o: src/proj/PJ_tcea.c.o
+.PHONY : src/proj/PJ_tcea.o
+
+# target to build an object file
+src/proj/PJ_tcea.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o
+.PHONY : src/proj/PJ_tcea.c.o
+
+src/proj/PJ_tcea.i: src/proj/PJ_tcea.c.i
+.PHONY : src/proj/PJ_tcea.i
+
+# target to preprocess a source file
+src/proj/PJ_tcea.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.i
+.PHONY : src/proj/PJ_tcea.c.i
+
+src/proj/PJ_tcea.s: src/proj/PJ_tcea.c.s
+.PHONY : src/proj/PJ_tcea.s
+
+# target to generate assembly for a file
+src/proj/PJ_tcea.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.s
+.PHONY : src/proj/PJ_tcea.c.s
+
+src/proj/PJ_tmerc.o: src/proj/PJ_tmerc.c.o
+.PHONY : src/proj/PJ_tmerc.o
+
+# target to build an object file
+src/proj/PJ_tmerc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o
+.PHONY : src/proj/PJ_tmerc.c.o
+
+src/proj/PJ_tmerc.i: src/proj/PJ_tmerc.c.i
+.PHONY : src/proj/PJ_tmerc.i
+
+# target to preprocess a source file
+src/proj/PJ_tmerc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.i
+.PHONY : src/proj/PJ_tmerc.c.i
+
+src/proj/PJ_tmerc.s: src/proj/PJ_tmerc.c.s
+.PHONY : src/proj/PJ_tmerc.s
+
+# target to generate assembly for a file
+src/proj/PJ_tmerc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.s
+.PHONY : src/proj/PJ_tmerc.c.s
+
+src/proj/PJ_tpeqd.o: src/proj/PJ_tpeqd.c.o
+.PHONY : src/proj/PJ_tpeqd.o
+
+# target to build an object file
+src/proj/PJ_tpeqd.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o
+.PHONY : src/proj/PJ_tpeqd.c.o
+
+src/proj/PJ_tpeqd.i: src/proj/PJ_tpeqd.c.i
+.PHONY : src/proj/PJ_tpeqd.i
+
+# target to preprocess a source file
+src/proj/PJ_tpeqd.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.i
+.PHONY : src/proj/PJ_tpeqd.c.i
+
+src/proj/PJ_tpeqd.s: src/proj/PJ_tpeqd.c.s
+.PHONY : src/proj/PJ_tpeqd.s
+
+# target to generate assembly for a file
+src/proj/PJ_tpeqd.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.s
+.PHONY : src/proj/PJ_tpeqd.c.s
+
+src/proj/PJ_urm5.o: src/proj/PJ_urm5.c.o
+.PHONY : src/proj/PJ_urm5.o
+
+# target to build an object file
+src/proj/PJ_urm5.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o
+.PHONY : src/proj/PJ_urm5.c.o
+
+src/proj/PJ_urm5.i: src/proj/PJ_urm5.c.i
+.PHONY : src/proj/PJ_urm5.i
+
+# target to preprocess a source file
+src/proj/PJ_urm5.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.i
+.PHONY : src/proj/PJ_urm5.c.i
+
+src/proj/PJ_urm5.s: src/proj/PJ_urm5.c.s
+.PHONY : src/proj/PJ_urm5.s
+
+# target to generate assembly for a file
+src/proj/PJ_urm5.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.s
+.PHONY : src/proj/PJ_urm5.c.s
+
+src/proj/PJ_urmfps.o: src/proj/PJ_urmfps.c.o
+.PHONY : src/proj/PJ_urmfps.o
+
+# target to build an object file
+src/proj/PJ_urmfps.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o
+.PHONY : src/proj/PJ_urmfps.c.o
+
+src/proj/PJ_urmfps.i: src/proj/PJ_urmfps.c.i
+.PHONY : src/proj/PJ_urmfps.i
+
+# target to preprocess a source file
+src/proj/PJ_urmfps.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.i
+.PHONY : src/proj/PJ_urmfps.c.i
+
+src/proj/PJ_urmfps.s: src/proj/PJ_urmfps.c.s
+.PHONY : src/proj/PJ_urmfps.s
+
+# target to generate assembly for a file
+src/proj/PJ_urmfps.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.s
+.PHONY : src/proj/PJ_urmfps.c.s
+
+src/proj/PJ_vandg.o: src/proj/PJ_vandg.c.o
+.PHONY : src/proj/PJ_vandg.o
+
+# target to build an object file
+src/proj/PJ_vandg.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o
+.PHONY : src/proj/PJ_vandg.c.o
+
+src/proj/PJ_vandg.i: src/proj/PJ_vandg.c.i
+.PHONY : src/proj/PJ_vandg.i
+
+# target to preprocess a source file
+src/proj/PJ_vandg.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.i
+.PHONY : src/proj/PJ_vandg.c.i
+
+src/proj/PJ_vandg.s: src/proj/PJ_vandg.c.s
+.PHONY : src/proj/PJ_vandg.s
+
+# target to generate assembly for a file
+src/proj/PJ_vandg.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.s
+.PHONY : src/proj/PJ_vandg.c.s
+
+src/proj/PJ_vandg2.o: src/proj/PJ_vandg2.c.o
+.PHONY : src/proj/PJ_vandg2.o
+
+# target to build an object file
+src/proj/PJ_vandg2.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o
+.PHONY : src/proj/PJ_vandg2.c.o
+
+src/proj/PJ_vandg2.i: src/proj/PJ_vandg2.c.i
+.PHONY : src/proj/PJ_vandg2.i
+
+# target to preprocess a source file
+src/proj/PJ_vandg2.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.i
+.PHONY : src/proj/PJ_vandg2.c.i
+
+src/proj/PJ_vandg2.s: src/proj/PJ_vandg2.c.s
+.PHONY : src/proj/PJ_vandg2.s
+
+# target to generate assembly for a file
+src/proj/PJ_vandg2.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.s
+.PHONY : src/proj/PJ_vandg2.c.s
+
+src/proj/PJ_vandg4.o: src/proj/PJ_vandg4.c.o
+.PHONY : src/proj/PJ_vandg4.o
+
+# target to build an object file
+src/proj/PJ_vandg4.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o
+.PHONY : src/proj/PJ_vandg4.c.o
+
+src/proj/PJ_vandg4.i: src/proj/PJ_vandg4.c.i
+.PHONY : src/proj/PJ_vandg4.i
+
+# target to preprocess a source file
+src/proj/PJ_vandg4.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.i
+.PHONY : src/proj/PJ_vandg4.c.i
+
+src/proj/PJ_vandg4.s: src/proj/PJ_vandg4.c.s
+.PHONY : src/proj/PJ_vandg4.s
+
+# target to generate assembly for a file
+src/proj/PJ_vandg4.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.s
+.PHONY : src/proj/PJ_vandg4.c.s
+
+src/proj/PJ_wag2.o: src/proj/PJ_wag2.c.o
+.PHONY : src/proj/PJ_wag2.o
+
+# target to build an object file
+src/proj/PJ_wag2.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o
+.PHONY : src/proj/PJ_wag2.c.o
+
+src/proj/PJ_wag2.i: src/proj/PJ_wag2.c.i
+.PHONY : src/proj/PJ_wag2.i
+
+# target to preprocess a source file
+src/proj/PJ_wag2.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.i
+.PHONY : src/proj/PJ_wag2.c.i
+
+src/proj/PJ_wag2.s: src/proj/PJ_wag2.c.s
+.PHONY : src/proj/PJ_wag2.s
+
+# target to generate assembly for a file
+src/proj/PJ_wag2.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.s
+.PHONY : src/proj/PJ_wag2.c.s
+
+src/proj/PJ_wag3.o: src/proj/PJ_wag3.c.o
+.PHONY : src/proj/PJ_wag3.o
+
+# target to build an object file
+src/proj/PJ_wag3.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o
+.PHONY : src/proj/PJ_wag3.c.o
+
+src/proj/PJ_wag3.i: src/proj/PJ_wag3.c.i
+.PHONY : src/proj/PJ_wag3.i
+
+# target to preprocess a source file
+src/proj/PJ_wag3.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.i
+.PHONY : src/proj/PJ_wag3.c.i
+
+src/proj/PJ_wag3.s: src/proj/PJ_wag3.c.s
+.PHONY : src/proj/PJ_wag3.s
+
+# target to generate assembly for a file
+src/proj/PJ_wag3.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.s
+.PHONY : src/proj/PJ_wag3.c.s
+
+src/proj/PJ_wag7.o: src/proj/PJ_wag7.c.o
+.PHONY : src/proj/PJ_wag7.o
+
+# target to build an object file
+src/proj/PJ_wag7.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o
+.PHONY : src/proj/PJ_wag7.c.o
+
+src/proj/PJ_wag7.i: src/proj/PJ_wag7.c.i
+.PHONY : src/proj/PJ_wag7.i
+
+# target to preprocess a source file
+src/proj/PJ_wag7.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.i
+.PHONY : src/proj/PJ_wag7.c.i
+
+src/proj/PJ_wag7.s: src/proj/PJ_wag7.c.s
+.PHONY : src/proj/PJ_wag7.s
+
+# target to generate assembly for a file
+src/proj/PJ_wag7.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.s
+.PHONY : src/proj/PJ_wag7.c.s
+
+src/proj/PJ_wink1.o: src/proj/PJ_wink1.c.o
+.PHONY : src/proj/PJ_wink1.o
+
+# target to build an object file
+src/proj/PJ_wink1.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o
+.PHONY : src/proj/PJ_wink1.c.o
+
+src/proj/PJ_wink1.i: src/proj/PJ_wink1.c.i
+.PHONY : src/proj/PJ_wink1.i
+
+# target to preprocess a source file
+src/proj/PJ_wink1.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.i
+.PHONY : src/proj/PJ_wink1.c.i
+
+src/proj/PJ_wink1.s: src/proj/PJ_wink1.c.s
+.PHONY : src/proj/PJ_wink1.s
+
+# target to generate assembly for a file
+src/proj/PJ_wink1.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.s
+.PHONY : src/proj/PJ_wink1.c.s
+
+src/proj/PJ_wink2.o: src/proj/PJ_wink2.c.o
+.PHONY : src/proj/PJ_wink2.o
+
+# target to build an object file
+src/proj/PJ_wink2.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o
+.PHONY : src/proj/PJ_wink2.c.o
+
+src/proj/PJ_wink2.i: src/proj/PJ_wink2.c.i
+.PHONY : src/proj/PJ_wink2.i
+
+# target to preprocess a source file
+src/proj/PJ_wink2.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.i
+.PHONY : src/proj/PJ_wink2.c.i
+
+src/proj/PJ_wink2.s: src/proj/PJ_wink2.c.s
+.PHONY : src/proj/PJ_wink2.s
+
+# target to generate assembly for a file
+src/proj/PJ_wink2.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.s
+.PHONY : src/proj/PJ_wink2.c.s
+
+src/proj/aasincos.o: src/proj/aasincos.c.o
+.PHONY : src/proj/aasincos.o
+
+# target to build an object file
+src/proj/aasincos.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o
+.PHONY : src/proj/aasincos.c.o
+
+src/proj/aasincos.i: src/proj/aasincos.c.i
+.PHONY : src/proj/aasincos.i
+
+# target to preprocess a source file
+src/proj/aasincos.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.i
+.PHONY : src/proj/aasincos.c.i
+
+src/proj/aasincos.s: src/proj/aasincos.c.s
+.PHONY : src/proj/aasincos.s
+
+# target to generate assembly for a file
+src/proj/aasincos.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.s
+.PHONY : src/proj/aasincos.c.s
+
+src/proj/adjlon.o: src/proj/adjlon.c.o
+.PHONY : src/proj/adjlon.o
+
+# target to build an object file
+src/proj/adjlon.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o
+.PHONY : src/proj/adjlon.c.o
+
+src/proj/adjlon.i: src/proj/adjlon.c.i
+.PHONY : src/proj/adjlon.i
+
+# target to preprocess a source file
+src/proj/adjlon.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.i
+.PHONY : src/proj/adjlon.c.i
+
+src/proj/adjlon.s: src/proj/adjlon.c.s
+.PHONY : src/proj/adjlon.s
+
+# target to generate assembly for a file
+src/proj/adjlon.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.s
+.PHONY : src/proj/adjlon.c.s
+
+src/proj/bch2bps.o: src/proj/bch2bps.c.o
+.PHONY : src/proj/bch2bps.o
+
+# target to build an object file
+src/proj/bch2bps.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o
+.PHONY : src/proj/bch2bps.c.o
+
+src/proj/bch2bps.i: src/proj/bch2bps.c.i
+.PHONY : src/proj/bch2bps.i
+
+# target to preprocess a source file
+src/proj/bch2bps.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.i
+.PHONY : src/proj/bch2bps.c.i
+
+src/proj/bch2bps.s: src/proj/bch2bps.c.s
+.PHONY : src/proj/bch2bps.s
+
+# target to generate assembly for a file
+src/proj/bch2bps.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.s
+.PHONY : src/proj/bch2bps.c.s
+
+src/proj/bchgen.o: src/proj/bchgen.c.o
+.PHONY : src/proj/bchgen.o
+
+# target to build an object file
+src/proj/bchgen.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o
+.PHONY : src/proj/bchgen.c.o
+
+src/proj/bchgen.i: src/proj/bchgen.c.i
+.PHONY : src/proj/bchgen.i
+
+# target to preprocess a source file
+src/proj/bchgen.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.i
+.PHONY : src/proj/bchgen.c.i
+
+src/proj/bchgen.s: src/proj/bchgen.c.s
+.PHONY : src/proj/bchgen.s
+
+# target to generate assembly for a file
+src/proj/bchgen.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.s
+.PHONY : src/proj/bchgen.c.s
+
+src/proj/biveval.o: src/proj/biveval.c.o
+.PHONY : src/proj/biveval.o
+
+# target to build an object file
+src/proj/biveval.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o
+.PHONY : src/proj/biveval.c.o
+
+src/proj/biveval.i: src/proj/biveval.c.i
+.PHONY : src/proj/biveval.i
+
+# target to preprocess a source file
+src/proj/biveval.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.i
+.PHONY : src/proj/biveval.c.i
+
+src/proj/biveval.s: src/proj/biveval.c.s
+.PHONY : src/proj/biveval.s
+
+# target to generate assembly for a file
+src/proj/biveval.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.s
+.PHONY : src/proj/biveval.c.s
+
+src/proj/cs2cs.o: src/proj/cs2cs.c.o
+.PHONY : src/proj/cs2cs.o
+
+# target to build an object file
+src/proj/cs2cs.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o
+.PHONY : src/proj/cs2cs.c.o
+
+src/proj/cs2cs.i: src/proj/cs2cs.c.i
+.PHONY : src/proj/cs2cs.i
+
+# target to preprocess a source file
+src/proj/cs2cs.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.i
+.PHONY : src/proj/cs2cs.c.i
+
+src/proj/cs2cs.s: src/proj/cs2cs.c.s
+.PHONY : src/proj/cs2cs.s
+
+# target to generate assembly for a file
+src/proj/cs2cs.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.s
+.PHONY : src/proj/cs2cs.c.s
+
+src/proj/dmstor.o: src/proj/dmstor.c.o
+.PHONY : src/proj/dmstor.o
+
+# target to build an object file
+src/proj/dmstor.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o
+.PHONY : src/proj/dmstor.c.o
+
+src/proj/dmstor.i: src/proj/dmstor.c.i
+.PHONY : src/proj/dmstor.i
+
+# target to preprocess a source file
+src/proj/dmstor.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.i
+.PHONY : src/proj/dmstor.c.i
+
+src/proj/dmstor.s: src/proj/dmstor.c.s
+.PHONY : src/proj/dmstor.s
+
+# target to generate assembly for a file
+src/proj/dmstor.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.s
+.PHONY : src/proj/dmstor.c.s
+
+src/proj/emess.o: src/proj/emess.c.o
+.PHONY : src/proj/emess.o
+
+# target to build an object file
+src/proj/emess.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o
+.PHONY : src/proj/emess.c.o
+
+src/proj/emess.i: src/proj/emess.c.i
+.PHONY : src/proj/emess.i
+
+# target to preprocess a source file
+src/proj/emess.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/emess.c.i
+.PHONY : src/proj/emess.c.i
+
+src/proj/emess.s: src/proj/emess.c.s
+.PHONY : src/proj/emess.s
+
+# target to generate assembly for a file
+src/proj/emess.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/emess.c.s
+.PHONY : src/proj/emess.c.s
+
+src/proj/gen_cheb.o: src/proj/gen_cheb.c.o
+.PHONY : src/proj/gen_cheb.o
+
+# target to build an object file
+src/proj/gen_cheb.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o
+.PHONY : src/proj/gen_cheb.c.o
+
+src/proj/gen_cheb.i: src/proj/gen_cheb.c.i
+.PHONY : src/proj/gen_cheb.i
+
+# target to preprocess a source file
+src/proj/gen_cheb.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.i
+.PHONY : src/proj/gen_cheb.c.i
+
+src/proj/gen_cheb.s: src/proj/gen_cheb.c.s
+.PHONY : src/proj/gen_cheb.s
+
+# target to generate assembly for a file
+src/proj/gen_cheb.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.s
+.PHONY : src/proj/gen_cheb.c.s
+
+src/proj/geocent.o: src/proj/geocent.c.o
+.PHONY : src/proj/geocent.o
+
+# target to build an object file
+src/proj/geocent.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.o
+.PHONY : src/proj/geocent.c.o
+
+src/proj/geocent.i: src/proj/geocent.c.i
+.PHONY : src/proj/geocent.i
+
+# target to preprocess a source file
+src/proj/geocent.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.i
+.PHONY : src/proj/geocent.c.i
+
+src/proj/geocent.s: src/proj/geocent.c.s
+.PHONY : src/proj/geocent.s
+
+# target to generate assembly for a file
+src/proj/geocent.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.s
+.PHONY : src/proj/geocent.c.s
+
+src/proj/geod.o: src/proj/geod.c.o
+.PHONY : src/proj/geod.o
+
+# target to build an object file
+src/proj/geod.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o
+.PHONY : src/proj/geod.c.o
+
+src/proj/geod.i: src/proj/geod.c.i
+.PHONY : src/proj/geod.i
+
+# target to preprocess a source file
+src/proj/geod.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod.c.i
+.PHONY : src/proj/geod.c.i
+
+src/proj/geod.s: src/proj/geod.c.s
+.PHONY : src/proj/geod.s
+
+# target to generate assembly for a file
+src/proj/geod.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod.c.s
+.PHONY : src/proj/geod.c.s
+
+src/proj/geod_for.o: src/proj/geod_for.c.o
+.PHONY : src/proj/geod_for.o
+
+# target to build an object file
+src/proj/geod_for.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.o
+.PHONY : src/proj/geod_for.c.o
+
+src/proj/geod_for.i: src/proj/geod_for.c.i
+.PHONY : src/proj/geod_for.i
+
+# target to preprocess a source file
+src/proj/geod_for.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.i
+.PHONY : src/proj/geod_for.c.i
+
+src/proj/geod_for.s: src/proj/geod_for.c.s
+.PHONY : src/proj/geod_for.s
+
+# target to generate assembly for a file
+src/proj/geod_for.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_for.c.s
+.PHONY : src/proj/geod_for.c.s
+
+src/proj/geod_inv.o: src/proj/geod_inv.c.o
+.PHONY : src/proj/geod_inv.o
+
+# target to build an object file
+src/proj/geod_inv.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.o
+.PHONY : src/proj/geod_inv.c.o
+
+src/proj/geod_inv.i: src/proj/geod_inv.c.i
+.PHONY : src/proj/geod_inv.i
+
+# target to preprocess a source file
+src/proj/geod_inv.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.i
+.PHONY : src/proj/geod_inv.c.i
+
+src/proj/geod_inv.s: src/proj/geod_inv.c.s
+.PHONY : src/proj/geod_inv.s
+
+# target to generate assembly for a file
+src/proj/geod_inv.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_inv.c.s
+.PHONY : src/proj/geod_inv.c.s
+
+src/proj/geod_set.o: src/proj/geod_set.c.o
+.PHONY : src/proj/geod_set.o
+
+# target to build an object file
+src/proj/geod_set.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.o
+.PHONY : src/proj/geod_set.c.o
+
+src/proj/geod_set.i: src/proj/geod_set.c.i
+.PHONY : src/proj/geod_set.i
+
+# target to preprocess a source file
+src/proj/geod_set.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.i
+.PHONY : src/proj/geod_set.c.i
+
+src/proj/geod_set.s: src/proj/geod_set.c.s
+.PHONY : src/proj/geod_set.s
+
+# target to generate assembly for a file
+src/proj/geod_set.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod_set.c.s
+.PHONY : src/proj/geod_set.c.s
+
+src/proj/jniproj.o: src/proj/jniproj.c.o
+.PHONY : src/proj/jniproj.o
+
+# target to build an object file
+src/proj/jniproj.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o
+.PHONY : src/proj/jniproj.c.o
+
+src/proj/jniproj.i: src/proj/jniproj.c.i
+.PHONY : src/proj/jniproj.i
+
+# target to preprocess a source file
+src/proj/jniproj.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.i
+.PHONY : src/proj/jniproj.c.i
+
+src/proj/jniproj.s: src/proj/jniproj.c.s
+.PHONY : src/proj/jniproj.s
+
+# target to generate assembly for a file
+src/proj/jniproj.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.s
+.PHONY : src/proj/jniproj.c.s
+
+src/proj/mk_cheby.o: src/proj/mk_cheby.c.o
+.PHONY : src/proj/mk_cheby.o
+
+# target to build an object file
+src/proj/mk_cheby.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o
+.PHONY : src/proj/mk_cheby.c.o
+
+src/proj/mk_cheby.i: src/proj/mk_cheby.c.i
+.PHONY : src/proj/mk_cheby.i
+
+# target to preprocess a source file
+src/proj/mk_cheby.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.i
+.PHONY : src/proj/mk_cheby.c.i
+
+src/proj/mk_cheby.s: src/proj/mk_cheby.c.s
+.PHONY : src/proj/mk_cheby.s
+
+# target to generate assembly for a file
+src/proj/mk_cheby.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.s
+.PHONY : src/proj/mk_cheby.c.s
+
+src/proj/multistresstest.o: src/proj/multistresstest.c.o
+.PHONY : src/proj/multistresstest.o
+
+# target to build an object file
+src/proj/multistresstest.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o
+.PHONY : src/proj/multistresstest.c.o
+
+src/proj/multistresstest.i: src/proj/multistresstest.c.i
+.PHONY : src/proj/multistresstest.i
+
+# target to preprocess a source file
+src/proj/multistresstest.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.i
+.PHONY : src/proj/multistresstest.c.i
+
+src/proj/multistresstest.s: src/proj/multistresstest.c.s
+.PHONY : src/proj/multistresstest.s
+
+# target to generate assembly for a file
+src/proj/multistresstest.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.s
+.PHONY : src/proj/multistresstest.c.s
+
+src/proj/nad2bin.o: src/proj/nad2bin.c.o
+.PHONY : src/proj/nad2bin.o
+
+# target to build an object file
+src/proj/nad2bin.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o
+.PHONY : src/proj/nad2bin.c.o
+
+src/proj/nad2bin.i: src/proj/nad2bin.c.i
+.PHONY : src/proj/nad2bin.i
+
+# target to preprocess a source file
+src/proj/nad2bin.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.i
+.PHONY : src/proj/nad2bin.c.i
+
+src/proj/nad2bin.s: src/proj/nad2bin.c.s
+.PHONY : src/proj/nad2bin.s
+
+# target to generate assembly for a file
+src/proj/nad2bin.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.s
+.PHONY : src/proj/nad2bin.c.s
+
+src/proj/nad_cvt.o: src/proj/nad_cvt.c.o
+.PHONY : src/proj/nad_cvt.o
+
+# target to build an object file
+src/proj/nad_cvt.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o
+.PHONY : src/proj/nad_cvt.c.o
+
+src/proj/nad_cvt.i: src/proj/nad_cvt.c.i
+.PHONY : src/proj/nad_cvt.i
+
+# target to preprocess a source file
+src/proj/nad_cvt.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.i
+.PHONY : src/proj/nad_cvt.c.i
+
+src/proj/nad_cvt.s: src/proj/nad_cvt.c.s
+.PHONY : src/proj/nad_cvt.s
+
+# target to generate assembly for a file
+src/proj/nad_cvt.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.s
+.PHONY : src/proj/nad_cvt.c.s
+
+src/proj/nad_init.o: src/proj/nad_init.c.o
+.PHONY : src/proj/nad_init.o
+
+# target to build an object file
+src/proj/nad_init.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o
+.PHONY : src/proj/nad_init.c.o
+
+src/proj/nad_init.i: src/proj/nad_init.c.i
+.PHONY : src/proj/nad_init.i
+
+# target to preprocess a source file
+src/proj/nad_init.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.i
+.PHONY : src/proj/nad_init.c.i
+
+src/proj/nad_init.s: src/proj/nad_init.c.s
+.PHONY : src/proj/nad_init.s
+
+# target to generate assembly for a file
+src/proj/nad_init.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.s
+.PHONY : src/proj/nad_init.c.s
+
+src/proj/nad_intr.o: src/proj/nad_intr.c.o
+.PHONY : src/proj/nad_intr.o
+
+# target to build an object file
+src/proj/nad_intr.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o
+.PHONY : src/proj/nad_intr.c.o
+
+src/proj/nad_intr.i: src/proj/nad_intr.c.i
+.PHONY : src/proj/nad_intr.i
+
+# target to preprocess a source file
+src/proj/nad_intr.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.i
+.PHONY : src/proj/nad_intr.c.i
+
+src/proj/nad_intr.s: src/proj/nad_intr.c.s
+.PHONY : src/proj/nad_intr.s
+
+# target to generate assembly for a file
+src/proj/nad_intr.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.s
+.PHONY : src/proj/nad_intr.c.s
+
+src/proj/p_series.o: src/proj/p_series.c.o
+.PHONY : src/proj/p_series.o
+
+# target to build an object file
+src/proj/p_series.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o
+.PHONY : src/proj/p_series.c.o
+
+src/proj/p_series.i: src/proj/p_series.c.i
+.PHONY : src/proj/p_series.i
+
+# target to preprocess a source file
+src/proj/p_series.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.i
+.PHONY : src/proj/p_series.c.i
+
+src/proj/p_series.s: src/proj/p_series.c.s
+.PHONY : src/proj/p_series.s
+
+# target to generate assembly for a file
+src/proj/p_series.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.s
+.PHONY : src/proj/p_series.c.s
+
+src/proj/pj_apply_gridshift.o: src/proj/pj_apply_gridshift.c.o
+.PHONY : src/proj/pj_apply_gridshift.o
+
+# target to build an object file
+src/proj/pj_apply_gridshift.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o
+.PHONY : src/proj/pj_apply_gridshift.c.o
+
+src/proj/pj_apply_gridshift.i: src/proj/pj_apply_gridshift.c.i
+.PHONY : src/proj/pj_apply_gridshift.i
+
+# target to preprocess a source file
+src/proj/pj_apply_gridshift.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.i
+.PHONY : src/proj/pj_apply_gridshift.c.i
+
+src/proj/pj_apply_gridshift.s: src/proj/pj_apply_gridshift.c.s
+.PHONY : src/proj/pj_apply_gridshift.s
+
+# target to generate assembly for a file
+src/proj/pj_apply_gridshift.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.s
+.PHONY : src/proj/pj_apply_gridshift.c.s
+
+src/proj/pj_apply_vgridshift.o: src/proj/pj_apply_vgridshift.c.o
+.PHONY : src/proj/pj_apply_vgridshift.o
+
+# target to build an object file
+src/proj/pj_apply_vgridshift.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o
+.PHONY : src/proj/pj_apply_vgridshift.c.o
+
+src/proj/pj_apply_vgridshift.i: src/proj/pj_apply_vgridshift.c.i
+.PHONY : src/proj/pj_apply_vgridshift.i
+
+# target to preprocess a source file
+src/proj/pj_apply_vgridshift.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.i
+.PHONY : src/proj/pj_apply_vgridshift.c.i
+
+src/proj/pj_apply_vgridshift.s: src/proj/pj_apply_vgridshift.c.s
+.PHONY : src/proj/pj_apply_vgridshift.s
+
+# target to generate assembly for a file
+src/proj/pj_apply_vgridshift.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.s
+.PHONY : src/proj/pj_apply_vgridshift.c.s
+
+src/proj/pj_auth.o: src/proj/pj_auth.c.o
+.PHONY : src/proj/pj_auth.o
+
+# target to build an object file
+src/proj/pj_auth.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o
+.PHONY : src/proj/pj_auth.c.o
+
+src/proj/pj_auth.i: src/proj/pj_auth.c.i
+.PHONY : src/proj/pj_auth.i
+
+# target to preprocess a source file
+src/proj/pj_auth.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.i
+.PHONY : src/proj/pj_auth.c.i
+
+src/proj/pj_auth.s: src/proj/pj_auth.c.s
+.PHONY : src/proj/pj_auth.s
+
+# target to generate assembly for a file
+src/proj/pj_auth.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.s
+.PHONY : src/proj/pj_auth.c.s
+
+src/proj/pj_ctx.o: src/proj/pj_ctx.c.o
+.PHONY : src/proj/pj_ctx.o
+
+# target to build an object file
+src/proj/pj_ctx.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o
+.PHONY : src/proj/pj_ctx.c.o
+
+src/proj/pj_ctx.i: src/proj/pj_ctx.c.i
+.PHONY : src/proj/pj_ctx.i
+
+# target to preprocess a source file
+src/proj/pj_ctx.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.i
+.PHONY : src/proj/pj_ctx.c.i
+
+src/proj/pj_ctx.s: src/proj/pj_ctx.c.s
+.PHONY : src/proj/pj_ctx.s
+
+# target to generate assembly for a file
+src/proj/pj_ctx.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.s
+.PHONY : src/proj/pj_ctx.c.s
+
+src/proj/pj_datum_set.o: src/proj/pj_datum_set.c.o
+.PHONY : src/proj/pj_datum_set.o
+
+# target to build an object file
+src/proj/pj_datum_set.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o
+.PHONY : src/proj/pj_datum_set.c.o
+
+src/proj/pj_datum_set.i: src/proj/pj_datum_set.c.i
+.PHONY : src/proj/pj_datum_set.i
+
+# target to preprocess a source file
+src/proj/pj_datum_set.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.i
+.PHONY : src/proj/pj_datum_set.c.i
+
+src/proj/pj_datum_set.s: src/proj/pj_datum_set.c.s
+.PHONY : src/proj/pj_datum_set.s
+
+# target to generate assembly for a file
+src/proj/pj_datum_set.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.s
+.PHONY : src/proj/pj_datum_set.c.s
+
+src/proj/pj_datums.o: src/proj/pj_datums.c.o
+.PHONY : src/proj/pj_datums.o
+
+# target to build an object file
+src/proj/pj_datums.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o
+.PHONY : src/proj/pj_datums.c.o
+
+src/proj/pj_datums.i: src/proj/pj_datums.c.i
+.PHONY : src/proj/pj_datums.i
+
+# target to preprocess a source file
+src/proj/pj_datums.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.i
+.PHONY : src/proj/pj_datums.c.i
+
+src/proj/pj_datums.s: src/proj/pj_datums.c.s
+.PHONY : src/proj/pj_datums.s
+
+# target to generate assembly for a file
+src/proj/pj_datums.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.s
+.PHONY : src/proj/pj_datums.c.s
+
+src/proj/pj_deriv.o: src/proj/pj_deriv.c.o
+.PHONY : src/proj/pj_deriv.o
+
+# target to build an object file
+src/proj/pj_deriv.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o
+.PHONY : src/proj/pj_deriv.c.o
+
+src/proj/pj_deriv.i: src/proj/pj_deriv.c.i
+.PHONY : src/proj/pj_deriv.i
+
+# target to preprocess a source file
+src/proj/pj_deriv.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.i
+.PHONY : src/proj/pj_deriv.c.i
+
+src/proj/pj_deriv.s: src/proj/pj_deriv.c.s
+.PHONY : src/proj/pj_deriv.s
+
+# target to generate assembly for a file
+src/proj/pj_deriv.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.s
+.PHONY : src/proj/pj_deriv.c.s
+
+src/proj/pj_ell_set.o: src/proj/pj_ell_set.c.o
+.PHONY : src/proj/pj_ell_set.o
+
+# target to build an object file
+src/proj/pj_ell_set.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o
+.PHONY : src/proj/pj_ell_set.c.o
+
+src/proj/pj_ell_set.i: src/proj/pj_ell_set.c.i
+.PHONY : src/proj/pj_ell_set.i
+
+# target to preprocess a source file
+src/proj/pj_ell_set.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.i
+.PHONY : src/proj/pj_ell_set.c.i
+
+src/proj/pj_ell_set.s: src/proj/pj_ell_set.c.s
+.PHONY : src/proj/pj_ell_set.s
+
+# target to generate assembly for a file
+src/proj/pj_ell_set.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.s
+.PHONY : src/proj/pj_ell_set.c.s
+
+src/proj/pj_ellps.o: src/proj/pj_ellps.c.o
+.PHONY : src/proj/pj_ellps.o
+
+# target to build an object file
+src/proj/pj_ellps.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o
+.PHONY : src/proj/pj_ellps.c.o
+
+src/proj/pj_ellps.i: src/proj/pj_ellps.c.i
+.PHONY : src/proj/pj_ellps.i
+
+# target to preprocess a source file
+src/proj/pj_ellps.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.i
+.PHONY : src/proj/pj_ellps.c.i
+
+src/proj/pj_ellps.s: src/proj/pj_ellps.c.s
+.PHONY : src/proj/pj_ellps.s
+
+# target to generate assembly for a file
+src/proj/pj_ellps.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.s
+.PHONY : src/proj/pj_ellps.c.s
+
+src/proj/pj_errno.o: src/proj/pj_errno.c.o
+.PHONY : src/proj/pj_errno.o
+
+# target to build an object file
+src/proj/pj_errno.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o
+.PHONY : src/proj/pj_errno.c.o
+
+src/proj/pj_errno.i: src/proj/pj_errno.c.i
+.PHONY : src/proj/pj_errno.i
+
+# target to preprocess a source file
+src/proj/pj_errno.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.i
+.PHONY : src/proj/pj_errno.c.i
+
+src/proj/pj_errno.s: src/proj/pj_errno.c.s
+.PHONY : src/proj/pj_errno.s
+
+# target to generate assembly for a file
+src/proj/pj_errno.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.s
+.PHONY : src/proj/pj_errno.c.s
+
+src/proj/pj_factors.o: src/proj/pj_factors.c.o
+.PHONY : src/proj/pj_factors.o
+
+# target to build an object file
+src/proj/pj_factors.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o
+.PHONY : src/proj/pj_factors.c.o
+
+src/proj/pj_factors.i: src/proj/pj_factors.c.i
+.PHONY : src/proj/pj_factors.i
+
+# target to preprocess a source file
+src/proj/pj_factors.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.i
+.PHONY : src/proj/pj_factors.c.i
+
+src/proj/pj_factors.s: src/proj/pj_factors.c.s
+.PHONY : src/proj/pj_factors.s
+
+# target to generate assembly for a file
+src/proj/pj_factors.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.s
+.PHONY : src/proj/pj_factors.c.s
+
+src/proj/pj_fwd.o: src/proj/pj_fwd.c.o
+.PHONY : src/proj/pj_fwd.o
+
+# target to build an object file
+src/proj/pj_fwd.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o
+.PHONY : src/proj/pj_fwd.c.o
+
+src/proj/pj_fwd.i: src/proj/pj_fwd.c.i
+.PHONY : src/proj/pj_fwd.i
+
+# target to preprocess a source file
+src/proj/pj_fwd.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.i
+.PHONY : src/proj/pj_fwd.c.i
+
+src/proj/pj_fwd.s: src/proj/pj_fwd.c.s
+.PHONY : src/proj/pj_fwd.s
+
+# target to generate assembly for a file
+src/proj/pj_fwd.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.s
+.PHONY : src/proj/pj_fwd.c.s
+
+src/proj/pj_gauss.o: src/proj/pj_gauss.c.o
+.PHONY : src/proj/pj_gauss.o
+
+# target to build an object file
+src/proj/pj_gauss.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o
+.PHONY : src/proj/pj_gauss.c.o
+
+src/proj/pj_gauss.i: src/proj/pj_gauss.c.i
+.PHONY : src/proj/pj_gauss.i
+
+# target to preprocess a source file
+src/proj/pj_gauss.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.i
+.PHONY : src/proj/pj_gauss.c.i
+
+src/proj/pj_gauss.s: src/proj/pj_gauss.c.s
+.PHONY : src/proj/pj_gauss.s
+
+# target to generate assembly for a file
+src/proj/pj_gauss.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.s
+.PHONY : src/proj/pj_gauss.c.s
+
+src/proj/pj_geocent.o: src/proj/pj_geocent.c.o
+.PHONY : src/proj/pj_geocent.o
+
+# target to build an object file
+src/proj/pj_geocent.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o
+.PHONY : src/proj/pj_geocent.c.o
+
+src/proj/pj_geocent.i: src/proj/pj_geocent.c.i
+.PHONY : src/proj/pj_geocent.i
+
+# target to preprocess a source file
+src/proj/pj_geocent.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.i
+.PHONY : src/proj/pj_geocent.c.i
+
+src/proj/pj_geocent.s: src/proj/pj_geocent.c.s
+.PHONY : src/proj/pj_geocent.s
+
+# target to generate assembly for a file
+src/proj/pj_geocent.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.s
+.PHONY : src/proj/pj_geocent.c.s
+
+src/proj/pj_gridinfo.o: src/proj/pj_gridinfo.c.o
+.PHONY : src/proj/pj_gridinfo.o
+
+# target to build an object file
+src/proj/pj_gridinfo.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o
+.PHONY : src/proj/pj_gridinfo.c.o
+
+src/proj/pj_gridinfo.i: src/proj/pj_gridinfo.c.i
+.PHONY : src/proj/pj_gridinfo.i
+
+# target to preprocess a source file
+src/proj/pj_gridinfo.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.i
+.PHONY : src/proj/pj_gridinfo.c.i
+
+src/proj/pj_gridinfo.s: src/proj/pj_gridinfo.c.s
+.PHONY : src/proj/pj_gridinfo.s
+
+# target to generate assembly for a file
+src/proj/pj_gridinfo.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.s
+.PHONY : src/proj/pj_gridinfo.c.s
+
+src/proj/pj_gridlist.o: src/proj/pj_gridlist.c.o
+.PHONY : src/proj/pj_gridlist.o
+
+# target to build an object file
+src/proj/pj_gridlist.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o
+.PHONY : src/proj/pj_gridlist.c.o
+
+src/proj/pj_gridlist.i: src/proj/pj_gridlist.c.i
+.PHONY : src/proj/pj_gridlist.i
+
+# target to preprocess a source file
+src/proj/pj_gridlist.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.i
+.PHONY : src/proj/pj_gridlist.c.i
+
+src/proj/pj_gridlist.s: src/proj/pj_gridlist.c.s
+.PHONY : src/proj/pj_gridlist.s
+
+# target to generate assembly for a file
+src/proj/pj_gridlist.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.s
+.PHONY : src/proj/pj_gridlist.c.s
+
+src/proj/pj_init.o: src/proj/pj_init.c.o
+.PHONY : src/proj/pj_init.o
+
+# target to build an object file
+src/proj/pj_init.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o
+.PHONY : src/proj/pj_init.c.o
+
+src/proj/pj_init.i: src/proj/pj_init.c.i
+.PHONY : src/proj/pj_init.i
+
+# target to preprocess a source file
+src/proj/pj_init.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.i
+.PHONY : src/proj/pj_init.c.i
+
+src/proj/pj_init.s: src/proj/pj_init.c.s
+.PHONY : src/proj/pj_init.s
+
+# target to generate assembly for a file
+src/proj/pj_init.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.s
+.PHONY : src/proj/pj_init.c.s
+
+src/proj/pj_initcache.o: src/proj/pj_initcache.c.o
+.PHONY : src/proj/pj_initcache.o
+
+# target to build an object file
+src/proj/pj_initcache.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o
+.PHONY : src/proj/pj_initcache.c.o
+
+src/proj/pj_initcache.i: src/proj/pj_initcache.c.i
+.PHONY : src/proj/pj_initcache.i
+
+# target to preprocess a source file
+src/proj/pj_initcache.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.i
+.PHONY : src/proj/pj_initcache.c.i
+
+src/proj/pj_initcache.s: src/proj/pj_initcache.c.s
+.PHONY : src/proj/pj_initcache.s
+
+# target to generate assembly for a file
+src/proj/pj_initcache.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.s
+.PHONY : src/proj/pj_initcache.c.s
+
+src/proj/pj_inv.o: src/proj/pj_inv.c.o
+.PHONY : src/proj/pj_inv.o
+
+# target to build an object file
+src/proj/pj_inv.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o
+.PHONY : src/proj/pj_inv.c.o
+
+src/proj/pj_inv.i: src/proj/pj_inv.c.i
+.PHONY : src/proj/pj_inv.i
+
+# target to preprocess a source file
+src/proj/pj_inv.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.i
+.PHONY : src/proj/pj_inv.c.i
+
+src/proj/pj_inv.s: src/proj/pj_inv.c.s
+.PHONY : src/proj/pj_inv.s
+
+# target to generate assembly for a file
+src/proj/pj_inv.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.s
+.PHONY : src/proj/pj_inv.c.s
+
+src/proj/pj_latlong.o: src/proj/pj_latlong.c.o
+.PHONY : src/proj/pj_latlong.o
+
+# target to build an object file
+src/proj/pj_latlong.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o
+.PHONY : src/proj/pj_latlong.c.o
+
+src/proj/pj_latlong.i: src/proj/pj_latlong.c.i
+.PHONY : src/proj/pj_latlong.i
+
+# target to preprocess a source file
+src/proj/pj_latlong.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.i
+.PHONY : src/proj/pj_latlong.c.i
+
+src/proj/pj_latlong.s: src/proj/pj_latlong.c.s
+.PHONY : src/proj/pj_latlong.s
+
+# target to generate assembly for a file
+src/proj/pj_latlong.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.s
+.PHONY : src/proj/pj_latlong.c.s
+
+src/proj/pj_list.o: src/proj/pj_list.c.o
+.PHONY : src/proj/pj_list.o
+
+# target to build an object file
+src/proj/pj_list.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o
+.PHONY : src/proj/pj_list.c.o
+
+src/proj/pj_list.i: src/proj/pj_list.c.i
+.PHONY : src/proj/pj_list.i
+
+# target to preprocess a source file
+src/proj/pj_list.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.i
+.PHONY : src/proj/pj_list.c.i
+
+src/proj/pj_list.s: src/proj/pj_list.c.s
+.PHONY : src/proj/pj_list.s
+
+# target to generate assembly for a file
+src/proj/pj_list.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.s
+.PHONY : src/proj/pj_list.c.s
+
+src/proj/pj_log.o: src/proj/pj_log.c.o
+.PHONY : src/proj/pj_log.o
+
+# target to build an object file
+src/proj/pj_log.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o
+.PHONY : src/proj/pj_log.c.o
+
+src/proj/pj_log.i: src/proj/pj_log.c.i
+.PHONY : src/proj/pj_log.i
+
+# target to preprocess a source file
+src/proj/pj_log.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.i
+.PHONY : src/proj/pj_log.c.i
+
+src/proj/pj_log.s: src/proj/pj_log.c.s
+.PHONY : src/proj/pj_log.s
+
+# target to generate assembly for a file
+src/proj/pj_log.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.s
+.PHONY : src/proj/pj_log.c.s
+
+src/proj/pj_malloc.o: src/proj/pj_malloc.c.o
+.PHONY : src/proj/pj_malloc.o
+
+# target to build an object file
+src/proj/pj_malloc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o
+.PHONY : src/proj/pj_malloc.c.o
+
+src/proj/pj_malloc.i: src/proj/pj_malloc.c.i
+.PHONY : src/proj/pj_malloc.i
+
+# target to preprocess a source file
+src/proj/pj_malloc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.i
+.PHONY : src/proj/pj_malloc.c.i
+
+src/proj/pj_malloc.s: src/proj/pj_malloc.c.s
+.PHONY : src/proj/pj_malloc.s
+
+# target to generate assembly for a file
+src/proj/pj_malloc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.s
+.PHONY : src/proj/pj_malloc.c.s
+
+src/proj/pj_mlfn.o: src/proj/pj_mlfn.c.o
+.PHONY : src/proj/pj_mlfn.o
+
+# target to build an object file
+src/proj/pj_mlfn.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o
+.PHONY : src/proj/pj_mlfn.c.o
+
+src/proj/pj_mlfn.i: src/proj/pj_mlfn.c.i
+.PHONY : src/proj/pj_mlfn.i
+
+# target to preprocess a source file
+src/proj/pj_mlfn.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.i
+.PHONY : src/proj/pj_mlfn.c.i
+
+src/proj/pj_mlfn.s: src/proj/pj_mlfn.c.s
+.PHONY : src/proj/pj_mlfn.s
+
+# target to generate assembly for a file
+src/proj/pj_mlfn.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.s
+.PHONY : src/proj/pj_mlfn.c.s
+
+src/proj/pj_msfn.o: src/proj/pj_msfn.c.o
+.PHONY : src/proj/pj_msfn.o
+
+# target to build an object file
+src/proj/pj_msfn.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o
+.PHONY : src/proj/pj_msfn.c.o
+
+src/proj/pj_msfn.i: src/proj/pj_msfn.c.i
+.PHONY : src/proj/pj_msfn.i
+
+# target to preprocess a source file
+src/proj/pj_msfn.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.i
+.PHONY : src/proj/pj_msfn.c.i
+
+src/proj/pj_msfn.s: src/proj/pj_msfn.c.s
+.PHONY : src/proj/pj_msfn.s
+
+# target to generate assembly for a file
+src/proj/pj_msfn.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.s
+.PHONY : src/proj/pj_msfn.c.s
+
+src/proj/pj_mutex.o: src/proj/pj_mutex.c.o
+.PHONY : src/proj/pj_mutex.o
+
+# target to build an object file
+src/proj/pj_mutex.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o
+.PHONY : src/proj/pj_mutex.c.o
+
+src/proj/pj_mutex.i: src/proj/pj_mutex.c.i
+.PHONY : src/proj/pj_mutex.i
+
+# target to preprocess a source file
+src/proj/pj_mutex.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.i
+.PHONY : src/proj/pj_mutex.c.i
+
+src/proj/pj_mutex.s: src/proj/pj_mutex.c.s
+.PHONY : src/proj/pj_mutex.s
+
+# target to generate assembly for a file
+src/proj/pj_mutex.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.s
+.PHONY : src/proj/pj_mutex.c.s
+
+src/proj/pj_open_lib.o: src/proj/pj_open_lib.c.o
+.PHONY : src/proj/pj_open_lib.o
+
+# target to build an object file
+src/proj/pj_open_lib.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o
+.PHONY : src/proj/pj_open_lib.c.o
+
+src/proj/pj_open_lib.i: src/proj/pj_open_lib.c.i
+.PHONY : src/proj/pj_open_lib.i
+
+# target to preprocess a source file
+src/proj/pj_open_lib.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.i
+.PHONY : src/proj/pj_open_lib.c.i
+
+src/proj/pj_open_lib.s: src/proj/pj_open_lib.c.s
+.PHONY : src/proj/pj_open_lib.s
+
+# target to generate assembly for a file
+src/proj/pj_open_lib.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.s
+.PHONY : src/proj/pj_open_lib.c.s
+
+src/proj/pj_param.o: src/proj/pj_param.c.o
+.PHONY : src/proj/pj_param.o
+
+# target to build an object file
+src/proj/pj_param.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o
+.PHONY : src/proj/pj_param.c.o
+
+src/proj/pj_param.i: src/proj/pj_param.c.i
+.PHONY : src/proj/pj_param.i
+
+# target to preprocess a source file
+src/proj/pj_param.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.i
+.PHONY : src/proj/pj_param.c.i
+
+src/proj/pj_param.s: src/proj/pj_param.c.s
+.PHONY : src/proj/pj_param.s
+
+# target to generate assembly for a file
+src/proj/pj_param.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.s
+.PHONY : src/proj/pj_param.c.s
+
+src/proj/pj_phi2.o: src/proj/pj_phi2.c.o
+.PHONY : src/proj/pj_phi2.o
+
+# target to build an object file
+src/proj/pj_phi2.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o
+.PHONY : src/proj/pj_phi2.c.o
+
+src/proj/pj_phi2.i: src/proj/pj_phi2.c.i
+.PHONY : src/proj/pj_phi2.i
+
+# target to preprocess a source file
+src/proj/pj_phi2.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.i
+.PHONY : src/proj/pj_phi2.c.i
+
+src/proj/pj_phi2.s: src/proj/pj_phi2.c.s
+.PHONY : src/proj/pj_phi2.s
+
+# target to generate assembly for a file
+src/proj/pj_phi2.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.s
+.PHONY : src/proj/pj_phi2.c.s
+
+src/proj/pj_pr_list.o: src/proj/pj_pr_list.c.o
+.PHONY : src/proj/pj_pr_list.o
+
+# target to build an object file
+src/proj/pj_pr_list.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o
+.PHONY : src/proj/pj_pr_list.c.o
+
+src/proj/pj_pr_list.i: src/proj/pj_pr_list.c.i
+.PHONY : src/proj/pj_pr_list.i
+
+# target to preprocess a source file
+src/proj/pj_pr_list.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.i
+.PHONY : src/proj/pj_pr_list.c.i
+
+src/proj/pj_pr_list.s: src/proj/pj_pr_list.c.s
+.PHONY : src/proj/pj_pr_list.s
+
+# target to generate assembly for a file
+src/proj/pj_pr_list.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.s
+.PHONY : src/proj/pj_pr_list.c.s
+
+src/proj/pj_qsfn.o: src/proj/pj_qsfn.c.o
+.PHONY : src/proj/pj_qsfn.o
+
+# target to build an object file
+src/proj/pj_qsfn.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o
+.PHONY : src/proj/pj_qsfn.c.o
+
+src/proj/pj_qsfn.i: src/proj/pj_qsfn.c.i
+.PHONY : src/proj/pj_qsfn.i
+
+# target to preprocess a source file
+src/proj/pj_qsfn.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.i
+.PHONY : src/proj/pj_qsfn.c.i
+
+src/proj/pj_qsfn.s: src/proj/pj_qsfn.c.s
+.PHONY : src/proj/pj_qsfn.s
+
+# target to generate assembly for a file
+src/proj/pj_qsfn.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.s
+.PHONY : src/proj/pj_qsfn.c.s
+
+src/proj/pj_release.o: src/proj/pj_release.c.o
+.PHONY : src/proj/pj_release.o
+
+# target to build an object file
+src/proj/pj_release.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o
+.PHONY : src/proj/pj_release.c.o
+
+src/proj/pj_release.i: src/proj/pj_release.c.i
+.PHONY : src/proj/pj_release.i
+
+# target to preprocess a source file
+src/proj/pj_release.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.i
+.PHONY : src/proj/pj_release.c.i
+
+src/proj/pj_release.s: src/proj/pj_release.c.s
+.PHONY : src/proj/pj_release.s
+
+# target to generate assembly for a file
+src/proj/pj_release.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.s
+.PHONY : src/proj/pj_release.c.s
+
+src/proj/pj_strerrno.o: src/proj/pj_strerrno.c.o
+.PHONY : src/proj/pj_strerrno.o
+
+# target to build an object file
+src/proj/pj_strerrno.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o
+.PHONY : src/proj/pj_strerrno.c.o
+
+src/proj/pj_strerrno.i: src/proj/pj_strerrno.c.i
+.PHONY : src/proj/pj_strerrno.i
+
+# target to preprocess a source file
+src/proj/pj_strerrno.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.i
+.PHONY : src/proj/pj_strerrno.c.i
+
+src/proj/pj_strerrno.s: src/proj/pj_strerrno.c.s
+.PHONY : src/proj/pj_strerrno.s
+
+# target to generate assembly for a file
+src/proj/pj_strerrno.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.s
+.PHONY : src/proj/pj_strerrno.c.s
+
+src/proj/pj_transform.o: src/proj/pj_transform.c.o
+.PHONY : src/proj/pj_transform.o
+
+# target to build an object file
+src/proj/pj_transform.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o
+.PHONY : src/proj/pj_transform.c.o
+
+src/proj/pj_transform.i: src/proj/pj_transform.c.i
+.PHONY : src/proj/pj_transform.i
+
+# target to preprocess a source file
+src/proj/pj_transform.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.i
+.PHONY : src/proj/pj_transform.c.i
+
+src/proj/pj_transform.s: src/proj/pj_transform.c.s
+.PHONY : src/proj/pj_transform.s
+
+# target to generate assembly for a file
+src/proj/pj_transform.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.s
+.PHONY : src/proj/pj_transform.c.s
+
+src/proj/pj_tsfn.o: src/proj/pj_tsfn.c.o
+.PHONY : src/proj/pj_tsfn.o
+
+# target to build an object file
+src/proj/pj_tsfn.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o
+.PHONY : src/proj/pj_tsfn.c.o
+
+src/proj/pj_tsfn.i: src/proj/pj_tsfn.c.i
+.PHONY : src/proj/pj_tsfn.i
+
+# target to preprocess a source file
+src/proj/pj_tsfn.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.i
+.PHONY : src/proj/pj_tsfn.c.i
+
+src/proj/pj_tsfn.s: src/proj/pj_tsfn.c.s
+.PHONY : src/proj/pj_tsfn.s
+
+# target to generate assembly for a file
+src/proj/pj_tsfn.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.s
+.PHONY : src/proj/pj_tsfn.c.s
+
+src/proj/pj_units.o: src/proj/pj_units.c.o
+.PHONY : src/proj/pj_units.o
+
+# target to build an object file
+src/proj/pj_units.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o
+.PHONY : src/proj/pj_units.c.o
+
+src/proj/pj_units.i: src/proj/pj_units.c.i
+.PHONY : src/proj/pj_units.i
+
+# target to preprocess a source file
+src/proj/pj_units.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.i
+.PHONY : src/proj/pj_units.c.i
+
+src/proj/pj_units.s: src/proj/pj_units.c.s
+.PHONY : src/proj/pj_units.s
+
+# target to generate assembly for a file
+src/proj/pj_units.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.s
+.PHONY : src/proj/pj_units.c.s
+
+src/proj/pj_utils.o: src/proj/pj_utils.c.o
+.PHONY : src/proj/pj_utils.o
+
+# target to build an object file
+src/proj/pj_utils.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o
+.PHONY : src/proj/pj_utils.c.o
+
+src/proj/pj_utils.i: src/proj/pj_utils.c.i
+.PHONY : src/proj/pj_utils.i
+
+# target to preprocess a source file
+src/proj/pj_utils.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.i
+.PHONY : src/proj/pj_utils.c.i
+
+src/proj/pj_utils.s: src/proj/pj_utils.c.s
+.PHONY : src/proj/pj_utils.s
+
+# target to generate assembly for a file
+src/proj/pj_utils.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.s
+.PHONY : src/proj/pj_utils.c.s
+
+src/proj/pj_zpoly1.o: src/proj/pj_zpoly1.c.o
+.PHONY : src/proj/pj_zpoly1.o
+
+# target to build an object file
+src/proj/pj_zpoly1.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o
+.PHONY : src/proj/pj_zpoly1.c.o
+
+src/proj/pj_zpoly1.i: src/proj/pj_zpoly1.c.i
+.PHONY : src/proj/pj_zpoly1.i
+
+# target to preprocess a source file
+src/proj/pj_zpoly1.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.i
+.PHONY : src/proj/pj_zpoly1.c.i
+
+src/proj/pj_zpoly1.s: src/proj/pj_zpoly1.c.s
+.PHONY : src/proj/pj_zpoly1.s
+
+# target to generate assembly for a file
+src/proj/pj_zpoly1.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.s
+.PHONY : src/proj/pj_zpoly1.c.s
+
+src/proj/proj.o: src/proj/proj.c.o
+.PHONY : src/proj/proj.o
+
+# target to build an object file
+src/proj/proj.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o
+.PHONY : src/proj/proj.c.o
+
+src/proj/proj.i: src/proj/proj.c.i
+.PHONY : src/proj/proj.i
+
+# target to preprocess a source file
+src/proj/proj.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj.c.i
+.PHONY : src/proj/proj.c.i
+
+src/proj/proj.s: src/proj/proj.c.s
+.PHONY : src/proj/proj.s
+
+# target to generate assembly for a file
+src/proj/proj.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj.c.s
+.PHONY : src/proj/proj.c.s
+
+src/proj/proj_etmerc.o: src/proj/proj_etmerc.c.o
+.PHONY : src/proj/proj_etmerc.o
+
+# target to build an object file
+src/proj/proj_etmerc.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o
+.PHONY : src/proj/proj_etmerc.c.o
+
+src/proj/proj_etmerc.i: src/proj/proj_etmerc.c.i
+.PHONY : src/proj/proj_etmerc.i
+
+# target to preprocess a source file
+src/proj/proj_etmerc.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.i
+.PHONY : src/proj/proj_etmerc.c.i
+
+src/proj/proj_etmerc.s: src/proj/proj_etmerc.c.s
+.PHONY : src/proj/proj_etmerc.s
+
+# target to generate assembly for a file
+src/proj/proj_etmerc.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.s
+.PHONY : src/proj/proj_etmerc.c.s
+
+src/proj/proj_mdist.o: src/proj/proj_mdist.c.o
+.PHONY : src/proj/proj_mdist.o
+
+# target to build an object file
+src/proj/proj_mdist.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o
+.PHONY : src/proj/proj_mdist.c.o
+
+src/proj/proj_mdist.i: src/proj/proj_mdist.c.i
+.PHONY : src/proj/proj_mdist.i
+
+# target to preprocess a source file
+src/proj/proj_mdist.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.i
+.PHONY : src/proj/proj_mdist.c.i
+
+src/proj/proj_mdist.s: src/proj/proj_mdist.c.s
+.PHONY : src/proj/proj_mdist.s
+
+# target to generate assembly for a file
+src/proj/proj_mdist.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.s
+.PHONY : src/proj/proj_mdist.c.s
+
+src/proj/proj_rouss.o: src/proj/proj_rouss.c.o
+.PHONY : src/proj/proj_rouss.o
+
+# target to build an object file
+src/proj/proj_rouss.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o
+.PHONY : src/proj/proj_rouss.c.o
+
+src/proj/proj_rouss.i: src/proj/proj_rouss.c.i
+.PHONY : src/proj/proj_rouss.i
+
+# target to preprocess a source file
+src/proj/proj_rouss.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.i
+.PHONY : src/proj/proj_rouss.c.i
+
+src/proj/proj_rouss.s: src/proj/proj_rouss.c.s
+.PHONY : src/proj/proj_rouss.s
+
+# target to generate assembly for a file
+src/proj/proj_rouss.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.s
+.PHONY : src/proj/proj_rouss.c.s
+
+src/proj/rtodms.o: src/proj/rtodms.c.o
+.PHONY : src/proj/rtodms.o
+
+# target to build an object file
+src/proj/rtodms.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o
+.PHONY : src/proj/rtodms.c.o
+
+src/proj/rtodms.i: src/proj/rtodms.c.i
+.PHONY : src/proj/rtodms.i
+
+# target to preprocess a source file
+src/proj/rtodms.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.i
+.PHONY : src/proj/rtodms.c.i
+
+src/proj/rtodms.s: src/proj/rtodms.c.s
+.PHONY : src/proj/rtodms.s
+
+# target to generate assembly for a file
+src/proj/rtodms.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.s
+.PHONY : src/proj/rtodms.c.s
+
+src/proj/vector1.o: src/proj/vector1.c.o
+.PHONY : src/proj/vector1.o
+
+# target to build an object file
+src/proj/vector1.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o
+.PHONY : src/proj/vector1.c.o
+
+src/proj/vector1.i: src/proj/vector1.c.i
+.PHONY : src/proj/vector1.i
+
+# target to preprocess a source file
+src/proj/vector1.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.i
+.PHONY : src/proj/vector1.c.i
+
+src/proj/vector1.s: src/proj/vector1.c.s
+.PHONY : src/proj/vector1.s
+
+# target to generate assembly for a file
+src/proj/vector1.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.s
+.PHONY : src/proj/vector1.c.s
 
 src/quadcopter.o: src/quadcopter.c.o
 .PHONY : src/quadcopter.o
@@ -843,12 +4590,18 @@ help:
 	@echo "... src/PID.o"
 	@echo "... src/PID.i"
 	@echo "... src/PID.s"
+	@echo "... src/RTIMULib/BMP085.o"
+	@echo "... src/RTIMULib/BMP085.i"
+	@echo "... src/RTIMULib/BMP085.s"
 	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o"
 	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.i"
 	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.s"
 	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o"
 	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.i"
 	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.s"
+	@echo "... src/RTIMULib/NEO-6M.o"
+	@echo "... src/RTIMULib/NEO-6M.i"
+	@echo "... src/RTIMULib/NEO-6M.s"
 	@echo "... src/RTIMULib/RTFusion.o"
 	@echo "... src/RTIMULib/RTFusion.i"
 	@echo "... src/RTIMULib/RTFusion.s"
@@ -876,6 +4629,9 @@ help:
 	@echo "... src/RTIMULib/RTMath.o"
 	@echo "... src/RTIMULib/RTMath.i"
 	@echo "... src/RTIMULib/RTMath.s"
+	@echo "... src/RTIMULib/testBMP085.o"
+	@echo "... src/RTIMULib/testBMP085.i"
+	@echo "... src/RTIMULib/testBMP085.s"
 	@echo "... src/autopilot.o"
 	@echo "... src/autopilot.i"
 	@echo "... src/autopilot.s"
@@ -888,36 +4644,495 @@ help:
 	@echo "... src/global_functions.o"
 	@echo "... src/global_functions.i"
 	@echo "... src/global_functions.s"
+	@echo "... src/imu.o"
+	@echo "... src/imu.i"
+	@echo "... src/imu.s"
 	@echo "... src/inter-thread-messages.o"
 	@echo "... src/inter-thread-messages.i"
 	@echo "... src/inter-thread-messages.s"
-	@echo "... src/mavlink/examples/linux/mavlink_udp.o"
-	@echo "... src/mavlink/examples/linux/mavlink_udp.i"
-	@echo "... src/mavlink/examples/linux/mavlink_udp.s"
-	@echo "... src/mavlink/missionlib/mavlink_parameters.o"
-	@echo "... src/mavlink/missionlib/mavlink_parameters.i"
-	@echo "... src/mavlink/missionlib/mavlink_parameters.s"
-	@echo "... src/mavlink/missionlib/testing/main.o"
-	@echo "... src/mavlink/missionlib/testing/main.i"
-	@echo "... src/mavlink/missionlib/testing/main.s"
-	@echo "... src/mavlink/missionlib/waypoints.o"
-	@echo "... src/mavlink/missionlib/waypoints.i"
-	@echo "... src/mavlink/missionlib/waypoints.s"
-	@echo "... src/mavlink/pymavlink/generator/C/test/posix/testmav.o"
-	@echo "... src/mavlink/pymavlink/generator/C/test/posix/testmav.i"
-	@echo "... src/mavlink/pymavlink/generator/C/test/posix/testmav.s"
-	@echo "... src/mavlink/pymavlink/generator/C/test/windows/stdafx.o"
-	@echo "... src/mavlink/pymavlink/generator/C/test/windows/stdafx.i"
-	@echo "... src/mavlink/pymavlink/generator/C/test/windows/stdafx.s"
-	@echo "... src/mavlink/pymavlink/generator/C/test/windows/testmav.o"
-	@echo "... src/mavlink/pymavlink/generator/C/test/windows/testmav.i"
-	@echo "... src/mavlink/pymavlink/generator/C/test/windows/testmav.s"
 	@echo "... src/osd.o"
 	@echo "... src/osd.i"
 	@echo "... src/osd.s"
 	@echo "... src/pilot.o"
 	@echo "... src/pilot.i"
 	@echo "... src/pilot.s"
+	@echo "... src/proj/PJ_aea.o"
+	@echo "... src/proj/PJ_aea.i"
+	@echo "... src/proj/PJ_aea.s"
+	@echo "... src/proj/PJ_aeqd.o"
+	@echo "... src/proj/PJ_aeqd.i"
+	@echo "... src/proj/PJ_aeqd.s"
+	@echo "... src/proj/PJ_airy.o"
+	@echo "... src/proj/PJ_airy.i"
+	@echo "... src/proj/PJ_airy.s"
+	@echo "... src/proj/PJ_aitoff.o"
+	@echo "... src/proj/PJ_aitoff.i"
+	@echo "... src/proj/PJ_aitoff.s"
+	@echo "... src/proj/PJ_august.o"
+	@echo "... src/proj/PJ_august.i"
+	@echo "... src/proj/PJ_august.s"
+	@echo "... src/proj/PJ_bacon.o"
+	@echo "... src/proj/PJ_bacon.i"
+	@echo "... src/proj/PJ_bacon.s"
+	@echo "... src/proj/PJ_bipc.o"
+	@echo "... src/proj/PJ_bipc.i"
+	@echo "... src/proj/PJ_bipc.s"
+	@echo "... src/proj/PJ_boggs.o"
+	@echo "... src/proj/PJ_boggs.i"
+	@echo "... src/proj/PJ_boggs.s"
+	@echo "... src/proj/PJ_bonne.o"
+	@echo "... src/proj/PJ_bonne.i"
+	@echo "... src/proj/PJ_bonne.s"
+	@echo "... src/proj/PJ_cass.o"
+	@echo "... src/proj/PJ_cass.i"
+	@echo "... src/proj/PJ_cass.s"
+	@echo "... src/proj/PJ_cc.o"
+	@echo "... src/proj/PJ_cc.i"
+	@echo "... src/proj/PJ_cc.s"
+	@echo "... src/proj/PJ_cea.o"
+	@echo "... src/proj/PJ_cea.i"
+	@echo "... src/proj/PJ_cea.s"
+	@echo "... src/proj/PJ_chamb.o"
+	@echo "... src/proj/PJ_chamb.i"
+	@echo "... src/proj/PJ_chamb.s"
+	@echo "... src/proj/PJ_collg.o"
+	@echo "... src/proj/PJ_collg.i"
+	@echo "... src/proj/PJ_collg.s"
+	@echo "... src/proj/PJ_crast.o"
+	@echo "... src/proj/PJ_crast.i"
+	@echo "... src/proj/PJ_crast.s"
+	@echo "... src/proj/PJ_denoy.o"
+	@echo "... src/proj/PJ_denoy.i"
+	@echo "... src/proj/PJ_denoy.s"
+	@echo "... src/proj/PJ_eck1.o"
+	@echo "... src/proj/PJ_eck1.i"
+	@echo "... src/proj/PJ_eck1.s"
+	@echo "... src/proj/PJ_eck2.o"
+	@echo "... src/proj/PJ_eck2.i"
+	@echo "... src/proj/PJ_eck2.s"
+	@echo "... src/proj/PJ_eck3.o"
+	@echo "... src/proj/PJ_eck3.i"
+	@echo "... src/proj/PJ_eck3.s"
+	@echo "... src/proj/PJ_eck4.o"
+	@echo "... src/proj/PJ_eck4.i"
+	@echo "... src/proj/PJ_eck4.s"
+	@echo "... src/proj/PJ_eck5.o"
+	@echo "... src/proj/PJ_eck5.i"
+	@echo "... src/proj/PJ_eck5.s"
+	@echo "... src/proj/PJ_eqc.o"
+	@echo "... src/proj/PJ_eqc.i"
+	@echo "... src/proj/PJ_eqc.s"
+	@echo "... src/proj/PJ_eqdc.o"
+	@echo "... src/proj/PJ_eqdc.i"
+	@echo "... src/proj/PJ_eqdc.s"
+	@echo "... src/proj/PJ_fahey.o"
+	@echo "... src/proj/PJ_fahey.i"
+	@echo "... src/proj/PJ_fahey.s"
+	@echo "... src/proj/PJ_fouc_s.o"
+	@echo "... src/proj/PJ_fouc_s.i"
+	@echo "... src/proj/PJ_fouc_s.s"
+	@echo "... src/proj/PJ_gall.o"
+	@echo "... src/proj/PJ_gall.i"
+	@echo "... src/proj/PJ_gall.s"
+	@echo "... src/proj/PJ_geos.o"
+	@echo "... src/proj/PJ_geos.i"
+	@echo "... src/proj/PJ_geos.s"
+	@echo "... src/proj/PJ_gins8.o"
+	@echo "... src/proj/PJ_gins8.i"
+	@echo "... src/proj/PJ_gins8.s"
+	@echo "... src/proj/PJ_gn_sinu.o"
+	@echo "... src/proj/PJ_gn_sinu.i"
+	@echo "... src/proj/PJ_gn_sinu.s"
+	@echo "... src/proj/PJ_gnom.o"
+	@echo "... src/proj/PJ_gnom.i"
+	@echo "... src/proj/PJ_gnom.s"
+	@echo "... src/proj/PJ_goode.o"
+	@echo "... src/proj/PJ_goode.i"
+	@echo "... src/proj/PJ_goode.s"
+	@echo "... src/proj/PJ_gstmerc.o"
+	@echo "... src/proj/PJ_gstmerc.i"
+	@echo "... src/proj/PJ_gstmerc.s"
+	@echo "... src/proj/PJ_hammer.o"
+	@echo "... src/proj/PJ_hammer.i"
+	@echo "... src/proj/PJ_hammer.s"
+	@echo "... src/proj/PJ_hatano.o"
+	@echo "... src/proj/PJ_hatano.i"
+	@echo "... src/proj/PJ_hatano.s"
+	@echo "... src/proj/PJ_healpix.o"
+	@echo "... src/proj/PJ_healpix.i"
+	@echo "... src/proj/PJ_healpix.s"
+	@echo "... src/proj/PJ_igh.o"
+	@echo "... src/proj/PJ_igh.i"
+	@echo "... src/proj/PJ_igh.s"
+	@echo "... src/proj/PJ_imw_p.o"
+	@echo "... src/proj/PJ_imw_p.i"
+	@echo "... src/proj/PJ_imw_p.s"
+	@echo "... src/proj/PJ_isea.o"
+	@echo "... src/proj/PJ_isea.i"
+	@echo "... src/proj/PJ_isea.s"
+	@echo "... src/proj/PJ_krovak.o"
+	@echo "... src/proj/PJ_krovak.i"
+	@echo "... src/proj/PJ_krovak.s"
+	@echo "... src/proj/PJ_labrd.o"
+	@echo "... src/proj/PJ_labrd.i"
+	@echo "... src/proj/PJ_labrd.s"
+	@echo "... src/proj/PJ_laea.o"
+	@echo "... src/proj/PJ_laea.i"
+	@echo "... src/proj/PJ_laea.s"
+	@echo "... src/proj/PJ_lagrng.o"
+	@echo "... src/proj/PJ_lagrng.i"
+	@echo "... src/proj/PJ_lagrng.s"
+	@echo "... src/proj/PJ_larr.o"
+	@echo "... src/proj/PJ_larr.i"
+	@echo "... src/proj/PJ_larr.s"
+	@echo "... src/proj/PJ_lask.o"
+	@echo "... src/proj/PJ_lask.i"
+	@echo "... src/proj/PJ_lask.s"
+	@echo "... src/proj/PJ_lcc.o"
+	@echo "... src/proj/PJ_lcc.i"
+	@echo "... src/proj/PJ_lcc.s"
+	@echo "... src/proj/PJ_lcca.o"
+	@echo "... src/proj/PJ_lcca.i"
+	@echo "... src/proj/PJ_lcca.s"
+	@echo "... src/proj/PJ_loxim.o"
+	@echo "... src/proj/PJ_loxim.i"
+	@echo "... src/proj/PJ_loxim.s"
+	@echo "... src/proj/PJ_lsat.o"
+	@echo "... src/proj/PJ_lsat.i"
+	@echo "... src/proj/PJ_lsat.s"
+	@echo "... src/proj/PJ_mbt_fps.o"
+	@echo "... src/proj/PJ_mbt_fps.i"
+	@echo "... src/proj/PJ_mbt_fps.s"
+	@echo "... src/proj/PJ_mbtfpp.o"
+	@echo "... src/proj/PJ_mbtfpp.i"
+	@echo "... src/proj/PJ_mbtfpp.s"
+	@echo "... src/proj/PJ_mbtfpq.o"
+	@echo "... src/proj/PJ_mbtfpq.i"
+	@echo "... src/proj/PJ_mbtfpq.s"
+	@echo "... src/proj/PJ_merc.o"
+	@echo "... src/proj/PJ_merc.i"
+	@echo "... src/proj/PJ_merc.s"
+	@echo "... src/proj/PJ_mill.o"
+	@echo "... src/proj/PJ_mill.i"
+	@echo "... src/proj/PJ_mill.s"
+	@echo "... src/proj/PJ_mod_ster.o"
+	@echo "... src/proj/PJ_mod_ster.i"
+	@echo "... src/proj/PJ_mod_ster.s"
+	@echo "... src/proj/PJ_moll.o"
+	@echo "... src/proj/PJ_moll.i"
+	@echo "... src/proj/PJ_moll.s"
+	@echo "... src/proj/PJ_natearth.o"
+	@echo "... src/proj/PJ_natearth.i"
+	@echo "... src/proj/PJ_natearth.s"
+	@echo "... src/proj/PJ_nell.o"
+	@echo "... src/proj/PJ_nell.i"
+	@echo "... src/proj/PJ_nell.s"
+	@echo "... src/proj/PJ_nell_h.o"
+	@echo "... src/proj/PJ_nell_h.i"
+	@echo "... src/proj/PJ_nell_h.s"
+	@echo "... src/proj/PJ_nocol.o"
+	@echo "... src/proj/PJ_nocol.i"
+	@echo "... src/proj/PJ_nocol.s"
+	@echo "... src/proj/PJ_nsper.o"
+	@echo "... src/proj/PJ_nsper.i"
+	@echo "... src/proj/PJ_nsper.s"
+	@echo "... src/proj/PJ_nzmg.o"
+	@echo "... src/proj/PJ_nzmg.i"
+	@echo "... src/proj/PJ_nzmg.s"
+	@echo "... src/proj/PJ_ob_tran.o"
+	@echo "... src/proj/PJ_ob_tran.i"
+	@echo "... src/proj/PJ_ob_tran.s"
+	@echo "... src/proj/PJ_ocea.o"
+	@echo "... src/proj/PJ_ocea.i"
+	@echo "... src/proj/PJ_ocea.s"
+	@echo "... src/proj/PJ_oea.o"
+	@echo "... src/proj/PJ_oea.i"
+	@echo "... src/proj/PJ_oea.s"
+	@echo "... src/proj/PJ_omerc.o"
+	@echo "... src/proj/PJ_omerc.i"
+	@echo "... src/proj/PJ_omerc.s"
+	@echo "... src/proj/PJ_ortho.o"
+	@echo "... src/proj/PJ_ortho.i"
+	@echo "... src/proj/PJ_ortho.s"
+	@echo "... src/proj/PJ_poly.o"
+	@echo "... src/proj/PJ_poly.i"
+	@echo "... src/proj/PJ_poly.s"
+	@echo "... src/proj/PJ_putp2.o"
+	@echo "... src/proj/PJ_putp2.i"
+	@echo "... src/proj/PJ_putp2.s"
+	@echo "... src/proj/PJ_putp3.o"
+	@echo "... src/proj/PJ_putp3.i"
+	@echo "... src/proj/PJ_putp3.s"
+	@echo "... src/proj/PJ_putp4p.o"
+	@echo "... src/proj/PJ_putp4p.i"
+	@echo "... src/proj/PJ_putp4p.s"
+	@echo "... src/proj/PJ_putp5.o"
+	@echo "... src/proj/PJ_putp5.i"
+	@echo "... src/proj/PJ_putp5.s"
+	@echo "... src/proj/PJ_putp6.o"
+	@echo "... src/proj/PJ_putp6.i"
+	@echo "... src/proj/PJ_putp6.s"
+	@echo "... src/proj/PJ_robin.o"
+	@echo "... src/proj/PJ_robin.i"
+	@echo "... src/proj/PJ_robin.s"
+	@echo "... src/proj/PJ_rpoly.o"
+	@echo "... src/proj/PJ_rpoly.i"
+	@echo "... src/proj/PJ_rpoly.s"
+	@echo "... src/proj/PJ_sconics.o"
+	@echo "... src/proj/PJ_sconics.i"
+	@echo "... src/proj/PJ_sconics.s"
+	@echo "... src/proj/PJ_somerc.o"
+	@echo "... src/proj/PJ_somerc.i"
+	@echo "... src/proj/PJ_somerc.s"
+	@echo "... src/proj/PJ_stere.o"
+	@echo "... src/proj/PJ_stere.i"
+	@echo "... src/proj/PJ_stere.s"
+	@echo "... src/proj/PJ_sterea.o"
+	@echo "... src/proj/PJ_sterea.i"
+	@echo "... src/proj/PJ_sterea.s"
+	@echo "... src/proj/PJ_sts.o"
+	@echo "... src/proj/PJ_sts.i"
+	@echo "... src/proj/PJ_sts.s"
+	@echo "... src/proj/PJ_tcc.o"
+	@echo "... src/proj/PJ_tcc.i"
+	@echo "... src/proj/PJ_tcc.s"
+	@echo "... src/proj/PJ_tcea.o"
+	@echo "... src/proj/PJ_tcea.i"
+	@echo "... src/proj/PJ_tcea.s"
+	@echo "... src/proj/PJ_tmerc.o"
+	@echo "... src/proj/PJ_tmerc.i"
+	@echo "... src/proj/PJ_tmerc.s"
+	@echo "... src/proj/PJ_tpeqd.o"
+	@echo "... src/proj/PJ_tpeqd.i"
+	@echo "... src/proj/PJ_tpeqd.s"
+	@echo "... src/proj/PJ_urm5.o"
+	@echo "... src/proj/PJ_urm5.i"
+	@echo "... src/proj/PJ_urm5.s"
+	@echo "... src/proj/PJ_urmfps.o"
+	@echo "... src/proj/PJ_urmfps.i"
+	@echo "... src/proj/PJ_urmfps.s"
+	@echo "... src/proj/PJ_vandg.o"
+	@echo "... src/proj/PJ_vandg.i"
+	@echo "... src/proj/PJ_vandg.s"
+	@echo "... src/proj/PJ_vandg2.o"
+	@echo "... src/proj/PJ_vandg2.i"
+	@echo "... src/proj/PJ_vandg2.s"
+	@echo "... src/proj/PJ_vandg4.o"
+	@echo "... src/proj/PJ_vandg4.i"
+	@echo "... src/proj/PJ_vandg4.s"
+	@echo "... src/proj/PJ_wag2.o"
+	@echo "... src/proj/PJ_wag2.i"
+	@echo "... src/proj/PJ_wag2.s"
+	@echo "... src/proj/PJ_wag3.o"
+	@echo "... src/proj/PJ_wag3.i"
+	@echo "... src/proj/PJ_wag3.s"
+	@echo "... src/proj/PJ_wag7.o"
+	@echo "... src/proj/PJ_wag7.i"
+	@echo "... src/proj/PJ_wag7.s"
+	@echo "... src/proj/PJ_wink1.o"
+	@echo "... src/proj/PJ_wink1.i"
+	@echo "... src/proj/PJ_wink1.s"
+	@echo "... src/proj/PJ_wink2.o"
+	@echo "... src/proj/PJ_wink2.i"
+	@echo "... src/proj/PJ_wink2.s"
+	@echo "... src/proj/aasincos.o"
+	@echo "... src/proj/aasincos.i"
+	@echo "... src/proj/aasincos.s"
+	@echo "... src/proj/adjlon.o"
+	@echo "... src/proj/adjlon.i"
+	@echo "... src/proj/adjlon.s"
+	@echo "... src/proj/bch2bps.o"
+	@echo "... src/proj/bch2bps.i"
+	@echo "... src/proj/bch2bps.s"
+	@echo "... src/proj/bchgen.o"
+	@echo "... src/proj/bchgen.i"
+	@echo "... src/proj/bchgen.s"
+	@echo "... src/proj/biveval.o"
+	@echo "... src/proj/biveval.i"
+	@echo "... src/proj/biveval.s"
+	@echo "... src/proj/cs2cs.o"
+	@echo "... src/proj/cs2cs.i"
+	@echo "... src/proj/cs2cs.s"
+	@echo "... src/proj/dmstor.o"
+	@echo "... src/proj/dmstor.i"
+	@echo "... src/proj/dmstor.s"
+	@echo "... src/proj/emess.o"
+	@echo "... src/proj/emess.i"
+	@echo "... src/proj/emess.s"
+	@echo "... src/proj/gen_cheb.o"
+	@echo "... src/proj/gen_cheb.i"
+	@echo "... src/proj/gen_cheb.s"
+	@echo "... src/proj/geocent.o"
+	@echo "... src/proj/geocent.i"
+	@echo "... src/proj/geocent.s"
+	@echo "... src/proj/geod.o"
+	@echo "... src/proj/geod.i"
+	@echo "... src/proj/geod.s"
+	@echo "... src/proj/geod_for.o"
+	@echo "... src/proj/geod_for.i"
+	@echo "... src/proj/geod_for.s"
+	@echo "... src/proj/geod_inv.o"
+	@echo "... src/proj/geod_inv.i"
+	@echo "... src/proj/geod_inv.s"
+	@echo "... src/proj/geod_set.o"
+	@echo "... src/proj/geod_set.i"
+	@echo "... src/proj/geod_set.s"
+	@echo "... src/proj/jniproj.o"
+	@echo "... src/proj/jniproj.i"
+	@echo "... src/proj/jniproj.s"
+	@echo "... src/proj/mk_cheby.o"
+	@echo "... src/proj/mk_cheby.i"
+	@echo "... src/proj/mk_cheby.s"
+	@echo "... src/proj/multistresstest.o"
+	@echo "... src/proj/multistresstest.i"
+	@echo "... src/proj/multistresstest.s"
+	@echo "... src/proj/nad2bin.o"
+	@echo "... src/proj/nad2bin.i"
+	@echo "... src/proj/nad2bin.s"
+	@echo "... src/proj/nad_cvt.o"
+	@echo "... src/proj/nad_cvt.i"
+	@echo "... src/proj/nad_cvt.s"
+	@echo "... src/proj/nad_init.o"
+	@echo "... src/proj/nad_init.i"
+	@echo "... src/proj/nad_init.s"
+	@echo "... src/proj/nad_intr.o"
+	@echo "... src/proj/nad_intr.i"
+	@echo "... src/proj/nad_intr.s"
+	@echo "... src/proj/p_series.o"
+	@echo "... src/proj/p_series.i"
+	@echo "... src/proj/p_series.s"
+	@echo "... src/proj/pj_apply_gridshift.o"
+	@echo "... src/proj/pj_apply_gridshift.i"
+	@echo "... src/proj/pj_apply_gridshift.s"
+	@echo "... src/proj/pj_apply_vgridshift.o"
+	@echo "... src/proj/pj_apply_vgridshift.i"
+	@echo "... src/proj/pj_apply_vgridshift.s"
+	@echo "... src/proj/pj_auth.o"
+	@echo "... src/proj/pj_auth.i"
+	@echo "... src/proj/pj_auth.s"
+	@echo "... src/proj/pj_ctx.o"
+	@echo "... src/proj/pj_ctx.i"
+	@echo "... src/proj/pj_ctx.s"
+	@echo "... src/proj/pj_datum_set.o"
+	@echo "... src/proj/pj_datum_set.i"
+	@echo "... src/proj/pj_datum_set.s"
+	@echo "... src/proj/pj_datums.o"
+	@echo "... src/proj/pj_datums.i"
+	@echo "... src/proj/pj_datums.s"
+	@echo "... src/proj/pj_deriv.o"
+	@echo "... src/proj/pj_deriv.i"
+	@echo "... src/proj/pj_deriv.s"
+	@echo "... src/proj/pj_ell_set.o"
+	@echo "... src/proj/pj_ell_set.i"
+	@echo "... src/proj/pj_ell_set.s"
+	@echo "... src/proj/pj_ellps.o"
+	@echo "... src/proj/pj_ellps.i"
+	@echo "... src/proj/pj_ellps.s"
+	@echo "... src/proj/pj_errno.o"
+	@echo "... src/proj/pj_errno.i"
+	@echo "... src/proj/pj_errno.s"
+	@echo "... src/proj/pj_factors.o"
+	@echo "... src/proj/pj_factors.i"
+	@echo "... src/proj/pj_factors.s"
+	@echo "... src/proj/pj_fwd.o"
+	@echo "... src/proj/pj_fwd.i"
+	@echo "... src/proj/pj_fwd.s"
+	@echo "... src/proj/pj_gauss.o"
+	@echo "... src/proj/pj_gauss.i"
+	@echo "... src/proj/pj_gauss.s"
+	@echo "... src/proj/pj_geocent.o"
+	@echo "... src/proj/pj_geocent.i"
+	@echo "... src/proj/pj_geocent.s"
+	@echo "... src/proj/pj_gridinfo.o"
+	@echo "... src/proj/pj_gridinfo.i"
+	@echo "... src/proj/pj_gridinfo.s"
+	@echo "... src/proj/pj_gridlist.o"
+	@echo "... src/proj/pj_gridlist.i"
+	@echo "... src/proj/pj_gridlist.s"
+	@echo "... src/proj/pj_init.o"
+	@echo "... src/proj/pj_init.i"
+	@echo "... src/proj/pj_init.s"
+	@echo "... src/proj/pj_initcache.o"
+	@echo "... src/proj/pj_initcache.i"
+	@echo "... src/proj/pj_initcache.s"
+	@echo "... src/proj/pj_inv.o"
+	@echo "... src/proj/pj_inv.i"
+	@echo "... src/proj/pj_inv.s"
+	@echo "... src/proj/pj_latlong.o"
+	@echo "... src/proj/pj_latlong.i"
+	@echo "... src/proj/pj_latlong.s"
+	@echo "... src/proj/pj_list.o"
+	@echo "... src/proj/pj_list.i"
+	@echo "... src/proj/pj_list.s"
+	@echo "... src/proj/pj_log.o"
+	@echo "... src/proj/pj_log.i"
+	@echo "... src/proj/pj_log.s"
+	@echo "... src/proj/pj_malloc.o"
+	@echo "... src/proj/pj_malloc.i"
+	@echo "... src/proj/pj_malloc.s"
+	@echo "... src/proj/pj_mlfn.o"
+	@echo "... src/proj/pj_mlfn.i"
+	@echo "... src/proj/pj_mlfn.s"
+	@echo "... src/proj/pj_msfn.o"
+	@echo "... src/proj/pj_msfn.i"
+	@echo "... src/proj/pj_msfn.s"
+	@echo "... src/proj/pj_mutex.o"
+	@echo "... src/proj/pj_mutex.i"
+	@echo "... src/proj/pj_mutex.s"
+	@echo "... src/proj/pj_open_lib.o"
+	@echo "... src/proj/pj_open_lib.i"
+	@echo "... src/proj/pj_open_lib.s"
+	@echo "... src/proj/pj_param.o"
+	@echo "... src/proj/pj_param.i"
+	@echo "... src/proj/pj_param.s"
+	@echo "... src/proj/pj_phi2.o"
+	@echo "... src/proj/pj_phi2.i"
+	@echo "... src/proj/pj_phi2.s"
+	@echo "... src/proj/pj_pr_list.o"
+	@echo "... src/proj/pj_pr_list.i"
+	@echo "... src/proj/pj_pr_list.s"
+	@echo "... src/proj/pj_qsfn.o"
+	@echo "... src/proj/pj_qsfn.i"
+	@echo "... src/proj/pj_qsfn.s"
+	@echo "... src/proj/pj_release.o"
+	@echo "... src/proj/pj_release.i"
+	@echo "... src/proj/pj_release.s"
+	@echo "... src/proj/pj_strerrno.o"
+	@echo "... src/proj/pj_strerrno.i"
+	@echo "... src/proj/pj_strerrno.s"
+	@echo "... src/proj/pj_transform.o"
+	@echo "... src/proj/pj_transform.i"
+	@echo "... src/proj/pj_transform.s"
+	@echo "... src/proj/pj_tsfn.o"
+	@echo "... src/proj/pj_tsfn.i"
+	@echo "... src/proj/pj_tsfn.s"
+	@echo "... src/proj/pj_units.o"
+	@echo "... src/proj/pj_units.i"
+	@echo "... src/proj/pj_units.s"
+	@echo "... src/proj/pj_utils.o"
+	@echo "... src/proj/pj_utils.i"
+	@echo "... src/proj/pj_utils.s"
+	@echo "... src/proj/pj_zpoly1.o"
+	@echo "... src/proj/pj_zpoly1.i"
+	@echo "... src/proj/pj_zpoly1.s"
+	@echo "... src/proj/proj.o"
+	@echo "... src/proj/proj.i"
+	@echo "... src/proj/proj.s"
+	@echo "... src/proj/proj_etmerc.o"
+	@echo "... src/proj/proj_etmerc.i"
+	@echo "... src/proj/proj_etmerc.s"
+	@echo "... src/proj/proj_mdist.o"
+	@echo "... src/proj/proj_mdist.i"
+	@echo "... src/proj/proj_mdist.s"
+	@echo "... src/proj/proj_rouss.o"
+	@echo "... src/proj/proj_rouss.i"
+	@echo "... src/proj/proj_rouss.s"
+	@echo "... src/proj/rtodms.o"
+	@echo "... src/proj/rtodms.i"
+	@echo "... src/proj/rtodms.s"
+	@echo "... src/proj/vector1.o"
+	@echo "... src/proj/vector1.i"
+	@echo "... src/proj/vector1.s"
 	@echo "... src/quadcopter.o"
 	@echo "... src/quadcopter.i"
 	@echo "... src/quadcopter.s"

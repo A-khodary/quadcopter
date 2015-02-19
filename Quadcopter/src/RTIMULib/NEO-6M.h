@@ -25,3 +25,5 @@ typedef struct dataGPS_t
     char alt[5];//Altitude, Meters, above mean sea level*/
 
 }dataGPS;
+
+int neo();

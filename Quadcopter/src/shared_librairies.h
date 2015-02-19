@@ -3,7 +3,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <maths.h>
+#include <math.h>
+#include <string.h>
 
 #include <pthread.h>
 #include <wiringPiI2C.h>
@@ -13,7 +14,7 @@
 
 
 #include "inter-thread-messages.h"
-#include "/proj/proj_api.h"
-#include "imu_globals_variables"
+#include "proj/proj_api.h"
+#include "imu_globals_variables.h"
 
 #endif
