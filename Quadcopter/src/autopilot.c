@@ -384,7 +384,7 @@ int updateCalculation(autopilotObjective_t* autopilotObjective)
 
      //TODO
 
-     return0
+     return 0;
 
 
 } // For now just computes the bearing and several distances, will modify max_speed in the future relative to distance to objective. Returns a boolean that indicates when objective is reached
@@ -711,8 +711,8 @@ void* autopilotHandler(void* arg)
         receivedMessage = retrieveMessage(autopilotITMHandler);
         if (receivedMessage != NULL)
         {
-        // TODO : process message
-        printDebug("New ITM message received by autopilot");
+            // TODO : process message
+            printDebug("New ITM message received by autopilot");
         }
 
 
@@ -721,7 +721,7 @@ void* autopilotHandler(void* arg)
         currentServoControl = buildServoControl(currentObjective);
         if (currentServoControl == NULL)
         {
-        printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");
+            printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");
             freeAutopilotObjective(currentObjective);
             continue;
         }
@@ -742,12 +742,14 @@ void* autopilotHandler(void* arg)
                     if(receivedMessage->message == "autopilot_new_objective")
                     {
                         //TODO : behaviour
+                         insertObjective(receivedMessage->data,autopilotObjectiveFifo);
                     }
 
-                    else if (receivedMessage->message == "autopilot_emergency_landing")
+                    /*else if (receivedMessage->message == "autopilot_emergency_landing")
                     {
                         // TODO : behaviour
-                    }
+                         insertObjective(receivedMessage->data,autopilotObjectiveFifo);
+                    }*/
 
                     //TODO : add all the events handling
 
@@ -755,6 +757,9 @@ void* autopilotHandler(void* arg)
                     {
                         printDebug("Autopilot received an unrecognized ITM message")
                         //TODO : send event to main
+                        message_t message;
+                        strcpy(message.message, "main_autopilot_info_wrongmessage");
+                        sendMessage(mainITMHandler, message )
                     }
 
 
