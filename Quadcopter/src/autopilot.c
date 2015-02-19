@@ -64,17 +64,6 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
     return 1;
 }
 
-}
-/* Return summary :
--1 Fifo non initialized
--2 Fifo is full
- 1 Inserting Ok
-
-
-*/
-
-
-
 
 servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
 {
@@ -590,6 +579,9 @@ void* autopilotHandler(void* arg)
     // Initialization :
 
     autopilotObjectiveFifo_t autopilotObjectiveFifo;
+    autopilotObjectiveFifo.currentObjectivePriority =0;
+    autopilotObjectiveFifo.numberOfObjectivesPending = 0;
+    autopilotObjectiveFifo.firstObjective = NULL;
 
     bidirectionalHandler_t* bidirectionalHandler;
     bidirectionalHandler = (bidirectionalHandler_t*)arg;
@@ -605,8 +597,12 @@ void* autopilotHandler(void* arg)
 
     servoControl_t* currentServoControl;
 
-    currentMessage.message = "autopilot_init"
+    strcpy(currentMessage.message, "main_autopilot_init");
     currentMessage.priority = 20;
+
+    //Send init message to main
+    sendMessage(mainITMHandler, currentMessage);
+
 
     double distanceToObjective;
 
@@ -637,8 +633,6 @@ void* autopilotHandler(void* arg)
 
     //TODO : the same for the other modes
 
-    //Send init message to main
-    sendMessage(mainITMHandler, currentMessage);
 
     FILE* writtenObjectives;
     char readLine[1024];
@@ -706,8 +700,9 @@ void* autopilotHandler(void* arg)
 
     //Notify main thread of end of init
 
-    currentMessage.message = "end_of_init";
-    currentMessage.priority = 20;
+
+    strcpy(currentMessage.message, "main_autopilot_endofinit");
+    currentMessage.priority = 20
 
     sendMessage(mainITMHandler, currentMessage);
 
@@ -725,7 +720,7 @@ void* autopilotHandler(void* arg)
         initCalculation(currentObjective);
         currentServoControl = buildServoControl(currentObjective);
         if (currentServoControl == NULL)
-    {
+        {
         printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");
             freeAutopilotObjective(currentObjective);
             continue;
