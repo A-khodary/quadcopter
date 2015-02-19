@@ -30,7 +30,7 @@ LIBPROJ_ID[] = "$Id: proj_mdist.c 1856 2010-06-11 03:26:04Z warmerdam $";
 ** Precision commensurate with double precision.
 */
 #define PROJ_LIB__
-#include <projects.h>
+#include "projects.h"
 #define MAX_ITER 20
 #define TOL 1e-14
 

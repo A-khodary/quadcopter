@@ -4,7 +4,7 @@
 #include <assert.h>
 
 #define PJ_LIB__
-#include <projects.h>
+#include "projects.h"
 #define U_SEC_TO_RAD 4.848136811095359935899141023e-12
 
 /************************************************************************/

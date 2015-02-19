@@ -182,7 +182,6 @@ SET(CMAKE_DEPENDS_CHECK_C
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o"

@@ -13,14 +13,14 @@ void* dataLoggerHandler(void* arg)
 {
     // Initialization :
 
-    bidirectionalHandler_t* bidirectionnalHandler;
-    bidirectionnalHandler = (bidirectionalHandler_t)arg;
+    bidirectionnalHandler_t* bidirectionnalHandler;
+    bidirectionnalHandler = arg;
 
     handler_t* mainITMHandler;
     handler_t* dataLoggerITMHandler;
 
-    mainITMHandler = bidirectionalHandler.mainITMHandler;
-    dataLoggerITMHandler = bidirectionalHandler.componentITMHandler;
+    mainITMHandler = bidirectionnalHandler->mainITMHandler;
+    dataLoggerITMHandler = bidirectionnalHandler->componentITMHandler;
 
     message_t* receivedMessage;
     message_t currentMessage;
@@ -39,7 +39,7 @@ void* dataLoggerHandler(void* arg)
 
         // Message retrieving and handling area :
 
-        receivedMessage = retrieveMessage(dataLoggerHandler);
+        receivedMessage = retrieveMessage(dataLoggerITMHandler);
         //if (receivedMessage->message ==
 
 
@@ -53,17 +53,17 @@ void* dataLoggerHandler(void* arg)
     }
 
 
+}
 
 
 
 
 
-
-
+/*
 
 sendData()
 {
-    /* The default UART header for your MCU */
+    //The default UART header for your MCU
 #include "uart.h" // TODO : adapt to Rpi
 #include <mavlink/v1.0/common/mavlink.h>
 
@@ -104,14 +104,9 @@ receivedData()
 // Example variable, by declaring them static they're persistent
 // and will thus track the system state
 static int packet_drops = 0;
-static int mode = MAV_MODE_UNINIT; /* Defined in mavlink_types.h, which is included by mavlink.h */
+static int mode = MAV_MODE_UNINIT; /* Defined in mavlink_types.h, which is included by mavlink.h
 
-/**
-* @brief Receive communication packets and handle them
-*
-* This function decodes packets on the protocol level and also handles
-* their value by calling the appropriate functions.
-*/
+
 static void communication_receive(void)
 {
 	mavlink_message_t msg;
@@ -171,4 +166,4 @@ static void communication_receive(void)
 }
 
 }
-
+*/

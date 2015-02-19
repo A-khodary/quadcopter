@@ -21,7 +21,10 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.c.o
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c
  /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
@@ -34,6 +37,7 @@ CMakeFiles/Quadcopter_.dir/src/data_logger.c.o
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c
 CMakeFiles/Quadcopter_.dir/src/imu.c.o
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c
  /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
@@ -45,6 +49,7 @@ CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 CMakeFiles/Quadcopter_.dir/src/osd.c.o
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c
@@ -53,46 +58,68 @@ CMakeFiles/Quadcopter_.dir/src/osd.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 CMakeFiles/Quadcopter_.dir/src/pilot.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c
  /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aea.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aeqd.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_airy.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_aitoff.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_august.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bacon.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bipc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_boggs.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_bonne.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cass.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_cea.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_chamb.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_collg.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_crast.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_denoy.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck1.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck2.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o
@@ -101,32 +128,54 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck4.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eck5.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_eqdc.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_fahey.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fahey.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_fouc_s.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_fouc_s.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gall.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gall.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_geos.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gins8.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gn_sinu.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gnom.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_goode.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_goode.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gstmerc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_gstmerc.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_hammer.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hammer.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_hatano.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_healpix.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o
@@ -139,6 +188,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_krovak.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_labrd.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_laea.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o
@@ -149,22 +200,32 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lask.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcc.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lcca.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_loxim.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_lsat.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbt_fps.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpp.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mbtfpq.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_merc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mill.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_mod_ster.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o
@@ -175,22 +236,32 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nell_h.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nocol.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nsper.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_nzmg.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ob_tran.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ocea.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_oea.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_omerc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_ortho.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_poly.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o
@@ -201,38 +272,62 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp4p.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp5.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_putp6.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_robin.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_rpoly.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sconics.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_somerc.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_stere.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sterea.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_sts.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tcea.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tmerc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_tpeqd.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_urm5.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urm5.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_urmfps.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urmfps.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg2.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_vandg4.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o
@@ -243,16 +338,26 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wag7.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink1.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink2.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_wink2.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/aasincos.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/adjlon.c
 CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bch2bps.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/bchgen.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/biveval.c
 CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o
@@ -262,6 +367,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/dmstor.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/emess.c
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/emess.h
@@ -299,6 +406,7 @@ CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/jniproj.c
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/org_proj4_Projections.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_config.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/mk_cheby.c
@@ -307,28 +415,46 @@ CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad2bin.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/nad_cvt.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_cvt.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/nad_init.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_init.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/nad_intr.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_intr.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/p_series.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/p_series.c
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_gridshift.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_gridshift.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_apply_vgridshift.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_apply_vgridshift.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_auth.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_ctx.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datum_set.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_datums.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datums.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_deriv.c
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
@@ -343,8 +469,12 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_errno.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_factors.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_fwd.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gauss.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o
@@ -353,12 +483,20 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridinfo.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_gridlist.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_init.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_init.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_initcache.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_initcache.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_inv.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_latlong.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o
@@ -367,24 +505,36 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_log.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_log.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_malloc.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mlfn.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_msfn.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_mutex.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_open_lib.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_param.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_phi2.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_pr_list.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_qsfn.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_release.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o
@@ -394,10 +544,16 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o
 CMakeFiles/Quadcopter_.dir/src/proj/pj_transform.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geocent.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_transform.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_tsfn.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_tsfn.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_units.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_utils.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o
@@ -408,14 +564,22 @@ CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/proj_etmerc.c.o
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_etmerc.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/proj_mdist.c.o
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_mdist.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_rouss.c
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/rtodms.c
 CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/vector1.c
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.h
@@ -436,9 +600,6 @@ CMakeFiles/Quadcopter_.dir/src/reader.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c
-CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o
- /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp
- /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.h
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp
  /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.h

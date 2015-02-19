@@ -176,7 +176,6 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o"
   "CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o"
   "CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o"
-  "CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o"
   "CMakeFiles/Quadcopter_.dir/src/data_logger.c.o"
   "CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o"
   "CMakeFiles/Quadcopter_.dir/src/autopilot.c.o"

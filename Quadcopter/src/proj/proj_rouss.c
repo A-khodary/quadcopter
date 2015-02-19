@@ -33,7 +33,7 @@ LIBPROJ_ID[] = "$Id: proj_rouss.c 1856 2010-06-11 03:26:04Z warmerdam $";
 	double D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11; \
 	void *en;
 #define PJ_LIB__
-# include <projects.h>
+# include "projects.h"
 PROJ_HEAD(rouss, "Roussilhe Stereographic") "\n\tAzi., Ellps.";
 FORWARD(e_forward); /* ellipsoid */
 	double s, al, cp, sp, al2, s2;

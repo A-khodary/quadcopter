@@ -132,7 +132,7 @@ int removeCurrentMessage(handler_t* handler)    NON utile : intégré à la fonc
 */
 
 
-messageDecoded_t decodeMessage(message_t* message)
+messageDecoded_t decodeMessageITM(message_t* message)
 {
     messageDecoded_t decoded;
     int i=0;

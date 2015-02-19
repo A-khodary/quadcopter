@@ -4297,33 +4297,9 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.provides: CMakeFiles/Quadcopter
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.provides.build
 
-CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o: src/BMP/Adafruit_BMP085.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_178)
-	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp
-
-CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp > CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i
-
-CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp -o CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s
-
-CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.provides: CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.provides.build
-
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/data_logger.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_179)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_178)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/data_logger.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/data_logger.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c
 
@@ -4347,7 +4323,7 @@ CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.provides.build: CMakeFiles/Quadco
 
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: src/reader_global_functions.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_180)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_179)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c
 
@@ -4371,7 +4347,7 @@ CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.provides.build: CMake
 
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/autopilot.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_181)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_180)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/autopilot.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c
 
@@ -4395,7 +4371,7 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.provides.build: CMakeFiles/Quadcopt
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: src/reader.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_182)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_181)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/reader.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/reader.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c
 
@@ -4419,7 +4395,7 @@ CMakeFiles/Quadcopter_.dir/src/reader.c.o.provides.build: CMakeFiles/Quadcopter_
 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/inter-thread-messages.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_183)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_182)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c
 
@@ -4443,7 +4419,7 @@ CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.provides.build: CMakeFi
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: src/global_functions.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_184)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_183)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c
 
@@ -4467,7 +4443,7 @@ CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.provides.build: CMakeFiles/Q
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/PID.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_185)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_184)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp
 
@@ -4491,7 +4467,7 @@ CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.provides.build: CMakeFiles/Quadcopter_.
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/quadcopter.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_186)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_185)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c
 
@@ -4692,7 +4668,6 @@ Quadcopter__OBJECTS = \
 "CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/data_logger.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/autopilot.c.o" \
@@ -4900,7 +4875,6 @@ build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/data_logger.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/autopilot.c.o
@@ -5113,7 +5087,6 @@ CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.requires

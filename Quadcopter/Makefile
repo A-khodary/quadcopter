@@ -111,30 +111,6 @@ Quadcopter_/fast:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/build
 .PHONY : Quadcopter_/fast
 
-src/BMP/Adafruit_BMP085.o: src/BMP/Adafruit_BMP085.cpp.o
-.PHONY : src/BMP/Adafruit_BMP085.o
-
-# target to build an object file
-src/BMP/Adafruit_BMP085.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.o
-.PHONY : src/BMP/Adafruit_BMP085.cpp.o
-
-src/BMP/Adafruit_BMP085.i: src/BMP/Adafruit_BMP085.cpp.i
-.PHONY : src/BMP/Adafruit_BMP085.i
-
-# target to preprocess a source file
-src/BMP/Adafruit_BMP085.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.i
-.PHONY : src/BMP/Adafruit_BMP085.cpp.i
-
-src/BMP/Adafruit_BMP085.s: src/BMP/Adafruit_BMP085.cpp.s
-.PHONY : src/BMP/Adafruit_BMP085.s
-
-# target to generate assembly for a file
-src/BMP/Adafruit_BMP085.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/BMP/Adafruit_BMP085.cpp.s
-.PHONY : src/BMP/Adafruit_BMP085.cpp.s
-
 src/PID.o: src/PID.cpp.o
 .PHONY : src/PID.o
 
@@ -4584,9 +4560,6 @@ help:
 	@echo "... Quadcopter_"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... src/BMP/Adafruit_BMP085.o"
-	@echo "... src/BMP/Adafruit_BMP085.i"
-	@echo "... src/BMP/Adafruit_BMP085.s"
 	@echo "... src/PID.o"
 	@echo "... src/PID.i"
 	@echo "... src/PID.s"

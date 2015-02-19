@@ -142,7 +142,7 @@ int main()
         // Message processing Area :
 
         currentMessage = retrieveMessage(mainITMHandler);
-        currentDecodedMessage = decodeMessage(currentMessage)
+        currentDecodedMessage = decodeMessageITM()(currentMessage);
 
 
 

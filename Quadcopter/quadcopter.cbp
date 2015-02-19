@@ -58,8 +58,6 @@
          </MakeCommands>
       </Target>
       </Build>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.cpp">
-      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.c">
@@ -430,12 +428,6 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c">
       </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/Adafruit_BMP085.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/README.txt">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/BMP/examples/BMP085test/BMP085test.ino">
-      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/Inter thread messages.cbp">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/Makefile">
@@ -674,7 +666,11 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h.save">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c.save">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h.save">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/main.h">
       </Unit>
@@ -692,6 +688,8 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/Makefile.in">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/PJ_urmfps.c~">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/emess.h">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/geocent.h">
@@ -700,15 +698,29 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/makefile.vc">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/mk_cheby.c~">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad2bin.c~">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_cvt.c~">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/nad_init.c~">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/org_proj4_Projections.h">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_datums.c~">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_factors.c~">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_list.h">
+      </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/pj_malloc.c~">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj.def">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h">
       </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_config.h.in">
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_config.h">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h">
       </Unit>

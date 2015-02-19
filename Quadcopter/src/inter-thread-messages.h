@@ -56,6 +56,6 @@ handler_t* initializeHandler();
 int sendMessage(handler_t* Handler, message_t message);
 message_t* retrieveMessage(handler_t* Handler);
 
-messageDecoded_t decodeMessage(message_t* message)
+messageDecoded_t decodeMessageITM(message_t* message);
 
 #endif

@@ -16,5 +16,7 @@
 #include "inter-thread-messages.h"
 #include "proj/proj_api.h"
 #include "imu_globals_variables.h"
+#include "global_functions.h"
+
 
 #endif

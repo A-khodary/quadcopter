@@ -1,3 +1,6 @@
+/*
+
+
 #include "BMP085.h"
 
 // Calibration values - These are stored in the BMP085
@@ -194,3 +197,5 @@ unsigned int bmp085_GetTemperature(unsigned int ut)
 
 	return result;
 }
+
+*/

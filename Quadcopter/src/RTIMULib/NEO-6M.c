@@ -1,8 +1,12 @@
 #include "NEO-6M.h"
 
+
+/*
+
 int initializeDataGPS(void)
 
 {
+
 
     char gps[65]; //gps string array
 
@@ -106,6 +110,10 @@ int initializeDataGPS(void)
     serialClose(fd);
     flag = 0;
     }
+
+
 }
+
+*/
 
 

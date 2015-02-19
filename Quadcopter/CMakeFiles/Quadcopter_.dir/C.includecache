@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+
 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c
 imu.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
@@ -19,6 +21,14 @@ imu_globals_variables.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
 
 /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c
+osd.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
 shared_librairies.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 
@@ -53,4 +63,6 @@ proj/proj_api.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
 imu_globals_variables.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+global_functions.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
 

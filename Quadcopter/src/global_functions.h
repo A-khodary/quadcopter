@@ -1,4 +1,6 @@
-#include "shared_librairies.h"
+#ifndef GLOBAL_FUNC
+#define GLOBAL_FUNC
+
 #define PI 3.14159265
 
 
@@ -7,11 +9,11 @@ void printDebug(char string[64]);
 
 // Global structures :
 
-typedef struct bidirectionalHandler_t
+typedef struct bidirectionnalHandler_t
 {
     handler_t* mainITMHandler;
     handler_t* componentITMHandler;
-}birectionnalHandler_t;
+}bidirectionnalHandler_t;
 
 //Some Nav functions :
 
@@ -20,4 +22,6 @@ typedef struct bidirectionalHandler_t
 int convertPlanar(double* x, double* y, double latitude, double longitude);
 int convertPlanarToHome(double* x, double* y, double latitude, double longitude);
 
-double calculateBearing(double positionX, double positionY, double destinationX, double destinationY) // returns the necessary bearing to meet objective in degrees
+double calculateBearing(double positionX, double positionY, double destinationX, double destinationY); // returns the necessary bearing to meet objective in degrees
+
+#endif

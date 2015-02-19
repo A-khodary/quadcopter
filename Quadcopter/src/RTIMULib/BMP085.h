@@ -1,3 +1,5 @@
+/*
+
 #include <stdio.h>
 #include <stdint.h>
 #include <fcntl.h>
@@ -6,7 +8,7 @@
 #include <linux/i2c-dev.h>
 #include <linux/i2c.h>
 #include <sys/ioctl.h>
-#include "smbus.h"
+#include "smbus.h>
 
 #define BMP085_I2C_ADDRESS 0x77
 
@@ -21,3 +23,5 @@ unsigned int bmp085_ReadUT();
 unsigned int bmp085_ReadUP();
 unsigned int bmp085_GetPressure(unsigned int up);
 unsigned int bmp085_GetTemperature(unsigned int ut);
+
+*/

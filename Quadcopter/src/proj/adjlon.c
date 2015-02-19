@@ -1,6 +1,6 @@
 /* reduce argument to range +/- PI */
 #include <math.h>
-#include <projects.h>
+#include "projects.h"
 
 #define SPI     3.14159265359
 #define TWOPI   6.2831853071795864769
