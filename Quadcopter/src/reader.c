@@ -19,6 +19,7 @@
 
 void* readerHandler(void* arg)
 {
+    int i;
     int isUltrasonicOn = 0;
     float* ultrasonicSampleList;
     float filteredValue;
@@ -36,7 +37,7 @@ void* readerHandler(void* arg)
     message_t* receivedMessage;
     message_t currentMessage;
 
-    currentMessage.message="main_reader_init";
+    strcpy(currentMessage.message, "main_reader_init");
     currentMessage.priority=20;
 
     sendMessage(mainITMHandler, currentMessage);
@@ -47,15 +48,13 @@ void* readerHandler(void* arg)
     int fd;
 
     receivedCommandsShared_t receivedCommands;
-    userCommands.ch1=0;
-    userCommands.ch2=0;
-    userCommands.ch3=0;
-    userCommands.ch4=0;
-    userCommands.ch5=0;
-    userCommands.ch6=0;
-    userCommands.ch7=0;
-    userCommands.ch8=0;
-    userCommands.ch9=0;
+
+    pthread_mutex_lock(&receivedCommands.readWriteMutex);
+
+
+    for (i=1; i<=9; i++) receivedCommands.commands[i]=0;
+
+    pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
 
     if (fd = wiringPiI2CSetup (ARDUINO_ADDRESS)) < 0)
