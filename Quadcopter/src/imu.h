@@ -2,7 +2,7 @@
 #include "imu_globals_variables.h"
 
 //Handler prototype :
-void imuHandler();
+void imuHandler(void* arg);
 
 
 
