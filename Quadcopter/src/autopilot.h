@@ -80,11 +80,11 @@ int updateCalculation(autopilotObjective_t* autopilotObjective);
 
 typedef struct autopilotObjectiveFifo_t
 {
-    autopilotObjective* ObjectiveFifo[AUTOPILOT_OBJECTIVE_FIFO_SIZE];
 
     int currentObjectivePriority;
     int numberOfObjectivesPending;
-    autopilotObjective_t firstObjective;
+    autopilotObjective_t* firstObjective;
+
 
 }autopilotObjectiveFifo_t;
 

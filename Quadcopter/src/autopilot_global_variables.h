@@ -11,7 +11,7 @@
 
 // Fifo defines :
 
-#define AUTOPILOT_OBJECTIVE_FIFO_SIZE 256
+
 
 
 // Global variables and structures declarations :
