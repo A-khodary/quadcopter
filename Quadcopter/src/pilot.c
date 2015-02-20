@@ -188,7 +188,7 @@ void* pilotHandler(void* arg)
              pilotStateShared.pilotMode = AUTOPILOT_LANDING;
              // TODO : notify main of normal landing
 
-            strcpy(message5.message,"main_pilot_info_landing");
+            strcpy(message.message,"main_pilot_info_landing");
             sendMessage(mainITMHandler, message);
         }
 

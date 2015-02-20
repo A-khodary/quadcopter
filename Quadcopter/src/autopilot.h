@@ -3,6 +3,7 @@
 #include "autopilot_global_variables.h"
 #include "autopilot_global_functions.h"
 #include "imu_globals_variables.h"
+//#include "pilot_global_variables.h"
 #include "PID.h"
 
 #ifndef AUTOPILOT
@@ -73,7 +74,7 @@ typedef struct oneWayServoControl_t
 typedef struct servoControl_t
 {
     int oneWayNumber;
-    oneWayServoControl* ServoControlData;
+    oneWayServoControl_t** ServoControlData;
 
 }servoControl_t;
 
