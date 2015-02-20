@@ -10,7 +10,7 @@ void imuHandler(void* arg)
     // Notifying main thread of init :
 
     message_t currentMessage;
-    strcpy(currentMessage.message, "main_imu_init");
+    strcpy(currentMessage.message, "main_imu_info_imuinitialized");
     currentMessage.priority = 20;
     sendMessage(mainITMHandler, currentMessage);
 
