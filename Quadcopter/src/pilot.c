@@ -118,14 +118,14 @@ void* pilotHandler(void* arg)
     printDebug("[i] New pilot Handler Launched");
     // TODO Event handler initialization
 
-    bidirectionalHandler_t* bidirectionalHandler;
-    bidirectionalHandler = (bidirectionalHandler_t*)arg;
+    bidirectionnalHandler_t* bidirectionnalHandler;
+    bidirectionnalHandler = (bidirectionnalHandler_t*)arg;
 
     handler_t* mainITMHandler;
     handler_t* pilotITMHandler;
 
-    mainITMHandler = bidirectionalHandler.mainITMHandler;
-    pilotITMHandler = bidirectionalHandler.componentITMHandler;
+    mainITMHandler = bidirectionnalHandler->mainITMHandler;
+    pilotITMHandler = bidirectionnalHandler->componentITMHandler;
 
     message_t* receivedMessage;
     message_t currentMessage;

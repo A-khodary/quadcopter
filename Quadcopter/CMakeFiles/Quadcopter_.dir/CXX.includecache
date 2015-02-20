@@ -6,3 +6,5 @@
 
 #IncludeRegexTransform: 
 
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/imu.cpp
+
