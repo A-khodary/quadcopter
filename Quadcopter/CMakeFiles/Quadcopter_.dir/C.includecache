@@ -6,17 +6,41 @@
 
 #IncludeRegexTransform: 
 
-/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c
+autopilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
 
-/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c
-imu.h
-/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
-
-/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
 shared_librairies.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c
+data_logger.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+uart.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/uart.h
+mavlink/v1.0/common/mavlink.h
+-
+mavlink/v1.0/common/mavlink.h
+-
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+data_logger_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
 imu_globals_variables.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+reader_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+autopilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 
 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
 
@@ -32,11 +56,31 @@ osd.h
 shared_librairies.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c
+stdlib.h
+-
+pilot.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
+global_functions.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+pilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+reader_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+
 /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
 math.h
 -
 stdlib.h
 -
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
 
 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 stdlib.h
@@ -56,6 +100,8 @@ unistd.h
 signal.h
 -
 time.h
+-
+sys/time.h
 -
 inter-thread-messages.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h

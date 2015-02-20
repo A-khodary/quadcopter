@@ -1,8 +1,8 @@
 #ifndef PID_H
 #define PID_H
 
-#include <sys/time.h>
-#include <algorithm>
+#include "shared_librairies.h"
+
 
 class PID
 {
@@ -19,5 +19,5 @@ private:
     struct timeval tv;
 };
 
-#endif // PID_H
+#endif
 

@@ -9,11 +9,9 @@ SET(CMAKE_DEPENDS_CHECK_C
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/testBMP085.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o"
-  "/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/autopilot.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/data_logger.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"
-  "/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/imu.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/osd.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/pilot.c.o"
@@ -178,7 +176,6 @@ SET(CMAKE_DEPENDS_CHECK_C
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/vector1.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/reader.c.o"
-  "/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 SET(CMAKE_DEPENDS_CHECK_CXX
@@ -193,6 +190,8 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o"
+  "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/imu.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o"
+  "/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.cpp" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,31 +1,19 @@
 #ifndef READER
 #define READER
 
+#include "shared_librairies.h"
+
 // Global variables includes
 
-#include reader_global_variables.h
-
-// Functions prototypes :
-
-void* readerHandler(void* arg);
-
-
-// Ultrasonic telemeter management
-
-float* initUltrasonic();
-void* addToSampleList(float sample, sampleList_t* sampleList);
-float getFilteredUltrasonic(sampleList_t* sampleList);
-shutdownUltrasonic(sampleList_t sampleList);
-comp(const void *a, const void *b);
-
-
+#include "reader_global_variables.h"
 
 //Some defines relative to the median filtering of the ultrasonic sensor :
 
 #define SAMPLESIZE 256 // NEED TO BE A PAIR NUMBER
 
+// Functions prototypes :
 
-
+void* readerHandler(void* arg);
 
 
 // Structure declarations :
@@ -37,6 +25,16 @@ typedef struct sampleList_t
     int numberOfSamples;
 
 }sampleList_t;
+
+
+// Ultrasonic telemeter management
+
+sampleList_t* initUltrasonic();
+void addToSampleList(float sample, sampleList_t* sampleList);
+float getFilteredUltrasonic(sampleList_t sampleList);
+void shutdownUltrasonic(sampleList_t* sampleList);
+int comp(const void *a, const void *b);
+
 
 
 

@@ -11,6 +11,7 @@
 #include <unistd.h> // needed for the read function in order to read all arduino bytes at once
 #include <signal.h> // needed for the timers in autopilot
 #include <time.h>
+#include <sys/time.h>
 
 
 #include "inter-thread-messages.h"

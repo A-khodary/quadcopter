@@ -1,5 +1,8 @@
+#include "shared_librairies.h"
+
 #ifndef GLOBAL_FUNC
 #define GLOBAL_FUNC
+
 
 #define PI 3.14159265
 

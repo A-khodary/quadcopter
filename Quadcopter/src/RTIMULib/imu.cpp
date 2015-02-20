@@ -1,7 +1,9 @@
-#include "imu.h"
+//#include "imu.h"
 
+/*
 void imuHandler(void* arg)
  {
+
      handler_t* mainITMHandler;
      mainITMHandler = (handler_t*)arg;
 
@@ -25,4 +27,5 @@ void imuHandler(void* arg)
 
  }
 
+*/
 

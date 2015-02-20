@@ -1,4 +1,4 @@
-#include reader.h
+#include "reader.h"
 
 /*
 ##############################################
@@ -21,18 +21,18 @@ void* readerHandler(void* arg)
 {
     int i;
     int isUltrasonicOn = 0;
-    float* ultrasonicSampleList;
+    sampleList_t* ultrasonicSampleList;
     float filteredValue;
 
 
-    bidirectionalHandler_t* bidirectionalHandler;
-    bidirectionalHandler = (bidirectionalHandler_t*)arg;
+    bidirectionnalHandler_t* bidirectionnalHandler;
+    bidirectionnalHandler = (bidirectionnalHandler_t*)arg;
 
     handler_t* mainITMHandler;
     handler_t* readerITMHandler;
 
-    mainITMHandler = bidirectionalHandler.mainITMHandler;
-    readerITMHandler = bidirectionalHandler.componentITMHandler;
+    mainITMHandler = bidirectionnalHandler->mainITMHandler;
+    readerITMHandler = bidirectionnalHandler->componentITMHandler;
 
     message_t* receivedMessage;
     message_t currentMessage;
@@ -57,9 +57,9 @@ void* readerHandler(void* arg)
     pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
 
-    if (fd = wiringPiI2CSetup (ARDUINO_ADDRESS)) < 0)
+    if (fd = wiringPiI2CSetup(ARDUINO_ADDRESS) < 0)
     {
-        printDebug("[e] Reader : error connecting to Arduino via I2C")
+        printDebug("[e] Reader : error connecting to Arduino via I2C");
         // TODO : notify main thread
     }
 
@@ -71,13 +71,14 @@ void* readerHandler(void* arg)
     receivedMessage = retrieveMessage(readerITMHandler);
 
         //TODO : make message parser
+        /*
+
         if(receivedMessage.message == "ultrasonicon")
         {
             if (isUltrasonicOn)
             {
                 printDebug("Something strange in reader : asked to turn on an already on ultrasonic")
-            }
-            ultrasonicSampleList = initUltrasonic();
+            }            ultrasonicSampleList = initUltrasonic();
             isUltrasonicOn = 1;
         }
 
@@ -91,21 +92,23 @@ void* readerHandler(void* arg)
             isUltrasonicOn = 0;
         }
 
+        */
+
 
 
         read(fd, buffer, 4*9); //TODO implement connection test and ultrasonic reading
 
         if (isUltrasonicOn)
         {
-            addToSampleList(VALUE. ultrasonicSampleList);
-            filteredValue = getFilteredUltrasonic(ultrasonicSampleList);
+            //addToSampleList(VALUE. ultrasonicSampleList);
+            filteredValue = getFilteredUltrasonic(*ultrasonicSampleList);
         }
 
         // TODO : integrate ultrasonic
 
-        pthread_mutex_lock(receivedCommands.readWriteMutex);
+        pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
-        for (int i=0; i<=8, i++)
+        for (i=0; i<=8; i++)
         {
             receivedCommands.commands[i] = buffer[i];
         }
@@ -114,7 +117,7 @@ void* readerHandler(void* arg)
 
 
 
-        pthread_mutex_unlock(userCommands.readWriteMutex);
+        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
         sleep(SAMPLING_PERIOD_MS/1000);
 
@@ -123,37 +126,39 @@ void* readerHandler(void* arg)
 
 }
 
-float* initUltrasonic()
+sampleList_t* initUltrasonic()
 {
     sampleList_t* list;
     list = (sampleList_t*)malloc(SAMPLESIZE*sizeof(sampleList_t));
-    list.lastEntryIndex = -1;
-    list.NumberOfSamples = 0;
+    list->lastEntryIndex = -1;
+    list->numberOfSamples = 0;
 
     return list;
 }
 
 
-void* addToSampleList(float sample, sampleList_t list)
+void addToSampleList(float sample, sampleList_t* list)
 {
     int toBeInsertedIndex;
+    int i;
 
 
-    if (list.lastEntryIndex + 1 > SAMPLESIZE-1) tobeInsertedIndex = 0;
-    else tobeInsertedIndex = list.lastEntryIndex +1;
+    if (list->lastEntryIndex + 1 > SAMPLESIZE-1) toBeInsertedIndex = 0;
+    else toBeInsertedIndex = list->lastEntryIndex +1;
 
-    list.list[toBeInsertedIndex] = sample;
-    list.lastEntryIndex = toBeInsertedIndex;
+    list->list[toBeInsertedIndex] = sample;
+    list->lastEntryIndex = toBeInsertedIndex;
 
-    if (list.numberOfSamples < SAMPLESIZE) list.numberOfSamples++;
+    if (list->numberOfSamples < SAMPLESIZE) list->numberOfSamples++;
 }
 
 float getFilteredUltrasonic(sampleList_t sampleList)
 {
+    int i;
     float result;
     float sampleCopy[SAMPLESIZE];
 
-    for (int i; i<SAMPLESIZE; i++ sampleCopy[i] = sampleList.list[i]; // In order to sort the table, we need to copy it
+    for (i=0; i<SAMPLESIZE; i++) sampleCopy[i] = sampleList.list[i]; // In order to sort the table, we need to copy it
     qsort(sampleCopy, SAMPLESIZE, sizeof(float), comp);
 
     result = (sampleCopy[SAMPLESIZE/2] + sampleCopy[SAMPLESIZE/2 +1])/2; // As it it as pair number, me take this as a median

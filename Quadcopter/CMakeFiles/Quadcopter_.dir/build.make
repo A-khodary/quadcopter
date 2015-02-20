@@ -49,33 +49,9 @@ include CMakeFiles/Quadcopter_.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Quadcopter_.dir/flags.make
 
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/imu.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_1)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/imu.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/imu.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c
-
-CMakeFiles/Quadcopter_.dir/src/imu.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/imu.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c > CMakeFiles/Quadcopter_.dir/src/imu.c.i
-
-CMakeFiles/Quadcopter_.dir/src/imu.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/imu.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c -o CMakeFiles/Quadcopter_.dir/src/imu.c.s
-
-CMakeFiles/Quadcopter_.dir/src/imu.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/imu.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides: CMakeFiles/Quadcopter_.dir/src/imu.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/imu.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/imu.c.o.provides.build
-
 CMakeFiles/Quadcopter_.dir/src/osd.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/osd.c.o: src/osd.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_1)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/osd.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/osd.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c
 
@@ -99,17 +75,17 @@ CMakeFiles/Quadcopter_.dir/src/osd.c.o.provides.build: CMakeFiles/Quadcopter_.di
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: src/RTIMULib/RTMath.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_2)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.requires
@@ -123,17 +99,17 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o: src/RTIMULib/RTIMUHal.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_3)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.requires
@@ -147,7 +123,7 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o: src/RTIMULib/NEO-6M.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_4)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.c
 
@@ -169,19 +145,43 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.provides: CMakeFiles/Quadcopt
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.provides.build
 
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o: src/RTIMULib/imu.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_5)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/imu.cpp
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.i: cmake_force
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/imu.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.i
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.s: cmake_force
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/imu.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.s
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.provides: CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.provides.build
+
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_6)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o.requires
@@ -245,15 +245,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o: CMakeFiles/Quadco
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o: src/RTIMULib/RTFusionKalman4.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_9)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o.requires
@@ -269,15 +269,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o: CMakeFiles/Q
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_10)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o.requires
@@ -317,15 +317,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o: CMakeFiles/Quadcopter_.dir/
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o: src/RTIMULib/RTIMU.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_12)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o.requires
@@ -341,15 +341,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o: CMakeFiles/Quadcopter_.
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o: src/RTIMULib/RTIMUNull.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_13)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o.requires
@@ -365,15 +365,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o: CMakeFiles/Quadcopte
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o: src/RTIMULib/RTFusionRTQF.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_14)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o.requires
@@ -389,15 +389,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o: CMakeFiles/Quadcopt
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o: src/RTIMULib/RTIMUSettings.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_15)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o.requires
@@ -413,15 +413,15 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o: CMakeFiles/Quadcopter_.d
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o: src/RTIMULib/RTFusion.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_16)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp > CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp -o CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o.requires
@@ -4321,57 +4321,9 @@ CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.provides: CMakeFiles/Quadcopter_.
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/data_logger.c.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.provides.build
 
-CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: src/reader_global_functions.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_179)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c
-
-CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c > CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i
-
-CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c -o CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s
-
-CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.provides: CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.provides.build
-
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/autopilot.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_180)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/autopilot.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/autopilot.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c
-
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/autopilot.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c > CMakeFiles/Quadcopter_.dir/src/autopilot.c.i
-
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c -o CMakeFiles/Quadcopter_.dir/src/autopilot.c.s
-
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.provides: CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/autopilot.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.provides.build
-
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: src/reader.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_181)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_179)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/reader.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/reader.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c
 
@@ -4395,7 +4347,7 @@ CMakeFiles/Quadcopter_.dir/src/reader.c.o.provides.build: CMakeFiles/Quadcopter_
 
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/inter-thread-messages.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_182)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_180)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c
 
@@ -4417,9 +4369,33 @@ CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.provides: CMakeFiles/Qu
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.provides.build
 
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/autopilot.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_181)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.cpp
+
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.i: cmake_force
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.cpp > CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.i
+
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.s: cmake_force
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.cpp -o CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.s
+
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.provides: CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.provides.build
+
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: src/global_functions.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_183)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_182)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/global_functions.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c
 
@@ -4443,17 +4419,17 @@ CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.provides.build: CMakeFiles/Q
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/PID.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_184)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_183)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.i: cmake_force
 	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/PID.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp > CMakeFiles/Quadcopter_.dir/src/PID.cpp.i
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp > CMakeFiles/Quadcopter_.dir/src/PID.cpp.i
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.s: cmake_force
 	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/PID.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.requires:
 .PHONY : CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.requires
@@ -4467,7 +4443,7 @@ CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.provides.build: CMakeFiles/Quadcopter_.
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/quadcopter.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_185)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_184)
 	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
 	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c
 
@@ -4491,11 +4467,11 @@ CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.provides.build: CMakeFiles/Quadcop
 
 # Object files for target Quadcopter_
 Quadcopter__OBJECTS = \
-"CMakeFiles/Quadcopter_.dir/src/imu.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/osd.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o" \
@@ -4669,10 +4645,9 @@ Quadcopter__OBJECTS = \
 "CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/data_logger.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/autopilot.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/reader.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o" \
+"CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/global_functions.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/PID.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
@@ -4698,11 +4673,11 @@ Quadcopter__EXTERNAL_OBJECTS = \
 "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/IMU_exec.dir/RTFusion.cpp.o" \
 "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/IMU_exec.dir/RTMath.cpp.o"
 
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/imu.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/osd.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o
@@ -4876,10 +4851,9 @@ build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/data_logger.c.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/autopilot.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/reader.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/global_functions.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/PID.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o
@@ -4910,11 +4884,11 @@ build/Quadcopter_: CMakeFiles/Quadcopter_.dir/link.txt
 CMakeFiles/Quadcopter_.dir/build: build/Quadcopter_
 .PHONY : CMakeFiles/Quadcopter_.dir/build
 
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/imu.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/osd.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o.requires
@@ -5088,10 +5062,9 @@ CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/data_logger.c.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/autopilot.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/reader.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.requires

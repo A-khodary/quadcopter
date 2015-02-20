@@ -86,17 +86,17 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp">
       </Unit>
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/imu.cpp">
+      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/testBMP085.c">
       </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.c">
+      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.cpp">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c">
       </Unit>
@@ -425,8 +425,6 @@
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.c">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/Inter thread messages.cbp">
       </Unit>

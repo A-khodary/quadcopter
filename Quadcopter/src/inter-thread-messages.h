@@ -1,7 +1,8 @@
-#ifndef INTER_THREAD_MESSAGES
-#define INTER_THREAD_MESSAGES
-
 #include "shared_librairies.h"
+
+#ifndef ITM_H
+#define ITM_H
+
 
 // Some defines
 
@@ -56,6 +57,6 @@ handler_t* initializeHandler();
 int sendMessage(handler_t* Handler, message_t message);
 message_t* retrieveMessage(handler_t* Handler);
 
-messageDecoded_t decodeMessageITM(message_t* message);
+//messageDecoded_t decodeMessageITM(message_t* message);
 
 #endif

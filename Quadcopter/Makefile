@@ -447,6 +447,30 @@ src/RTIMULib/RTMath.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
 .PHONY : src/RTIMULib/RTMath.cpp.s
 
+src/RTIMULib/imu.o: src/RTIMULib/imu.cpp.o
+.PHONY : src/RTIMULib/imu.o
+
+# target to build an object file
+src/RTIMULib/imu.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o
+.PHONY : src/RTIMULib/imu.cpp.o
+
+src/RTIMULib/imu.i: src/RTIMULib/imu.cpp.i
+.PHONY : src/RTIMULib/imu.i
+
+# target to preprocess a source file
+src/RTIMULib/imu.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.i
+.PHONY : src/RTIMULib/imu.cpp.i
+
+src/RTIMULib/imu.s: src/RTIMULib/imu.cpp.s
+.PHONY : src/RTIMULib/imu.s
+
+# target to generate assembly for a file
+src/RTIMULib/imu.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.s
+.PHONY : src/RTIMULib/imu.cpp.s
+
 src/RTIMULib/testBMP085.o: src/RTIMULib/testBMP085.c.o
 .PHONY : src/RTIMULib/testBMP085.o
 
@@ -471,29 +495,29 @@ src/RTIMULib/testBMP085.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.s
 .PHONY : src/RTIMULib/testBMP085.c.s
 
-src/autopilot.o: src/autopilot.c.o
+src/autopilot.o: src/autopilot.cpp.o
 .PHONY : src/autopilot.o
 
 # target to build an object file
-src/autopilot.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.c.o
-.PHONY : src/autopilot.c.o
+src/autopilot.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o
+.PHONY : src/autopilot.cpp.o
 
-src/autopilot.i: src/autopilot.c.i
+src/autopilot.i: src/autopilot.cpp.i
 .PHONY : src/autopilot.i
 
 # target to preprocess a source file
-src/autopilot.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.c.i
-.PHONY : src/autopilot.c.i
+src/autopilot.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.i
+.PHONY : src/autopilot.cpp.i
 
-src/autopilot.s: src/autopilot.c.s
+src/autopilot.s: src/autopilot.cpp.s
 .PHONY : src/autopilot.s
 
 # target to generate assembly for a file
-src/autopilot.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.c.s
-.PHONY : src/autopilot.c.s
+src/autopilot.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.s
+.PHONY : src/autopilot.cpp.s
 
 src/autopilot_global_functions.o: src/autopilot_global_functions.c.o
 .PHONY : src/autopilot_global_functions.o
@@ -566,30 +590,6 @@ src/global_functions.s: src/global_functions.c.s
 src/global_functions.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.s
 .PHONY : src/global_functions.c.s
-
-src/imu.o: src/imu.c.o
-.PHONY : src/imu.o
-
-# target to build an object file
-src/imu.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.c.o
-.PHONY : src/imu.c.o
-
-src/imu.i: src/imu.c.i
-.PHONY : src/imu.i
-
-# target to preprocess a source file
-src/imu.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.c.i
-.PHONY : src/imu.c.i
-
-src/imu.s: src/imu.c.s
-.PHONY : src/imu.s
-
-# target to generate assembly for a file
-src/imu.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.c.s
-.PHONY : src/imu.c.s
 
 src/inter-thread-messages.o: src/inter-thread-messages.c.o
 .PHONY : src/inter-thread-messages.o
@@ -4527,30 +4527,6 @@ src/reader.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.c.s
 .PHONY : src/reader.c.s
 
-src/reader_global_functions.o: src/reader_global_functions.c.o
-.PHONY : src/reader_global_functions.o
-
-# target to build an object file
-src/reader_global_functions.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o
-.PHONY : src/reader_global_functions.c.o
-
-src/reader_global_functions.i: src/reader_global_functions.c.i
-.PHONY : src/reader_global_functions.i
-
-# target to preprocess a source file
-src/reader_global_functions.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.i
-.PHONY : src/reader_global_functions.c.i
-
-src/reader_global_functions.s: src/reader_global_functions.c.s
-.PHONY : src/reader_global_functions.s
-
-# target to generate assembly for a file
-src/reader_global_functions.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.s
-.PHONY : src/reader_global_functions.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -4602,6 +4578,9 @@ help:
 	@echo "... src/RTIMULib/RTMath.o"
 	@echo "... src/RTIMULib/RTMath.i"
 	@echo "... src/RTIMULib/RTMath.s"
+	@echo "... src/RTIMULib/imu.o"
+	@echo "... src/RTIMULib/imu.i"
+	@echo "... src/RTIMULib/imu.s"
 	@echo "... src/RTIMULib/testBMP085.o"
 	@echo "... src/RTIMULib/testBMP085.i"
 	@echo "... src/RTIMULib/testBMP085.s"
@@ -4617,9 +4596,6 @@ help:
 	@echo "... src/global_functions.o"
 	@echo "... src/global_functions.i"
 	@echo "... src/global_functions.s"
-	@echo "... src/imu.o"
-	@echo "... src/imu.i"
-	@echo "... src/imu.s"
 	@echo "... src/inter-thread-messages.o"
 	@echo "... src/inter-thread-messages.i"
 	@echo "... src/inter-thread-messages.s"
@@ -5112,9 +5088,6 @@ help:
 	@echo "... src/reader.o"
 	@echo "... src/reader.i"
 	@echo "... src/reader.s"
-	@echo "... src/reader_global_functions.o"
-	@echo "... src/reader_global_functions.i"
-	@echo "... src/reader_global_functions.s"
 .PHONY : help
 
 

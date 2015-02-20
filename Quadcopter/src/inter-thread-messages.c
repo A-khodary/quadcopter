@@ -3,10 +3,10 @@
 handler_t* initializeHandler()
 {
     handler_t* handler = malloc(sizeof(handler_t));
-    pthread_mutex_init(handler->fifoMutex);
+    pthread_mutex_init(&handler->fifoMutex , NULL);
 
 
-    pthread_mutex_lock(handler->fifoMutex);
+    pthread_mutex_lock(&handler->fifoMutex);
 
     handler->fifoFirstElement = NULL;
     handler->messagesToProcess = 0;
@@ -14,7 +14,7 @@ handler_t* initializeHandler()
 
     handler->handlerInitialized = 1;
 
-    pthread_mutex_unlock(handler->fifoMutex);
+    pthread_mutex_unlock(&handler->fifoMutex);
 
     return handler;
 }
@@ -32,7 +32,7 @@ int sendMessage(handler_t* handler, message_t messageByValues)
 
     if (!handler->handlerInitialized) return -1; // Not initialized : returning -1
 
-    pthread_mutex_lock(handler->fifoMutex);
+    pthread_mutex_lock(&handler->fifoMutex);
 
     // Locating last message :
 
@@ -45,7 +45,7 @@ int sendMessage(handler_t* handler, message_t messageByValues)
     if (handler->fifoFirstElement == NULL)
     {
         handler->fifoFirstElement = message;
-        pthread_mutex_unlock(handler->fifoMutex);
+        pthread_mutex_unlock(&handler->fifoMutex);
         return 1;
     }
 
@@ -82,7 +82,7 @@ int sendMessage(handler_t* handler, message_t messageByValues)
     }
 
         handler->messagesToProcess++;
-        pthread_mutex_unlock(handler->fifoMutex)
+        pthread_mutex_unlock(&handler->fifoMutex);
 
         return 0;
 }
@@ -93,11 +93,11 @@ message_t* retrieveMessage(handler_t* handler)
 
     if (!handler->handlerInitialized) return NULL;
 
-    pthread_mutex_lock(handler->fifoMutex);
+    pthread_mutex_lock(&handler->fifoMutex);
 
     if (handler->fifoFirstElement == NULL)
     {
-        pthread_mutex_unlock(handler->fifoMutex);
+        pthread_mutex_unlock(&handler->fifoMutex);
         return NULL;
     }
 
@@ -107,11 +107,11 @@ message_t* retrieveMessage(handler_t* handler)
     // Removing the message from Fifo :
 
     handler->fifoFirstElement->previousMessage == NULL;
-    handler->fifoFirsElement = handler->fifoFirstElement->nextMessage;
+    handler->fifoFirstElement = handler->fifoFirstElement->nextMessage;
 
     handler->messagesToProcess -= 1;
 
-    pthread_mutex_unlock(handler->fifoMutex);
+    pthread_mutex_unlock(&handler->fifoMutex);
     return message;
 }
 
@@ -131,6 +131,8 @@ int removeCurrentMessage(handler_t* handler)    NON utile : intégré à la fonc
 
 */
 
+/*
+
 
 messageDecoded_t decodeMessageITM(message_t* message)
 {
@@ -138,30 +140,30 @@ messageDecoded_t decodeMessageITM(message_t* message)
     int i=0;
     char comm[16];
 
-    while (message.message[i] != "_")
+    while (message->message[i] != "_")
     {
-        decoded.destination[i] = message.message[i];
+        decoded.destination[i] = message->message[i];
         i++;
     }
     i++;
 
-    while (message.message[i] != "_")
+    while (message->message[i] != "_")
     {
-        decoded.source[i] = message.message[i];
+        decoded.source[i] = message->message[i];
         i++;
     }
     i++;
 
-    while (message.message[i] != "_")
+    while (message->message[i] != "_")
     {
-        decoded.source[i] = message.message[i];
+        decoded.source[i] = message->message[i];
         i++;
     }
     i++;
 
-    while (message.message[i] != "_")
+    while (message->message[i] != "_")
     {
-        comm = message.message[i];
+        comm = message->message[i];
         i++;
     }
 
@@ -170,12 +172,13 @@ messageDecoded_t decodeMessageITM(message_t* message)
     else if (comm == "order") decoded.operation = ORDER;
     i++;
 
-        while (message.message[i] != "\0")
+        while (message->message[i] != "\0")
     {
-        decoded.message = message.message[i];
+        decoded.message = message->message[i];
         i++;
     }
 
     return decoded;
 }
 
+*/

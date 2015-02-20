@@ -12,12 +12,6 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o: src/RTIMULib/NEO-6M.h
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o: src/RTIMULib/BMP085.h
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o: src/RTIMULib/testBMP085.c
 
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/autopilot.c
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/autopilot.h
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/autopilot_global_variables.h
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/imu_globals_variables.h
-CMakeFiles/Quadcopter_.dir/src/autopilot.c.o: src/shared_librairies.h
-
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: src/autopilot_global_functions.c
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: src/autopilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: src/global_functions.h
@@ -30,22 +24,21 @@ CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/autopilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/data_logger.c
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/data_logger.h
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/data_logger_global_variables.h
+CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/global_functions.h
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/imu_globals_variables.h
+CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/inter-thread-messages.h
+CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/reader_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/data_logger.c.o: src/shared_librairies.h
 
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: src/global_functions.c
+CMakeFiles/Quadcopter_.dir/src/global_functions.c.o: src/global_functions.h
 
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/global_functions.h
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/imu.c
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/imu.h
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/imu_globals_variables.h
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/inter-thread-messages.h
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/proj/proj_api.h
-CMakeFiles/Quadcopter_.dir/src/imu.c.o: src/shared_librairies.h
-
+CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/global_functions.h
+CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/imu_globals_variables.h
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/inter-thread-messages.c
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/inter-thread-messages.h
+CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o: src/shared_librairies.h
 
 CMakeFiles/Quadcopter_.dir/src/osd.c.o: src/global_functions.h
@@ -67,6 +60,8 @@ CMakeFiles/Quadcopter_.dir/src/pilot.c.o: src/reader_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/pilot.c.o: src/shared_librairies.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o: src/proj/PJ_aea.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aea.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o: src/proj/PJ_aeqd.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_aeqd.c.o: src/proj/proj_api.h
@@ -77,6 +72,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_airy.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o: src/proj/PJ_aitoff.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_aitoff.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o: src/proj/PJ_august.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_august.c.o: src/proj/proj_api.h
@@ -87,30 +84,40 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_bacon.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o: src/proj/PJ_bipc.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bipc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o: src/proj/PJ_boggs.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_boggs.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o: src/proj/PJ_bonne.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_bonne.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o: src/proj/PJ_cass.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cass.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o: src/proj/PJ_cc.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_cc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o: src/proj/PJ_cea.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_cea.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o: src/proj/PJ_chamb.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_chamb.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o: src/proj/PJ_collg.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_collg.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o: src/proj/PJ_crast.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_crast.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o: src/proj/PJ_denoy.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_denoy.c.o: src/proj/proj_api.h
@@ -121,16 +128,24 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck1.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o: src/proj/PJ_eck2.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck2.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o: src/proj/PJ_eck3.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck3.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o: src/proj/PJ_eck4.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck4.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o: src/proj/PJ_eck5.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eck5.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o: src/proj/PJ_eqc.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o: src/proj/PJ_eqdc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_eqdc.c.o: src/proj/proj_api.h
@@ -153,8 +168,12 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_geos.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o: src/proj/PJ_gins8.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gins8.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o: src/proj/PJ_gn_sinu.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_gn_sinu.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o: src/proj/PJ_gnom.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_gnom.c.o: src/proj/proj_api.h
@@ -177,40 +196,64 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_hatano.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o: src/proj/PJ_healpix.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_healpix.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o: src/proj/PJ_igh.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o: src/proj/PJ_imw_p.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o: src/proj/PJ_isea.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o: src/proj/PJ_krovak.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_krovak.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o: src/proj/PJ_labrd.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_labrd.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o: src/proj/PJ_laea.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_laea.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o: src/proj/PJ_lagrng.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lagrng.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o: src/proj/PJ_larr.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_larr.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o: src/proj/PJ_lask.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lask.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o: src/proj/PJ_lcc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o: src/proj/PJ_lcca.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lcca.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o: src/proj/PJ_loxim.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_loxim.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o: src/proj/PJ_lsat.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_lsat.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o: src/proj/PJ_mbt_fps.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbt_fps.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o: src/proj/PJ_mbtfpp.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpp.c.o: src/proj/proj_api.h
@@ -221,18 +264,28 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mbtfpq.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o: src/proj/PJ_merc.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_merc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o: src/proj/PJ_mill.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mill.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o: src/proj/PJ_mod_ster.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_mod_ster.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o: src/proj/PJ_moll.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_moll.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o: src/proj/PJ_natearth.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_natearth.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o: src/proj/PJ_nell.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o: src/proj/PJ_nell_h.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nell_h.c.o: src/proj/proj_api.h
@@ -243,38 +296,56 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nocol.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o: src/proj/PJ_nsper.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_nsper.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o: src/proj/PJ_nzmg.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_nzmg.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o: src/proj/PJ_ob_tran.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_ob_tran.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o: src/proj/PJ_ocea.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ocea.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o: src/proj/PJ_oea.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_oea.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o: src/proj/PJ_omerc.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_omerc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o: src/proj/PJ_ortho.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_ortho.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o: src/proj/PJ_poly.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_poly.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o: src/proj/PJ_putp2.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp2.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o: src/proj/PJ_putp3.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp3.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o: src/proj/PJ_putp4p.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp4p.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o: src/proj/PJ_putp5.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp5.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o: src/proj/PJ_putp6.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_putp6.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o: src/proj/PJ_robin.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_robin.c.o: src/proj/proj_api.h
@@ -285,6 +356,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_rpoly.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o: src/proj/PJ_sconics.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sconics.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o: src/proj/PJ_somerc.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_somerc.c.o: src/proj/proj_api.h
@@ -295,18 +368,24 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_stere.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o: src/proj/PJ_sterea.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_sterea.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o: src/proj/PJ_sts.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_sts.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o: src/proj/PJ_tcc.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o: src/proj/PJ_tcea.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tcea.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o: src/proj/PJ_tmerc.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_tmerc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o: src/proj/PJ_tpeqd.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_tpeqd.c.o: src/proj/proj_api.h
@@ -329,12 +408,20 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg2.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o: src/proj/PJ_vandg4.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_vandg4.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o: src/proj/PJ_wag2.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag2.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o: src/proj/PJ_wag3.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag3.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o: src/proj/PJ_wag7.c
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/PJ_wag7.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o: src/proj/PJ_wink1.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_wink1.c.o: src/proj/proj_api.h
@@ -349,6 +436,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/aasincos.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o: src/proj/adjlon.c
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/adjlon.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o: src/proj/bch2bps.c
 CMakeFiles/Quadcopter_.dir/src/proj/bch2bps.c.o: src/proj/proj_api.h
@@ -359,6 +448,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/bchgen.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o: src/proj/biveval.c
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o: src/proj/cs2cs.c
 CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o: src/proj/emess.h
@@ -371,6 +462,7 @@ CMakeFiles/Quadcopter_.dir/src/proj/dmstor.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o: src/proj/emess.c
 CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o: src/proj/emess.h
+CMakeFiles/Quadcopter_.dir/src/proj/emess.c.o: src/proj/proj_api.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o: src/proj/emess.h
 CMakeFiles/Quadcopter_.dir/src/proj/gen_cheb.c.o: src/proj/gen_cheb.c
@@ -409,6 +501,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o: src/proj/proj_config.h
 CMakeFiles/Quadcopter_.dir/src/proj/jniproj.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o: src/proj/mk_cheby.c
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o: src/proj/multistresstest.c
 CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o: src/proj/proj_api.h
@@ -446,6 +540,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_auth.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o: src/proj/pj_ctx.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ctx.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o: src/proj/pj_datum_set.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_datum_set.c.o: src/proj/proj_api.h
@@ -460,12 +556,16 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_deriv.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o: src/proj/pj_ell_set.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_ell_set.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o: src/proj/pj_ellps.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_ellps.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o: src/proj/pj_errno.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_errno.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o: src/proj/pj_factors.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_factors.c.o: src/proj/proj_api.h
@@ -476,10 +576,16 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_fwd.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o: src/proj/pj_gauss.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gauss.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o: src/proj/pj_geocent.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_geocent.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o: src/proj/pj_gridinfo.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_gridinfo.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o: src/proj/pj_gridlist.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_gridlist.c.o: src/proj/proj_api.h
@@ -498,6 +604,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_inv.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o: src/proj/pj_latlong.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_latlong.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o: src/proj/pj_list.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_list.c.o: src/proj/proj_api.h
@@ -512,6 +620,8 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_malloc.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o: src/proj/pj_mlfn.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_mlfn.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o: src/proj/pj_msfn.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_msfn.c.o: src/proj/proj_api.h
@@ -522,20 +632,28 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_mutex.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o: src/proj/pj_open_lib.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_open_lib.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o: src/proj/pj_param.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_param.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o: src/proj/pj_phi2.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_phi2.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o: src/proj/pj_pr_list.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_pr_list.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o: src/proj/pj_qsfn.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_qsfn.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o: src/proj/pj_release.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_release.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o: src/proj/pj_strerrno.c
 CMakeFiles/Quadcopter_.dir/src/proj/pj_strerrno.c.o: src/proj/proj_api.h
@@ -555,8 +673,12 @@ CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/pj_units.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o: src/proj/pj_utils.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_utils.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o: src/proj/pj_zpoly1.c
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.o: src/proj/projects.h
 
 CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o: src/proj/emess.h
 CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o: src/proj/proj.c
@@ -575,12 +697,15 @@ CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o: src/proj/proj_rouss.c
 CMakeFiles/Quadcopter_.dir/src/proj/proj_rouss.c.o: src/proj/projects.h
 
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o: src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/rtodms.c.o: src/proj/rtodms.c
 
 CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o: src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o: src/proj/vector1.c
 
+CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/PID.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/autopilot.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/autopilot_global_functions.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/autopilot_global_variables.h
@@ -588,9 +713,11 @@ CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/data_logger.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/data_logger_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/global_functions.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/imu_globals_variables.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/inter-thread-messages.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/osd.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/pilot.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/pilot_global_variables.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/quadcopter.c
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/reader_global_functions.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/reader_global_variables.h
@@ -598,10 +725,13 @@ CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/shared_librairies.h
 
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: src/reader.c
 
-CMakeFiles/Quadcopter_.dir/src/reader_global_functions.c.o: src/reader_global_functions.c
-
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/PID.cpp
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/PID.h
+CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/global_functions.h
+CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/imu_globals_variables.h
+CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/inter-thread-messages.h
+CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/shared_librairies.h
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp
 
@@ -673,4 +803,17 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o: src/RTIMULib/RTMath
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: src/RTIMULib/RTIMUHal.h
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: src/RTIMULib/RTMath.cpp
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o: src/RTIMULib/RTMath.h
+
+CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o: src/RTIMULib/imu.cpp
+
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/PID.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/autopilot.cpp
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/autopilot.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/autopilot_global_functions.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/autopilot_global_variables.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/global_functions.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/imu_globals_variables.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/inter-thread-messages.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/shared_librairies.h
 
