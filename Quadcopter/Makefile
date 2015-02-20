@@ -471,30 +471,6 @@ src/RTIMULib/imu.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.s
 .PHONY : src/RTIMULib/imu.cpp.s
 
-src/RTIMULib/testBMP085.o: src/RTIMULib/testBMP085.c.o
-.PHONY : src/RTIMULib/testBMP085.o
-
-# target to build an object file
-src/RTIMULib/testBMP085.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o
-.PHONY : src/RTIMULib/testBMP085.c.o
-
-src/RTIMULib/testBMP085.i: src/RTIMULib/testBMP085.c.i
-.PHONY : src/RTIMULib/testBMP085.i
-
-# target to preprocess a source file
-src/RTIMULib/testBMP085.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.i
-.PHONY : src/RTIMULib/testBMP085.c.i
-
-src/RTIMULib/testBMP085.s: src/RTIMULib/testBMP085.c.s
-.PHONY : src/RTIMULib/testBMP085.s
-
-# target to generate assembly for a file
-src/RTIMULib/testBMP085.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.s
-.PHONY : src/RTIMULib/testBMP085.c.s
-
 src/autopilot.o: src/autopilot.cpp.o
 .PHONY : src/autopilot.o
 
@@ -4581,9 +4557,6 @@ help:
 	@echo "... src/RTIMULib/imu.o"
 	@echo "... src/RTIMULib/imu.i"
 	@echo "... src/RTIMULib/imu.s"
-	@echo "... src/RTIMULib/testBMP085.o"
-	@echo "... src/RTIMULib/testBMP085.i"
-	@echo "... src/RTIMULib/testBMP085.s"
 	@echo "... src/autopilot.o"
 	@echo "... src/autopilot.i"
 	@echo "... src/autopilot.s"

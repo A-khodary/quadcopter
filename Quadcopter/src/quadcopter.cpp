@@ -22,7 +22,10 @@
 #include "RTIMULib/RTIMULib.h"
 #include "osd.h"
 #include "pilot.h"
-#include "reader_global_functions.h"
+#include "imu.h"
+#include "reader.h"
+
+
 
 //          ###     Shared functions includes      ###
 
@@ -33,18 +36,18 @@
 //          ###     Shared variables includes      ###
 
 #include "reader_global_variables.h"
-#include 'pilot_global_variables.h"
+#include "pilot_global_variables.h"
 
 
 int main()
 {
 
-    printDebug("Main thread is initializing...")
+    printDebug("Main thread is initializing...");
 
 
     // Threads declaration
 
-    pthread readerThread, writerThread, pilotThread, dataLoggerThread, autopilotThread, imuThread;
+    pthread_t readerThread, pilotThread, dataLoggerThread, autopilotThread, imuThread;
 
     // Message declarations :
 
@@ -67,42 +70,42 @@ int main()
 
     //  Autopilot :
 
-    handler_t* autopilotITMHandler() = initializeHandler();
+    handler_t* autopilotITMHandler = initializeHandler();
     if (autopilotITMHandler == NULL) printDebug("Autopilot handler init error");
 
 
-    bidirectionalHandler_t autopilotBidirectionalHandler;
-    autopilotBidirectionalHandler.mainITMHandler = &mainITMHandler;
-    autopilotBidirectionalHandler.componentITMHandler = &autopilotITMHandler;
+    bidirectionnalHandler_t autopilotBidirectionnalHandler;
+    autopilotBidirectionnalHandler.mainITMHandler = mainITMHandler;
+    autopilotBidirectionnalHandler.componentITMHandler = autopilotITMHandler;
 
     //  Pilot
 
-    handler_t* pilotITMHandler() = initializeHandler();
+    handler_t* pilotITMHandler = initializeHandler();
     if (pilotITMHandler == NULL) printDebug("Pilot handler init error");
 
-    bidirectionalHandler_t pilotBidirectionalHandler;
-    pilotBidirectionalHandler.mainITMHandler = &mainITMHandler;
-    pilotBidirectionalHandler.componentITMHandler = &pilotITMHandler;
+    bidirectionnalHandler_t pilotBidirectionnalHandler;
+    pilotBidirectionnalHandler.mainITMHandler = mainITMHandler;
+    pilotBidirectionnalHandler.componentITMHandler = pilotITMHandler;
 
     // Data logger :
 
-    handler_t* dataLoggerITMHandler() = initializeHandler();
+    handler_t* dataLoggerITMHandler = initializeHandler();
     if (dataLoggerITMHandler == NULL) printDebug("Data Logger handler init error");
 
 
-    bidirectionalHandler_t dataLoggerBidirectionalHandler;
-    dataLoggerBidirectionalHandler.mainITMHandler = &mainITMHandler;
-    dataLoggerBidirectionalHandler.componentITMHandler = &dataLoggerITMHandler;
+    bidirectionnalHandler_t dataLoggerBidirectionnalHandler;
+    dataLoggerBidirectionnalHandler.mainITMHandler = mainITMHandler;
+    dataLoggerBidirectionnalHandler.componentITMHandler = dataLoggerITMHandler;
 
 
     // Reader
 
-    handler_t* readerITMHandler() = initializeHandler();
+    handler_t* readerITMHandler = initializeHandler();
     if (readerITMHandler == NULL) printDebug("Reader handler init error");
 
-    bidirectionalHandler_t readerBidirectionalHandler;
-    readerBidirectionalHandler.mainITMHandler = &mainITMHandler;
-    readerBidirectionalHandler.componentITMHandler = &readerITMHandler;
+    bidirectionnalHandler_t readerBidirectionnalHandler;
+    readerBidirectionnalHandler.mainITMHandler = mainITMHandler;
+    readerBidirectionnalHandler.componentITMHandler = readerITMHandler;
 
 
     // Test initialization :
@@ -114,15 +117,14 @@ int main()
     // End of test initialization
 
 
-    printDebug("Launching components threads...")
+    printDebug("Launching components threads...");
 
 
     pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
-    pthread_create(&writerThread, NULL, writerHandler, (void*)mainITMHandler);
-    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionalHandler);
+    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
-    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionalHandler);
-    pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+    //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
 
     while(1)
@@ -130,7 +132,7 @@ int main()
         // Message processing Area :
 
         currentMessage = retrieveMessage(mainITMHandler);
-        currentDecodedMessage = decodeMessageITM()(currentMessage);
+        //currentDecodedMessage = decodeMessageITM(currentMessage);
 
 
 
@@ -138,28 +140,28 @@ int main()
 
         if(currentDecodedMessage.destination == "autopilot")
         {
-            printDebug("Main Thread is dispatching a message to autopilot : %s", currentDecodedMessage.message);
-            sendMessage(&autopilotITMHandler, currentMessage);// autopilotITMHandler deja pointeur => &???
+            //printDebug("Main Thread is dispatching a message to autopilot : %s", currentDecodedMessage.message);
+            sendMessage(autopilotITMHandler, *currentMessage);
 
         }
 
         if(currentDecodedMessage.destination == "pilot")
         {
-            printDebug("Main Thread is dispatching a message to pilot : %s", currentDecodedMessage.message);
-            sendMessage(&pilotITMHandler, currentMessage);
+            //printDebug("Main Thread is dispatching a message to pilot : %s", currentDecodedMessage.message);
+            sendMessage(pilotITMHandler, *currentMessage);
 
         }
 
         if(currentDecodedMessage.destination == "datalogger")
         {
-            printDebug("Main Thread is dispatching a message to datalogger : %s", currentDecodedMessage.message);
-            sendMessage(&dataLoggerITMHandler, currentMessage);
+            //printDebug("Main Thread is dispatching a message to datalogger : %s", currentDecodedMessage.message);
+            sendMessage(dataLoggerITMHandler, *currentMessage);
         }
 
         if(currentDecodedMessage.destination == "reader")
         {
-            printDebug("Main Thread is dispatching a message to reader : %s", currentDecodedMessage.message);
-            sendMessage(&readerITMHandler, currentMessage);
+            //printDebug("Main Thread is dispatching a message to reader : %s", currentDecodedMessage.message);
+            sendMessage(readerITMHandler, *currentMessage);
         }
 
         if(currentDecodedMessage.destination == "main")
@@ -172,7 +174,7 @@ int main()
                 {
                     pthread_cancel(autopilotThread);
                     // TODO : make restart
-                    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionalHandler);
+                    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
 
                 }
                 else if (currentDecodedMessage.message == "restartthreaddatalogger")
@@ -184,16 +186,16 @@ int main()
 
                 else if (currentDecodedMessage.message == "restartthreadpilot")
                 {
-                    pthread_cancel(pilotThead);
+                    pthread_cancel(pilotThread);
                     // TODO : make restart
-                    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionalHandler);
+                    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
                 }
                 // TODO : do it for all threads
                 else if (currentDecodedMessage.message == "restartthreadimu")
                 {
                     pthread_cancel(imuThread);
                     // TODO : make restart
-                    pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+                    //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
                 }
 
@@ -204,12 +206,6 @@ int main()
                     pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
                 }
 
-                else if (currentDecodedMessage.message == "restartthreadwriter")
-                {
-                    pthread_cancel(writerThread);
-                    // TODO : make restart
-                    pthread_create(&writerThread, NULL, writerHandler, (void*)mainITMHandler);
-                }
 
                 else if (currentDecodedMessage.message == "emergencylanding") // the autopilot can notify main of such event
                 {
@@ -221,7 +217,6 @@ int main()
                 {
 
                     // TODO
-                    pthread_cancel(writerThread);
                     pthread_cancel(autopilotThread);
                 }
 
@@ -229,7 +224,6 @@ int main()
                 {
 
                     // TODO
-                    pthread_cancel(writerThread);
                     pthread_cancel(autopilotThread);
                 }
 

@@ -9,9 +9,6 @@ CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o: src/RTIMULib/NEO-6M.c
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o: src/RTIMULib/NEO-6M.h
 
-CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o: src/RTIMULib/BMP085.h
-CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o: src/RTIMULib/testBMP085.c
-
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: src/autopilot_global_functions.c
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: src/autopilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o: src/global_functions.h

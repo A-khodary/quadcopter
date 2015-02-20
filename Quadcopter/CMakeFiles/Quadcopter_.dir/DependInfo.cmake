@@ -8,7 +8,6 @@ SET(CMAKE_DEPENDS_CHECK_C
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.c.o"
-  "/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/testBMP085.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/data_logger.c.o"
   "/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.c" "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"

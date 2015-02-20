@@ -1,8 +1,9 @@
 //#include "imu.h"
 
-/*
+
 void imuHandler(void* arg)
  {
+     /*
 
      handler_t* mainITMHandler;
      mainITMHandler = (handler_t*)arg;
@@ -68,9 +69,9 @@ void imuHandler(void* arg)
         rawPositionShared.altitude = (dataGPS.altitude*0.1+imuDataAltitude*0.1+(double)receivedCommands.ultrasonicTelemeter*100*0.8);
 
     }
+    */
 
 
  }
 
-*/
 

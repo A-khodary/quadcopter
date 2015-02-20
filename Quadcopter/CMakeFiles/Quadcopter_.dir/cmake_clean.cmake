@@ -6,7 +6,6 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o"
   "CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
   "CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o"
-  "CMakeFiles/Quadcopter_.dir/src/RTIMULib/testBMP085.c.o"
   "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o"
   "CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o"
   "CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.o"

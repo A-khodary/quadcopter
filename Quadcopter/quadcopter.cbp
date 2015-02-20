@@ -88,8 +88,6 @@
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/imu.cpp">
       </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/testBMP085.c">
-      </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.cpp">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c">
@@ -719,8 +717,6 @@
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_config.h">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h">
-      </Unit>
-      <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c.save">
       </Unit>
       <Unit filename="/home/nikita/Scripting/quadcopter/Quadcopter/src/reader.h">
       </Unit>
