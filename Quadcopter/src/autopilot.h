@@ -1,5 +1,4 @@
 
-
 #include "shared_librairies.h"
 #include "autopilot_global_variables.h"
 #include "autopilot_global_functions.h"
@@ -59,7 +58,7 @@ typedef struct autopilotObjectiveFifo_t
 }autopilotObjectiveFifo_t;
 
 
-typedef struct oneWayServoControl
+typedef struct oneWayServoControl_t
 {
     char type[32];
     double consign;
@@ -69,7 +68,7 @@ typedef struct oneWayServoControl
 
     PID pid;
 
-}oneWayServoControl;
+}oneWayServoControl_t;
 
 typedef struct servoControl_t
 {
