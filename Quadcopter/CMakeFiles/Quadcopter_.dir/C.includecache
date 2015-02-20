@@ -6,13 +6,57 @@
 
 #IncludeRegexTransform: 
 
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.c
+autopilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.c
+data_logger.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+uart.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/uart.h
+mavlink/v1.0/common/mavlink.h
+-
+mavlink/v1.0/common/mavlink.h
+-
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+data_logger_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+reader_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+autopilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
+
 /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
 shared_librairies.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 
 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
 
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.c
+inter-thread-messages.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.c
+osd.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
 shared_librairies.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 
@@ -33,6 +77,8 @@ reader_global_variables.h
 /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
 
 /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 
 /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
 math.h
@@ -50,6 +96,8 @@ stdio.h
 math.h
 -
 string.h
+-
+iostream.h
 -
 pthread.h
 -

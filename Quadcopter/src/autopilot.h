@@ -1,13 +1,13 @@
 
+#ifndef AUTOPILOT_H
+#define AUTOPILOT_H
+
 #include "shared_librairies.h"
 #include "autopilot_global_variables.h"
 #include "autopilot_global_functions.h"
 #include "imu_globals_variables.h"
-//#include "pilot_global_variables.h"
+#include "pilot_global_variables.h"
 #include "PID.h"
-
-#ifndef AUTOPILOT
-#define AUTOPILOT
 
 // Some component defines :
 
@@ -26,7 +26,7 @@
 #define LANDTAKEOFFZPI 1
 #define LANDTAKEOFFZPD 1
 #define LANDTAKEOFFYAWP 1
-#define LANDTAKEOFFYAMPI 1
+#define LANDTAKEOFFYAWPI 1
 #define LANDTAKEOFFYAWPD 1
 
 // Some speed definitions :
@@ -44,7 +44,7 @@
 
 // Objective text file list path :
 
-#define OBJECTIVES_PATH objectives.txt
+#define OBJECTIVES_PATH "objectives"
 
 // Structures declarations :
 
@@ -86,7 +86,6 @@ void * autopilotHandler(void * arg);
 // Fifo managing functions prototypes :
 
 
-//TODO : add all the required freeing features :
 
 int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
@@ -109,7 +108,6 @@ void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t relati
 
 int initCalculation(autopilotObjective_t* autopilotObjective);
 int updateCalculation(autopilotObjective_t* autopilotObjective);
-
 
 
 #endif

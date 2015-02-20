@@ -1,5 +1,8 @@
-#ifndef PILOT_GLOBAL
-#define PILOT_GLOBAL
+
+#ifndef PILOT_GLOBAL_V
+#define PILOT_GLOBAL_V
+
+#include "shared_librairies.h"
 
 
 // Some defines for pilot mode :
@@ -15,9 +18,10 @@
 #define AUTOPILOT_LANDING 5
 #define AUTOPILOT_RTH 6
 
+
 // Global variables structures declaration
 
-typedef struct pilotCommandsShared
+typedef struct pilotCommandsShared_t
 {
     double chan1; // 0-100%
     double chan2; // 0-100%
@@ -35,7 +39,7 @@ typedef struct pilotCommandsShared
 
 } pilotCommandsShared_t;
 
-typedef struct pilotStateShared // Pilot state for datalogging
+typedef struct pilotStateShared_t // Pilot state for datalogging
 {
     int pilotMode;
     pthread_mutex_t readWriteMutex;

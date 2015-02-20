@@ -130,7 +130,7 @@
 		</Unit>
 		<Unit filename="data_logger.c">
 			<Option compilerVar="CC" />
-			<Option virtualFolder="Components/Sources/" />
+			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="data_logger.h">
 			<Option virtualFolder="Components/Headers/PILOT/" />

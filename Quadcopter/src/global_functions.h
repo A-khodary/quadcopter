@@ -8,7 +8,7 @@
 
 
 void initialize_mutex(pthread_mutex_t* mutex);
-void printDebug(char string[64]);
+void printDebug(char const *string);
 
 // Global structures :
 

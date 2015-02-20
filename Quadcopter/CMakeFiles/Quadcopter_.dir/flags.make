@@ -3,11 +3,11 @@
 
 # compile C with /usr/bin/gcc
 # compile CXX with /usr/bin/g++
-C_FLAGS =  
+C_FLAGS = -O3  
 
 C_DEFINES = 
 
-CXX_FLAGS =  
+CXX_FLAGS = -O3  
 
 CXX_DEFINES = 
 

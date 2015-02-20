@@ -16,12 +16,9 @@ PID::PID(double p, double i, double d)
 
 void PID::setConstants (double p, double i, double d)
 {
-    if (p>){}
-    else kp = p;
-    if (i>){}
-    else ki = i;
-    if (d>){}
-    else kd = d;
+    kp = p;
+    ki = i;
+    kd = d;
 }
 
 double PID::compute(double input, double setpoint)

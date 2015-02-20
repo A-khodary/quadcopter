@@ -2,10 +2,10 @@
 
 void initialize_mutex(pthread_mutex_t* mutex)
 {
-    *mutex = PTHREAD_MUTEX_INITIALIZER;
+    pthread_mutex_init(mutex, NULL);
 }
 
-void printDebug(char string[64])
+void printDebug(char const *string)
 {
 
 
@@ -18,7 +18,7 @@ int convertPlanarToHome(double* x, double* y, double latitude, double longitude)
 {
     int success=1;
 
-    success = convertPlanar(x,y,latide,longitude);
+    success = convertPlanar(x,y,latitude,longitude);
     *x -= homePosition.x;
     *y -= homePosition.y;
 
@@ -27,6 +27,7 @@ int convertPlanarToHome(double* x, double* y, double latitude, double longitude)
 
 int convertPlanar(double* x, double* y, double latitude, double longitude)
 {
+    int p;
     projPJ pj_merc, pj_latlong;
 
             if (!(pj_merc = pj_init_plus("+proj=merc +ellps=clrk66 +lat_ts=49.03")) ) exit(1); // Cergy latitude
@@ -34,7 +35,7 @@ int convertPlanar(double* x, double* y, double latitude, double longitude)
             *x *= DEG_TO_RAD;
             *y *= DEG_TO_RAD;
             p = pj_transform(pj_latlong, pj_merc, 1, 1, x, y, NULL );
-            exit(0);
+            exit(p);
 }
 
 

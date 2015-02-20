@@ -815,5 +815,6 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h

@@ -814,6 +814,7 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/autopilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/global_functions.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/imu_globals_variables.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/inter-thread-messages.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/pilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/shared_librairies.h
 
