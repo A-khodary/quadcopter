@@ -1,4 +1,8 @@
 #include "autopilot.h"
+<<<<<<< HEAD
+=======
+#include "autopilot_global_variables.h"
+>>>>>>> fc5bc8ae0b0c071d8df1346a25b7b004393b0ca1
 
 /*
 ##############################################
@@ -19,16 +23,30 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
 
     // Locating last objective :
 
+<<<<<<< HEAD
     currentObjective = autopilotObjectiveFifo.firstObjective;
 
     if (currentObjective->priority > objective->priority )
     {
 
         autopilotObjectiveFifo.firstObjective = objective;
+=======
+    currentObjective = autopilotObjectiveFifo->firstObjective;
+
+    if (currentObjective->priority > objective->priority )// dans le cas de priorités décroissantes, sinon ">" devient "<"
+    {
+        //lock mutex
+
+        autopilotObjectiveFifo->firstObjective = objective;
+>>>>>>> fc5bc8ae0b0c071d8df1346a25b7b004393b0ca1
         objective->previousObjective = NULL;
         objective->nextObjective = currentObjective;
         currentObjective->previousObjective = objective;
 
+<<<<<<< HEAD
+=======
+        //unlock mutex
+>>>>>>> fc5bc8ae0b0c071d8df1346a25b7b004393b0ca1
     }
 
 
@@ -83,11 +101,19 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
     if (autopilotObjective == NULL)
     {
         printDebug("The autopilot objective passed to buildServoControl was NULL");
+<<<<<<< HEAD
         return NULL;
     }
 
     servoControl_t* currentServoControl;
     currentServoControl = (servoControl_t*)malloc(sizeof(servoControl_t));
+=======
+        return NULL
+    }
+
+    servoControl_t* currentServoControl;
+    currentServoControl = (servoControl_t)malloc(sizeof(servoControl_t));
+>>>>>>> fc5bc8ae0b0c071d8df1346a25b7b004393b0ca1
 
 
 
@@ -97,7 +123,11 @@ servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
     case LAND_TAKEOFF : //mode  LAND_TAKEOFF
 
         currentServoControl->oneWayNumber = 4;
+<<<<<<< HEAD
         currentServoControl->ServoControlData = (malloc(4*sizeof(oneWayServoControl_t)));
+=======
+        currentServoControl->ServoControlData = (malloc(4*sizeof(oneWayServoControl));
+>>>>>>> fc5bc8ae0b0c071d8df1346a25b7b004393b0ca1
 
                                                 // Basic initialization of commands :
                                                 currentServoControl->ServoControlData[0]->type="x";
@@ -853,3 +883,7 @@ void* autopilotHandler(void* arg)
 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc5bc8ae0b0c071d8df1346a25b7b004393b0ca1
