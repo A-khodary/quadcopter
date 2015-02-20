@@ -106,6 +106,7 @@ int initializeDataGPS(void)
             dataGPS.alt = atoi(&alt);
             //*dataGPS.alt = &alt;
 
+            flag = 0;
         }
     serialClose(fd);
     flag = 0;

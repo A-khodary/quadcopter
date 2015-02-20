@@ -1,7 +1,7 @@
 The main thread receives all and redistributes to the differents components
 
 struct of a message : "destination"_"sender"_"resp/order"_"message"
-protocol : -no ack
+protocol : - no ack
 	   - "resp" , "order", "info" is the command state
 
 
