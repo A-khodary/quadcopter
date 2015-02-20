@@ -639,6 +639,7 @@ void* autopilotHandler(void* arg)
 
     message_t* receivedMessage;
     message_t currentMessage;
+    message_t message;
 
     servoControl_t* currentServoControl;
 
@@ -780,7 +781,7 @@ void* autopilotHandler(void* arg)
             {
                 printDebug("Autopilot received an unrecognized ITM message")
                 //TODO : send event to main
-                message_t message;
+
                 strcpy(message.message, "main_autopilot_info_wrongmessage");
                 sendMessage(mainITMHandler, message );
             }
@@ -832,7 +833,7 @@ void* autopilotHandler(void* arg)
                     {
                         printDebug("Autopilot received an unrecognized ITM message")
                         //TODO : send event to main
-                        message_t message;
+
                         strcpy(message.message, "main_autopilot_info_wrongmessage");
                         sendMessage(mainITMHandler, message );
                     }
@@ -861,9 +862,9 @@ void* autopilotHandler(void* arg)
             if(ObjectiveReached)
             {
                 //TODO : notify main of the objective completion
-                message_t message1;
-                strcpy(message1.message, "main_autopilot_info_objectivecompleted");
-                sendMessage(mainITMHandler, message1 );
+
+                strcpy(message.message, "main_autopilot_info_objectivecompleted");
+                sendMessage(mainITMHandler, message );
                 // Now the objective is reached, we need to free the ressources used :
                 freeServoControl(currentServoControl);
                 freeAutopilotObjective(currentObjective);

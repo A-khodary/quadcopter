@@ -129,15 +129,16 @@ void* pilotHandler(void* arg)
 
     message_t* receivedMessage;
     message_t currentMessage;
+    message_t message;
 
     // End of TODO
 
     if (initPca9685() <= 0)
     {
         // TODO, broadcast connection error to main + priority
-        message_t message1;
-        strcpy(message1.message,"main_pilot_info_initfailed");
-        sendMessage(mainITMHandler, message1);
+
+        strcpy(message.message,"main_pilot_info_initfailed");
+        sendMessage(mainITMHandler, message);
         // END OF TODO
         exit(0);
     }
@@ -158,18 +159,18 @@ void* pilotHandler(void* arg)
          {
              pilotStateShared.pilotMode = CUTOFF;
              // TODO : notify main of cut off + prority
-            message_t message2;
-            strcpy(message2.message,"main_pilot_info_cutoff");
-            sendMessage(mainITMHandler, message2);
+
+            strcpy(message.message,"main_pilot_info_cutoff");
+            sendMessage(mainITMHandler, message);
          }
 
          else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
          {
              pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
              // TODO : notify main of emergency landing
-            message_t message3;
-            strcpy(message3.message,"main_pilot_info_emergencylanding");
-            sendMessage(mainITMHandler, message3);
+
+            strcpy(message.message,"main_pilot_info_emergencylanding");
+            sendMessage(mainITMHandler, message);
 
          }
 
@@ -177,36 +178,36 @@ void* pilotHandler(void* arg)
         {
             pilotStateShared.pilotMode = MANUAL;
             // TODO : notify main of manual piloting and adapt speed to manual
-            message_t message4;
-            strcpy(message4.message,"main_pilot_info_manual");
-            sendMessage(mainITMHandler, message4);
+
+            strcpy(message.message,"main_pilot_info_manual");
+            sendMessage(mainITMHandler, message);
         }
 
         else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
         {
              pilotStateShared.pilotMode = AUTOPILOT_LANDING;
              // TODO : notify main of normal landing
-            message_t message5;
+
             strcpy(message5.message,"main_pilot_info_landing");
-            sendMessage(mainITMHandler, message5);
+            sendMessage(mainITMHandler, message);
         }
 
         else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
         {
              pilotStateShared.pilotMode = AUTOPILOT_RTH;
              // TODO : notify main of return to home
-            message_t message6;
-            strcpy(message6.message,"main_pilot_info_gohome");
-            sendMessage(mainITMHandler, message6);
+
+            strcpy(message.message,"main_pilot_info_gohome");
+            sendMessage(mainITMHandler, message);
         }
 
         else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
         {
             pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
              // TODO : notify main of return to autopilot normal mode
-            message_t message7;
-            strcpy(message7.message,"main_pilot_info_normal");
-            sendMessage(mainITMHandler, message7);
+            message_t message;
+            strcpy(message.message,"main_pilot_info_normal");
+            sendMessage(mainITMHandler, message);
         }
 
         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
