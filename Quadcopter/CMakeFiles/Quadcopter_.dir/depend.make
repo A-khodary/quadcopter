@@ -705,24 +705,6 @@ CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o: src/proj/projects.h
 CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o: src/proj/vector1.c
 
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/PID.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/autopilot.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/autopilot_global_functions.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/autopilot_global_variables.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/data_logger.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/data_logger_global_variables.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/global_functions.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/imu_globals_variables.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/inter-thread-messages.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/osd.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/pilot.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/pilot_global_variables.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/proj/proj_api.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/quadcopter.c
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/reader_global_functions.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/reader_global_variables.h
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/shared_librairies.h
-
 CMakeFiles/Quadcopter_.dir/src/reader.c.o: src/reader.c
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/PID.cpp
@@ -817,4 +799,22 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/inter-thread-messages.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/pilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/shared_librairies.h
+
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/PID.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/autopilot.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/autopilot_global_functions.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/autopilot_global_variables.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/data_logger.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/data_logger_global_variables.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/global_functions.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/imu_globals_variables.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/inter-thread-messages.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/osd.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/pilot.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/pilot_global_variables.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/quadcopter.cpp
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/reader_global_functions.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/reader_global_variables.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/shared_librairies.h
 

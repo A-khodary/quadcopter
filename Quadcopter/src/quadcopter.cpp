@@ -19,7 +19,7 @@
 
 #include "autopilot.h"
 #include "data_logger.h"
-#include "RTIMULib.h"
+#include "RTIMULib/RTIMULib.h"
 #include "osd.h"
 #include "pilot.h"
 #include "reader_global_functions.h"
@@ -28,7 +28,6 @@
 
 #include "global_functions.h"
 #include "autopilot_global_functions.h"
-#include "data_logger_global_functions.h"
 
 
 //          ###     Shared variables includes      ###

@@ -181,8 +181,7 @@
 		<Unit filename="proj/proj_api.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>
-		<Unit filename="quadcopter.c">
-			<Option compilerVar="CC" />
+		<Unit filename="quadcopter.cpp">
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
 		<Unit filename="reader.c">

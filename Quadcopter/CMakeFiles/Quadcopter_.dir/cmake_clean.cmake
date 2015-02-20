@@ -181,8 +181,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o"
   "CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o"
   "CMakeFiles/Quadcopter_.dir/src/global_functions.c.o"
+  "CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o"
   "CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
-  "CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
   "build/Quadcopter_.pdb"
   "build/Quadcopter_"
 )

@@ -4479,29 +4479,29 @@ src/proj/vector1.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.s
 .PHONY : src/proj/vector1.c.s
 
-src/quadcopter.o: src/quadcopter.c.o
+src/quadcopter.o: src/quadcopter.cpp.o
 .PHONY : src/quadcopter.o
 
 # target to build an object file
-src/quadcopter.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o
-.PHONY : src/quadcopter.c.o
+src/quadcopter.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o
+.PHONY : src/quadcopter.cpp.o
 
-src/quadcopter.i: src/quadcopter.c.i
+src/quadcopter.i: src/quadcopter.cpp.i
 .PHONY : src/quadcopter.i
 
 # target to preprocess a source file
-src/quadcopter.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i
-.PHONY : src/quadcopter.c.i
+src/quadcopter.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.i
+.PHONY : src/quadcopter.cpp.i
 
-src/quadcopter.s: src/quadcopter.c.s
+src/quadcopter.s: src/quadcopter.cpp.s
 .PHONY : src/quadcopter.s
 
 # target to generate assembly for a file
-src/quadcopter.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s
-.PHONY : src/quadcopter.c.s
+src/quadcopter.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.s
+.PHONY : src/quadcopter.cpp.s
 
 src/reader.o: src/reader.c.o
 .PHONY : src/reader.o

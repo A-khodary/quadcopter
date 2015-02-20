@@ -705,24 +705,6 @@ CMakeFiles/Quadcopter_.dir/src/proj/vector1.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/projects.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/vector1.c
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o
- /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c
- /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
- /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 CMakeFiles/Quadcopter_.dir/src/reader.c.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.c
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o
@@ -817,4 +799,22 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.cpp
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_functions.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h

@@ -4417,9 +4417,33 @@ CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.provides: CMakeFiles/Quadcop
 CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/global_functions.c.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.provides.build
 
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/quadcopter.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_183)
+	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.cpp
+
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.i: cmake_force
+	@echo "Preprocessing CXX source to CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.cpp > CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.i
+
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.s: cmake_force
+	@echo "Compiling CXX source to assembly CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.cpp -o CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.s
+
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.requires:
+.PHONY : CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.requires
+
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.provides: CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.provides.build
+.PHONY : CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.provides
+
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o
+.PHONY : CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.provides.build
+
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: CMakeFiles/Quadcopter_.dir/flags.make
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/PID.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_183)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_184)
 	@echo "Building CXX object CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/PID.cpp.o -c /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp
 
@@ -4440,30 +4464,6 @@ CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.provides: CMakeFiles/Quadcopter_.dir/sr
 
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.provides.build: CMakeFiles/Quadcopter_.dir/src/PID.cpp.o
 .PHONY : CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.provides.build
-
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: CMakeFiles/Quadcopter_.dir/flags.make
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o: src/quadcopter.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles $(CMAKE_PROGRESS_184)
-	@echo "Building C object CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o   -c /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c
-
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i: cmake_force
-	@echo "Preprocessing C source to CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c > CMakeFiles/Quadcopter_.dir/src/quadcopter.c.i
-
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s: cmake_force
-	@echo "Compiling C source to assembly CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.c -o CMakeFiles/Quadcopter_.dir/src/quadcopter.c.s
-
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.requires:
-.PHONY : CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.requires
-
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.provides: CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.requires
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.provides.build
-.PHONY : CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.provides
-
-CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.provides.build: CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o
-.PHONY : CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.provides.build
 
 # Object files for target Quadcopter_
 Quadcopter__OBJECTS = \
@@ -4649,8 +4649,8 @@ Quadcopter__OBJECTS = \
 "CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o" \
 "CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o" \
 "CMakeFiles/Quadcopter_.dir/src/global_functions.c.o" \
-"CMakeFiles/Quadcopter_.dir/src/PID.cpp.o" \
-"CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o"
+"CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o" \
+"CMakeFiles/Quadcopter_.dir/src/PID.cpp.o"
 
 # External object files for target Quadcopter_
 Quadcopter__EXTERNAL_OBJECTS = \
@@ -4855,8 +4855,8 @@ build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/reader.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/global_functions.c.o
+build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/PID.cpp.o
-build/Quadcopter_: CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o
 build/Quadcopter_: CMakeFiles/Quadcopter_.dir/build.make
 build/Quadcopter_: src/RTIMULib/CMakeFiles/IMULib.dir/RTFusionKalman4.cpp.o
 build/Quadcopter_: src/RTIMULib/CMakeFiles/IMULib.dir/RTIMU.cpp.o
@@ -5066,8 +5066,8 @@ CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/reader.c.o.r
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/global_functions.c.o.requires
+CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o.requires
 CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/PID.cpp.o.requires
-CMakeFiles/Quadcopter_.dir/requires: CMakeFiles/Quadcopter_.dir/src/quadcopter.c.o.requires
 .PHONY : CMakeFiles/Quadcopter_.dir/requires
 
 CMakeFiles/Quadcopter_.dir/clean:
