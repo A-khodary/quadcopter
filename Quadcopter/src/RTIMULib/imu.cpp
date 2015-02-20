@@ -50,7 +50,7 @@ void imuHandler(void* arg)
     positionShared.y = sin(flightStateShared.roll)*cos(flightStateShared.pitch);
     positionShared.z = sin(flightStateShared.pitch);
 
-    */
+
 
     message_t message1,message2;
     strcpy(message1.message,"reader_imu_order_ultrasonicon");

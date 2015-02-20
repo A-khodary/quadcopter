@@ -119,8 +119,7 @@
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
-		<Unit filename="autopilot.c">
-			<Option compilerVar="CC" />
+		<Unit filename="autopilot.cpp">
 			<Option virtualFolder="Components/Sources/AUTOPILOT/" />
 		</Unit>
 		<Unit filename="autopilot.h">
@@ -134,7 +133,7 @@
 			<Option virtualFolder="Components/Sources/" />
 		</Unit>
 		<Unit filename="data_logger.h">
-			<Option virtualFolder="Components/Headers/" />
+			<Option virtualFolder="Components/Headers/PILOT/" />
 		</Unit>
 		<Unit filename="data_logger_global_variables.h">
 			<Option virtualFolder="Shared ressources/Headers/" />

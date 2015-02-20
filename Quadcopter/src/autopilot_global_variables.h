@@ -1,5 +1,8 @@
 #include "shared_librairies.h"
 
+#ifndef AUTOPILOT_GLOB
+#define AUTOPILOT_GLOB
+
 // Some defines :
 
 // Objective code defines :
@@ -67,5 +70,7 @@ extern float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
 
 
 extern autopilotSharedState_t autopilotSharedState;
+
+#endif
 
 

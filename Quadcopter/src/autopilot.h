@@ -1,11 +1,13 @@
-#ifndef AUTOPILOT
-#define AUTOPILOT
+
 
 #include "shared_librairies.h"
 #include "autopilot_global_variables.h"
 #include "autopilot_global_functions.h"
 #include "imu_globals_variables.h"
 #include "PID.h"
+
+#ifndef AUTOPILOT
+#define AUTOPILOT
 
 // Some component defines :
 
@@ -44,38 +46,6 @@
 
 #define OBJECTIVES_PATH objectives.txt
 
-
-
-void * autopilotHandler(void * arg);
-
-// Fifo managing functions prototypes :
-
-
-//TODO : add all the required freeing features :
-
-int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
-int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int flushFifoObjective(autopilotOjectiveFifo_t autopilotObjectiveFifo);
-int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-void freeAutopilotObjective (autopilotObjective_t* autopilotObjective);
-
-
-// Servo controlling prototypes :
-
-servoControl_t* buildServoControl(autopilotObjective_t autopilotObjective);
-void freeServoControl(servoControl_t*);
-void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t relativeObjective);
-
-// Objective calculations prototypes :
-
-int initCalculation(autopilotObjective_t* autopilotObjective);
-int updateCalculation(autopilotObjective_t* autopilotObjective);
-
-
 // Structures declarations :
 
 typedef struct autopilotObjectiveFifo_t
@@ -107,6 +77,39 @@ typedef struct servoControl_t
     oneWayServoControl* ServoControlData;
 
 }servoControl_t;
+
+
+
+
+void * autopilotHandler(void * arg);
+
+// Fifo managing functions prototypes :
+
+
+//TODO : add all the required freeing features :
+
+int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int flushFifoObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+void freeAutopilotObjective (autopilotObjective_t* autopilotObjective);
+
+
+// Servo controlling prototypes :
+
+servoControl_t* buildServoControl(autopilotObjective_t autopilotObjective);
+void freeServoControl(servoControl_t*);
+void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t relativeObjective);
+
+// Objective calculations prototypes :
+
+int initCalculation(autopilotObjective_t* autopilotObjective);
+int updateCalculation(autopilotObjective_t* autopilotObjective);
+
 
 
 #endif
