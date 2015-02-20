@@ -13,51 +13,65 @@
 
 int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
+
     int objectiveIndex;
     autopilotObjective_t* currentObjective;
     autopilotObjective_t* lastObjective;
 
-
     // Locating last objective :
 
     currentObjective = autopilotObjectiveFifo->firstObjective;
+
+    if (currentObjective->priority > objective->priority )// dans le cas de priorités décroissantes, sinon ">" devient "<"
+    {
+        //lock mutex
+
+        autopilotObjectiveFifo->firstObjective = objective;
+        objective->previousObjective = NULL;
+        objective->nextObjective = currentObjective;
+        currentObjective->previousObjective = objective;
+
+        //unlock mutex
+    }
+
+
     while (currentObjective->nextObjective != NULL) currentObjective = currentObjective->nextObjective;
     lastObjective = currentObjective;
 
     // Checking last objective priority :
 
-    if (lastObjective->priority < Objective>priority)
+    if (lastObjective->priority < objective->priority)
     {
         // Now we have to search the last objective corresponding to priority :
 
         currentObjective = lastObjective;
-        while (currentObjective->previousObjective != NULL && currentObjective->priority < Objective->priority) currentObjective = currentObjective->previousObjective;
+        while (currentObjective->previousObjective != NULL && currentObjective->priority < objective->priority) currentObjective = currentObjective->previousObjective;
 
         if (currentObjective->previousObjective == NULL)
         {
-            currentObjective->previousObjective = Objective; // We have reached the first element of the fifo // TODO : debug on first objective
+            currentObjective->previousObjective = objective; // We have reached the first element of the fifo // TODO : debug on first objective
         }
 
         else // We need to insert our objective between the two
         {
             // Preparing our objective :
-            Objective->nextObjective= currentObjective->nextObjective;
-            Objective->previousObjective = currentObjective;
+            objective->nextObjective= currentObjective->nextObjective;
+            objective->previousObjective = currentObjective;
 
             // Inserting it :
-            currentObjective->nextObjective->previousObjective = Objective;
-            currentObjective->nextObjective = Objective;
+            currentObjective->nextObjective->previousObjective = objective;
+            currentObjective->nextObjective = objective;
         }
 
     }
     else
     {
         // Preparing our Objective :
-        Objective->previousObjective = lastObjective;
-        Objective->nextObjective = NULL;
+        objective->previousObjective = lastObjective;
+        objective->nextObjective = NULL;
 
         // Inserting it :
-        lastObjective->nextObjective = Objective;
+        lastObjective->nextObjective = objective;
     }
 
     autopilotObjectiveFifo.numberOfObjectivesPending++;
@@ -307,7 +321,7 @@ autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopil
                 currentObjective = currentObjective->nextObjective;
             }
 
-
+        removeSpecificObjectivebyNumber(objectiveNumber, autopilotObjectiveFifo);
         return currentObjective;
         }
     }
@@ -319,15 +333,19 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
     autopilotObjective_t* currentObjective;
     currentObjective = autopilotObjectiveFifo->firstObjective;
 
+    int i = 1;
+
     while(currentObjective != NULL)
     {
         if(!strcmp(objectiveName, currentObjective->name))
         {
+            removeSpecificObjectivebyNumber(i, autopilotObjectiveFifo)
             return currentObjective;
         }
         else
         {
             currentObjective = currentObjective->nextObjective;
+            i++;
         }
     }
     return NULL;
@@ -654,9 +672,9 @@ void* autopilotHandler(void* arg)
     autopilotObjectiveFifo.numberOfObjectivesPending = 0
 
 
-            // File reading for basic configuration
+    // File reading for basic configuration
 
-            writtenObjectives = fopen(OBJECTIVES_PATH, "r");
+    writtenObjectives = fopen(OBJECTIVES_PATH, "r");
     if (writtenObjectives == NULL)
     {
         printDebug("Autopilot objective file not found");
@@ -701,7 +719,7 @@ void* autopilotHandler(void* arg)
     //Notify main thread of end of init
 
 
-    strcpy(currentMessage.message, "main_autopilot_endofinit");
+    strcpy(currentMessage.message, "main_autopilot_info_endofinit");
     currentMessage.priority = 20
 
     sendMessage(mainITMHandler, currentMessage);
@@ -711,8 +729,34 @@ void* autopilotHandler(void* arg)
         receivedMessage = retrieveMessage(autopilotITMHandler);
         if (receivedMessage != NULL)
         {
-            // TODO : process message
+            // TODO : process message and decide priorities
             printDebug("New ITM message received by autopilot");
+            if(receivedMessage->message == "???_autopilot_order_newobjective")
+            {
+                //TODO : behaviour
+                 insertObjective(receivedMessage->data,autopilotObjectiveFifo);//autopilot_new_objective sous forme de message.data ?
+            }
+
+            /*else if (receivedMessage->message == "autopilot_emergency_landing")
+            {
+                // TODO : behaviour
+                 insertObjective(receivedMessage->data,autopilotObjectiveFifo);
+            }*/
+
+             //TODO : add all the events handling
+             else if(receivedMessage->message == "autopilot_imu_order_???")
+             {
+                //TODO : behaviour
+
+             }
+            else
+            {
+                printDebug("Autopilot received an unrecognized ITM message")
+                //TODO : send event to main
+                message_t message;
+                strcpy(message.message, "main_autopilot_info_wrongmessage");
+                sendMessage(mainITMHandler, message );
+            }
         }
 
 
@@ -736,13 +780,13 @@ void* autopilotHandler(void* arg)
                 receivedMessage = retrieveMessage(autopilotITMHandler);
                 if (receivedMessage != NULL)
                 {
-                    // TODO : process message
+                    // TODO : process message and decide priorities
                     printDebug("New ITM message received by autopilot");
 
-                    if(receivedMessage->message == "autopilot_new_objective")
+                    if(receivedMessage->message == "???_autopilot_order_newobjective")
                     {
                         //TODO : behaviour
-                         insertObjective(receivedMessage->data,autopilotObjectiveFifo);
+                         insertObjective(receivedMessage->data,autopilotObjectiveFifo);//autopilot_new_objective sous forme de message.data ?
                     }
 
                     /*else if (receivedMessage->message == "autopilot_emergency_landing")
@@ -751,15 +795,19 @@ void* autopilotHandler(void* arg)
                          insertObjective(receivedMessage->data,autopilotObjectiveFifo);
                     }*/
 
-                    //TODO : add all the events handling
+                     //TODO : add all the events handling
+                     else if(receivedMessage->message == "autopilot_imu_order_???")
+                     {
+                        //TODO : behaviour
 
+                     }
                     else
                     {
                         printDebug("Autopilot received an unrecognized ITM message")
                         //TODO : send event to main
                         message_t message;
                         strcpy(message.message, "main_autopilot_info_wrongmessage");
-                        sendMessage(mainITMHandler, message )
+                        sendMessage(mainITMHandler, message );
                     }
 
 
@@ -785,8 +833,10 @@ void* autopilotHandler(void* arg)
 
             if(ObjectiveReached)
             {
-                //TODO : notify main of the objective completition
-
+                //TODO : notify main of the objective completion
+                message_t message1;
+                strcpy(message1.message, "main_autopilot_info_objectivecompleted");
+                sendMessage(mainITMHandler, message1 );
                 // Now the objective is reached, we need to free the ressources used :
                 freeServoControl(currentServoControl);
                 freeAutopilotObjective(currentObjective);
