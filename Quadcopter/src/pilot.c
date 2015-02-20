@@ -118,14 +118,26 @@ void* pilotHandler(void* arg)
     printDebug("[i] New pilot Handler Launched");
     // TODO Event handler initialization
 
+    bidirectionalHandler_t* bidirectionalHandler;
+    bidirectionalHandler = (bidirectionalHandler_t*)arg;
+
+    handler_t* mainITMHandler;
+    handler_t* pilotITMHandler;
+
+    mainITMHandler = bidirectionalHandler.mainITMHandler;
+    pilotITMHandler = bidirectionalHandler.componentITMHandler;
+
+    message_t* receivedMessage;
+    message_t currentMessage;
 
     // End of TODO
 
     if (initPca9685() <= 0)
     {
-        // TODO, broadcast connection error to main
-
-
+        // TODO, broadcast connection error to main + priority
+        message_t message1;
+        strcpy(message1.message,"main_pilot_info_initfailed");
+        sendMessage(mainITMHandler, message1);
         // END OF TODO
         exit(0);
     }
@@ -145,37 +157,56 @@ void* pilotHandler(void* arg)
          if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
          {
              pilotStateShared.pilotMode = CUTOFF;
-             // TODO : notify main of cut off
+             // TODO : notify main of cut off + prority
+            message_t message2;
+            strcpy(message2.message,"main_pilot_info_cutoff");
+            sendMessage(mainITMHandler, message2);
          }
 
          else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
          {
              pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
              // TODO : notify main of emergency landing
+            message_t message3;
+            strcpy(message3.message,"main_pilot_info_emergencylanding");
+            sendMessage(mainITMHandler, message3);
+
          }
 
          else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
         {
             pilotStateShared.pilotMode = MANUAL;
             // TODO : notify main of manual piloting and adapt speed to manual
+            message_t message4;
+            strcpy(message4.message,"main_pilot_info_manual");
+            sendMessage(mainITMHandler, message4);
         }
 
         else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
         {
              pilotStateShared.pilotMode = AUTOPILOT_LANDING;
              // TODO : notify main of normal landing
+            message_t message5;
+            strcpy(message5.message,"main_pilot_info_landing");
+            sendMessage(mainITMHandler, message5);
         }
 
         else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
         {
              pilotStateShared.pilotMode = AUTOPILOT_RTH;
              // TODO : notify main of return to home
+            message_t message6;
+            strcpy(message6.message,"main_pilot_info_gohome");
+            sendMessage(mainITMHandler, message6);
         }
 
         else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
         {
-             pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
              // TODO : notify main of return to autopilot normal mode
+            message_t message7;
+            strcpy(message7.message,"main_pilot_info_normal");
+            sendMessage(mainITMHandler, message7);
         }
 
         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);

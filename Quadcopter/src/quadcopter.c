@@ -135,12 +135,12 @@ int main()
 
 
 
-                                // TODO handling message :
+        // TODO handling message :
 
-                                if(currentDecodedMessage.destination == "autopilot")
+        if(currentDecodedMessage.destination == "autopilot")
         {
             printDebug("Main Thread is dispatching a message to autopilot : %s", currentDecodedMessage.message);
-            sendMessage(&autopilotITMHandler, currentMessage);
+            sendMessage(&autopilotITMHandler, currentMessage);// autopilotITMHandler deja pointeur => &???
 
         }
 
@@ -173,19 +173,44 @@ int main()
                 {
                     pthread_cancel(autopilotThread);
                     // TODO : make restart
+                    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionalHandler);
+
                 }
                 else if (currentDecodedMessage.message == "restartthreaddatalogger")
                 {
                     pthread_cancel(dataLoggerThread);
                     // TODO : make restart
+                    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
                 }
 
                 else if (currentDecodedMessage.message == "restartthreadpilot")
                 {
                     pthread_cancel(pilotThead);
                     // TODO : make restart
+                    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionalHandler);
                 }
                 // TODO : do it for all threads
+                else if (currentDecodedMessage.message == "restartthreadimu")
+                {
+                    pthread_cancel(imuThread);
+                    // TODO : make restart
+                    pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+
+                }
+
+                else if (currentDecodedMessage.message == "restartthreadreader")
+                {
+                    pthread_cancel(readerThread);
+                    // TODO : make restart
+                    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+                }
+
+                else if (currentDecodedMessage.message == "restartthreadwriter")
+                {
+                    pthread_cancel(writerThread);
+                    // TODO : make restart
+                    pthread_create(&writerThread, NULL, writerHandler, (void*)mainITMHandler);
+                }
 
                 else if (currentDecodedMessage.message == "emergencylanding") // the autopilot can notify main of such event
                 {
@@ -197,12 +222,16 @@ int main()
                 {
 
                     // TODO
+                    pthread_cancel(writerThread);
+                    pthread_cancel(autopilotThread);
                 }
 
                 else if (currentDecodedMessage.message == "crashed") // the autopilot can notify main of such event
                 {
 
                     // TODO
+                    pthread_cancel(writerThread);
+                    pthread_cancel(autopilotThread);
                 }
 
                 else if (currentDecodedMessage.message == "takeoffed") // the autopilot can notify main of such event
@@ -215,6 +244,8 @@ int main()
                 {
 
                     // TODO
+                    printDebug("Invalid objective path for autopilot");
+                    currentDecodedMessage.message == "restartthreadautopilot";// ???
                 }
 
 
