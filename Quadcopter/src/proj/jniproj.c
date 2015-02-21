@@ -42,7 +42,7 @@
  * \date   August 2011
  */
 
-#include "proj_config.h"
+//#include "proj_config.h"
 
 #ifdef JNI_ENABLED
 

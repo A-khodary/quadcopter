@@ -1,8 +1,0 @@
-cmake_minimum_required(VERSION 2.8.3)
-project( quadcopter )
-SET(COMPILE_DEFINITIONS -Werror)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
-add_library (IMULib /home/nikita/Scripting/quadcopter/Quadcopter/RTIMULib/*.cpp)
-add_executable (IMU_exec /home/nikita/Scripting/quadcopter/Quadcopter/RTIMULib/*.cpp)
-target_link_libraries (IMU_exec LINK_PUBLIC IMULib)
-

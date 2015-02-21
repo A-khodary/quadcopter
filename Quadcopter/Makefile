@@ -8,16 +8,13 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
 SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
-
-# Produce verbose output by default.
-VERBOSE = 1
 
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
@@ -33,24 +30,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
+
+# Escaping for special characters.
+EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
+CMAKE_SOURCE_DIR = /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
+CMAKE_BINARY_DIR = /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@echo "Running interactive CMake command-line interface..."
-	/usr/local/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
+	/usr/bin/cmake -i .
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -59,8 +59,8 @@ edit_cache/fast: edit_cache
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
-	@echo "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/CMakeFiles /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -158,54 +158,6 @@ src/RTIMULib/BMP085.s: src/RTIMULib/BMP085.c.s
 src/RTIMULib/BMP085.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.c.s
 .PHONY : src/RTIMULib/BMP085.c.s
-
-src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o
-
-# target to build an object file
-src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.o
-
-src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.i: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.i
-
-# target to preprocess a source file
-src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.i
-
-src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.s: src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.s
-
-# target to generate assembly for a file
-src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.c.s
-
-src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o
-
-# target to build an object file
-src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.o
-
-src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.i: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.i
-
-# target to preprocess a source file
-src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.i
-
-src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.s: src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.s
-
-# target to generate assembly for a file
-src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
-.PHONY : src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.cpp.s
 
 src/RTIMULib/NEO-6M.o: src/RTIMULib/NEO-6M.c.o
 .PHONY : src/RTIMULib/NEO-6M.o
@@ -447,30 +399,6 @@ src/RTIMULib/RTMath.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
 .PHONY : src/RTIMULib/RTMath.cpp.s
 
-src/RTIMULib/imu.o: src/RTIMULib/imu.cpp.o
-.PHONY : src/RTIMULib/imu.o
-
-# target to build an object file
-src/RTIMULib/imu.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.o
-.PHONY : src/RTIMULib/imu.cpp.o
-
-src/RTIMULib/imu.i: src/RTIMULib/imu.cpp.i
-.PHONY : src/RTIMULib/imu.i
-
-# target to preprocess a source file
-src/RTIMULib/imu.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.i
-.PHONY : src/RTIMULib/imu.cpp.i
-
-src/RTIMULib/imu.s: src/RTIMULib/imu.cpp.s
-.PHONY : src/RTIMULib/imu.s
-
-# target to generate assembly for a file
-src/RTIMULib/imu.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/imu.cpp.s
-.PHONY : src/RTIMULib/imu.cpp.s
-
 src/autopilot.o: src/autopilot.cpp.o
 .PHONY : src/autopilot.o
 
@@ -494,30 +422,6 @@ src/autopilot.s: src/autopilot.cpp.s
 src/autopilot.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.s
 .PHONY : src/autopilot.cpp.s
-
-src/autopilot_global_functions.o: src/autopilot_global_functions.c.o
-.PHONY : src/autopilot_global_functions.o
-
-# target to build an object file
-src/autopilot_global_functions.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.o
-.PHONY : src/autopilot_global_functions.c.o
-
-src/autopilot_global_functions.i: src/autopilot_global_functions.c.i
-.PHONY : src/autopilot_global_functions.i
-
-# target to preprocess a source file
-src/autopilot_global_functions.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.i
-.PHONY : src/autopilot_global_functions.c.i
-
-src/autopilot_global_functions.s: src/autopilot_global_functions.c.s
-.PHONY : src/autopilot_global_functions.s
-
-# target to generate assembly for a file
-src/autopilot_global_functions.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot_global_functions.c.s
-.PHONY : src/autopilot_global_functions.c.s
 
 src/data_logger.o: src/data_logger.c.o
 .PHONY : src/data_logger.o
@@ -566,6 +470,30 @@ src/global_functions.s: src/global_functions.c.s
 src/global_functions.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.s
 .PHONY : src/global_functions.c.s
+
+src/imu.o: src/imu.cpp.o
+.PHONY : src/imu.o
+
+# target to build an object file
+src/imu.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.o
+.PHONY : src/imu.cpp.o
+
+src/imu.i: src/imu.cpp.i
+.PHONY : src/imu.i
+
+# target to preprocess a source file
+src/imu.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.i
+.PHONY : src/imu.cpp.i
+
+src/imu.s: src/imu.cpp.s
+.PHONY : src/imu.s
+
+# target to generate assembly for a file
+src/imu.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.s
+.PHONY : src/imu.cpp.s
 
 src/inter-thread-messages.o: src/inter-thread-messages.c.o
 .PHONY : src/inter-thread-messages.o
@@ -1502,30 +1430,6 @@ src/proj/PJ_igh.s: src/proj/PJ_igh.c.s
 src/proj/PJ_igh.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.s
 .PHONY : src/proj/PJ_igh.c.s
-
-src/proj/PJ_imw_p.o: src/proj/PJ_imw_p.c.o
-.PHONY : src/proj/PJ_imw_p.o
-
-# target to build an object file
-src/proj/PJ_imw_p.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o
-.PHONY : src/proj/PJ_imw_p.c.o
-
-src/proj/PJ_imw_p.i: src/proj/PJ_imw_p.c.i
-.PHONY : src/proj/PJ_imw_p.i
-
-# target to preprocess a source file
-src/proj/PJ_imw_p.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.i
-.PHONY : src/proj/PJ_imw_p.c.i
-
-src/proj/PJ_imw_p.s: src/proj/PJ_imw_p.c.s
-.PHONY : src/proj/PJ_imw_p.s
-
-# target to generate assembly for a file
-src/proj/PJ_imw_p.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.s
-.PHONY : src/proj/PJ_imw_p.c.s
 
 src/proj/PJ_isea.o: src/proj/PJ_isea.c.o
 .PHONY : src/proj/PJ_isea.o
@@ -2991,30 +2895,6 @@ src/proj/biveval.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/biveval.c.s
 .PHONY : src/proj/biveval.c.s
 
-src/proj/cs2cs.o: src/proj/cs2cs.c.o
-.PHONY : src/proj/cs2cs.o
-
-# target to build an object file
-src/proj/cs2cs.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.o
-.PHONY : src/proj/cs2cs.c.o
-
-src/proj/cs2cs.i: src/proj/cs2cs.c.i
-.PHONY : src/proj/cs2cs.i
-
-# target to preprocess a source file
-src/proj/cs2cs.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.i
-.PHONY : src/proj/cs2cs.c.i
-
-src/proj/cs2cs.s: src/proj/cs2cs.c.s
-.PHONY : src/proj/cs2cs.s
-
-# target to generate assembly for a file
-src/proj/cs2cs.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/cs2cs.c.s
-.PHONY : src/proj/cs2cs.c.s
-
 src/proj/dmstor.o: src/proj/dmstor.c.o
 .PHONY : src/proj/dmstor.o
 
@@ -3110,30 +2990,6 @@ src/proj/geocent.s: src/proj/geocent.c.s
 src/proj/geocent.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geocent.c.s
 .PHONY : src/proj/geocent.c.s
-
-src/proj/geod.o: src/proj/geod.c.o
-.PHONY : src/proj/geod.o
-
-# target to build an object file
-src/proj/geod.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod.c.o
-.PHONY : src/proj/geod.c.o
-
-src/proj/geod.i: src/proj/geod.c.i
-.PHONY : src/proj/geod.i
-
-# target to preprocess a source file
-src/proj/geod.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod.c.i
-.PHONY : src/proj/geod.c.i
-
-src/proj/geod.s: src/proj/geod.c.s
-.PHONY : src/proj/geod.s
-
-# target to generate assembly for a file
-src/proj/geod.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/geod.c.s
-.PHONY : src/proj/geod.c.s
 
 src/proj/geod_for.o: src/proj/geod_for.c.o
 .PHONY : src/proj/geod_for.o
@@ -3254,54 +3110,6 @@ src/proj/mk_cheby.s: src/proj/mk_cheby.c.s
 src/proj/mk_cheby.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/mk_cheby.c.s
 .PHONY : src/proj/mk_cheby.c.s
-
-src/proj/multistresstest.o: src/proj/multistresstest.c.o
-.PHONY : src/proj/multistresstest.o
-
-# target to build an object file
-src/proj/multistresstest.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.o
-.PHONY : src/proj/multistresstest.c.o
-
-src/proj/multistresstest.i: src/proj/multistresstest.c.i
-.PHONY : src/proj/multistresstest.i
-
-# target to preprocess a source file
-src/proj/multistresstest.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.i
-.PHONY : src/proj/multistresstest.c.i
-
-src/proj/multistresstest.s: src/proj/multistresstest.c.s
-.PHONY : src/proj/multistresstest.s
-
-# target to generate assembly for a file
-src/proj/multistresstest.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/multistresstest.c.s
-.PHONY : src/proj/multistresstest.c.s
-
-src/proj/nad2bin.o: src/proj/nad2bin.c.o
-.PHONY : src/proj/nad2bin.o
-
-# target to build an object file
-src/proj/nad2bin.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.o
-.PHONY : src/proj/nad2bin.c.o
-
-src/proj/nad2bin.i: src/proj/nad2bin.c.i
-.PHONY : src/proj/nad2bin.i
-
-# target to preprocess a source file
-src/proj/nad2bin.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.i
-.PHONY : src/proj/nad2bin.c.i
-
-src/proj/nad2bin.s: src/proj/nad2bin.c.s
-.PHONY : src/proj/nad2bin.s
-
-# target to generate assembly for a file
-src/proj/nad2bin.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/nad2bin.c.s
-.PHONY : src/proj/nad2bin.c.s
 
 src/proj/nad_cvt.o: src/proj/nad_cvt.c.o
 .PHONY : src/proj/nad_cvt.o
@@ -4311,30 +4119,6 @@ src/proj/pj_zpoly1.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/pj_zpoly1.c.s
 .PHONY : src/proj/pj_zpoly1.c.s
 
-src/proj/proj.o: src/proj/proj.c.o
-.PHONY : src/proj/proj.o
-
-# target to build an object file
-src/proj/proj.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj.c.o
-.PHONY : src/proj/proj.c.o
-
-src/proj/proj.i: src/proj/proj.c.i
-.PHONY : src/proj/proj.i
-
-# target to preprocess a source file
-src/proj/proj.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj.c.i
-.PHONY : src/proj/proj.c.i
-
-src/proj/proj.s: src/proj/proj.c.s
-.PHONY : src/proj/proj.s
-
-# target to generate assembly for a file
-src/proj/proj.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/proj.c.s
-.PHONY : src/proj/proj.c.s
-
 src/proj/proj_etmerc.o: src/proj/proj_etmerc.c.o
 .PHONY : src/proj/proj_etmerc.o
 
@@ -4518,12 +4302,6 @@ help:
 	@echo "... src/RTIMULib/BMP085.o"
 	@echo "... src/RTIMULib/BMP085.i"
 	@echo "... src/RTIMULib/BMP085.s"
-	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.o"
-	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.i"
-	@echo "... src/RTIMULib/CMakeFiles/CompilerIdC/CMakeCCompilerId.s"
-	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o"
-	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.i"
-	@echo "... src/RTIMULib/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.s"
 	@echo "... src/RTIMULib/NEO-6M.o"
 	@echo "... src/RTIMULib/NEO-6M.i"
 	@echo "... src/RTIMULib/NEO-6M.s"
@@ -4554,21 +4332,18 @@ help:
 	@echo "... src/RTIMULib/RTMath.o"
 	@echo "... src/RTIMULib/RTMath.i"
 	@echo "... src/RTIMULib/RTMath.s"
-	@echo "... src/RTIMULib/imu.o"
-	@echo "... src/RTIMULib/imu.i"
-	@echo "... src/RTIMULib/imu.s"
 	@echo "... src/autopilot.o"
 	@echo "... src/autopilot.i"
 	@echo "... src/autopilot.s"
-	@echo "... src/autopilot_global_functions.o"
-	@echo "... src/autopilot_global_functions.i"
-	@echo "... src/autopilot_global_functions.s"
 	@echo "... src/data_logger.o"
 	@echo "... src/data_logger.i"
 	@echo "... src/data_logger.s"
 	@echo "... src/global_functions.o"
 	@echo "... src/global_functions.i"
 	@echo "... src/global_functions.s"
+	@echo "... src/imu.o"
+	@echo "... src/imu.i"
+	@echo "... src/imu.s"
 	@echo "... src/inter-thread-messages.o"
 	@echo "... src/inter-thread-messages.i"
 	@echo "... src/inter-thread-messages.s"
@@ -4686,9 +4461,6 @@ help:
 	@echo "... src/proj/PJ_igh.o"
 	@echo "... src/proj/PJ_igh.i"
 	@echo "... src/proj/PJ_igh.s"
-	@echo "... src/proj/PJ_imw_p.o"
-	@echo "... src/proj/PJ_imw_p.i"
-	@echo "... src/proj/PJ_imw_p.s"
 	@echo "... src/proj/PJ_isea.o"
 	@echo "... src/proj/PJ_isea.i"
 	@echo "... src/proj/PJ_isea.s"
@@ -4872,9 +4644,6 @@ help:
 	@echo "... src/proj/biveval.o"
 	@echo "... src/proj/biveval.i"
 	@echo "... src/proj/biveval.s"
-	@echo "... src/proj/cs2cs.o"
-	@echo "... src/proj/cs2cs.i"
-	@echo "... src/proj/cs2cs.s"
 	@echo "... src/proj/dmstor.o"
 	@echo "... src/proj/dmstor.i"
 	@echo "... src/proj/dmstor.s"
@@ -4887,9 +4656,6 @@ help:
 	@echo "... src/proj/geocent.o"
 	@echo "... src/proj/geocent.i"
 	@echo "... src/proj/geocent.s"
-	@echo "... src/proj/geod.o"
-	@echo "... src/proj/geod.i"
-	@echo "... src/proj/geod.s"
 	@echo "... src/proj/geod_for.o"
 	@echo "... src/proj/geod_for.i"
 	@echo "... src/proj/geod_for.s"
@@ -4905,12 +4671,6 @@ help:
 	@echo "... src/proj/mk_cheby.o"
 	@echo "... src/proj/mk_cheby.i"
 	@echo "... src/proj/mk_cheby.s"
-	@echo "... src/proj/multistresstest.o"
-	@echo "... src/proj/multistresstest.i"
-	@echo "... src/proj/multistresstest.s"
-	@echo "... src/proj/nad2bin.o"
-	@echo "... src/proj/nad2bin.i"
-	@echo "... src/proj/nad2bin.s"
 	@echo "... src/proj/nad_cvt.o"
 	@echo "... src/proj/nad_cvt.i"
 	@echo "... src/proj/nad_cvt.s"
@@ -5037,9 +4797,6 @@ help:
 	@echo "... src/proj/pj_zpoly1.o"
 	@echo "... src/proj/pj_zpoly1.i"
 	@echo "... src/proj/pj_zpoly1.s"
-	@echo "... src/proj/proj.o"
-	@echo "... src/proj/proj.i"
-	@echo "... src/proj/proj.s"
 	@echo "... src/proj/proj_etmerc.o"
 	@echo "... src/proj/proj_etmerc.i"
 	@echo "... src/proj/proj_etmerc.s"
