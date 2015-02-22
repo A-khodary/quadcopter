@@ -1,5 +1,10 @@
 #include "shared_librairies.h"
+<<<<<<< HEAD
 #include "imu_globals_variables.h"
+=======
+#include "autopilot.h"
+
+>>>>>>> 53351a6aad1b6ba92b33c78b007a73f2c4b81524
 
 #ifndef GLOBAL_FUNC
 #define GLOBAL_FUNC

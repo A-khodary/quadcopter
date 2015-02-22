@@ -768,6 +768,35 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o
  /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/src/imu.cpp
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o
+<<<<<<< HEAD
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULib.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_functions.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.cpp
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+=======
  /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/src/PID.h
  /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
  /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.h
@@ -794,3 +823,4 @@ CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o
  /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/src/reader.h
  /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/src/reader_global_variables.h
  /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/src/shared_librairies.h
+>>>>>>> 8743760d962d97713a1ec28ed774b7bb45015bd2
