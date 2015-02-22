@@ -1,4 +1,5 @@
 #include "shared_librairies.h"
+#include "imu_globals_variables.h"
 
 #ifndef GLOBAL_FUNC
 #define GLOBAL_FUNC
