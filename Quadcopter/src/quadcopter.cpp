@@ -30,7 +30,6 @@
 //          ###     Shared functions includes      ###
 
 #include "global_functions.h"
-#include "autopilot_global_functions.h"
 
 
 //          ###     Shared variables includes      ###

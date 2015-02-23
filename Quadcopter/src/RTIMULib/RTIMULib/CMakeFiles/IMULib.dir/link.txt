@@ -1,2 +1,0 @@
-/usr/bin/ar cr libIMULib.a  CMakeFiles/IMULib.dir/RTFusionKalman4.cpp.o CMakeFiles/IMULib.dir/RTFusionRTQF.cpp.o CMakeFiles/IMULib.dir/RTFusion.cpp.o CMakeFiles/IMULib.dir/RTIMU.cpp.o CMakeFiles/IMULib.dir/RTIMUHal.cpp.o CMakeFiles/IMULib.dir/RTIMUMPU6050HMC5883L.cpp.o CMakeFiles/IMULib.dir/RTIMUNull.cpp.o CMakeFiles/IMULib.dir/RTIMUSettings.cpp.o CMakeFiles/IMULib.dir/RTMath.cpp.o
-/usr/bin/ranlib libIMULib.a
