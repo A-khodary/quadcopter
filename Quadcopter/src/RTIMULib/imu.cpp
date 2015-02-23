@@ -1,8 +1,19 @@
-//#include "imu.h"
+#include "imu.h"
 
 
 void imuHandler(void* arg)
  {
+
+     // Initialization of shared variables :
+
+
+    flightStateShared_t flightStateShared;
+    rawPositionShared_t rawPositionShared;
+    positionShared_t positionShared;
+    rawPositionShared_t homeRawPosition;
+    homePosition_t homePosition;
+
+
      /*
 
      handler_t* mainITMHandler;

@@ -1,4 +1,6 @@
 #include "shared_librairies.h"
+#include "autopilot.h"
+
 
 #ifndef GLOBAL_FUNC
 #define GLOBAL_FUNC

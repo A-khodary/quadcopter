@@ -798,12 +798,22 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/shared_librairies.h
 
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/PID.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTFusion.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTFusionKalman4.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTIMU.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTIMUHal.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTIMULib.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTIMULibDefs.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTIMUMPU6050HMC5883L.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTIMUSettings.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTMath.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/autopilot.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/autopilot_global_functions.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/autopilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/data_logger.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/data_logger_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/global_functions.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/imu.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/imu_globals_variables.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/inter-thread-messages.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/osd.h
@@ -811,7 +821,7 @@ CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/pilot.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/pilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/quadcopter.cpp
-CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/reader_global_functions.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/reader.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/reader_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/shared_librairies.h
 
