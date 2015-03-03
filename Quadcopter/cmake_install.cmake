@@ -1,4 +1,4 @@
-# Install script for directory: /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter
+# Install script for directory: /home/nikita/Scripting/quadcopter/Quadcopter
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/nikita/Scripting/quadcopter/Quadcopter/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/nikita/Scripting/quadcopter/Quadcopter/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

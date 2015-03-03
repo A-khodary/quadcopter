@@ -1,4 +1,4 @@
-The system is: Linux - 3.12.28+ - armv6l
+The system is: Linux - 3.2.0-4-amd64 - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/gcc 
 Build flags: 
@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/CMakeFiles/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -19,9 +19,12 @@ Id flags:
 
 The output was:
 0
+CMakeCXXCompilerId.cpp:79:58: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+CMakeCXXCompilerId.cpp:192:58: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+CMakeCXXCompilerId.cpp:193:54: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/CMakeFiles/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/CompilerIdCXX/a.out"
 

@@ -1,12 +1,14 @@
-
-#ifndef AUTOPILOT_H
-#define AUTOPILOT_H
-
 #include "shared_librairies.h"
 #include "autopilot_global_variables.h"
 #include "imu_globals_variables.h"
 #include "pilot_global_variables.h"
 #include "PID.h"
+
+
+#ifndef AUTOPILOT_H
+#define AUTOPILOT_H
+
+
 
 // Some component defines :
 

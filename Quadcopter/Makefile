@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canonical targets will work.
+# Disable implicit rules so canoncical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -30,19 +30,16 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
-
-# Escaping for special characters.
-EQUALS = =
+RM = /usr/local/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter
+CMAKE_SOURCE_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter
+CMAKE_BINARY_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -50,7 +47,7 @@ CMAKE_BINARY_DIR = /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	/usr/local/bin/cmake -i .
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -60,7 +57,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,9 +66,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/CMakeFiles /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/niki-vivi/Quadcopter_code/quadcopter/Quadcopter/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -423,53 +420,53 @@ src/autopilot.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.s
 .PHONY : src/autopilot.cpp.s
 
-src/data_logger.o: src/data_logger.c.o
+src/data_logger.o: src/data_logger.cpp.o
 .PHONY : src/data_logger.o
 
 # target to build an object file
-src/data_logger.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.c.o
-.PHONY : src/data_logger.c.o
+src/data_logger.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.o
+.PHONY : src/data_logger.cpp.o
 
-src/data_logger.i: src/data_logger.c.i
+src/data_logger.i: src/data_logger.cpp.i
 .PHONY : src/data_logger.i
 
 # target to preprocess a source file
-src/data_logger.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.c.i
-.PHONY : src/data_logger.c.i
+src/data_logger.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.i
+.PHONY : src/data_logger.cpp.i
 
-src/data_logger.s: src/data_logger.c.s
+src/data_logger.s: src/data_logger.cpp.s
 .PHONY : src/data_logger.s
 
 # target to generate assembly for a file
-src/data_logger.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.c.s
-.PHONY : src/data_logger.c.s
+src/data_logger.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.s
+.PHONY : src/data_logger.cpp.s
 
-src/global_functions.o: src/global_functions.c.o
+src/global_functions.o: src/global_functions.cpp.o
 .PHONY : src/global_functions.o
 
 # target to build an object file
-src/global_functions.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.o
-.PHONY : src/global_functions.c.o
+src/global_functions.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.o
+.PHONY : src/global_functions.cpp.o
 
-src/global_functions.i: src/global_functions.c.i
+src/global_functions.i: src/global_functions.cpp.i
 .PHONY : src/global_functions.i
 
 # target to preprocess a source file
-src/global_functions.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.i
-.PHONY : src/global_functions.c.i
+src/global_functions.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.i
+.PHONY : src/global_functions.cpp.i
 
-src/global_functions.s: src/global_functions.c.s
+src/global_functions.s: src/global_functions.cpp.s
 .PHONY : src/global_functions.s
 
 # target to generate assembly for a file
-src/global_functions.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.c.s
-.PHONY : src/global_functions.c.s
+src/global_functions.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.s
+.PHONY : src/global_functions.cpp.s
 
 src/imu.o: src/imu.cpp.o
 .PHONY : src/imu.o
@@ -495,77 +492,77 @@ src/imu.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.s
 .PHONY : src/imu.cpp.s
 
-src/inter-thread-messages.o: src/inter-thread-messages.c.o
+src/inter-thread-messages.o: src/inter-thread-messages.cpp.o
 .PHONY : src/inter-thread-messages.o
 
 # target to build an object file
-src/inter-thread-messages.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.o
-.PHONY : src/inter-thread-messages.c.o
+src/inter-thread-messages.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.cpp.o
+.PHONY : src/inter-thread-messages.cpp.o
 
-src/inter-thread-messages.i: src/inter-thread-messages.c.i
+src/inter-thread-messages.i: src/inter-thread-messages.cpp.i
 .PHONY : src/inter-thread-messages.i
 
 # target to preprocess a source file
-src/inter-thread-messages.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.i
-.PHONY : src/inter-thread-messages.c.i
+src/inter-thread-messages.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.cpp.i
+.PHONY : src/inter-thread-messages.cpp.i
 
-src/inter-thread-messages.s: src/inter-thread-messages.c.s
+src/inter-thread-messages.s: src/inter-thread-messages.cpp.s
 .PHONY : src/inter-thread-messages.s
 
 # target to generate assembly for a file
-src/inter-thread-messages.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.c.s
-.PHONY : src/inter-thread-messages.c.s
+src/inter-thread-messages.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.cpp.s
+.PHONY : src/inter-thread-messages.cpp.s
 
-src/osd.o: src/osd.c.o
+src/osd.o: src/osd.cpp.o
 .PHONY : src/osd.o
 
 # target to build an object file
-src/osd.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.c.o
-.PHONY : src/osd.c.o
+src/osd.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.cpp.o
+.PHONY : src/osd.cpp.o
 
-src/osd.i: src/osd.c.i
+src/osd.i: src/osd.cpp.i
 .PHONY : src/osd.i
 
 # target to preprocess a source file
-src/osd.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.c.i
-.PHONY : src/osd.c.i
+src/osd.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.cpp.i
+.PHONY : src/osd.cpp.i
 
-src/osd.s: src/osd.c.s
+src/osd.s: src/osd.cpp.s
 .PHONY : src/osd.s
 
 # target to generate assembly for a file
-src/osd.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.c.s
-.PHONY : src/osd.c.s
+src/osd.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.cpp.s
+.PHONY : src/osd.cpp.s
 
-src/pilot.o: src/pilot.c.o
+src/pilot.o: src/pilot.cpp.o
 .PHONY : src/pilot.o
 
 # target to build an object file
-src/pilot.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.c.o
-.PHONY : src/pilot.c.o
+src/pilot.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.cpp.o
+.PHONY : src/pilot.cpp.o
 
-src/pilot.i: src/pilot.c.i
+src/pilot.i: src/pilot.cpp.i
 .PHONY : src/pilot.i
 
 # target to preprocess a source file
-src/pilot.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.c.i
-.PHONY : src/pilot.c.i
+src/pilot.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.cpp.i
+.PHONY : src/pilot.cpp.i
 
-src/pilot.s: src/pilot.c.s
+src/pilot.s: src/pilot.cpp.s
 .PHONY : src/pilot.s
 
 # target to generate assembly for a file
-src/pilot.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.c.s
-.PHONY : src/pilot.c.s
+src/pilot.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.cpp.s
+.PHONY : src/pilot.cpp.s
 
 src/proj/PJ_aea.o: src/proj/PJ_aea.c.o
 .PHONY : src/proj/PJ_aea.o
@@ -1430,6 +1427,30 @@ src/proj/PJ_igh.s: src/proj/PJ_igh.c.s
 src/proj/PJ_igh.c.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.s
 .PHONY : src/proj/PJ_igh.c.s
+
+src/proj/PJ_imw_p.o: src/proj/PJ_imw_p.c.o
+.PHONY : src/proj/PJ_imw_p.o
+
+# target to build an object file
+src/proj/PJ_imw_p.c.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o
+.PHONY : src/proj/PJ_imw_p.c.o
+
+src/proj/PJ_imw_p.i: src/proj/PJ_imw_p.c.i
+.PHONY : src/proj/PJ_imw_p.i
+
+# target to preprocess a source file
+src/proj/PJ_imw_p.c.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.i
+.PHONY : src/proj/PJ_imw_p.c.i
+
+src/proj/PJ_imw_p.s: src/proj/PJ_imw_p.c.s
+.PHONY : src/proj/PJ_imw_p.s
+
+# target to generate assembly for a file
+src/proj/PJ_imw_p.c.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.s
+.PHONY : src/proj/PJ_imw_p.c.s
 
 src/proj/PJ_isea.o: src/proj/PJ_isea.c.o
 .PHONY : src/proj/PJ_isea.o
@@ -4263,29 +4284,29 @@ src/quadcopter.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.s
 .PHONY : src/quadcopter.cpp.s
 
-src/reader.o: src/reader.c.o
+src/reader.o: src/reader.cpp.o
 .PHONY : src/reader.o
 
 # target to build an object file
-src/reader.c.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.c.o
-.PHONY : src/reader.c.o
+src/reader.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.cpp.o
+.PHONY : src/reader.cpp.o
 
-src/reader.i: src/reader.c.i
+src/reader.i: src/reader.cpp.i
 .PHONY : src/reader.i
 
 # target to preprocess a source file
-src/reader.c.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.c.i
-.PHONY : src/reader.c.i
+src/reader.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.cpp.i
+.PHONY : src/reader.cpp.i
 
-src/reader.s: src/reader.c.s
+src/reader.s: src/reader.cpp.s
 .PHONY : src/reader.s
 
 # target to generate assembly for a file
-src/reader.c.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.c.s
-.PHONY : src/reader.c.s
+src/reader.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.cpp.s
+.PHONY : src/reader.cpp.s
 
 # Help Target
 help:
@@ -4461,6 +4482,9 @@ help:
 	@echo "... src/proj/PJ_igh.o"
 	@echo "... src/proj/PJ_igh.i"
 	@echo "... src/proj/PJ_igh.s"
+	@echo "... src/proj/PJ_imw_p.o"
+	@echo "... src/proj/PJ_imw_p.i"
+	@echo "... src/proj/PJ_imw_p.s"
 	@echo "... src/proj/PJ_isea.o"
 	@echo "... src/proj/PJ_isea.i"
 	@echo "... src/proj/PJ_isea.s"

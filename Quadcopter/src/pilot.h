@@ -1,10 +1,12 @@
-#ifndef PILOT
-#define PILOT
 
 #include "shared_librairies.h"
 #include "pilot_global_variables.h"
-
 #include "reader_global_variables.h"
+
+#include "pca9685.h"
+
+#ifndef PILOT
+#define PILOT
 
 
 void writeCommands();
