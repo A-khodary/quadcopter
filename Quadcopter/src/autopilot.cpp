@@ -78,7 +78,7 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
     return 1;
 }
 
-
+/*
 servoControl_t* buildServoControl(autopilotObjective_t* autopilotObjective)
 {
     int i,j;
@@ -222,7 +222,7 @@ void freeServoControl(servoControl_t* servoControl)
     free(servoControl);
 }
 
-
+*/
 
 
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
@@ -360,14 +360,11 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
     }
     return NULL;
 }
-
+/*
 void freeAutopilotObjective (autopilotObjective_t* autopilotObjective)
 {
     free(autopilotObjective);
-}
-
-
-
+}*/
 
 int initCalculation(autopilotObjective_t* autopilotObjective)
 {
@@ -417,7 +414,7 @@ int updateCalculation(autopilotObjective_t* autopilotObjective)
 
 } // For now just computes the bearing and several distances, will modify max_speed in the future relative to distance to objective. Returns a boolean that indicates when objective is reached
 
-
+/*
 void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t* relativeObjective) //If the autopilotObjective_t passed is not null, makeAsserv will do the servo control relatively (allows dynamic setpoint)
 {
     int i;
@@ -598,7 +595,7 @@ void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t* relat
 
 
 }
-
+*/
 
 
 
@@ -626,7 +623,8 @@ void* autopilotHandler(void* arg)
     message_t currentMessage;
     message_t message;
 
-    servoControl_t* currentServoControl;
+    servo_control* currentServoControl;
+    currentServoControl = new servo_control;
 
     strcpy(currentMessage.message, "main_autopilot_init");
     currentMessage.priority = 20;
@@ -772,7 +770,7 @@ void* autopilotHandler(void* arg)
 
         currentObjective = readCurrentObjective(autopilotObjectiveFifo);
         initCalculation(currentObjective);
-        currentServoControl = buildServoControl(currentObjective);
+        currentServoControl = new servo_control(currentObjective);
         if (currentServoControl == NULL)
         {
             printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");
@@ -841,7 +839,7 @@ void* autopilotHandler(void* arg)
             }
             // Calculation Area
             objectiveReached = updateCalculation(currentObjective);
-            makeAsserv(currentServoControl, currentObjective);
+            currentServoControl->makeAsserv(currentObjective);
 
             if(objectiveReached)
             {
@@ -850,7 +848,7 @@ void* autopilotHandler(void* arg)
                 strcpy(message.message, "main_autopilot_info_objectivecompleted");
                 sendMessage(mainITMHandler, message );
                 // Now the objective is reached, we need to free the ressources used :
-                freeServoControl(currentServoControl);
+                currentServoControl->~servo_control();
                 freeAutopilotObjective(currentObjective);
 
 

@@ -9,6 +9,7 @@ class PID
 {
 public:
 
+    PID();
     PID(double p, double i, double d);
     void setConstants(double p, double i, double d);
     double compute(double input, double setpoint);

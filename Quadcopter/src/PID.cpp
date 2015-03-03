@@ -2,6 +2,11 @@
 
 //double = double avant
 
+PID::PID()
+{
+
+}
+
 PID::PID(double p, double i, double d)
 {
     kp = p;
