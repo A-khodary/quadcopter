@@ -1,10 +1,9 @@
-/*
+#ifndef BMP_H
+#define BMP_H
 
-#include <stdio.h>
-#include <stdint.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "shared_librairies.h"
+
+
 #include <linux/i2c-dev.h>
 #include <linux/i2c.h>
 #include <sys/ioctl.h>
@@ -19,9 +18,8 @@ __s32 bmp085_i2c_Read_Int(int fd, __u8 address); //????
 void bmp085_i2c_Write_Byte(int fd, __u8 address, __u8 value);
 void bmp085_i2c_Read_Block(int fd, __u8 address, __u8 length, __u8 *values);
 unsigned int bmp085_ReadUT();
-unsigned int bmp085_ReadUT();
 unsigned int bmp085_ReadUP();
 unsigned int bmp085_GetPressure(unsigned int up);
 unsigned int bmp085_GetTemperature(unsigned int ut);
 
-*/
+#endif

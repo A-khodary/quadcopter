@@ -60,7 +60,7 @@ typedef struct autopilotObjectiveFifo_t
 }autopilotObjectiveFifo_t;
 
 
-typedef struct oneWayServoControl_t
+class oneWayServoControl_t
 {
     char type[32];
     double consign;

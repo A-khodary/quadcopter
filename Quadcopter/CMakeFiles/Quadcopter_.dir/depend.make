@@ -755,7 +755,6 @@ CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/imu_globals_variables.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/inter-thread-messages.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/pilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/proj/proj_api.h
-CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/reader.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/reader_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/shared_librairies.h
 

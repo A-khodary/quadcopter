@@ -4,7 +4,7 @@
 
 // Global variables structures declaration
 
-typedef struct  receivedCommandsShared {
+typedef struct  receivedCommandsShared_t {
 
 
         // Commands defined to be 0-100% for each channel
