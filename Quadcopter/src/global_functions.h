@@ -1,14 +1,12 @@
-#include "shared_librairies.h"
-#include "imu_globals_variables.h"
-#include "autopilot.h"
-
-
 #ifndef GLOBAL_FUNC
 #define GLOBAL_FUNC
 
 
 #define PI 3.14159265
 
+#include "shared_librairies.h"
+#include "imu_globals_variables.h"
+#include "autopilot.h"
 
 void initialize_mutex(pthread_mutex_t* mutex);
 void printDebug(char const *string);

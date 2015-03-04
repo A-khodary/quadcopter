@@ -151,10 +151,6 @@ CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o: src/proj/PJ_igh.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_igh.c.o: src/proj/projects.h
 
-CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o: src/proj/PJ_imw_p.c
-CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o: src/proj/proj_api.h
-CMakeFiles/Quadcopter_.dir/src/proj/PJ_imw_p.c.o: src/proj/projects.h
-
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o: src/proj/PJ_isea.c
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/proj/PJ_isea.c.o: src/proj/projects.h
@@ -638,6 +634,7 @@ CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/imu_globals_variables.h
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/inter-thread-messages.h
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/pilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/servo_control.h
 CMakeFiles/Quadcopter_.dir/src/PID.cpp.o: src/shared_librairies.h
 
 CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o: src/RTIMULib/RTFusion.cpp
@@ -718,8 +715,10 @@ CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/imu_globals_variables.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/inter-thread-messages.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/pilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/proj/proj_api.h
+CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/servo_control.h
 CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o: src/shared_librairies.h
 
+<<<<<<< HEAD
 CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.o: src/PID.h
 CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.o: src/autopilot.h
 CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.o: src/autopilot_global_variables.h
@@ -795,6 +794,8 @@ CMakeFiles/Quadcopter_.dir/src/pilot.cpp.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/pilot.cpp.o: src/reader_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/pilot.cpp.o: src/shared_librairies.h
 
+=======
+>>>>>>> 6b2cf576f88758c7511a81746e80e8fefbb370c4
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/PID.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTFusion.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/RTIMULib/RTFusionKalman4.h
@@ -821,18 +822,6 @@ CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/quadcopter.cpp
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/reader.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/reader_global_variables.h
+CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/servo_control.h
 CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o: src/shared_librairies.h
-
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/PID.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/autopilot.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/autopilot_global_variables.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/global_functions.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/imu_globals_variables.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/inter-thread-messages.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/pilot_global_variables.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/proj/proj_api.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/reader.cpp
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/reader.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/reader_global_variables.h
-CMakeFiles/Quadcopter_.dir/src/reader.cpp.o: src/shared_librairies.h
 

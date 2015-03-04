@@ -1,14 +1,12 @@
+#ifndef AUTOPILOT_H
+#define AUTOPILOT_H
+
 #include "shared_librairies.h"
 #include "autopilot_global_variables.h"
 #include "imu_globals_variables.h"
 #include "pilot_global_variables.h"
 #include "PID.h"
-
-
-#ifndef AUTOPILOT_H
-#define AUTOPILOT_H
-
-
+#include "servo_control.h"
 
 // Some component defines :
 
@@ -60,7 +58,11 @@ typedef struct autopilotObjectiveFifo_t
 }autopilotObjectiveFifo_t;
 
 
+<<<<<<< HEAD
 class oneWayServoControl_t
+=======
+/*typedef struct oneWayServoControl_t
+>>>>>>> 6b2cf576f88758c7511a81746e80e8fefbb370c4
 {
     char type[32];
     double consign;
@@ -78,7 +80,7 @@ typedef struct servoControl_t
     oneWayServoControl_t** ServoControlData;
 
 }servoControl_t;
-
+*/
 
 
 
@@ -101,9 +103,9 @@ void freeAutopilotObjective (autopilotObjective_t* autopilotObjective);
 
 // Servo controlling prototypes :
 
-servoControl_t* buildServoControl(autopilotObjective_t autopilotObjective);
-void freeServoControl(servoControl_t*);
-void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t relativeObjective);
+//servoControl_t* buildServoControl(autopilotObjective_t autopilotObjective);
+//void freeServoControl(servoControl_t*);
+//void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t relativeObjective);
 
 // Objective calculations prototypes :
 
