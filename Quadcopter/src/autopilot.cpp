@@ -70,8 +70,9 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
 
             // Creating the PID instance :
 
+
             ServoControlData[i]->pid = new PID;
-            ServoControlData[i]->pid.setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+            ServoControlData[i]->pid->setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
 
         }
 
@@ -115,7 +116,9 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
                 }
 
             // Creating the PID instance :
-            ServoControlData[i]->pid = PID(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+
+            ServoControlData[i]->pid = new PID;
+            ServoControlData[i]->pid->setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
         }
 
 
@@ -181,7 +184,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -212,7 +215,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
             pthread_mutex_unlock(&positionShared.readWriteMutex);
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -244,7 +247,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
             pthread_mutex_unlock(&positionShared.readWriteMutex);
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -276,7 +279,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
             pthread_mutex_unlock(&positionShared.readWriteMutex);
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -303,7 +306,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -331,7 +334,11 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
 }
 
+<<<<<<< HEAD
 oneWayServoControl_t::oneWayServoControl_t():pid()
+=======
+oneWayServoControl_t::oneWayServoControl_t()
+>>>>>>> cf168515b8396b5ab5c625ee9784e0906a7ad3cf
 {
     //ctor
 }

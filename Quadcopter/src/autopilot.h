@@ -56,7 +56,7 @@ class oneWayServoControl_t
         double kp;
         double ki;
         double kd;
-        PID pid;
+        PID* pid;
 
     private:
 };

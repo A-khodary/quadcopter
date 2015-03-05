@@ -4,7 +4,8 @@
 
 PID::PID()
 {
-
+    gettimeofday(&tv, 0);
+    lastTime = tv.tv_sec * 1000 + tv.tv_usec/1000.0 + 0.5;
 }
 
 PID::PID(double p, double i, double d)
