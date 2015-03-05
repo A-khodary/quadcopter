@@ -149,7 +149,7 @@ servoControl_t::~servoControl_t()
     int i;
     for (i=0; i < oneWayNumber; i++) free(ServoControlData[i]);
 }
-ma
+
 void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 {
     int i;
@@ -331,7 +331,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
 }
 
-oneWayServoControl_t::oneWayServoControl_t():pid(0,0,0)
+oneWayServoControl_t::oneWayServoControl_t():pid()
 {
     //ctor
 }
@@ -689,7 +689,7 @@ void* autopilotHandler(void* arg)
     }
     else
     {
-        while (fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", &readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != 0)
+        while (fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != 0)
         {
             // Verifying the readed objective :
             if ((readObjectiveCode == GOTO_STANDARD) || (readObjectiveCode == GOTO_HOVERING) || (readObjectiveCode == LAND_TAKEOFF) || (readObjectiveCode == POSITION_HOLD))
