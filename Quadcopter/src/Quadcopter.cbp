@@ -45,8 +45,7 @@
 		<Unit filename="RTIMULib/BMP085.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="RTIMULib/NEO-6M.c">
-			<Option compilerVar="CC" />
+		<Unit filename="RTIMULib/NEO-6M.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/NEO-6M.h">

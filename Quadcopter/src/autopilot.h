@@ -6,7 +6,6 @@
 #include "imu_globals_variables.h"
 #include "pilot_global_variables.h"
 #include "PID.h"
-#include "servo_control.h"
 
 // Some component defines :
 
@@ -58,11 +57,8 @@ typedef struct autopilotObjectiveFifo_t
 }autopilotObjectiveFifo_t;
 
 
-<<<<<<< HEAD
 class oneWayServoControl_t
-=======
-/*typedef struct oneWayServoControl_t
->>>>>>> 6b2cf576f88758c7511a81746e80e8fefbb370c4
+
 {
     char type[32];
     double consign;
@@ -72,7 +68,7 @@ class oneWayServoControl_t
 
     PID pid;
 
-}oneWayServoControl_t;
+};
 
 typedef struct servoControl_t
 {
@@ -80,7 +76,7 @@ typedef struct servoControl_t
     oneWayServoControl_t** ServoControlData;
 
 }servoControl_t;
-*/
+
 
 
 

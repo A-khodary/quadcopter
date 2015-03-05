@@ -623,8 +623,8 @@ void* autopilotHandler(void* arg)
     message_t currentMessage;
     message_t message;
 
-    servo_control* currentServoControl;
-    currentServoControl = new servo_control;
+    servoControl_t* currentServoControl;
+    currentServoControl = new servoControl_t;
 
     strcpy(currentMessage.message, "main_autopilot_init");
     currentMessage.priority = 20;
@@ -770,7 +770,7 @@ void* autopilotHandler(void* arg)
 
         currentObjective = readCurrentObjective(autopilotObjectiveFifo);
         initCalculation(currentObjective);
-        currentServoControl = new servo_control(currentObjective);
+        currentServoControl = new servoControl(currentObjective);
         if (currentServoControl == NULL)
         {
             printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");

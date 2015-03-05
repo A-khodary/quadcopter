@@ -1,13 +1,13 @@
 #ifndef BMP_H
 #define BMP_H
 
-#include "shared_librairies.h"
+#include "../shared_librairies.h"
 
 
 #include <linux/i2c-dev.h>
 #include <linux/i2c.h>
 #include <sys/ioctl.h>
-#include "smbus.h>
+//#include <smbus.h>
 
 #define BMP085_I2C_ADDRESS 0x77
 

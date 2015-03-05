@@ -6,6 +6,7 @@
 int initializGPS(void)
 
 {
+    /*
 
 
     char gps[65]; //gps string array
@@ -38,6 +39,9 @@ int initializGPS(void)
     }
     ublox
 
+*/
+
+    return 0;
 
 
 
@@ -45,6 +49,7 @@ int initializGPS(void)
 
 gpsData_t getGpsData(void)
 {
+
     gpsData_t gpsData;
 
 

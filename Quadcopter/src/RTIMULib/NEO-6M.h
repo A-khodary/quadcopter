@@ -1,7 +1,7 @@
-#ifnedef NEO6_H
-#defineNEO6_H
+#ifndef NEO6_H
+#define NEO6_H
 
-#include "shared_librairies.h"
+#include "../shared_librairies.h"
 #include <wiringPi.h>
 #include <wiringSerial.h>
 
@@ -46,6 +46,10 @@ typedef struct gpsData_t {
     uint8_t  sats;      // number of satellites active
 } gpsData_t;
 
+extern gpsData_t gpsData;
+
+/*
+
 class UBLOX {
     public:
         // Constructor
@@ -55,7 +59,7 @@ class UBLOX {
 
         // reads "RAW" packet from serial buffer
         void read_packet() {
-            while (Serial3.available()) {
+            while (1)) { //TODO : change avalaible condition
                 data = Serial3.read(); // store single byte from serial buffer into data variable
 
                 switch (UBX_step) {
@@ -261,6 +265,9 @@ void SensorArray::readGPS() {
 }
 
 extern UBLOX ublox;
+
+*/
+
 
 int initializeDataGPS(void);
 gpsData_t getGpsData(void);

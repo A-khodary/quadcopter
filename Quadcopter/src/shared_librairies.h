@@ -6,6 +6,8 @@
 #include <math.h>
 #include <string.h>
 #include <fcntl.h>
+#include <stdint.h>
+#include <errno.h>
 
 #include <pthread.h>
 #include <wiringPiI2C.h>
