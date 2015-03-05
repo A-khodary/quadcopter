@@ -1,7 +1,7 @@
 #ifndef BMP_H
 #define BMP_H
 
-#include "../shared_librairies.h"
+//#include "../shared_librairies.h"
 
 
 #include <linux/i2c-dev.h>

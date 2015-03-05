@@ -38,8 +38,7 @@
 		<Unit filename="PID.h">
 			<Option virtualFolder="Components/Headers/AUTOPILOT/" />
 		</Unit>
-		<Unit filename="RTIMULib/BMP085.c">
-			<Option compilerVar="CC" />
+		<Unit filename="RTIMULib/BMP085.cpp">
 			<Option virtualFolder="Components/Sources/IMU/" />
 		</Unit>
 		<Unit filename="RTIMULib/BMP085.h">
