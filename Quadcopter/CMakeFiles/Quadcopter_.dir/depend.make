@@ -764,6 +764,18 @@ CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.o: src/proj/proj_api.h
 CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.o: src/shared_librairies.h
 
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/PID.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/../shared_librairies.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/BMP085.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/NEO-6M.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTFusion.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTFusionKalman4.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTIMU.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTIMUHal.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTIMULib.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTIMULibDefs.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTIMUMPU6050HMC5883L.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTIMUSettings.h
+CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/RTIMULib/RTMath.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/autopilot.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/autopilot_global_variables.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o: src/global_functions.h

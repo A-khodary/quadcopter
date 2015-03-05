@@ -104,14 +104,9 @@ class oneWayServoControl_t
 
     PID pid;
 
-};pu
+};
 
-typedef struct servoControl_t
-{
-    int oneWayNumber;
-    oneWayServoControl_t** ServoControlData;
 
-}servoControl_t;
 
 
 

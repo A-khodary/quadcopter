@@ -10,7 +10,7 @@
 ##############################################
 */
 
-#include "servo_control.h"
+
 
 servo_control::servo_control()
 {
@@ -142,7 +142,6 @@ servo_control::servo_control(autopilotObjective_t* autopilotObjective)
     default: // Notify the objective is not recognized
 
         printDebug("Invalid autopilot Objective code !");
-        return NULL;
 
 
     break;

@@ -765,6 +765,18 @@ CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
 CMakeFiles/Quadcopter_.dir/src/imu.cpp.o
  /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULib.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.h
+ /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
  /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
