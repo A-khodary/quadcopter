@@ -149,7 +149,7 @@ servoControl_t::~servoControl_t()
     int i;
     for (i=0; i < oneWayNumber; i++) free(ServoControlData[i]);
 }
-
+ma
 void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 {
     int i;
