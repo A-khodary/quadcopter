@@ -1,9 +1,10 @@
 #ifndef PID_H
 #define PID_H
 
-#include "shared_librairies.h"
-#include <algorithm>
 
+#include <algorithm>
+#include <sys/time.h>
+#include <time.h>
 
 class PID
 {
