@@ -44,6 +44,42 @@
 
 #define OBJECTIVES_PATH "objectives"
 
+
+class one_way_servo_control
+{
+    public:
+
+        one_way_servo_control();
+        virtual ~one_way_servo_control();
+        char type[32];
+        double consign;
+        float kp;
+        float ki;
+        float kd;
+        PID pid;
+
+    private:
+};
+
+class servo_control
+{
+    public:
+
+        servo_control();
+        servo_control(autopilotObjective_t* autopilotObjective);
+
+        virtual ~servo_control();
+
+        void makeAsserv(autopilotObjective_t* relativeObjective);
+
+        int oneWayNumber;
+        one_way_servo_control** ServoControlData;
+
+    private:
+
+};
+
+
 // Structures declarations :
 
 typedef struct autopilotObjectiveFifo_t
