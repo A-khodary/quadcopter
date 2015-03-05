@@ -124,7 +124,7 @@ int main()
     pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
     pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
-    pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+    //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
 
     while(1)
@@ -147,7 +147,7 @@ int main()
 
         if(currentDecodedMessage.destination == "pilot")
         {
-            printDebug("Main Thread is dispatching a message to pilot);
+            printDebug("Main Thread is dispatching a message to pilot");
             sendMessage(pilotITMHandler, *currentMessage);
 
         }
@@ -192,7 +192,7 @@ int main()
                 else if (currentDecodedMessage.message == "restartthreadimu")
                 {
                     pthread_cancel(imuThread);
-                    pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+                 //   pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
                 }
 
@@ -208,7 +208,7 @@ int main()
                     printDebug("Received order to do an emergency landing, broadcasting to datalogger...");
                     messageToSend.dataSize=0;
                     strcpy(messageToSend.message, "datalogger_main_info_emergencylanding");
-                    sendMessage(&dataLoggerITMHandler, messageToSend);
+                    sendMessage(dataLoggerITMHandler, messageToSend);
                 }
 
                 else if (currentDecodedMessage.message == "landed") // the autopilot can notify main of such event
@@ -216,7 +216,7 @@ int main()
                     printDebug("Received a landed info, broadcasting to datalogger...");
                     messageToSend.dataSize=0;
                     strcpy(messageToSend.message, "datalogger_main_info_landed");
-                    sendMessage(&dataLoggerITMHandler, messageToSend);
+                    sendMessage(dataLoggerITMHandler, messageToSend);
                 }
 
                 else if (currentDecodedMessage.message == "crashed") // the autopilot can notify main of such event
@@ -231,7 +231,7 @@ int main()
                     printDebug("Received a takeoffed info, broadcasting to datalogger...");
                     messageToSend.dataSize=0;
                     strcpy(messageToSend.message, "datalogger_main_info_takeoffed");
-                    sendMessage(&dataLoggerITMHandler, messageToSend);
+                    sendMessage(dataLoggerITMHandler, messageToSend);
 
                 }
 

@@ -341,7 +341,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
 }
 
-oneWayServoControl_t::oneWayServoControl_t()
+oneWayServoControl_t::oneWayServoControl_t():pid(0,0,0)
 {
     //ctor
 }
