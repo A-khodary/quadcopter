@@ -68,7 +68,7 @@ class oneWayServoControl_t
 
     PID pid;
 
-};
+};pu
 
 typedef struct servoControl_t
 {

@@ -770,7 +770,7 @@ void* autopilotHandler(void* arg)
 
         currentObjective = readCurrentObjective(autopilotObjectiveFifo);
         initCalculation(currentObjective);
-        currentServoControl = new servoControl(currentObjective);
+        currentServoControl = new servoControl_t (currentObjective);
         if (currentServoControl == NULL)
         {
             printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");

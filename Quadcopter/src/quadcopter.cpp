@@ -52,6 +52,7 @@ int main()
 
     message_t* currentMessage;
     messageDecoded_t currentDecodedMessage;
+    message_t messageToSend;
 
     // Global variables definition : (normally defined in specific component handler init)
 
@@ -139,14 +140,14 @@ int main()
 
         if(currentDecodedMessage.destination == "autopilot")
         {
-            //printDebug("Main Thread is dispatching a message to autopilot : %s", currentDecodedMessage.message);
+            printDebug("Main Thread is dispatching a message to autopilot");
             sendMessage(autopilotITMHandler, *currentMessage);
 
         }
 
         if(currentDecodedMessage.destination == "pilot")
         {
-            //printDebug("Main Thread is dispatching a message to pilot : %s", currentDecodedMessage.message);
+            printDebug("Main Thread is dispatching a message to pilot);
             sendMessage(pilotITMHandler, *currentMessage);
 
         }
@@ -172,72 +173,71 @@ int main()
                 if (currentDecodedMessage.message == "restartthreadautopilot")
                 {
                     pthread_cancel(autopilotThread);
-                    // TODO : make restart
+                    pthread_cancel(autopilotThread);
                     pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
 
                 }
                 else if (currentDecodedMessage.message == "restartthreaddatalogger")
                 {
                     pthread_cancel(dataLoggerThread);
-                    // TODO : make restart
                     pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
                 }
 
                 else if (currentDecodedMessage.message == "restartthreadpilot")
                 {
                     pthread_cancel(pilotThread);
-                    // TODO : make restart
                     pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
                 }
-                // TODO : do it for all threads
+
                 else if (currentDecodedMessage.message == "restartthreadimu")
                 {
                     pthread_cancel(imuThread);
-                    // TODO : make restart
-                    //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+                    pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
                 }
 
                 else if (currentDecodedMessage.message == "restartthreadreader")
                 {
                     pthread_cancel(readerThread);
-                    // TODO : make restart
                     pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
                 }
 
 
                 else if (currentDecodedMessage.message == "emergencylanding") // the autopilot can notify main of such event
                 {
-
-                    // TODO
+                    printDebug("Received order to do an emergency landing, broadcasting to datalogger...");
+                    messageToSend.dataSize=0;
+                    strcpy(messageToSend.message, "datalogger_main_info_emergencylanding");
+                    sendMessage(&dataLoggerITMHandler, messageToSend);
                 }
 
                 else if (currentDecodedMessage.message == "landed") // the autopilot can notify main of such event
                 {
-
-                    // TODO
-                    pthread_cancel(autopilotThread);
+                    printDebug("Received a landed info, broadcasting to datalogger...");
+                    messageToSend.dataSize=0;
+                    strcpy(messageToSend.message, "datalogger_main_info_landed");
+                    sendMessage(&dataLoggerITMHandler, messageToSend);
                 }
 
                 else if (currentDecodedMessage.message == "crashed") // the autopilot can notify main of such event
                 {
 
                     // TODO
-                    pthread_cancel(autopilotThread);
+
                 }
 
                 else if (currentDecodedMessage.message == "takeoffed") // the autopilot can notify main of such event
                 {
+                    printDebug("Received a takeoffed info, broadcasting to datalogger...");
+                    messageToSend.dataSize=0;
+                    strcpy(messageToSend.message, "datalogger_main_info_takeoffed");
+                    sendMessage(&dataLoggerITMHandler, messageToSend);
 
-                    // TODO
                 }
 
                 else if (currentDecodedMessage.message == "invalidobjectivepath") // the autopilot can notify main of such event
                 {
-
-                    // TODO
-                    printDebug("Invalid objective path for autopilot");
-                    currentDecodedMessage.message == "restartthreadautopilot";// ???
+                    printDebug("Autopilot have notified main of invalid objective path for autopilot");
                 }
 
 
@@ -245,8 +245,9 @@ int main()
 
             else
             {
-                printDebug("Main thread received a message, but it was not recognized");
+                printDebug("Main thread received a message, but it was not recognized. NOTE : main messages have to be of INFO type");
             }
+            free(currentMessage);
 
 
         }
@@ -254,6 +255,7 @@ int main()
         else
         {
             printDebug("Invalid destination for message !");
+            free(currentMessage);
         }
 
 
