@@ -92,28 +92,13 @@ typedef struct autopilotObjectiveFifo_t
 
 }autopilotObjectiveFifo_t;
 
-<<<<<<< HEAD
-=======
-
-class oneWayServoControl_t
-
-{
-    char type[32];
-    double consign;
-    float kp;
-    float ki;
-    float kd;
-
-    PID pid;
-
-};
 
 
 
 
 
 
->>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
+
 void * autopilotHandler(void * arg);
 
 // Fifo managing functions prototypes :

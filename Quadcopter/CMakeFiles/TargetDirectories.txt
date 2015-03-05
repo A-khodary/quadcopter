@@ -1,1 +1,1 @@
-/home/ubuntu/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir
+/home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/Quadcopter_.dir
