@@ -10,6 +10,345 @@
 ##############################################
 */
 
+#include "servo_control.h"
+
+servo_control::servo_control()
+{
+
+}
+
+servo_control::servo_control(autopilotObjective_t* autopilotObjective)
+{
+ //ctor
+
+ int i,j;
+ servo_control();
+
+    if (autopilotObjective == NULL)
+    {
+        printDebug("The autopilot objective passed to buildServoControl was NULL");
+
+        return NULL;
+    }
+
+   switch(autopilotObjective->code)
+    {
+
+    case LAND_TAKEOFF : //mode  LAND_TAKEOFF
+
+        oneWayNumber = 4;
+
+        for (i=0; i< 4; i++);
+        {
+            ServoControlData[i] = new one_way_servo_control;
+        }
+
+                                                // Basic initialization of commands :
+                                                strcpy(ServoControlData[0]->type, "x");
+                                                strcpy(ServoControlData[1]->type, "y");
+                                                strcpy(ServoControlData[2]->type, "z");
+                                                strcpy(ServoControlData[3]->type, "yaw");
+
+                                                //locking position mutex in order to get position
+                                                pthread_mutex_lock(&positionShared.readWriteMutex);
+
+                                                ServoControlData[0]->consign = positionShared.x;
+                                                ServoControlData[1]->consign = positionShared.y;
+
+                                                //Unlocking mutex now we don't need the position anymore :
+                                                pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+                                                ServoControlData[2]->consign = autopilotObjective->destinationZ;
+                                                ServoControlData[3]->consign = autopilotObjective->directionBearing;
+
+        for (i=0 ; i < oneWayNumber ; i++)
+        {
+
+            for (j=0 ; j < 3 ; j++)
+            {
+                // Filling-in coefficients :
+                if (j==0) ServoControlData[i]->kp = landTakeOffCoeff[i][j];
+                if (j==1) ServoControlData[i]->kd = landTakeOffCoeff[i][j];
+                if (j==2) ServoControlData[i]->ki = landTakeOffCoeff[i][j];
+
+            }
+
+            // Creating the PID instance :
+
+
+            ServoControlData[i]->pid = new PID(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+
+        }
+
+
+    break;
+
+    case GOTO_STANDARD: //mode GOTO_STANDARD
+
+            oneWayNumber = 3;
+
+            for (i=0; i< 3; i++);
+            {
+                ServoControlData[i] = new one_way_servo_control;
+            }
+
+                                                    // Basic initialization of commands :
+                                                    strcpy(ServoControlData[0]->type, "z");
+                                                    strcpy(ServoControlData[1]->type, "yaw");
+                                                    strcpy(ServoControlData[2]->type, "dist");
+
+
+                                                    ServoControlData[0]->consign = autopilotObjective->destinationZ;
+
+                                                    //Linking distance and bearing to the autopilot Objective ones :
+                                                    ServoControlData[1]->consign = autopilotObjective->directionBearing;
+
+                                                    // Dealing with altitude :
+                                                    ServoControlData[2]->consign = autopilotObjective->destinationZ;
+
+
+        for (i=0 ; i < oneWayNumber ; i++)
+        {
+
+            for (j=0 ; j < 3 ; j++)
+                {
+                    // Filling-in coefficients :
+                    if (j==0) ServoControlData[i]->kp = landTakeOffCoeff[i][j];
+                    if (j==1) ServoControlData[i]->kd = landTakeOffCoeff[i][j];
+                    if (j==2) ServoControlData[i]->ki = landTakeOffCoeff[i][j];
+
+                }
+
+            // Creating the PID instance :
+            ServoControlData[i]->pid = PID(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+        }
+
+
+    break;
+
+    case GOTO_HOVERING: //mode GOTO_HOVERING
+
+            // TODO
+
+
+    break;
+
+    case POSITION_HOLD: // mode POSITION_HOLD
+
+                // TODO
+
+    break;
+
+    default: // Notify the objective is not recognized
+
+        printDebug("Invalid autopilot Objective code !");
+        return NULL;
+
+
+    break;
+    }
+
+    return currentServoControl;
+}
+
+servo_control::~servo_control()
+{
+    //dtor
+    int i;
+    for (i=0; i < oneWayNumber; i++) free(ServoControlData[i]);
+}
+
+servo_control::void makeAsserv(autopilotObjective_t* relativeObjective)
+{
+    int i;
+    double command;
+    double value;
+
+
+    if (oneWayNumber == 0)
+    {
+        printDebug("Trying to make the asserv of a NULL servoControl_t structure");
+        return ;
+    }
+
+
+    for (i=0; i<oneWayNumber; i++ )
+    {
+        if (ServoControlData[i]->type == "yaw")
+        {
+            // Locking the position mutex in order to obtain the bearing value :
+            pthread_mutex_lock(&flightStateShared.readWriteMutex);
+
+            value = flightStateShared.yaw;
+
+            // Unlocking the mutex :
+            pthread_mutex_unlock(&flightStateShared.readWriteMutex);
+
+            // Checking if the relative autopilot objective is null :
+            if (relativeObjective != NULL) ServoControlData[i]->consign = relativeObjective ->directionBearing;
+
+
+            // Now we have everything, lets compute :
+            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXYAW/2 ) command = 50 + MAXYAW/2;
+            if (command < 50 - MAXYAW/2 ) command = 50 - MAXYAW/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan1 = command; //TODO : identify the right channel
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+        }
+
+
+        else if (ServoControlData[i]->type == "x")
+        {
+            // Locking the position mutex in order to obtain the x value :
+            pthread_mutex_lock(&positionShared.readWriteMutex);
+
+            value = positionShared.x;
+
+            // Unlocking the mutex :
+            pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+            // Now we have everything, lets compute :
+            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXELEV/2 ) command = 50 + MAXELEV/2;
+            if (command < 50 - MAXELEV/2 ) command = 50 - MAXELEV/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan2 = command; //TODO : identify the right channel(FORWARD/BACK)
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+
+        }
+
+        else if (ServoControlData[i]->type == "y")
+        {
+            // Locking the position mutex in order to obtain the x value :
+            pthread_mutex_lock(&positionShared.readWriteMutex);
+
+            value = positionShared.y;
+
+            // Unlocking the mutex :
+            pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+            // Now we have everything, lets compute :
+            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXROLL/2 ) command = 50 + MAXROLL/2;
+            if (command < 50 - MAXROLL/2 ) command = 50 - MAXROLL/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan3 = command; //TODO : identify the right channel (RIGHT/LEFT)
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+
+        }
+
+        else if (ServoControlData[i]->type == "z")
+        {
+            // Locking the position mutex in order to obtain the x value :
+            pthread_mutex_lock(&positionShared.readWriteMutex);
+
+            value = positionShared.z;
+
+            // Unlocking the mutex :
+            pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+            // Now we have everything, lets compute :
+            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXGAZ/2 ) command = 50 + MAXGAZ/2;
+            if (command < 50 - MAXGAZ/2 ) command = 50 - MAXGAZ/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan4 = command; //TODO : identify the right channel (GAZ)
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+        }
+
+        else if (ServoControlData[i]->type == "dist")
+        {
+            // Checking if the relative autopilot objective is null :
+            if (relativeObjective != NULL) ServoControlData[i]->consign = relativeObjective->destinationDistXY;
+
+
+            // Now we have everything, lets compute :
+            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+
+            // Now we've computed, let's check the command and write it :
+            if (command > 100) command = 100;
+            if (command < 0) command = 0;
+
+            //Checking if the command is authorized :
+
+            if (command > 50 + MAXELEV/2 ) command = 50 + MAXELEV/2;
+            if (command < 50 - MAXELEV/2 ) command = 50 - MAXELEV/2;
+
+            pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+            pilotCommandsShared.chan2 = command; //TODO : identify the right channel(FORWARD/BACK)
+
+            //We're done, unlocking the mutex :
+            pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+        }
+
+
+
+
+    }
+
+
+}
+
+one_way_servo_control::one_way_servo_control()
+{
+    //ctor
+
+}
+
+one_way_servo_control::~one_way_servo_control()
+{
+    //dtor
+}
 
 int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
