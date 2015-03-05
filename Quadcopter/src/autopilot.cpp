@@ -9,7 +9,13 @@
 ##############################################
 */
 
+<<<<<<< HEAD
 servoControl_t::servoControl_t()
+=======
+
+
+servo_control::servo_control()
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 {
 
 }
@@ -137,6 +143,10 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
     default: // Notify the objective is not recognized
 
         printDebug("Invalid autopilot Objective code !");
+<<<<<<< HEAD
+=======
+
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 
     break;
     }
@@ -770,7 +780,11 @@ void* autopilotHandler(void* arg)
 
         currentObjective = readCurrentObjective(autopilotObjectiveFifo);
         initCalculation(currentObjective);
+<<<<<<< HEAD
         currentServoControl = new servoControl_t(currentObjective);
+=======
+        currentServoControl = new servoControl_t (currentObjective);
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
         if (currentServoControl == NULL)
         {
             printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");

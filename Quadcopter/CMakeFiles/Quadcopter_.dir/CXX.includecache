@@ -6,6 +6,7 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< HEAD
 /home/ubuntu/quadcopter/Quadcopter/src/PID.h
 shared_librairies.h
 /home/ubuntu/quadcopter/Quadcopter/src/shared_librairies.h
@@ -13,6 +14,61 @@ algorithm
 -
 
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+=======
+/home/nikita/Scripting/quadcopter/Quadcopter/src/PID.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+algorithm
+-
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../PID.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+algorithm
+-
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../autopilot.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+autopilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../autopilot_global_variables.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../imu_globals_variables.h
+pilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../pilot_global_variables.h
+PID.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../PID.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../autopilot_global_variables.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../global_functions.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../imu_globals_variables.h
+autopilot.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../autopilot.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../imu_globals_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../inter-thread-messages.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../pilot_global_variables.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../proj/proj_api.h
+math.h
+-
+stdlib.h
+-
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 stdlib.h
 -
 stdio.h
@@ -40,6 +96,7 @@ time.h
 sys/time.h
 -
 inter-thread-messages.h
+<<<<<<< HEAD
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/../inter-thread-messages.h
 proj/proj_api.h
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/../proj/proj_api.h
@@ -49,6 +106,17 @@ global_functions.h
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/BMP085.h
 ../shared_librairies.h
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+=======
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../inter-thread-messages.h
+proj/proj_api.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../proj/proj_api.h
+global_functions.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../global_functions.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.h
+../shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 linux/i2c-dev.h
 -
 linux/i2c.h
@@ -56,14 +124,25 @@ linux/i2c.h
 sys/ioctl.h
 -
 
+<<<<<<< HEAD
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.h
 ../shared_librairies.h
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+=======
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.cpp
+NEO-6M.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.h
+../shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/../shared_librairies.h
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 wiringPi.h
 -
 wiringSerial.h
 -
 
+<<<<<<< HEAD
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
 RTIMULibDefs.h
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
@@ -83,6 +162,27 @@ RTIMULibDefs.h
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
 
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+=======
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
+RTIMULibDefs.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.h
+RTFusion.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.h
+RTMath.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.h
+RTIMUHal.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+RTFusion.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
+RTIMULibDefs.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 stdio.h
 -
 math.h
@@ -104,6 +204,7 @@ string.h
 stdlib.h
 -
 
+<<<<<<< HEAD
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/RTIMULib.h
 RTIMULibDefs.h
 /home/ubuntu/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
@@ -219,11 +320,159 @@ shared_librairies.h
 /home/ubuntu/quadcopter/Quadcopter/src/shared_librairies.h
 
 /home/ubuntu/quadcopter/Quadcopter/src/proj/proj_api.h
+=======
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULib.h
+RTIMULibDefs.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
+RTMath.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.h
+RTFusion.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
+RTFusionKalman4.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.h
+RTIMUHal.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+RTIMU.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.h
+RTIMUMPU6050HMC5883L.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.h
+RTIMUSettings.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
+RTMath.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.h
+RTIMU.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.h
+RTMath.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.h
+RTIMUHal.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.h
+RTIMUHal.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+autopilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+pilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+PID.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/PID.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.cpp
+data_logger.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+uart.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/uart.h
+mavlink/v1.0/common/mavlink.h
+-
+mavlink/v1.0/common/mavlink.h
+-
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+data_logger_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+reader_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+autopilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.cpp
+global_functions.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+autopilot.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.cpp
+imu.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+imu_globals_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+reader_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+RTIMULib/NEO-6M.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.h
+RTIMULib/BMP085.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.h
+RTIMULib/RTIMULib.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULib.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.cpp
+inter-thread-messages.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.cpp
+osd.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pca9685.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.cpp
+pilot.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+pilot_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+reader_global_variables.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+pca9685.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pca9685.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+shared_librairies.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 math.h
 -
 stdlib.h
 -
 
+<<<<<<< HEAD
 /home/ubuntu/quadcopter/Quadcopter/src/quadcopter.cpp
 shared_librairies.h
 /home/ubuntu/quadcopter/Quadcopter/src/shared_librairies.h
@@ -257,6 +506,11 @@ reader_global_variables.h
 /home/ubuntu/quadcopter/Quadcopter/src/reader_global_variables.h
 
 /home/ubuntu/quadcopter/Quadcopter/src/shared_librairies.h
+=======
+/home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+
+/home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 stdlib.h
 -
 stdio.h
@@ -284,9 +538,17 @@ time.h
 sys/time.h
 -
 inter-thread-messages.h
+<<<<<<< HEAD
 /home/ubuntu/quadcopter/Quadcopter/src/inter-thread-messages.h
 proj/proj_api.h
 /home/ubuntu/quadcopter/Quadcopter/src/proj/proj_api.h
 global_functions.h
 /home/ubuntu/quadcopter/Quadcopter/src/global_functions.h
+=======
+/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+proj/proj_api.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/proj/proj_api.h
+global_functions.h
+/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+>>>>>>> f78baa6f45cfdc6f102c90816bdb08fe9c872b31
 
