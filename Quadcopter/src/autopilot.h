@@ -45,35 +45,35 @@
 #define OBJECTIVES_PATH "objectives"
 
 
-class one_way_servo_control
+class oneWayServoControl_t
 {
     public:
 
-        one_way_servo_control();
-        virtual ~one_way_servo_control();
+        oneWayServoControl_t();
+        virtual ~oneWayServoControl_t();
         char type[32];
         double consign;
-        float kp;
-        float ki;
-        float kd;
+        double kp;
+        double ki;
+        double kd;
         PID pid;
 
     private:
 };
 
-class servo_control
+class servoControl_t
 {
     public:
 
-        servo_control();
-        servo_control(autopilotObjective_t* autopilotObjective);
+        servoControl_t();
+        servoControl_t(autopilotObjective_t* autopilotObjective);
 
-        virtual ~servo_control();
+        virtual ~servoControl_t();
 
         void makeAsserv(autopilotObjective_t* relativeObjective);
 
         int oneWayNumber;
-        one_way_servo_control** ServoControlData;
+        oneWayServoControl_t** ServoControlData;
 
     private:
 
@@ -92,35 +92,9 @@ typedef struct autopilotObjectiveFifo_t
 
 }autopilotObjectiveFifo_t;
 
-
-class oneWayServoControl_t
-
-{
-    char type[32];
-    double consign;
-    float kp;
-    float ki;
-    float kd;
-
-    PID pid;
-
-};
-
-typedef struct servoControl_t
-{
-    int oneWayNumber;
-    oneWayServoControl_t** ServoControlData;
-
-}servoControl_t;
-
-
-
-
 void * autopilotHandler(void * arg);
 
 // Fifo managing functions prototypes :
-
-
 
 int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
@@ -131,13 +105,6 @@ autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObj
 autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 void freeAutopilotObjective (autopilotObjective_t* autopilotObjective);
-
-
-// Servo controlling prototypes :
-
-//servoControl_t* buildServoControl(autopilotObjective_t autopilotObjective);
-//void freeServoControl(servoControl_t*);
-//void makeAsserv(servoControl_t* currentServoControl, autopilotObjective_t relativeObjective);
 
 // Objective calculations prototypes :
 
