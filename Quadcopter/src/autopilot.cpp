@@ -70,8 +70,9 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
 
             // Creating the PID instance :
 
+
             ServoControlData[i]->pid = new PID;
-            ServoControlData[i]->pid.setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+            ServoControlData[i]->pid->setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
 
         }
 
@@ -115,7 +116,9 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
                 }
 
             // Creating the PID instance :
-            ServoControlData[i]->pid = PID(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+
+            ServoControlData[i]->pid = new PID;
+            ServoControlData[i]->pid->setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
         }
 
 
@@ -149,7 +152,7 @@ servoControl_t::~servoControl_t()
     int i;
     for (i=0; i < oneWayNumber; i++) free(ServoControlData[i]);
 }
-ma
+
 void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 {
     int i;
@@ -181,7 +184,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -212,7 +215,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
             pthread_mutex_unlock(&positionShared.readWriteMutex);
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -244,7 +247,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
             pthread_mutex_unlock(&positionShared.readWriteMutex);
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -276,7 +279,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
             pthread_mutex_unlock(&positionShared.readWriteMutex);
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -303,7 +306,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
 
             // Now we have everything, lets compute :
-            command =ServoControlData[i]->pid.compute(value, ServoControlData[i]->consign);
+            command =ServoControlData[i]->pid->compute(value, ServoControlData[i]->consign);
 
             // Now we've computed, let's check the command and write it :
             if (command > 100) command = 100;
@@ -331,7 +334,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
 }
 
-oneWayServoControl_t::oneWayServoControl_t():pid(0,0,0)
+oneWayServoControl_t::oneWayServoControl_t()
 {
     //ctor
 }
@@ -689,7 +692,7 @@ void* autopilotHandler(void* arg)
     }
     else
     {
-        while (fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", &readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != 0)
+        while (fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != 0)
         {
             // Verifying the readed objective :
             if ((readObjectiveCode == GOTO_STANDARD) || (readObjectiveCode == GOTO_HOVERING) || (readObjectiveCode == LAND_TAKEOFF) || (readObjectiveCode == POSITION_HOLD))
