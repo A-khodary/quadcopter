@@ -124,7 +124,7 @@ int main()
     pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
     pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
-    //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+    pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
 
     while(1)
@@ -132,7 +132,7 @@ int main()
         // Message processing Area :
 
         currentMessage = retrieveMessage(mainITMHandler);
-        //currentDecodedMessage = decodeMessageITM(currentMessage);
+        currentDecodedMessage = decodeMessageITM(currentMessage);
 
 
 
