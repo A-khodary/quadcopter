@@ -15,6 +15,10 @@
 #define ARDUINO_ADDRESS 1
 #define SAMPLING_PERIOD_MS 10
 
+// Global variables definitions :
+
+receivedCommandsShared_t receivedCommands;
+
 // Functions :
 
 void* readerHandler(void* arg)
@@ -46,8 +50,6 @@ void* readerHandler(void* arg)
 
     long buffer[9];
     int fd;
-
-    receivedCommandsShared_t receivedCommands;
 
     pthread_mutex_lock(&receivedCommands.readWriteMutex);
 

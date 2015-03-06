@@ -1,5 +1,10 @@
 #include "imu.h"
 
+flightStateShared_t flightStateShared;
+positionShared_t positionShared;
+rawPositionShared_t homeRawPosition;
+rawPositionShared_t rawPositionShared;
+homePosition_t homePosition;
 
 void imuHandler(void* arg)
  {
@@ -7,17 +12,13 @@ void imuHandler(void* arg)
      // Initialization of shared variables :
 
 
-    flightStateShared_t flightStateShared;
+
     initialize_mutex(&flightStateShared.readWriteMutex);
-
-    rawPositionShared_t rawPositionShared;
     initialize_mutex(&rawPositionShared.readWriteMutex);
-
-    positionShared_t positionShared;
     initialize_mutex(&positionShared.readWriteMutex);
 
-    rawPositionShared_t homeRawPosition;
-    homePosition_t homePosition;
+
+
 
     // TODO : fill-in home position
 

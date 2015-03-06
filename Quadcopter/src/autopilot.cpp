@@ -9,6 +9,12 @@
 ##############################################
 */
 
+// Global variables definitions :
+
+float landTakeOffCoeff[4][3]; // PID coefficients for Land/Takeoff
+float gotoStandardCoeff[2][3]; // PID coefficients for goto_standard
+float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
+
 servoControl_t::servoControl_t()
 {
 
@@ -548,6 +554,12 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
     }
     return NULL;
 }
+
+void freeAutopilotObjective(autopilotObjective_t* obj)
+{
+    free(obj);
+}
+
 /*
 void freeAutopilotObjective (autopilotObjective_t* autopilotObjective)
 {

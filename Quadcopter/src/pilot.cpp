@@ -39,17 +39,22 @@
 #define GAZ_CUTOFF_CHAN 9
 #define MANUAL_CHAN 5
 
+// Global variables definitions :
+
+pilotCommandsShared_t pilotCommandsShared;
+pilotStateShared_t pilotStateShared;
+
 int initPca9685()
 {
-    printDebug("[i] Initialisation du Pca9685");
-    if (pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS,PCA_FREQUENCY)  < 0)
-    {
-        printDebug("[e] Error initializing PCA9685 => No PWM output, this is quite terrible !");
-        return -1;
-    }
-
-    // Returns : 0 : init OK
-    //           1 : init FAILED
+//    printDebug("[i] Initialisation du Pca9685");
+//    if (pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS,PCA_FREQUENCY)  < 0)
+//    {
+//        printDebug("[e] Error initializing PCA9685 => No PWM output, this is quite terrible !");
+//        return -1;
+//    }
+//
+//    // Returns : 0 : init OK
+//    //           1 : init FAILED
 
 
     return 0;
@@ -95,7 +100,6 @@ void* pilotHandler(void* arg)
 
     // Handler global variables init :
 
-    pilotCommandsShared_t pilotCommandsShared;
 
     pilotCommandsShared.chan1 = 0;
     pilotCommandsShared.chan2 = 0;
@@ -178,7 +182,7 @@ void* pilotHandler(void* arg)
 
 
                         printDebug("Pilot received a manual order, switching to manual and notifying autopilot");
-                         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
+                        pthread_mutex_lock(&pilotStateShared.readWriteMutex);
                         pilotStateShared.pilotMode = MANUAL;
                         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
                         strcpy(message.message, "autopilot_pilot_order_pause");

@@ -1,3 +1,7 @@
+#ifndef PCA_H
+#define PCA_H
+
+
 /*************************************************************************
  * pca9685.h
  *
@@ -23,8 +27,8 @@
  * You can view the contents of the licence at <http://www.gnu.org/licenses/>.
  **************************************************************************
  */
- 
- 
+#include "shared_librairies.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -69,4 +73,6 @@ extern void pca9685FullOff(int fd, int pin, int tf);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

@@ -540,6 +540,30 @@ src/osd.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.cpp.s
 .PHONY : src/osd.cpp.s
 
+src/pca9685.o: src/pca9685.cpp.o
+.PHONY : src/pca9685.o
+
+# target to build an object file
+src/pca9685.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pca9685.cpp.o
+.PHONY : src/pca9685.cpp.o
+
+src/pca9685.i: src/pca9685.cpp.i
+.PHONY : src/pca9685.i
+
+# target to preprocess a source file
+src/pca9685.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pca9685.cpp.i
+.PHONY : src/pca9685.cpp.i
+
+src/pca9685.s: src/pca9685.cpp.s
+.PHONY : src/pca9685.s
+
+# target to generate assembly for a file
+src/pca9685.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pca9685.cpp.s
+.PHONY : src/pca9685.cpp.s
+
 src/pilot.o: src/pilot.cpp.o
 .PHONY : src/pilot.o
 
@@ -4371,6 +4395,9 @@ help:
 	@echo "... src/osd.o"
 	@echo "... src/osd.i"
 	@echo "... src/osd.s"
+	@echo "... src/pca9685.o"
+	@echo "... src/pca9685.i"
+	@echo "... src/pca9685.s"
 	@echo "... src/pilot.o"
 	@echo "... src/pilot.i"
 	@echo "... src/pilot.s"
