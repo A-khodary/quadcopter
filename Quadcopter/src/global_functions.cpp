@@ -5,9 +5,10 @@ void initialize_mutex(pthread_mutex_t* mutex)
     pthread_mutex_init(mutex, NULL);
 }
 
-void printDebug(char const *string)
+void printDebug(char const *to_print)
 {
-    printf(string);
+    printf("%s\n",to_print);
+    fflush(stdout);
 
 
 }

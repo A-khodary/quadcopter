@@ -23,6 +23,8 @@ receivedCommandsShared_t receivedCommands;
 
 void* readerHandler(void* arg)
 {
+    printDebug("[i] New reader thread launched !");
+
     int i;
     int isUltrasonicOn = 0;
     sampleList_t* ultrasonicSampleList;
@@ -41,7 +43,7 @@ void* readerHandler(void* arg)
     message_t* receivedMessage;
     message_t currentMessage;
 
-    strcpy(currentMessage.message, "main_reader_init");
+    strcpy(currentMessage.message, "main_reader_info_init");
     currentMessage.priority=20;
 
     sendMessage(mainITMHandler, currentMessage);

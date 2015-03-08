@@ -11,6 +11,10 @@
 
 */
 
+// Quadcopter defines :
+
+#define MAIN_SLEEPING_TIME 1000000
+
 
 #include "shared_librairies.h"
 
@@ -41,7 +45,9 @@
 int main()
 {
 
-    printDebug("Main thread is initializing...");
+    printDebug("[i]Main thread is initializing...");
+
+
 
 
     // Threads declaration
@@ -62,7 +68,7 @@ int main()
     handler_t* mainITMHandler = initializeHandler();
     if (mainITMHandler == NULL)
     {
-        printDebug("Main handler init error");
+        printDebug("[e]Main handler init error");
         return 0;
     }
 
@@ -71,7 +77,7 @@ int main()
     //  Autopilot :
 
     handler_t* autopilotITMHandler = initializeHandler();
-    if (autopilotITMHandler == NULL) printDebug("Autopilot handler init error");
+    if (autopilotITMHandler == NULL) printDebug("[e]Autopilot handler init error");
 
 
     bidirectionnalHandler_t autopilotBidirectionnalHandler;
@@ -81,7 +87,7 @@ int main()
     //  Pilot
 
     handler_t* pilotITMHandler = initializeHandler();
-    if (pilotITMHandler == NULL) printDebug("Pilot handler init error");
+    if (pilotITMHandler == NULL) printDebug("[e]Pilot handler init error");
 
     bidirectionnalHandler_t pilotBidirectionnalHandler;
     pilotBidirectionnalHandler.mainITMHandler = mainITMHandler;
@@ -90,7 +96,7 @@ int main()
     // Data logger :
 
     handler_t* dataLoggerITMHandler = initializeHandler();
-    if (dataLoggerITMHandler == NULL) printDebug("Data Logger handler init error");
+    if (dataLoggerITMHandler == NULL) printDebug("[e]Data Logger handler init error");
 
 
     bidirectionnalHandler_t dataLoggerBidirectionnalHandler;
@@ -101,7 +107,7 @@ int main()
     // Reader
 
     handler_t* readerITMHandler = initializeHandler();
-    if (readerITMHandler == NULL) printDebug("Reader handler init error");
+    if (readerITMHandler == NULL) printDebug("[e]Reader handler init error");
 
     bidirectionnalHandler_t readerBidirectionnalHandler;
     readerBidirectionnalHandler.mainITMHandler = mainITMHandler;
@@ -117,54 +123,65 @@ int main()
     // End of test initialization
 
 
-    printDebug("Launching components threads...");
+    printDebug("[i]Launching components threads...");
 
 
     pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
-    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
-    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
-    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+    //pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
+    //pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
+    //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
     //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
 
     while(1)
     {
+        usleep(MAIN_SLEEPING_TIME);
+
         // Message processing Area :
 
         currentMessage = retrieveMessage(mainITMHandler);
+
+        // In case we don't have any new message :
+        if (currentMessage == NULL)
+        {
+            printDebug("[i] Main is idle : no messages");
+            continue;
+        }
+
+
         currentDecodedMessage = decodeMessageITM(currentMessage);
 
 
 
         // TODO handling message :
 
-        if(currentDecodedMessage.destination == "autopilot")
+        if(!strcmp(currentDecodedMessage.destination,"autopilot"))
         {
             printDebug("Main Thread is dispatching a message to autopilot");
             sendMessage(autopilotITMHandler, *currentMessage);
 
         }
 
-        if(currentDecodedMessage.destination == "pilot")
+        else if(!strcmp(currentDecodedMessage.destination,"pilot"))
         {
             printDebug("Main Thread is dispatching a message to pilot");
             sendMessage(pilotITMHandler, *currentMessage);
 
         }
 
-        if(currentDecodedMessage.destination == "datalogger")
+        else if(!strcmp(currentDecodedMessage.destination,"datalogger"))
         {
             //printDebug("Main Thread is dispatching a message to datalogger : %s", currentDecodedMessage.message);
             sendMessage(dataLoggerITMHandler, *currentMessage);
         }
 
-        if(currentDecodedMessage.destination == "reader")
+        else if(!strcmp(currentDecodedMessage.destination,"reader"))
         {
             //printDebug("Main Thread is dispatching a message to reader : %s", currentDecodedMessage.message);
             sendMessage(readerITMHandler, *currentMessage);
         }
 
-        if(currentDecodedMessage.destination == "main")
+        else if(!strcmp(currentDecodedMessage.destination,"main"))
         {
 
             if(currentDecodedMessage.operation == INFO)
@@ -192,7 +209,7 @@ int main()
                 else if (currentDecodedMessage.message == "restartthreadimu")
                 {
                     pthread_cancel(imuThread);
-                 //   pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+                    //   pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
                 }
 
@@ -245,7 +262,7 @@ int main()
 
             else
             {
-                printDebug("Main thread received a message, but it was not recognized. NOTE : main messages have to be of INFO type");
+                printDebug("[e]Main thread received a message, but it was not recognized. NOTE : main messages have to be of INFO type");
             }
             free(currentMessage);
 
@@ -254,7 +271,7 @@ int main()
 
         else
         {
-            printDebug("Invalid destination for message !");
+            printDebug("[e]Invalid destination for message !");
             free(currentMessage);
         }
 

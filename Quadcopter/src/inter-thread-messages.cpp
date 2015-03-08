@@ -34,12 +34,6 @@ int sendMessage(handler_t* handler, message_t messageByValues)
 
     pthread_mutex_lock(&handler->fifoMutex);
 
-    // Locating last message :
-
-    currentMessage = handler->fifoFirstElement;
-    while (currentMessage->nextMessage != NULL) currentMessage = currentMessage->nextMessage;
-    lastMessage = currentMessage;
-
     // Checking if fifo is empty :
 
     if (handler->fifoFirstElement == NULL)
@@ -48,6 +42,14 @@ int sendMessage(handler_t* handler, message_t messageByValues)
         pthread_mutex_unlock(&handler->fifoMutex);
         return 1;
     }
+
+
+    // Locating last message :
+
+    currentMessage = handler->fifoFirstElement;
+    while (currentMessage->nextMessage != NULL) currentMessage = currentMessage->nextMessage;
+    lastMessage = currentMessage;
+
 
     // Checking last message priority :
 
@@ -147,21 +149,18 @@ messageDecoded_t decodeMessageITM(message_t* message)
         decoded.destination[i] = message->message[i];
         i++;
     }
+    decoded.destination[i]='\0';
     i++;
 
     while (message->message[i] != '_')
     {
-        decoded.source[i] = message->message[i];
+        decoded.source[j] = message->message[i];
         i++;
+        j++;
     }
+    decoded.source[j]='\0';
     i++;
-
-    while (message->message[i] != '_')
-    {
-        decoded.source[i] = message->message[i];
-        i++;
-    }
-    i++;
+    j=0;
 
 
     while (message->message[i] != '_')
@@ -170,10 +169,11 @@ messageDecoded_t decodeMessageITM(message_t* message)
         j++;
         i++;
     }
+    comm[j]='\0';
 
-    if(comm == "info")  decoded.operation = INFO;
-    else if (comm == "answ") decoded.operation = ANSW;
-    else if (comm == "order") decoded.operation = ORDER;
+    if(!strcmp(comm,"info"))  decoded.operation = INFO;
+    else if (!strcmp(comm,"answ")) decoded.operation = ANSW;
+    else if (!strcmp(comm,"order")) decoded.operation = ORDER;
     i++;
     j=0;
 

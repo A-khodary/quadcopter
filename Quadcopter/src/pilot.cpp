@@ -80,17 +80,17 @@ void writeCommands()
     pwm8 = pilotCommandsShared.chan8*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
     pwm9 = pilotCommandsShared.chan9*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
 
-/* FIX : undefined
-    pwmWrite(PCA_PINBASE, pwm1);
-    pwmWrite(PCA_PINBASE + 1, pwm2);
-    pwmWrite(PCA_PINBASE + 2, pwm3);
-    pwmWrite(PCA_PINBASE + 3, pwm4);
-    pwmWrite(PCA_PINBASE + 4, pwm5);
-    pwmWrite(PCA_PINBASE + 5, pwm6);
-    pwmWrite(PCA_PINBASE + 6, pwm7);
-    pwmWrite(PCA_PINBASE + 7, pwm1);
-    pwmWrite(PCA_PINBASE + 8, pwm1);
-*/
+    /* FIX : undefined
+        pwmWrite(PCA_PINBASE, pwm1);
+        pwmWrite(PCA_PINBASE + 1, pwm2);
+        pwmWrite(PCA_PINBASE + 2, pwm3);
+        pwmWrite(PCA_PINBASE + 3, pwm4);
+        pwmWrite(PCA_PINBASE + 4, pwm5);
+        pwmWrite(PCA_PINBASE + 5, pwm6);
+        pwmWrite(PCA_PINBASE + 6, pwm7);
+        pwmWrite(PCA_PINBASE + 7, pwm1);
+        pwmWrite(PCA_PINBASE + 8, pwm1);
+    */
 
 }
 
@@ -111,7 +111,7 @@ void* pilotHandler(void* arg)
     pilotCommandsShared.chan8 = 0;
     pilotCommandsShared.chan9 = 0;
 
-   initialize_mutex(&pilotCommandsShared.readWrite);
+    initialize_mutex(&pilotCommandsShared.readWrite);
 
     pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
 
@@ -147,8 +147,16 @@ void* pilotHandler(void* arg)
     while(1)
     {
 
+
+        receivedMessage =retrieveMessage(pilotITMHandler);
+        if (receivedMessage == NULL)
         {
-            receivedMessage =retrieveMessage(pilotITMHandler);
+            printDebug("[i] No message for pilot");
+        }
+        else
+        {
+
+
             decoded = decodeMessageITM(receivedMessage);
 
             if (decoded.destination != "pilot")
@@ -215,6 +223,7 @@ void* pilotHandler(void* arg)
             }
 
             free(receivedMessage);
+        }
 
 
 
@@ -223,21 +232,21 @@ void* pilotHandler(void* arg)
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
 
-         if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
-         {
-             pilotStateShared.pilotMode = CUTOFF;
-             // TODO : notify main of cut off and pausing autopilot :
+        if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
+        {
+            pilotStateShared.pilotMode = CUTOFF;
+            // TODO : notify main of cut off and pausing autopilot :
 
             strcpy(message.message,"main_pilot_info_cutoff");
             sendMessage(mainITMHandler, message);
 
             strcpy(message.message, "autopilot_pilot_order_pause");
             sendMessage(mainITMHandler, message);
-         }
+        }
 
-         else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
-         {
-             pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
+        else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
+        {
+            pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
 
             strcpy(message.message,"main_pilot_info_emergencylanding");
             sendMessage(mainITMHandler, message);
@@ -245,9 +254,9 @@ void* pilotHandler(void* arg)
             strcpy(message.message, "autopilot_pilot_order_emergencylanding");
             sendMessage(mainITMHandler, message);
 
-         }
+        }
 
-         else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
+        else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
         {
             pilotStateShared.pilotMode = MANUAL;
             // TODO : notify main of manual piloting and adapt speed to manual
@@ -261,8 +270,8 @@ void* pilotHandler(void* arg)
 
         else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
         {
-             pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-             // TODO : notify main of normal landing
+            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+            // TODO : notify main of normal landing
 
             strcpy(message.message,"main_pilot_info_autolanding");
             sendMessage(mainITMHandler, message);
@@ -273,8 +282,8 @@ void* pilotHandler(void* arg)
 
         else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
         {
-             pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-             // TODO : notify main of return to home
+            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+            // TODO : notify main of return to home
 
             strcpy(message.message,"main_pilot_info_gohome");
             sendMessage(mainITMHandler, message);
@@ -301,47 +310,47 @@ void* pilotHandler(void* arg)
         {
 
 
-            case CUTOFF:
+        case CUTOFF:
 
-                pilotCommandsShared.chan1 = 0;
-                pilotCommandsShared.chan2 = 0;
-                pilotCommandsShared.chan3 = 0;
-                pilotCommandsShared.chan4 = 0;
-                pilotCommandsShared.chan5 = 0;
-                pilotCommandsShared.chan6 = 0;
-                pilotCommandsShared.chan7 = 0;
-                pilotCommandsShared.chan8 = 0;
-                pilotCommandsShared.chan9 = 0;
-
-            break;
-
-            case AUTOPILOT_EMERGENCY_LANDING:
+            pilotCommandsShared.chan1 = 0;
+            pilotCommandsShared.chan2 = 0;
+            pilotCommandsShared.chan3 = 0;
+            pilotCommandsShared.chan4 = 0;
+            pilotCommandsShared.chan5 = 0;
+            pilotCommandsShared.chan6 = 0;
+            pilotCommandsShared.chan7 = 0;
+            pilotCommandsShared.chan8 = 0;
+            pilotCommandsShared.chan9 = 0;
 
             break;
 
-
-
-            case MANUAL:
-
-                pilotCommandsShared.chan1 =  receivedCommands.commands[0];
-                pilotCommandsShared.chan2 =  receivedCommands.commands[1];
-                pilotCommandsShared.chan3 =  receivedCommands.commands[2];
-                pilotCommandsShared.chan4 =  receivedCommands.commands[3];
+        case AUTOPILOT_EMERGENCY_LANDING:
 
             break;
 
 
-            case AUTOPILOT_NORMAL:
+
+        case MANUAL:
+
+            pilotCommandsShared.chan1 =  receivedCommands.commands[0];
+            pilotCommandsShared.chan2 =  receivedCommands.commands[1];
+            pilotCommandsShared.chan3 =  receivedCommands.commands[2];
+            pilotCommandsShared.chan4 =  receivedCommands.commands[3];
 
             break;
 
 
-            case AUTOPILOT_RTH:
+        case AUTOPILOT_NORMAL:
 
             break;
 
 
-            case AUTOPILOT_LANDING:
+        case AUTOPILOT_RTH:
+
+            break;
+
+
+        case AUTOPILOT_LANDING:
 
             break;
 
@@ -353,10 +362,10 @@ void* pilotHandler(void* arg)
         writeCommands();
         usleep(pilotCommandsShared.refreshingPeriod);
 
+
+
+
     }
-
-
-}
 
 }
 
