@@ -186,6 +186,7 @@ messageDecoded_t decodeMessageITM(message_t* message)
         i++;
         j++;
     }
+    decoded.message[j]='\0';
 
     return decoded;
 }

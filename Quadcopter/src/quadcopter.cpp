@@ -126,8 +126,8 @@ int main()
     printDebug("[i]Launching components threads...");
 
 
-    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
-    //pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
+    //pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     //pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
     //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
     //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
@@ -256,6 +256,17 @@ int main()
                 {
                     printDebug("Autopilot have notified main of invalid objective path for autopilot");
                 }
+
+                else if (!strcmp(currentDecodedMessage.message,"initfailed")) // the autopilot can notify main of such event
+                {
+                    if (!strcmp(currentDecodedMessage.source, "pilot"))
+                    {
+                        printDebug("[e] Pilot failed his init : this is terrible : no command, restarting the pilot component...");
+                        pthread_cancel(pilotThread);
+                        pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
+                    }
+                }
+
 
                 else
                 {

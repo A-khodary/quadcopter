@@ -141,7 +141,7 @@ void* pilotHandler(void* arg)
         strcpy(message.message,"main_pilot_info_initfailed");
         sendMessage(mainITMHandler, message);
         // END OF TODO
-        exit(0);
+        pthread_exit(NULL);
     }
 
     while(1)

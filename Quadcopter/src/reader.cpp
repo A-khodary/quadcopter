@@ -74,6 +74,7 @@ void* readerHandler(void* arg)
     // Message processing AREA :
     receivedMessage = retrieveMessage(readerITMHandler);
 
+
         //TODO : make message parser
         /*
 
