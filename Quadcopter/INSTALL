@@ -1,0 +1,7 @@
+How to install :
+
+first, install the required shared libraries :
+
+Proj
+Wiring Pi (including I2C support by installing first i2C-dev)
+Pthread
