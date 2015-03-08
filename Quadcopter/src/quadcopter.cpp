@@ -13,7 +13,7 @@
 
 // Quadcopter defines :
 
-#define MAIN_SLEEPING_TIME 1000000
+#define MAIN_SLEEPING_TIME 100
 
 
 #include "shared_librairies.h"
@@ -280,7 +280,7 @@ int main()
             {
                 printDebug("[e]Main thread received a message, but it was not recognized. NOTE : main messages have to be of INFO type");
             }
-            free(currentMessage);
+
 
 
         }
@@ -288,8 +288,8 @@ int main()
         else
         {
             printDebug("[e]Invalid destination for message !");
-            free(currentMessage);
         }
+        free(currentMessage);
 
 
     }

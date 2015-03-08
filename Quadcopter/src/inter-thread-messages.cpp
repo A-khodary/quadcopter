@@ -91,9 +91,8 @@ int sendMessage(handler_t* handler, message_t messageByValues)
 
 message_t* retrieveMessage(handler_t* handler)
 {
-    message_t* message = (message_t*)malloc(sizeof(message_t));
-
     if (!handler->handlerInitialized) return NULL;
+    message_t* message = (message_t*)malloc(sizeof(message_t));
 
     pthread_mutex_lock(&handler->fifoMutex);
 
