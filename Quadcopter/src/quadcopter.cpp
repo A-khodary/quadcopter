@@ -257,6 +257,11 @@ int main()
                     printDebug("Autopilot have notified main of invalid objective path for autopilot");
                 }
 
+                else
+                {
+                printDebug("[e]Main thread received an INFO message, but its content was not recognized.");
+                }
+
 
             }
 

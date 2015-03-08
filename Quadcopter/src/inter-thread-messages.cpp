@@ -107,9 +107,12 @@ message_t* retrieveMessage(handler_t* handler)
     handler->fifoProcessingPriority = message->priority;
 
     // Removing the message from Fifo :
-
     handler->fifoFirstElement->previousMessage == NULL;
-    handler->fifoFirstElement = handler->fifoFirstElement->nextMessage;
+
+    if(handler->fifoFirstElement->nextMessage != NULL) handler->fifoFirstElement = handler->fifoFirstElement->nextMessage;
+    else handler->fifoFirstElement = NULL;
+
+
 
     handler->messagesToProcess -= 1;
 
