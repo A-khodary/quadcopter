@@ -216,5 +216,11 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 *.layout
+
+#Custom files :
+
 Quadcopter/Quadcopter.layout
 Quadcopter/src/Quadcopter.layout
+Quadcopter/cmake_install.cmake 
+Quadcopter/CMakeFiles/
+Quadcopter/Makefile
