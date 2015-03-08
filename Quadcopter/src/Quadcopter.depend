@@ -1,0 +1,226 @@
+# depslib dependency file v1.0
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/PID.cpp
+	"PID.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/PID.h
+	<algorithm>
+	<sys/time.h>
+	<time.h>
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.cpp
+	"BMP085.h"
+
+1425817839 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/BMP085.h
+	<linux/i2c-dev.h>
+	<sys/ioctl.h>
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.cpp
+	"NEO-6M.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/NEO-6M.h
+	"../shared_librairies.h"
+	<wiringPi.h>
+	<wiringSerial.h>
+
+1425818351 /home/nikita/Scripting/quadcopter/Quadcopter/src/shared_librairies.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<fcntl.h>
+	<stdint.h>
+	<errno.h>
+	<pthread.h>
+	<wiringPiI2C.h>
+	<unistd.h>
+	<signal.h>
+	<time.h>
+	<sys/time.h>
+	<proj_api.h>
+	"inter-thread-messages.h"
+	"global_functions.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.h
+	"shared_librairies.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.h
+	"shared_librairies.h"
+	"imu_globals_variables.h"
+	"autopilot.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu_globals_variables.h
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.h
+	"shared_librairies.h"
+	"autopilot_global_variables.h"
+	"imu_globals_variables.h"
+	"pilot_global_variables.h"
+	"PID.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot_global_variables.h
+	"shared_librairies.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot_global_variables.h
+	"shared_librairies.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.cpp
+	"RTFusion.h"
+	"RTIMUHal.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusion.h
+	"RTIMULibDefs.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULibDefs.h
+	"RTMath.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.h
+	"RTIMUHal.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.h
+	<stdio.h>
+	<math.h>
+	<stdint.h>
+	<sys/ioctl.h>
+	<fcntl.h>
+	<linux/i2c-dev.h>
+	<unistd.h>
+	<sys/time.h>
+	<string.h>
+	<stdlib.h>
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.cpp
+	"RTFusionKalman4.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionKalman4.h
+	"RTFusion.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.cpp
+	"RTFusionRTQF.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTFusionRTQF.h
+	"RTFusion.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.cpp
+	"RTIMU.h"
+	"RTFusionKalman4.h"
+	"RTFusionRTQF.h"
+	"RTIMUSettings.h"
+	"RTIMUMPU6050HMC5883L.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMU.h
+	"RTMath.h"
+	"RTIMUHal.h"
+	"RTFusion.h"
+	"RTIMULibDefs.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.h
+	"RTMath.h"
+	"RTIMUHal.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.h
+	"RTIMU.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUHal.cpp
+	"RTIMU.h"
+	<sys/ioctl.h>
+	<fcntl.h>
+	<linux/i2c-dev.h>
+	<unistd.h>
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp
+	"RTIMUMPU6050HMC5883L.h"
+	"RTIMUSettings.h"
+	<iostream>
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.cpp
+	"RTIMUNull.h"
+	"RTIMUSettings.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUNull.h
+	"RTIMU.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMUSettings.cpp
+	"RTIMUSettings.h"
+	"RTIMUMPU6050HMC5883L.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTMath.cpp
+	"RTMath.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/autopilot.cpp
+	"autopilot.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.cpp
+	"data_logger.h"
+	"uart.h"
+	<mavlink/v1.0/common/mavlink.h>
+	<mavlink/v1.0/common/mavlink.h>
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger.h
+	"shared_librairies.h"
+	"data_logger_global_variables.h"
+	"imu_globals_variables.h"
+	"reader_global_variables.h"
+	"autopilot_global_variables.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/data_logger_global_variables.h
+
+1425760753 /home/nikita/Scripting/quadcopter/Quadcopter/src/reader_global_variables.h
+
+1425820173 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/global_functions.cpp
+	"global_functions.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/imu.cpp
+	"imu.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/imu.h
+	"shared_librairies.h"
+	"imu_globals_variables.h"
+	"reader_global_variables.h"
+	"RTIMULib/NEO-6M.h"
+	"RTIMULib/BMP085.h"
+	"RTIMULib/RTIMULib.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/RTIMULib/RTIMULib.h
+	"RTIMULibDefs.h"
+	"RTMath.h"
+	"RTFusion.h"
+	"RTFusionKalman4.h"
+	"RTIMUHal.h"
+	"RTIMU.h"
+	"RTIMUMPU6050HMC5883L.h"
+	"RTIMUSettings.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/inter-thread-messages.cpp
+	"inter-thread-messages.h"
+
+1425760752 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.cpp
+	"pilot.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/pilot.h
+	"shared_librairies.h"
+	"pilot_global_variables.h"
+	"reader_global_variables.h"
+
+1425760753 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/quadcopter.cpp
+	"shared_librairies.h"
+	"autopilot.h"
+	"data_logger.h"
+	"RTIMULib/RTIMULib.h"
+	"osd.h"
+	"pilot.h"
+	"imu.h"
+	"reader.h"
+	"global_functions.h"
+	"reader_global_variables.h"
+	"pilot_global_variables.h"
+
+1425760752 /home/nikita/Scripting/quadcopter/Quadcopter/src/osd.h
+	"shared_librairies.h"
+
+1425760753 /home/nikita/Scripting/quadcopter/Quadcopter/src/reader.h
+	"shared_librairies.h"
+	"reader_global_variables.h"
+
+1425816891 source:/home/nikita/Scripting/quadcopter/Quadcopter/src/reader.cpp
+	"reader.h"
+
