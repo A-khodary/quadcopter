@@ -59,7 +59,7 @@ void* readerHandler(void* arg)
     pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
 
-    if (fd = wiringPiI2CSetup(ARDUINO_ADDRESS) < 0)
+    if (true) //fd = wiringPiI2CSetup(ARDUINO_ADDRESS) < 0
     {
         printDebug("[e] Reader : error connecting to Arduino via I2C");
         // TODO : notify main thread

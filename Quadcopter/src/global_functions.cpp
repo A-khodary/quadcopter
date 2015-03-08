@@ -7,6 +7,7 @@ void initialize_mutex(pthread_mutex_t* mutex)
 
 void printDebug(char const *string)
 {
+    printf(string);
 
 
 }

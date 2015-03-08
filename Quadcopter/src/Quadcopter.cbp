@@ -152,9 +152,6 @@
 		<Unit filename="osd.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
 		</Unit>
-		<Unit filename="pca9685.cpp">
-			<Option virtualFolder="Components/Sources/PILOT/" />
-		</Unit>
 		<Unit filename="pca9685.h">
 			<Option virtualFolder="Components/Headers/PILOT/" />
 		</Unit>
