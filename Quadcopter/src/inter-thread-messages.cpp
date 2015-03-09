@@ -24,13 +24,14 @@ int sendMessage(handler_t* handler, message_t messageByValues)
     message_t* currentMessage;
     message_t* lastMessage;
 
+    //printf("Sending message :%s\n", messageByValues.message);
+
+    if (!handler->handlerInitialized) return -1; // Not initialized : returning -1
+
     // Dynamic copy of the parameter :
 
     message_t* message = (message_t*)malloc(sizeof(message_t));
     *message = messageByValues;
-
-
-    if (!handler->handlerInitialized) return -1; // Not initialized : returning -1
 
     pthread_mutex_lock(&handler->fifoMutex);
 
@@ -39,8 +40,13 @@ int sendMessage(handler_t* handler, message_t messageByValues)
     if (handler->fifoFirstElement == NULL)
     {
         handler->fifoFirstElement = message;
+        message->previousMessage = NULL;
+        message->nextMessage = NULL;
+
         pthread_mutex_unlock(&handler->fifoMutex);
+        //printDebug("Sended message as first element");
         return 1;
+
     }
 
 
@@ -84,6 +90,7 @@ int sendMessage(handler_t* handler, message_t messageByValues)
     }
 
         handler->messagesToProcess++;
+        //printf("Sended new message not as first element :%s\n", message->message);
         pthread_mutex_unlock(&handler->fifoMutex);
 
         return 0;
@@ -92,28 +99,38 @@ int sendMessage(handler_t* handler, message_t messageByValues)
 message_t* retrieveMessage(handler_t* handler)
 {
     if (!handler->handlerInitialized) return NULL;
-    message_t* message = (message_t*)malloc(sizeof(message_t));
+    message_t* message;
 
     pthread_mutex_lock(&handler->fifoMutex);
+
+    //printDebug("Trying to retrieve a new message");
 
     if (handler->fifoFirstElement == NULL)
     {
         pthread_mutex_unlock(&handler->fifoMutex);
+        //printf("Nothing to retrieve : empty fifo\n");
         return NULL;
     }
+    //printf("Fifo first element carries message : %s\n", handler->fifoFirstElement->message);
 
     message = handler->fifoFirstElement;
+    message->nextMessage = NULL;
+    message->previousMessage = NULL;
+
     handler->fifoProcessingPriority = message->priority;
 
     // Removing the message from Fifo :
-    handler->fifoFirstElement->previousMessage == NULL;
 
-    if(handler->fifoFirstElement->nextMessage != NULL) handler->fifoFirstElement = handler->fifoFirstElement->nextMessage;
+    if(handler->fifoFirstElement->nextMessage != NULL)
+    {
+        handler->fifoFirstElement = handler->fifoFirstElement->nextMessage;
+        handler->fifoFirstElement->previousMessage == NULL;
+    }
     else handler->fifoFirstElement = NULL;
 
-
-
     handler->messagesToProcess -= 1;
+
+    //printf("retrieved message : %s", message->message);
 
     pthread_mutex_unlock(&handler->fifoMutex);
     return message;
@@ -144,6 +161,8 @@ messageDecoded_t decodeMessageITM(message_t* message)
     int i=0;
     int j=0;
     char comm[16];
+
+    //printf("Received the message : %s\n", message->message);
 
 
     while (message->message[i] != '_')

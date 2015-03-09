@@ -9,6 +9,8 @@
 ##############################################
 */
 
+//TODO : debug memory leak in pilot
+
 // Some Software defines :
 
 #define PCA_I2C_ADDRESS 0x40
@@ -136,11 +138,10 @@ void* pilotHandler(void* arg)
 
     if (initPca9685() <= 0)
     {
-        // TODO, broadcast connection error to main + priority
-
         strcpy(message.message,"main_pilot_info_initfailed");
+        message.priority = 20;
         sendMessage(mainITMHandler, message);
-        // END OF TODO
+
         pthread_exit(NULL);
     }
 

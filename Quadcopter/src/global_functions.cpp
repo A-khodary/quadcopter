@@ -10,7 +10,6 @@ void printDebug(char const *to_print)
     printf("%s\n",to_print);
     fflush(stdout);
 
-
 }
 
 // Some Nav functions :
