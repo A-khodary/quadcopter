@@ -698,8 +698,8 @@ void* autopilotHandler(void* arg)
     writtenObjectives = fopen(OBJECTIVES_PATH, "r");
     if (writtenObjectives == NULL)
     {
-        printDebug("Autopilot objective file not found");
-        strcpy(currentMessage.message, "autopilot_objective_file_not_found");
+        printDebug("[e]Autopilot objective file not found");
+        strcpy(currentMessage.message, "main_autopilot_objectivefilenotfound");
         currentMessage.priority = 5;
         sendMessage(mainITMHandler, currentMessage);
     }
@@ -785,6 +785,12 @@ void* autopilotHandler(void* arg)
 
 
         currentObjective = readCurrentObjective(autopilotObjectiveFifo);
+        if (currentObjective == NULL)
+        {
+            // If we don't have any objective in the FiFo, we build a position hold Objective
+            // TODO
+
+        }
         initCalculation(currentObjective);
 
         currentServoControl = new servoControl_t(currentObjective);
