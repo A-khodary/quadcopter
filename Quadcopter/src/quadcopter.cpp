@@ -13,7 +13,7 @@
 
 // Quadcopter defines :
 
-#define MAIN_SLEEPING_TIME 1000000
+#define MAIN_SLEEPING_TIME 10000
 
 
 #include "shared_librairies.h"
@@ -126,10 +126,10 @@ int main()
     printDebug("[i]Launching components threads...");
 
 
-    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+    //pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
     pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     //pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
-    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+    //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
     //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
 
@@ -264,6 +264,7 @@ int main()
                     {
                         printDebug("[e] Pilot failed his init : this is terrible : no command, restarting the pilot component...");
                         pthread_cancel(pilotThread);
+                        pthread_join(pilotThread, NULL); // Join to cleanup (prevents memory leak)
                         pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
                     }
                 }
