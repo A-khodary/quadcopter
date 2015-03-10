@@ -5,7 +5,7 @@
 		<Option title="Quadcopter" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Components/;Shared ressources/;Components/Sources/;Components/Sources/IMU/;Components/Headers/;Components/Headers/AUTOPILOT/;Components/Headers/IMU/;Components/Headers/PILOT/;Shared ressources/Sources/;Shared ressources/Headers/;Components/Sources/AUTOPILOT/;Components/Sources/PILOT/;" />
+		<Option virtualFolders="Components/;Shared ressources/;Components/Sources/;Components/Sources/IMU/;Components/Headers/;Components/Headers/IMU/;Components/Headers/AUTOPILOT/;Components/Headers/PILOT/;Shared ressources/Sources/;Shared ressources/Headers/;Components/Sources/AUTOPILOT/;Components/Sources/PILOT/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Quadcopter" prefix_auto="1" extension_auto="1" />
@@ -151,6 +151,9 @@
 		</Unit>
 		<Unit filename="osd.h">
 			<Option virtualFolder="Components/Headers/IMU/" />
+		</Unit>
+		<Unit filename="pca9685.cpp">
+			<Option virtualFolder="Components/Sources/PILOT/" />
 		</Unit>
 		<Unit filename="pca9685.h">
 			<Option virtualFolder="Components/Headers/PILOT/" />

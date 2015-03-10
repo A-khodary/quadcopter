@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canonical targets will work.
+# Disable implicit rules so canoncical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -30,13 +30,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
-
-# Escaping for special characters.
-EQUALS = =
+RM = /usr/local/bin/cmake -E remove -f
 
 # The program to use to edit the cache.
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
@@ -63,7 +60,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -546,6 +543,30 @@ src/osd.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/osd.cpp.s
 .PHONY : src/osd.cpp.s
 
+src/pca9685.o: src/pca9685.cpp.o
+.PHONY : src/pca9685.o
+
+# target to build an object file
+src/pca9685.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/pca9685.cpp.o
+.PHONY : src/pca9685.cpp.o
+
+src/pca9685.i: src/pca9685.cpp.i
+.PHONY : src/pca9685.i
+
+# target to preprocess a source file
+src/pca9685.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/pca9685.cpp.i
+.PHONY : src/pca9685.cpp.i
+
+src/pca9685.s: src/pca9685.cpp.s
+.PHONY : src/pca9685.s
+
+# target to generate assembly for a file
+src/pca9685.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/pca9685.cpp.s
+.PHONY : src/pca9685.cpp.s
+
 src/pilot.o: src/pilot.cpp.o
 .PHONY : src/pilot.o
 
@@ -681,6 +702,9 @@ help:
 	@echo "... src/osd.o"
 	@echo "... src/osd.i"
 	@echo "... src/osd.s"
+	@echo "... src/pca9685.o"
+	@echo "... src/pca9685.i"
+	@echo "... src/pca9685.s"
 	@echo "... src/pilot.o"
 	@echo "... src/pilot.i"
 	@echo "... src/pilot.s"
