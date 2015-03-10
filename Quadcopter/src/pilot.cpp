@@ -17,8 +17,8 @@
 #define PCA_FREQUENCY 50
 #define PCA_PINBASE 300
 
-#define ESC_MIN_PWM_VALUE 200
-#define ESC_MAX_PWM_VALUE 1000
+#define ESC_MIN_PWM_VALUE 1
+#define ESC_MAX_PWM_VALUE 2
 
 #define REFRESHING_PERIOD_DEFAULT 200000 // PWM refreshing default period
 
@@ -34,6 +34,7 @@
 #define PCA_CHAN_8_PIN 7
 #define PCA_CHAN_9_PIN 8
 
+
 // Some controlling defines :
 
 #define AUTOPILOT_MANAGE_CHAN 7
@@ -48,18 +49,24 @@ pilotStateShared_t pilotStateShared;
 
 int initPca9685()
 {
-//    printDebug("[i] Initialisation du Pca9685");
-//    if (pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS,PCA_FREQUENCY)  < 0)
-//    {
-//        printDebug("[e] Error initializing PCA9685 => No PWM output, this is quite terrible !");
-//        return -1;
-//    }
-//
-//    // Returns : 0 : init OK
-//    //           1 : init FAILED
+    printDebug("[i] Initialisation du Pca9685");
+    if (pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS,PCA_FREQUENCY)  < 0)
+    {
+        printDebug("[e] Error initializing PCA9685 => No PWM output, this is quite terrible !");
+        return -1;
+    }
+
+    // Returns : 0 : init OK
+    //           1 : init FAILED
 
 
     return 0;
+}
+
+int calcTicks(float impulseMs, int hertz)
+{
+	float cycleMs = 1000.0f / hertz;
+	return (int)(ESC_MAX_PWM_VALUE * impulseMs / cycleMs + 0.5f);
 }
 
 
@@ -82,17 +89,17 @@ void writeCommands()
     pwm8 = pilotCommandsShared.chan8*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
     pwm9 = pilotCommandsShared.chan9*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
 
-    /* FIX : undefined
-        pwmWrite(PCA_PINBASE, pwm1);
-        pwmWrite(PCA_PINBASE + 1, pwm2);
-        pwmWrite(PCA_PINBASE + 2, pwm3);
-        pwmWrite(PCA_PINBASE + 3, pwm4);
-        pwmWrite(PCA_PINBASE + 4, pwm5);
-        pwmWrite(PCA_PINBASE + 5, pwm6);
-        pwmWrite(PCA_PINBASE + 6, pwm7);
-        pwmWrite(PCA_PINBASE + 7, pwm1);
-        pwmWrite(PCA_PINBASE + 8, pwm1);
-    */
+
+        pwmWrite(PCA_PINBASE + 0, calcTicks(pwm1, PCA_FREQUENCY));
+        pwmWrite(PCA_PINBASE + 1, calcTicks(pwm2, PCA_FREQUENCY));
+        pwmWrite(PCA_PINBASE + 2, calcTicks(pwm3, PCA_FREQUENCY));
+        pwmWrite(PCA_PINBASE + 3, calcTicks(pwm4, PCA_FREQUENCY));
+        pwmWrite(PCA_PINBASE + 4, calcTicks(pwm5, PCA_FREQUENCY));
+        pwmWrite(PCA_PINBASE + 5, calcTicks(pwm6, PCA_FREQUENCY));
+        pwmWrite(PCA_PINBASE + 6, calcTicks(pwm7, PCA_FREQUENCY));
+        pwmWrite(PCA_PINBASE + 7, calcTicks(pwm8, PCA_FREQUENCY));
+        pwmWrite(PCA_PINBASE + 8, calcTicks(pwm9, PCA_FREQUENCY));
+
 
 }
 
@@ -112,6 +119,7 @@ void* pilotHandler(void* arg)
     pilotCommandsShared.chan7 = 0;
     pilotCommandsShared.chan8 = 0;
     pilotCommandsShared.chan9 = 0;
+
 
     initialize_mutex(&pilotCommandsShared.readWrite);
 
@@ -144,6 +152,12 @@ void* pilotHandler(void* arg)
 
         pthread_exit(NULL);
     }
+
+    printDebug("[i]Initializing ESC...");
+    writeCommands();
+
+    // Waiting 5ms for ESC init :
+    usleep(5000);
 
     while(1)
     {
