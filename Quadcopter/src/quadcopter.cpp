@@ -13,7 +13,7 @@
 
 // Quadcopter defines :
 
-#define MAIN_SLEEPING_TIME 1000000
+#define MAIN_SLEEPING_TIME 10000
 
 
 #include "shared_librairies.h"
@@ -264,6 +264,7 @@ int main()
                     {
                         printDebug("[e] Pilot failed his init : this is terrible : no command, restarting the pilot component...");
                         pthread_cancel(pilotThread);
+                        pthread_join(pilotThread, NULL); // Join to cleanup (prevents memory leak)
                         pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
                     }
                 }
