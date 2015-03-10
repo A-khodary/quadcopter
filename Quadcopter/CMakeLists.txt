@@ -9,20 +9,23 @@ cmake_minimum_required(VERSION 2.8.3)
 project(quadcopter)
 set(EXECUTABLE_OUTPUT_PATH build/${CMAKE_BUILD_TYPE})
 
-# option declarations 
+# option declarations
 
 SET(COMPILE_DEFINITIONS -Werror)
 set(CMAKE_CXX_FLAGS_DEBUG  -Wall -g")
 set(CMAKE_CC_FLAGS_DEBUG  -Wall -g")
 
-
+set(CMAKE_LINKER_FLAGS "-pthread" CACHE STRING "Linker Flags" FORCE)
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_LINKER_FLAGS}" CACHE STRING "" FORCE)
+set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS}" CACHE STRING "" FORCE)
+set(CMAKE_EXE_LINKER_FLAGS    "${CMAKE_LINKER_FLAGS}" CACHE STRING "" FORCE)
 
 # Source list generation :
 
 file(GLOB_RECURSE source_files src/*)
 
 
-# Executable declaration 
+# Executable declaration
 
 add_executable(Quadcopter_${CMAKE_BUILD_TYPE} ${source_files})
 
