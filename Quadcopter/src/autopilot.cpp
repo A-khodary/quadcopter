@@ -15,6 +15,8 @@ float landTakeOffCoeff[4][3]; // PID coefficients for Land/Takeoff
 float gotoStandardCoeff[2][3]; // PID coefficients for goto_standard
 float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
 
+autopilotSharedState_t autopilotSharedState;
+
 servoControl_t::servoControl_t()
 {
 
@@ -679,6 +681,21 @@ void* autopilotHandler(void* arg)
     //TODO : the same for the other modes
 
 
+    // State initializatin :
+
+    initialize_mutex(&autopilotSharedState.readWrite);
+    pthread_mutex_lock(&autopilotSharedState.readWrite);
+
+
+
+    autopilotSharedState.landed = 1;  // Assuming we're landed on startup, TODO : actualize in case of in-flight relaunch
+    autopilotSharedState.crashed = 0;
+    autopilotSharedState.stressLevel = 1;
+    autopilotSharedState.stressLevel = 1;
+
+    pthread_mutex_unlock(&autopilotSharedState.readWrite);
+
+
     FILE* writtenObjectives;
     char readLine[1024];
     int lineNumber = 1;
@@ -787,8 +804,24 @@ void* autopilotHandler(void* arg)
         currentObjective = readCurrentObjective(autopilotObjectiveFifo);
         if (currentObjective == NULL)
         {
-            // If we don't have any objective in the FiFo, we build a position hold Objective
-            // TODO
+            // If we don't have any objective :
+            pthread_mutex_lock(&autopilotSharedState.readWrite);    // Locking shared state mutex, because we need state
+            if (autopilotSharedState.landed == 1 || autopilotSharedState.crashed == 1)
+            {
+                // let's Put the autopilot in pause mode :
+                autopilotSharedState.engaged = 0;
+
+            }
+            else
+            {
+                // We build a position hold objective :
+                currentObjective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
+                currentObjective->code = POSITION_HOLD;
+            }
+            pthread_mutex_unlock(&autopilotSharedState.readWrite);
+
+
+
 
         }
         initCalculation(currentObjective);

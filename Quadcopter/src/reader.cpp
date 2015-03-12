@@ -66,6 +66,7 @@ void* readerHandler(void* arg)
         printDebug("[e] Reader : error connecting to Arduino via I2C");
         strcpy(currentMessage.message, "main_reader_info_initfailed");
         currentMessage.priority=20;
+        sleep(1);
 
         sendMessage(mainITMHandler, currentMessage);
 

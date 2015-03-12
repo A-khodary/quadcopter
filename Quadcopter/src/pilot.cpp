@@ -152,6 +152,7 @@ void* pilotHandler(void* arg)
     {
         strcpy(message.message,"main_pilot_info_initfailed");
         message.priority = 20;
+        sleep(1);
         sendMessage(mainITMHandler, message);
 
         pthread_exit(NULL);
