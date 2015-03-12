@@ -64,7 +64,12 @@ void* readerHandler(void* arg)
     if (true) //fd = wiringPiI2CSetup(ARDUINO_ADDRESS) < 0
     {
         printDebug("[e] Reader : error connecting to Arduino via I2C");
-        // TODO : notify main thread
+        strcpy(currentMessage.message, "main_reader_info_initfailed");
+        currentMessage.priority=20;
+
+        sendMessage(mainITMHandler, currentMessage);
+
+        pthread_exit(NULL);
     }
 
     // Now we're connected, processing incoming data :

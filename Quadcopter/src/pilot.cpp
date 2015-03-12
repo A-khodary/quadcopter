@@ -73,7 +73,7 @@ int calcTicks(float impulseMs, int hertz)
 
 void writeCommands()
 {
-    int pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
+    double pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
     int pilotRefreshingPeriodShared = REFRESHING_PERIOD_DEFAULT;
 
@@ -106,6 +106,10 @@ void writeCommands()
 void* pilotHandler(void* arg)
 {
     int isfirst = 1;
+
+    // variables needed for the pilot test function :
+
+    double testCommand = 0;
 
     // Handler global variables init :
 
@@ -144,7 +148,7 @@ void* pilotHandler(void* arg)
 
 
 
-    if (initPca9685() <= 0)
+    if (true) // initPca9685() <= 0
     {
         strcpy(message.message,"main_pilot_info_initfailed");
         message.priority = 20;
@@ -156,7 +160,7 @@ void* pilotHandler(void* arg)
     printDebug("[i]Initializing ESC...");
     writeCommands();
 
-    // Waiting 5ms for ESC init :
+    // Waiting 5ms for ESC to init :
     usleep(5000);
 
     while(1)
@@ -184,7 +188,7 @@ void* pilotHandler(void* arg)
             {
                 if (decoded.operation == ORDER)
                 {
-                    if (decoded.message == "cutoff")
+                    if (!strcmp(decoded.message, "cutoff"))
                     {
                         printDebug("Pilot received a cutoff order and cuts everything off");
 
@@ -198,7 +202,7 @@ void* pilotHandler(void* arg)
                         sendMessage(mainITMHandler, message);
                     }
 
-                    else if (decoded.message == "manual")
+                    else if (!strcmp(decoded.message, "manual"))
                     {
                         strcpy(message.message,"main_pilot_info_automanual");
                         sendMessage(mainITMHandler, message);
@@ -213,7 +217,7 @@ void* pilotHandler(void* arg)
 
                     }
 
-                    else if (decoded.message == "normal")
+                    else if (!strcmp(decoded.message, "normal"))
                     {
 
                         strcpy(message.message,"main_pilot_info_autonormal");
@@ -228,6 +232,22 @@ void* pilotHandler(void* arg)
                         sendMessage(mainITMHandler, message);
 
                     }
+
+                    else if (!strcmp(decoded.message, "test"))
+                    {
+
+                        strcpy(message.message,"main_pilot_info_test");
+                        sendMessage(mainITMHandler, message);
+
+
+                        printDebug("Pilot received an autopilot test, performing test");
+                        pthread_mutex_lock(&pilotStateShared.readWriteMutex);
+                        pilotStateShared.pilotMode = TEST;
+                        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
+                        strcpy(message.message, "autopilot_pilot_order_pause");
+                        sendMessage(mainITMHandler, message);
+                    }
+
 
                 }
 
@@ -341,6 +361,8 @@ void* pilotHandler(void* arg)
 
         case AUTOPILOT_EMERGENCY_LANDING:
 
+        // Doing nothing to commands : autopilot has control
+
             break;
 
 
@@ -357,15 +379,36 @@ void* pilotHandler(void* arg)
 
         case AUTOPILOT_NORMAL:
 
+        // Doing nothing to commands : autopilot has control
+
             break;
 
 
         case AUTOPILOT_RTH:
 
+         // Doing nothing to commands : autopilot has control
+
             break;
 
 
         case AUTOPILOT_LANDING:
+
+         // Doing nothing to commands : autopilot has control
+
+            break;
+
+        case TEST:
+
+            // Some testing functions that increases and stops all channels
+
+            pilotCommandsShared.chan1 =  testCommand;
+            pilotCommandsShared.chan2 =  testCommand;
+            pilotCommandsShared.chan3 =  testCommand;
+            pilotCommandsShared.chan4 =  testCommand;
+
+            if (testCommand == 1) testCommand = 0;
+            else testCommand += 0.01;
+
 
             break;
 
