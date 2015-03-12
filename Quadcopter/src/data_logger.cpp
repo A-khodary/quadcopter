@@ -56,6 +56,7 @@ void* dataLoggerHandler(void* arg)
 
         // Message sending function for testing :
 
+        printf("[i] Enter a command :");
         scanf("%s", &readBuffer);
         strcpy(currentMessage.message, readBuffer);
 
