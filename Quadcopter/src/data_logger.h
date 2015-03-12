@@ -23,6 +23,8 @@
 
 // TODO : continue
 
+
+
 // Functions prototypes
 
 void* dataLoggerHandler(void * arg);

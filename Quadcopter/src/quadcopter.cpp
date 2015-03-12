@@ -259,14 +259,14 @@ int main()
 
                     else if (!strcmp(currentDecodedMessage.source, "reader"))
                     {
-                        printDebug("[e] Reader started its init");
+                        printDebug("[i] Reader started its init");
                     }
                 }
 
 
                 else
                 {
-                printf("[e]Main thread received an INFO message, but its content was not recognized : %s\n", currentDecodedMessage.message);
+                printDebug("[e]Main thread received an INFO message, but its content was not recognized");
                 }
 
 
@@ -313,7 +313,7 @@ int main()
 
             else
             {
-                printDebug("[e]Main thread received a message, but it was not recognized. NOTE : main messages have to be of INFO or ORDER type");
+                printDebug("[e] Main thread received a message, but it was not recognized. NOTE : main messages have to be of INFO or ORDER type");
             }
 
 
@@ -322,7 +322,7 @@ int main()
 
         else
         {
-            printDebug("[e]Invalid destination for message !");
+            printDebug("[e] Invalid destination for message !");
         }
         free(currentMessage);
 
