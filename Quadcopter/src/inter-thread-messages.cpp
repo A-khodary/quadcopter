@@ -170,11 +170,17 @@ messageDecoded_t decodeMessageITM(message_t* message)
     int j=0;
     char comm[16];
 
-    //printf("Received the message : %s\n", message->message);
+    // Measuring the message lenght to prevent buffer overflows :
 
 
-    while (message->message[i] != '_')
+    while (message->message[i] != '_' )
     {
+        // if we arrived at the end of the message :
+        if (message->message[i] == '\0')
+        {
+            strcpy(decoded.destination, "");
+            return decoded;
+        }
         decoded.destination[i] = message->message[i];
         i++;
     }
@@ -183,6 +189,11 @@ messageDecoded_t decodeMessageITM(message_t* message)
 
     while (message->message[i] != '_')
     {
+        if (message->message[i] == '\0')
+        {
+            strcpy(decoded.source, "");
+            return decoded;
+        }
         decoded.source[j] = message->message[i];
         i++;
         j++;
@@ -194,6 +205,11 @@ messageDecoded_t decodeMessageITM(message_t* message)
 
     while (message->message[i] != '_')
     {
+        if (message->message[i] == '\0')
+        {
+            decoded.operation = INFO;
+            return decoded;
+        }
         comm[j] = message->message[i];
         j++;
         i++;
@@ -208,11 +224,19 @@ messageDecoded_t decodeMessageITM(message_t* message)
 
         while (message->message[i] != '\0')
     {
+        if (message->message[i] == '\0')
+        {
+            strcpy(decoded.message, "");
+            return decoded;
+        }
         decoded.message[j] = message->message[i];
         i++;
         j++;
     }
     decoded.message[j]='\0';
+
+
+
 
     return decoded;
 }

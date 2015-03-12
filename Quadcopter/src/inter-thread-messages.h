@@ -1,10 +1,10 @@
-//#include "shared_librairies.h"
-#include <pthread.h>
-#include <string.h>
-#include <stdlib.h>
+#include "shared_librairies.h"
+
 
 #ifndef ITM_H
 #define ITM_H
+
+
 
 
 // Some defines
