@@ -24,9 +24,10 @@ int sendMessage(handler_t* handler, message_t messageByValues)
     message_t* currentMessage;
     message_t* lastMessage;
 
-    //printf("Sending message :%s\n", messageByValues.message);
 
     if (!handler->handlerInitialized) return -1; // Not initialized : returning -1
+
+    if(messageByValues.priority < 0 ) return -1; // Negative priority : returning -1
 
     // Dynamic copy of the parameter :
 
@@ -42,9 +43,9 @@ int sendMessage(handler_t* handler, message_t messageByValues)
         handler->fifoFirstElement = message;
         message->previousMessage = NULL;
         message->nextMessage = NULL;
+        handler->messagesToProcess++;
 
         pthread_mutex_unlock(&handler->fifoMutex);
-        //printDebug("Sended message as first element");
         return 1;
 
     }
@@ -64,9 +65,15 @@ int sendMessage(handler_t* handler, message_t messageByValues)
         // Now we have to search the last message corresponding to priority :
 
         currentMessage = lastMessage;
-        while (currentMessage->previousMessage != NULL || currentMessage->priority < message->priority) currentMessage = currentMessage->previousMessage;
+        while (currentMessage->previousMessage != NULL && currentMessage->priority < message->priority) currentMessage = currentMessage->previousMessage;
 
-        if (currentMessage->previousMessage == NULL) currentMessage->previousMessage = message; // We have reached the first element of the fifo
+        if (currentMessage->previousMessage == NULL) // In case we have reached the first element of the fifo
+        {
+            currentMessage->previousMessage = message;
+            handler->fifoFirstElement = message;
+            message->previousMessage = NULL;
+            message->nextMessage = currentMessage;
+        }
         else // We need to insert our message between two
         {
             // ¨Preparing our message :
@@ -114,8 +121,6 @@ message_t* retrieveMessage(handler_t* handler)
     //printf("Fifo first element carries message : %s\n", handler->fifoFirstElement->message);
 
     message = handler->fifoFirstElement;
-    message->nextMessage = NULL;
-    message->previousMessage = NULL;
 
     handler->fifoProcessingPriority = message->priority;
 
@@ -129,6 +134,9 @@ message_t* retrieveMessage(handler_t* handler)
     else handler->fifoFirstElement = NULL;
 
     handler->messagesToProcess -= 1;
+
+    message->nextMessage = NULL;
+    message->previousMessage = NULL;
 
     //printf("retrieved message : %s", message->message);
 
