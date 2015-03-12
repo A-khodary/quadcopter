@@ -51,3 +51,10 @@ target_link_libraries(Quadcopter_${CMAKE_BUILD_TYPE} ${WIRING_PI_I2C_NAME})
 include_directories(${PROJ_INCLUDE_DIRS})
 link_directories(${PROJ_LIBRARY_DIRS})
 target_link_libraries(Quadcopter_${CMAKE_BUILD_TYPE} ${PROJ_NAME})
+
+#	pca_9685 :
+
+include_directories(${PCA_INCLUDE_DIRS})
+link_directories(${PCA_LIBRARY_DIRS})
+target_link_libraries(Quadcopter_${CMAKE_BUILD_TYPE} ${PCA_NAME})
+
