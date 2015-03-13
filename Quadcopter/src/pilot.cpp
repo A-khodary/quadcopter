@@ -146,8 +146,8 @@ void* pilotHandler(void* arg)
     printDebug("[i]Initializing ESC...");
     writeCommands();
 
-    // Waiting 5ms for ESC to init :
-    usleep(5000);
+    // Waiting 500ms for ESC to init :
+    usleep(500000);
 
     while(1)
     {
@@ -327,7 +327,7 @@ void* pilotHandler(void* arg)
         pilotStateShared.pilotMode = TEST;
 
         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-        pthread_mutex_lock(&pilotCommandsShared.readWrite);
+        pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
         switch (pilotStateShared.pilotMode)
         {
