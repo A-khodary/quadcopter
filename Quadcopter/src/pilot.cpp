@@ -85,7 +85,7 @@ void writeCommands()
         pwmWrite(PCA_PINBASE + 7, calcTicks(pwm8, PCA_FREQUENCY));
         pwmWrite(PCA_PINBASE + 8, calcTicks(pwm9, PCA_FREQUENCY));
 
-
+    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 }
 
 void* pilotHandler(void* arg)
@@ -98,6 +98,8 @@ void* pilotHandler(void* arg)
 
     // Handler global variables init :
 
+    initialize_mutex(&pilotCommandsShared.readWrite);
+
 
     pilotCommandsShared.chan1 = 0;
     pilotCommandsShared.chan2 = 0;
@@ -109,8 +111,6 @@ void* pilotHandler(void* arg)
     pilotCommandsShared.chan8 = 0;
     pilotCommandsShared.chan9 = 0;
 
-
-    initialize_mutex(&pilotCommandsShared.readWrite);
 
     pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
 
