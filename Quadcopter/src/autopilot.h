@@ -9,8 +9,8 @@
 
 // Some component defines :
 
-#define AUTOPILOT_REFRESHING_PERIOD 100 //us
-#define MESSAGE_CHECKING_LIMIT 200000 // in loop iterations : will be implemented as a timer in the future
+#define AUTOPILOT_REFRESHING_PERIOD 1000000 //us
+#define MESSAGE_CHECKING_LIMIT 2 // in loop iterations : will be implemented as a timer in the future
 
 // Some PID coefficient defines :
 

@@ -769,6 +769,8 @@ void* autopilotHandler(void* arg)
 
     while (1) // This loop iterates each time an objective is reached
     {
+        printDebug("[i] Autopilot is beginning new objective update");
+
         if(!objectiveBypass)
         {
 
@@ -780,8 +782,13 @@ void* autopilotHandler(void* arg)
                 pthread_mutex_lock(&autopilotSharedState.readWrite);    // Locking shared state mutex, because we need state
                 if (autopilotSharedState.landed == 1 || autopilotSharedState.crashed == 1)
                 {
-                    // let's Put the autopilot in pause mode :
-                    autopilotSharedState.engaged = 0;
+                    if (autopilotSharedState.engaged)
+                    {
+                        // let's Put the autopilot in pause mode :
+                        autopilotSharedState.engaged = 0;
+                        printDebug("[i] Autopilot was put in pause due to landed state and no objective");
+
+                    }
 
                 }
                 else
@@ -789,10 +796,12 @@ void* autopilotHandler(void* arg)
                     // We build a position hold objective :
                     currentObjective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
                     currentObjective->code = POSITION_HOLD;
+                    printDebug("[i] A position hold order was issued due to in flight state and no objective");
                 }
                 pthread_mutex_unlock(&autopilotSharedState.readWrite);
 
             }
+
 
         }
 
@@ -826,8 +835,11 @@ void* autopilotHandler(void* arg)
 
         while (1) // This loop iterates after each ITMhandler execution and calculation
         {
+            printDebug("[i] Autopilot is beginning new ITMHandler/Calculation");
+
             if(tickCounter == MESSAGE_CHECKING_LIMIT)
             {
+                printDebug("[i] Autopilot is checking messages");
                 tickCounter=0;
 
                 receivedMessage = retrieveMessage(autopilotITMHandler);
@@ -991,7 +1003,6 @@ void* autopilotHandler(void* arg)
 
 
         }
-
 
 
 
