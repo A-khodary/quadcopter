@@ -164,7 +164,7 @@ void* pilotHandler(void* arg)
 
             decoded = decodeMessageITM(receivedMessage);
 
-            if (strcmp(decoded.destination,"pilot")
+            if (strcmp(decoded.destination,"pilot"))
             {
                 printDebug("[e] pilot component received a message it should not");
 
