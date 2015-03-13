@@ -862,7 +862,7 @@ void* autopilotHandler(void* arg)
 
                             if (insertedObjective->priority > autopilotSharedState.currentObjectivePriority)
                             {
-                                printDebug("[i] We got a prioritary objective, removing the current objective and restarting autopilot");
+                                printDebug("[i] We've got a prioritary objective, removing the current objective and restarting autopilot");
 
                                 free(currentObjective);
                                 free(currentServoControl);
@@ -877,7 +877,7 @@ void* autopilotHandler(void* arg)
                             }
                             else
                             {
-                                printDebug("[i] We got a new objective, but its priority was not to high so we inserted it in the fifo");
+                                printDebug("[i] We've got a new objective, but its priority was not to high so we inserted it in the fifo");
                                 //TODO : insert objective
 
                             }
