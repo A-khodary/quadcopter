@@ -85,6 +85,8 @@ void writeCommands()
         pwmWrite(PCA_PINBASE + 7, calcTicks(pwm8, PCA_FREQUENCY));
         pwmWrite(PCA_PINBASE + 8, calcTicks(pwm9, PCA_FREQUENCY));
 
+        pwmWrite(PCA_PINBASE, calcTicks(1, 50));
+
     pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 }
 
