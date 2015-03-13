@@ -144,7 +144,8 @@ void* pilotHandler(void* arg)
 
 
 
-    if (pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS, PCA_FREQUENCY) < 0)
+    int fd = ca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS, PCA_FREQUENCY);
+    if(fd <0)
     {
         strcpy(message.message,"main_pilot_info_initfailed");
         message.priority = 20;
@@ -153,6 +154,8 @@ void* pilotHandler(void* arg)
 
         pthread_exit(NULL);
     }
+    pca9685PWMReset(fd);
+
 
     printDebug("[i]Initializing ESC...");
     writeCommands();
