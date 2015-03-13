@@ -43,6 +43,11 @@
 #define GAZ_CUTOFF_CHAN 9
 #define MANUAL_CHAN 5
 
+#define YAW_CHAN 1
+#define GAZ_CHAN 2
+#define ROLL CHAN 3
+#define PITCH_CHAN 4
+
 // Global variables definitions :
 
 pilotCommandsShared_t pilotCommandsShared;
@@ -53,6 +58,33 @@ int calcTicks(float impulseMs, int hertz)
 {
 	float cycleMs = 1000.0f / hertz;
 	return (int)(MAX_PWM * impulseMs / cycleMs + 0.5f);
+}
+
+void armQuadcopter()
+{
+    printDebug("[i] Arming quadcopter motors....");
+    pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+    // TODO : implement arming sequence
+
+
+
+    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+    printDebug("[i] Quadcopter motors are no armed !");
+}
+
+void disarmQuadcopter()
+{
+    printDebug("[i] Disarming quadcopter motors....");
+    pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+    // TODO : implement disarming sequence
+
+
+
+    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+    printDebug("[i] Quadcopter motors are no disarmed !");
+
 }
 
 
@@ -85,16 +117,6 @@ void writeCommands()
         pwmWrite(PCA_PINBASE + 6, calcTicks(pwm7, PCA_FREQUENCY));
         pwmWrite(PCA_PINBASE + 7, calcTicks(pwm8, PCA_FREQUENCY));
         pwmWrite(PCA_PINBASE + 8, calcTicks(pwm9, PCA_FREQUENCY));
-
-        pwmWrite(PCA_PINBASE, calcTicks(1, 50));
-        pwmWrite(PCA_PINBASE + 1, calcTicks(1, 50));
-        pwmWrite(PCA_PINBASE + 2, calcTicks(1, 50));
-        pwmWrite(PCA_PINBASE + 3, calcTicks(1, 50));
-        pwmWrite(PCA_PINBASE + 4, calcTicks(1, 50));
-        pwmWrite(PCA_PINBASE + 5, calcTicks(1, 50));
-        pwmWrite(PCA_PINBASE + 6, calcTicks(1, 50));
-        pwmWrite(PCA_PINBASE + 7, calcTicks(1, 50));
-        pwmWrite(PCA_PINBASE + 8, calcTicks(1, 50));
 
 
     pthread_mutex_unlock(&pilotCommandsShared.readWrite);
@@ -145,7 +167,7 @@ void* pilotHandler(void* arg)
 
 
 
-    int fd = ca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS, PCA_FREQUENCY);
+    int fd = pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS, PCA_FREQUENCY);
     if(fd <0)
     {
         strcpy(message.message,"main_pilot_info_initfailed");
@@ -157,9 +179,7 @@ void* pilotHandler(void* arg)
     }
     pca9685PWMReset(fd);
 
-
-    printDebug("[i]Initializing ESC...");
-    writeCommands();
+    armQuadcopter();
 
     // Waiting 500ms for ESC to init :
     usleep(500000);
@@ -268,78 +288,78 @@ void* pilotHandler(void* arg)
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
 
-//        if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
-//        {
-//            pilotStateShared.pilotMode = CUTOFF;
-//            // TODO : notify main of cut off and pausing autopilot :
-//
-//            strcpy(message.message,"main_pilot_info_cutoff");
-//            sendMessage(mainITMHandler, message);
-//
-//            strcpy(message.message, "autopilot_pilot_order_pause");
-//            sendMessage(mainITMHandler, message);
-//        }
-//
-//        else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
-//        {
-//            pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
-//
-//            strcpy(message.message,"main_pilot_info_emergencylanding");
-//            sendMessage(mainITMHandler, message);
-//
-//            strcpy(message.message, "autopilot_pilot_order_emergencylanding");
-//            sendMessage(mainITMHandler, message);
-//
-//        }
-//
-//        else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
-//        {
-//            pilotStateShared.pilotMode = MANUAL;
-//            // TODO : notify main of manual piloting and adapt speed to manual
-//
-//            strcpy(message.message,"main_pilot_info_automanual");
-//            sendMessage(mainITMHandler, message);
-//
-//            strcpy(message.message, "autopilot_pilot_order_pause");
-//            sendMessage(mainITMHandler, message);
-//        }
-//
-//        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
-//        {
-//            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-//            // TODO : notify main of normal landing
-//
-//            strcpy(message.message,"main_pilot_info_autolanding");
-//            sendMessage(mainITMHandler, message);
-//
-//            strcpy(message.message, "autopilot_pilot_order_land");
-//            sendMessage(mainITMHandler, message);
-//        }
-//
-//        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
-//        {
-//            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-//            // TODO : notify main of return to home
-//
-//            strcpy(message.message,"main_pilot_info_gohome");
-//            sendMessage(mainITMHandler, message);
-//
-//            strcpy(message.message, "autopilot_pilot_order_rth");
-//            sendMessage(mainITMHandler, message);
-//        }
-//
-//        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
-//        {
-//            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-//            message_t message;
-//            strcpy(message.message,"main_pilot_info_autonormal");
-//            sendMessage(mainITMHandler, message);
-//
-//            strcpy(message.message, "autopilot_pilot_order_pause");
-//            sendMessage(mainITMHandler, message);
-//        }
+        if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
+        {
+            pilotStateShared.pilotMode = CUTOFF;
+            // TODO : notify main of cut off and pausing autopilot :
 
-        pilotStateShared.pilotMode = TEST;
+            strcpy(message.message,"main_pilot_info_cutoff");
+            sendMessage(mainITMHandler, message);
+
+            strcpy(message.message, "autopilot_pilot_order_pause");
+            sendMessage(mainITMHandler, message);
+        }
+
+        else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
+        {
+            pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
+
+            strcpy(message.message,"main_pilot_info_emergencylanding");
+            sendMessage(mainITMHandler, message);
+
+            strcpy(message.message, "autopilot_pilot_order_emergencylanding");
+            sendMessage(mainITMHandler, message);
+
+        }
+
+        else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
+        {
+            pilotStateShared.pilotMode = MANUAL;
+            // TODO : notify main of manual piloting and adapt speed to manual
+
+            strcpy(message.message,"main_pilot_info_automanual");
+            sendMessage(mainITMHandler, message);
+
+            strcpy(message.message, "autopilot_pilot_order_pause");
+            sendMessage(mainITMHandler, message);
+        }
+
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
+        {
+            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+            // TODO : notify main of normal landing
+
+            strcpy(message.message,"main_pilot_info_autolanding");
+            sendMessage(mainITMHandler, message);
+
+            strcpy(message.message, "autopilot_pilot_order_land");
+            sendMessage(mainITMHandler, message);
+        }
+
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
+        {
+            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+            // TODO : notify main of return to home
+
+            strcpy(message.message,"main_pilot_info_gohome");
+            sendMessage(mainITMHandler, message);
+
+            strcpy(message.message, "autopilot_pilot_order_rth");
+            sendMessage(mainITMHandler, message);
+        }
+
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
+        {
+            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+            message_t message;
+            strcpy(message.message,"main_pilot_info_autonormal");
+            sendMessage(mainITMHandler, message);
+
+            strcpy(message.message, "autopilot_pilot_order_pause");
+            sendMessage(mainITMHandler, message);
+        }
+
+        pilotStateShared.pilotMode = TEST; // For testing purposes
 
         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
@@ -409,18 +429,20 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan3 =  testCommand;
             pilotCommandsShared.chan4 =  testCommand;
 
-            if (testCommand == 1) testCommand = 0;
+            if (testCommand >= 1) testCommand = 0;
             else testCommand += 0.01;
 
 
             break;
 
         }
+        writeCommands();
+        if (pilotStateShared.pilotMode == CUTOFF) disarmQuadcopter();
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
-        writeCommands();
+
         usleep(pilotCommandsShared.refreshingPeriod);
 
 

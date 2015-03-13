@@ -13,5 +13,7 @@
 void writeCommands();
 void* pilotHandler(void* arg);
 int calcTicks(float impulseMs, int hertz);
+void armQuadcopter(void);
+void disarmQuadcopter(void);
 
 #endif

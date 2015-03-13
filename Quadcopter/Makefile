@@ -102,24 +102,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Quadcopter_Release
+# Target rules for targets named Quadcopter_
 
 # Build rule for target.
-Quadcopter_Release: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Quadcopter_Release
-.PHONY : Quadcopter_Release
+Quadcopter_: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Quadcopter_
+.PHONY : Quadcopter_
 
 # fast build rule for target.
-Quadcopter_Release/fast:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/build
-.PHONY : Quadcopter_Release/fast
+Quadcopter_/fast:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/build
+.PHONY : Quadcopter_/fast
 
 src/PID.o: src/PID.cpp.o
 .PHONY : src/PID.o
 
 # target to build an object file
 src/PID.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/PID.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.o
 .PHONY : src/PID.cpp.o
 
 src/PID.i: src/PID.cpp.i
@@ -127,7 +127,7 @@ src/PID.i: src/PID.cpp.i
 
 # target to preprocess a source file
 src/PID.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/PID.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.i
 .PHONY : src/PID.cpp.i
 
 src/PID.s: src/PID.cpp.s
@@ -135,7 +135,7 @@ src/PID.s: src/PID.cpp.s
 
 # target to generate assembly for a file
 src/PID.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/PID.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
 .PHONY : src/PID.cpp.s
 
 src/RTIMULib/BMP085.o: src/RTIMULib/BMP085.cpp.o
@@ -143,7 +143,7 @@ src/RTIMULib/BMP085.o: src/RTIMULib/BMP085.cpp.o
 
 # target to build an object file
 src/RTIMULib/BMP085.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/BMP085.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.cpp.o
 .PHONY : src/RTIMULib/BMP085.cpp.o
 
 src/RTIMULib/BMP085.i: src/RTIMULib/BMP085.cpp.i
@@ -151,7 +151,7 @@ src/RTIMULib/BMP085.i: src/RTIMULib/BMP085.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/BMP085.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/BMP085.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.cpp.i
 .PHONY : src/RTIMULib/BMP085.cpp.i
 
 src/RTIMULib/BMP085.s: src/RTIMULib/BMP085.cpp.s
@@ -159,7 +159,7 @@ src/RTIMULib/BMP085.s: src/RTIMULib/BMP085.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/BMP085.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/BMP085.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.cpp.s
 .PHONY : src/RTIMULib/BMP085.cpp.s
 
 src/RTIMULib/NEO-6M.o: src/RTIMULib/NEO-6M.cpp.o
@@ -167,7 +167,7 @@ src/RTIMULib/NEO-6M.o: src/RTIMULib/NEO-6M.cpp.o
 
 # target to build an object file
 src/RTIMULib/NEO-6M.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/NEO-6M.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.cpp.o
 .PHONY : src/RTIMULib/NEO-6M.cpp.o
 
 src/RTIMULib/NEO-6M.i: src/RTIMULib/NEO-6M.cpp.i
@@ -175,7 +175,7 @@ src/RTIMULib/NEO-6M.i: src/RTIMULib/NEO-6M.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/NEO-6M.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/NEO-6M.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.cpp.i
 .PHONY : src/RTIMULib/NEO-6M.cpp.i
 
 src/RTIMULib/NEO-6M.s: src/RTIMULib/NEO-6M.cpp.s
@@ -183,7 +183,7 @@ src/RTIMULib/NEO-6M.s: src/RTIMULib/NEO-6M.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/NEO-6M.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/NEO-6M.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.cpp.s
 .PHONY : src/RTIMULib/NEO-6M.cpp.s
 
 src/RTIMULib/RTFusion.o: src/RTIMULib/RTFusion.cpp.o
@@ -191,7 +191,7 @@ src/RTIMULib/RTFusion.o: src/RTIMULib/RTFusion.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTFusion.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusion.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.o
 .PHONY : src/RTIMULib/RTFusion.cpp.o
 
 src/RTIMULib/RTFusion.i: src/RTIMULib/RTFusion.cpp.i
@@ -199,7 +199,7 @@ src/RTIMULib/RTFusion.i: src/RTIMULib/RTFusion.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTFusion.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusion.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.i
 .PHONY : src/RTIMULib/RTFusion.cpp.i
 
 src/RTIMULib/RTFusion.s: src/RTIMULib/RTFusion.cpp.s
@@ -207,7 +207,7 @@ src/RTIMULib/RTFusion.s: src/RTIMULib/RTFusion.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTFusion.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusion.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusion.cpp.s
 .PHONY : src/RTIMULib/RTFusion.cpp.s
 
 src/RTIMULib/RTFusionKalman4.o: src/RTIMULib/RTFusionKalman4.cpp.o
@@ -215,7 +215,7 @@ src/RTIMULib/RTFusionKalman4.o: src/RTIMULib/RTFusionKalman4.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTFusionKalman4.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusionKalman4.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.o
 .PHONY : src/RTIMULib/RTFusionKalman4.cpp.o
 
 src/RTIMULib/RTFusionKalman4.i: src/RTIMULib/RTFusionKalman4.cpp.i
@@ -223,7 +223,7 @@ src/RTIMULib/RTFusionKalman4.i: src/RTIMULib/RTFusionKalman4.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTFusionKalman4.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusionKalman4.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.i
 .PHONY : src/RTIMULib/RTFusionKalman4.cpp.i
 
 src/RTIMULib/RTFusionKalman4.s: src/RTIMULib/RTFusionKalman4.cpp.s
@@ -231,7 +231,7 @@ src/RTIMULib/RTFusionKalman4.s: src/RTIMULib/RTFusionKalman4.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTFusionKalman4.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusionKalman4.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionKalman4.cpp.s
 .PHONY : src/RTIMULib/RTFusionKalman4.cpp.s
 
 src/RTIMULib/RTFusionRTQF.o: src/RTIMULib/RTFusionRTQF.cpp.o
@@ -239,7 +239,7 @@ src/RTIMULib/RTFusionRTQF.o: src/RTIMULib/RTFusionRTQF.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTFusionRTQF.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusionRTQF.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.o
 .PHONY : src/RTIMULib/RTFusionRTQF.cpp.o
 
 src/RTIMULib/RTFusionRTQF.i: src/RTIMULib/RTFusionRTQF.cpp.i
@@ -247,7 +247,7 @@ src/RTIMULib/RTFusionRTQF.i: src/RTIMULib/RTFusionRTQF.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTFusionRTQF.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusionRTQF.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.i
 .PHONY : src/RTIMULib/RTFusionRTQF.cpp.i
 
 src/RTIMULib/RTFusionRTQF.s: src/RTIMULib/RTFusionRTQF.cpp.s
@@ -255,7 +255,7 @@ src/RTIMULib/RTFusionRTQF.s: src/RTIMULib/RTFusionRTQF.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTFusionRTQF.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTFusionRTQF.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s
 .PHONY : src/RTIMULib/RTFusionRTQF.cpp.s
 
 src/RTIMULib/RTIMU.o: src/RTIMULib/RTIMU.cpp.o
@@ -263,7 +263,7 @@ src/RTIMULib/RTIMU.o: src/RTIMULib/RTIMU.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTIMU.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMU.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o
 .PHONY : src/RTIMULib/RTIMU.cpp.o
 
 src/RTIMULib/RTIMU.i: src/RTIMULib/RTIMU.cpp.i
@@ -271,7 +271,7 @@ src/RTIMULib/RTIMU.i: src/RTIMULib/RTIMU.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTIMU.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMU.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i
 .PHONY : src/RTIMULib/RTIMU.cpp.i
 
 src/RTIMULib/RTIMU.s: src/RTIMULib/RTIMU.cpp.s
@@ -279,7 +279,7 @@ src/RTIMULib/RTIMU.s: src/RTIMULib/RTIMU.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTIMU.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMU.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s
 .PHONY : src/RTIMULib/RTIMU.cpp.s
 
 src/RTIMULib/RTIMUHal.o: src/RTIMULib/RTIMUHal.cpp.o
@@ -287,7 +287,7 @@ src/RTIMULib/RTIMUHal.o: src/RTIMULib/RTIMUHal.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTIMUHal.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUHal.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.o
 .PHONY : src/RTIMULib/RTIMUHal.cpp.o
 
 src/RTIMULib/RTIMUHal.i: src/RTIMULib/RTIMUHal.cpp.i
@@ -295,7 +295,7 @@ src/RTIMULib/RTIMUHal.i: src/RTIMULib/RTIMUHal.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTIMUHal.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUHal.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.i
 .PHONY : src/RTIMULib/RTIMUHal.cpp.i
 
 src/RTIMULib/RTIMUHal.s: src/RTIMULib/RTIMUHal.cpp.s
@@ -303,7 +303,7 @@ src/RTIMULib/RTIMUHal.s: src/RTIMULib/RTIMUHal.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTIMUHal.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUHal.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s
 .PHONY : src/RTIMULib/RTIMUHal.cpp.s
 
 src/RTIMULib/RTIMUMPU6050HMC5883L.o: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
@@ -311,7 +311,7 @@ src/RTIMULib/RTIMUMPU6050HMC5883L.o: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
 .PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
 
 src/RTIMULib/RTIMUMPU6050HMC5883L.i: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
@@ -319,7 +319,7 @@ src/RTIMULib/RTIMUMPU6050HMC5883L.i: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
 .PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
 
 src/RTIMULib/RTIMUMPU6050HMC5883L.s: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
@@ -327,7 +327,7 @@ src/RTIMULib/RTIMUMPU6050HMC5883L.s: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
 .PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
 
 src/RTIMULib/RTIMUNull.o: src/RTIMULib/RTIMUNull.cpp.o
@@ -335,7 +335,7 @@ src/RTIMULib/RTIMUNull.o: src/RTIMULib/RTIMUNull.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTIMUNull.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUNull.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o
 .PHONY : src/RTIMULib/RTIMUNull.cpp.o
 
 src/RTIMULib/RTIMUNull.i: src/RTIMULib/RTIMUNull.cpp.i
@@ -343,7 +343,7 @@ src/RTIMULib/RTIMUNull.i: src/RTIMULib/RTIMUNull.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTIMUNull.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUNull.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i
 .PHONY : src/RTIMULib/RTIMUNull.cpp.i
 
 src/RTIMULib/RTIMUNull.s: src/RTIMULib/RTIMUNull.cpp.s
@@ -351,7 +351,7 @@ src/RTIMULib/RTIMUNull.s: src/RTIMULib/RTIMUNull.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTIMUNull.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUNull.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s
 .PHONY : src/RTIMULib/RTIMUNull.cpp.s
 
 src/RTIMULib/RTIMUSettings.o: src/RTIMULib/RTIMUSettings.cpp.o
@@ -359,7 +359,7 @@ src/RTIMULib/RTIMUSettings.o: src/RTIMULib/RTIMUSettings.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTIMUSettings.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUSettings.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.o
 .PHONY : src/RTIMULib/RTIMUSettings.cpp.o
 
 src/RTIMULib/RTIMUSettings.i: src/RTIMULib/RTIMUSettings.cpp.i
@@ -367,7 +367,7 @@ src/RTIMULib/RTIMUSettings.i: src/RTIMULib/RTIMUSettings.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTIMUSettings.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUSettings.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.i
 .PHONY : src/RTIMULib/RTIMUSettings.cpp.i
 
 src/RTIMULib/RTIMUSettings.s: src/RTIMULib/RTIMUSettings.cpp.s
@@ -375,7 +375,7 @@ src/RTIMULib/RTIMUSettings.s: src/RTIMULib/RTIMUSettings.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTIMUSettings.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTIMUSettings.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUSettings.cpp.s
 .PHONY : src/RTIMULib/RTIMUSettings.cpp.s
 
 src/RTIMULib/RTMath.o: src/RTIMULib/RTMath.cpp.o
@@ -383,7 +383,7 @@ src/RTIMULib/RTMath.o: src/RTIMULib/RTMath.cpp.o
 
 # target to build an object file
 src/RTIMULib/RTMath.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTMath.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.o
 .PHONY : src/RTIMULib/RTMath.cpp.o
 
 src/RTIMULib/RTMath.i: src/RTIMULib/RTMath.cpp.i
@@ -391,7 +391,7 @@ src/RTIMULib/RTMath.i: src/RTIMULib/RTMath.cpp.i
 
 # target to preprocess a source file
 src/RTIMULib/RTMath.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTMath.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.i
 .PHONY : src/RTIMULib/RTMath.cpp.i
 
 src/RTIMULib/RTMath.s: src/RTIMULib/RTMath.cpp.s
@@ -399,7 +399,7 @@ src/RTIMULib/RTMath.s: src/RTIMULib/RTMath.cpp.s
 
 # target to generate assembly for a file
 src/RTIMULib/RTMath.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/RTIMULib/RTMath.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTMath.cpp.s
 .PHONY : src/RTIMULib/RTMath.cpp.s
 
 src/autopilot.o: src/autopilot.cpp.o
@@ -407,7 +407,7 @@ src/autopilot.o: src/autopilot.cpp.o
 
 # target to build an object file
 src/autopilot.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/autopilot.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.o
 .PHONY : src/autopilot.cpp.o
 
 src/autopilot.i: src/autopilot.cpp.i
@@ -415,7 +415,7 @@ src/autopilot.i: src/autopilot.cpp.i
 
 # target to preprocess a source file
 src/autopilot.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/autopilot.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.i
 .PHONY : src/autopilot.cpp.i
 
 src/autopilot.s: src/autopilot.cpp.s
@@ -423,7 +423,7 @@ src/autopilot.s: src/autopilot.cpp.s
 
 # target to generate assembly for a file
 src/autopilot.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/autopilot.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/autopilot.cpp.s
 .PHONY : src/autopilot.cpp.s
 
 src/data_logger.o: src/data_logger.cpp.o
@@ -431,7 +431,7 @@ src/data_logger.o: src/data_logger.cpp.o
 
 # target to build an object file
 src/data_logger.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/data_logger.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.o
 .PHONY : src/data_logger.cpp.o
 
 src/data_logger.i: src/data_logger.cpp.i
@@ -439,7 +439,7 @@ src/data_logger.i: src/data_logger.cpp.i
 
 # target to preprocess a source file
 src/data_logger.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/data_logger.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.i
 .PHONY : src/data_logger.cpp.i
 
 src/data_logger.s: src/data_logger.cpp.s
@@ -447,7 +447,7 @@ src/data_logger.s: src/data_logger.cpp.s
 
 # target to generate assembly for a file
 src/data_logger.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/data_logger.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/data_logger.cpp.s
 .PHONY : src/data_logger.cpp.s
 
 src/global_functions.o: src/global_functions.cpp.o
@@ -455,7 +455,7 @@ src/global_functions.o: src/global_functions.cpp.o
 
 # target to build an object file
 src/global_functions.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/global_functions.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.o
 .PHONY : src/global_functions.cpp.o
 
 src/global_functions.i: src/global_functions.cpp.i
@@ -463,7 +463,7 @@ src/global_functions.i: src/global_functions.cpp.i
 
 # target to preprocess a source file
 src/global_functions.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/global_functions.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.i
 .PHONY : src/global_functions.cpp.i
 
 src/global_functions.s: src/global_functions.cpp.s
@@ -471,7 +471,7 @@ src/global_functions.s: src/global_functions.cpp.s
 
 # target to generate assembly for a file
 src/global_functions.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/global_functions.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/global_functions.cpp.s
 .PHONY : src/global_functions.cpp.s
 
 src/imu.o: src/imu.cpp.o
@@ -479,7 +479,7 @@ src/imu.o: src/imu.cpp.o
 
 # target to build an object file
 src/imu.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/imu.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.o
 .PHONY : src/imu.cpp.o
 
 src/imu.i: src/imu.cpp.i
@@ -487,7 +487,7 @@ src/imu.i: src/imu.cpp.i
 
 # target to preprocess a source file
 src/imu.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/imu.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.i
 .PHONY : src/imu.cpp.i
 
 src/imu.s: src/imu.cpp.s
@@ -495,7 +495,7 @@ src/imu.s: src/imu.cpp.s
 
 # target to generate assembly for a file
 src/imu.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/imu.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.s
 .PHONY : src/imu.cpp.s
 
 src/inter-thread-messages.o: src/inter-thread-messages.cpp.o
@@ -503,7 +503,7 @@ src/inter-thread-messages.o: src/inter-thread-messages.cpp.o
 
 # target to build an object file
 src/inter-thread-messages.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/inter-thread-messages.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.cpp.o
 .PHONY : src/inter-thread-messages.cpp.o
 
 src/inter-thread-messages.i: src/inter-thread-messages.cpp.i
@@ -511,7 +511,7 @@ src/inter-thread-messages.i: src/inter-thread-messages.cpp.i
 
 # target to preprocess a source file
 src/inter-thread-messages.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/inter-thread-messages.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.cpp.i
 .PHONY : src/inter-thread-messages.cpp.i
 
 src/inter-thread-messages.s: src/inter-thread-messages.cpp.s
@@ -519,7 +519,7 @@ src/inter-thread-messages.s: src/inter-thread-messages.cpp.s
 
 # target to generate assembly for a file
 src/inter-thread-messages.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/inter-thread-messages.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/inter-thread-messages.cpp.s
 .PHONY : src/inter-thread-messages.cpp.s
 
 src/osd.o: src/osd.cpp.o
@@ -527,7 +527,7 @@ src/osd.o: src/osd.cpp.o
 
 # target to build an object file
 src/osd.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/osd.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.cpp.o
 .PHONY : src/osd.cpp.o
 
 src/osd.i: src/osd.cpp.i
@@ -535,7 +535,7 @@ src/osd.i: src/osd.cpp.i
 
 # target to preprocess a source file
 src/osd.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/osd.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.cpp.i
 .PHONY : src/osd.cpp.i
 
 src/osd.s: src/osd.cpp.s
@@ -543,7 +543,7 @@ src/osd.s: src/osd.cpp.s
 
 # target to generate assembly for a file
 src/osd.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/osd.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/osd.cpp.s
 .PHONY : src/osd.cpp.s
 
 src/pilot.o: src/pilot.cpp.o
@@ -551,7 +551,7 @@ src/pilot.o: src/pilot.cpp.o
 
 # target to build an object file
 src/pilot.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/pilot.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.cpp.o
 .PHONY : src/pilot.cpp.o
 
 src/pilot.i: src/pilot.cpp.i
@@ -559,7 +559,7 @@ src/pilot.i: src/pilot.cpp.i
 
 # target to preprocess a source file
 src/pilot.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/pilot.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.cpp.i
 .PHONY : src/pilot.cpp.i
 
 src/pilot.s: src/pilot.cpp.s
@@ -567,7 +567,7 @@ src/pilot.s: src/pilot.cpp.s
 
 # target to generate assembly for a file
 src/pilot.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/pilot.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/pilot.cpp.s
 .PHONY : src/pilot.cpp.s
 
 src/quadcopter.o: src/quadcopter.cpp.o
@@ -575,7 +575,7 @@ src/quadcopter.o: src/quadcopter.cpp.o
 
 # target to build an object file
 src/quadcopter.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/quadcopter.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.o
 .PHONY : src/quadcopter.cpp.o
 
 src/quadcopter.i: src/quadcopter.cpp.i
@@ -583,7 +583,7 @@ src/quadcopter.i: src/quadcopter.cpp.i
 
 # target to preprocess a source file
 src/quadcopter.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/quadcopter.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.i
 .PHONY : src/quadcopter.cpp.i
 
 src/quadcopter.s: src/quadcopter.cpp.s
@@ -591,7 +591,7 @@ src/quadcopter.s: src/quadcopter.cpp.s
 
 # target to generate assembly for a file
 src/quadcopter.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/quadcopter.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/quadcopter.cpp.s
 .PHONY : src/quadcopter.cpp.s
 
 src/reader.o: src/reader.cpp.o
@@ -599,7 +599,7 @@ src/reader.o: src/reader.cpp.o
 
 # target to build an object file
 src/reader.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/reader.cpp.o
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.cpp.o
 .PHONY : src/reader.cpp.o
 
 src/reader.i: src/reader.cpp.i
@@ -607,7 +607,7 @@ src/reader.i: src/reader.cpp.i
 
 # target to preprocess a source file
 src/reader.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/reader.cpp.i
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.cpp.i
 .PHONY : src/reader.cpp.i
 
 src/reader.s: src/reader.cpp.s
@@ -615,7 +615,7 @@ src/reader.s: src/reader.cpp.s
 
 # target to generate assembly for a file
 src/reader.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_Release.dir/build.make CMakeFiles/Quadcopter_Release.dir/src/reader.cpp.s
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/reader.cpp.s
 .PHONY : src/reader.cpp.s
 
 # Help Target
@@ -624,7 +624,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... Quadcopter_Release"
+	@echo "... Quadcopter_"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... src/PID.o"
