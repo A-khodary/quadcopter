@@ -21,6 +21,7 @@
 #define ESC_MAX_PWM_VALUE 2
 
 #define REFRESHING_PERIOD_DEFAULT 500000 // PWM refreshing default period
+#define MAX_PWM 4096
 
 // Some Hardware defines :
 
@@ -51,7 +52,7 @@ pilotStateShared_t pilotStateShared;
 int calcTicks(float impulseMs, int hertz)
 {
 	float cycleMs = 1000.0f / hertz;
-	return (int)(ESC_MAX_PWM_VALUE * impulseMs / cycleMs + 0.5f);
+	return (int)(MAX_PWM * impulseMs / cycleMs + 0.5f);
 }
 
 
