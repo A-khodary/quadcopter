@@ -47,21 +47,6 @@
 pilotCommandsShared_t pilotCommandsShared;
 pilotStateShared_t pilotStateShared;
 
-int initPca9685()
-{
-    printDebug("[i] Initialisation du Pca9685");
-    if (pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS,PCA_FREQUENCY)  < 0)
-    {
-        printDebug("[e] Error initializing PCA9685 => No PWM output, this is quite terrible !");
-        return -1;
-    }
-
-    // Returns : 0 : init OK
-    //           1 : init FAILED
-
-
-    return 0;
-}
 
 int calcTicks(float impulseMs, int hertz)
 {
@@ -148,7 +133,7 @@ void* pilotHandler(void* arg)
 
 
 
-    if (true) // initPca9685() <= 0
+    if (pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS, PCA_FREQUENCY) < 0)
     {
         strcpy(message.message,"main_pilot_info_initfailed");
         message.priority = 20;
