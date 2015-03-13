@@ -24,17 +24,17 @@ servoControl_t::servoControl_t()
 
 servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
 {
- //ctor
+//ctor
 
- int i,j;
- servoControl_t();
+    int i,j;
+    servoControl_t();
 
     if (autopilotObjective == NULL)
     {
         printDebug("The autopilot objective passed to buildServoControl was NULL");
     }
 
-   switch(autopilotObjective->code)
+    switch(autopilotObjective->code)
     {
 
     case LAND_TAKEOFF : //mode  LAND_TAKEOFF
@@ -46,23 +46,23 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
             ServoControlData[i] = new oneWayServoControl_t;
         }
 
-                                                // Basic initialization of commands :
-                                                strcpy(ServoControlData[0]->type, "x");
-                                                strcpy(ServoControlData[1]->type, "y");
-                                                strcpy(ServoControlData[2]->type, "z");
-                                                strcpy(ServoControlData[3]->type, "yaw");
+        // Basic initialization of commands :
+        strcpy(ServoControlData[0]->type, "x");
+        strcpy(ServoControlData[1]->type, "y");
+        strcpy(ServoControlData[2]->type, "z");
+        strcpy(ServoControlData[3]->type, "yaw");
 
-                                                //locking position mutex in order to get position
-                                                pthread_mutex_lock(&positionShared.readWriteMutex);
+        //locking position mutex in order to get position
+        pthread_mutex_lock(&positionShared.readWriteMutex);
 
-                                                ServoControlData[0]->consign = positionShared.x;
-                                                ServoControlData[1]->consign = positionShared.y;
+        ServoControlData[0]->consign = positionShared.x;
+        ServoControlData[1]->consign = positionShared.y;
 
-                                                //Unlocking mutex now we don't need the position anymore :
-                                                pthread_mutex_unlock(&positionShared.readWriteMutex);
+        //Unlocking mutex now we don't need the position anymore :
+        pthread_mutex_unlock(&positionShared.readWriteMutex);
 
-                                                ServoControlData[2]->consign = autopilotObjective->destinationZ;
-                                                ServoControlData[3]->consign = autopilotObjective->directionBearing;
+        ServoControlData[2]->consign = autopilotObjective->destinationZ;
+        ServoControlData[3]->consign = autopilotObjective->directionBearing;
 
         for (i=0 ; i < oneWayNumber ; i++)
         {
@@ -85,43 +85,43 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
         }
 
 
-    break;
+        break;
 
     case GOTO_STANDARD: //mode GOTO_STANDARD
 
-            oneWayNumber = 3;
+        oneWayNumber = 3;
 
-            for (i=0; i< 3; i++);
-            {
-                ServoControlData[i] = new oneWayServoControl_t;
-            }
+        for (i=0; i< 3; i++);
+        {
+            ServoControlData[i] = new oneWayServoControl_t;
+        }
 
-                                                    // Basic initialization of commands :
-                                                    strcpy(ServoControlData[0]->type, "z");
-                                                    strcpy(ServoControlData[1]->type, "yaw");
-                                                    strcpy(ServoControlData[2]->type, "dist");
+        // Basic initialization of commands :
+        strcpy(ServoControlData[0]->type, "z");
+        strcpy(ServoControlData[1]->type, "yaw");
+        strcpy(ServoControlData[2]->type, "dist");
 
 
-                                                    ServoControlData[0]->consign = autopilotObjective->destinationZ;
+        ServoControlData[0]->consign = autopilotObjective->destinationZ;
 
-                                                    //Linking distance and bearing to the autopilot Objective ones :
-                                                    ServoControlData[1]->consign = autopilotObjective->directionBearing;
+        //Linking distance and bearing to the autopilot Objective ones :
+        ServoControlData[1]->consign = autopilotObjective->directionBearing;
 
-                                                    // Dealing with altitude :
-                                                    ServoControlData[2]->consign = autopilotObjective->destinationZ;
+        // Dealing with altitude :
+        ServoControlData[2]->consign = autopilotObjective->destinationZ;
 
 
         for (i=0 ; i < oneWayNumber ; i++)
         {
 
             for (j=0 ; j < 3 ; j++)
-                {
-                    // Filling-in coefficients :
-                    if (j==0) ServoControlData[i]->kp = landTakeOffCoeff[i][j];
-                    if (j==1) ServoControlData[i]->kd = landTakeOffCoeff[i][j];
-                    if (j==2) ServoControlData[i]->ki = landTakeOffCoeff[i][j];
+            {
+                // Filling-in coefficients :
+                if (j==0) ServoControlData[i]->kp = landTakeOffCoeff[i][j];
+                if (j==1) ServoControlData[i]->kd = landTakeOffCoeff[i][j];
+                if (j==2) ServoControlData[i]->ki = landTakeOffCoeff[i][j];
 
-                }
+            }
 
             // Creating the PID instance :
 
@@ -130,26 +130,26 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
         }
 
 
-    break;
+        break;
 
     case GOTO_HOVERING: //mode GOTO_HOVERING
 
-            // TODO
+        // TODO
 
 
-    break;
+        break;
 
     case POSITION_HOLD: // mode POSITION_HOLD
 
-                // TODO
+        // TODO
 
-    break;
+        break;
 
     default: // Notify the objective is not recognized
 
         printDebug("Invalid autopilot Objective code !");
 
-    break;
+        break;
     }
 
 }
@@ -355,6 +355,7 @@ oneWayServoControl_t::~oneWayServoControl_t()
 
 int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
+    //TODO : make dynamic copy
 
     int objectiveIndex;
     autopilotObjective_t* currentObjective;
@@ -527,8 +528,8 @@ autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopil
                 currentObjective = currentObjective->nextObjective;
             }
 
-        removeSpecificObjectivebyNumber(objectiveNumber, autopilotObjectiveFifo);
-        return currentObjective;
+            removeSpecificObjectivebyNumber(objectiveNumber, autopilotObjectiveFifo);
+            return currentObjective;
         }
     }
 }
@@ -607,11 +608,11 @@ int updateCalculation(autopilotObjective_t* autopilotObjective)
     //Now we're done, unlocking the position mutex :
     pthread_mutex_unlock(&positionShared.readWriteMutex);
 
-     //Objective reaching determination :
+    //Objective reaching determination :
 
-     //TODO
+    //TODO
 
-     return 0;
+    return 0;
 
 
 } // For now just computes the bearing and several distances, will modify max_speed in the future relative to distance to objective. Returns a boolean that indicates when objective is reached
@@ -654,6 +655,7 @@ void* autopilotHandler(void* arg)
     double distanceToObjective;
 
     int tickCounter=0;
+    int objectiveBypass=0;
 
     // Coefficients definitions :
 
@@ -692,6 +694,7 @@ void* autopilotHandler(void* arg)
     autopilotSharedState.crashed = 0;
     autopilotSharedState.stressLevel = 1;
     autopilotSharedState.stressLevel = 1;
+    autopilotSharedState.currentObjectivePriority = 0;
 
     pthread_mutex_unlock(&autopilotSharedState.readWrite);
 
@@ -709,6 +712,8 @@ void* autopilotHandler(void* arg)
 
     autopilotObjective_t readObjective;
     autopilotObjective_t* currentObjective;
+    autopilotObjective_t* insertedObjective;
+    autopilotObjective_t* tempObjective;
 
     // File reading for basic configuration
 
@@ -739,17 +744,17 @@ void* autopilotHandler(void* arg)
                     // Now we add the objective to the fifo
                     if (insertObjective(&readObjective, autopilotObjectiveFifo))
                     {
-                        printDebug("Insertion of a new autopilot objective success !");
+                        printDebug("[i] Insertion of a new autopilot objective success !");
                         lineNumber++;
                     }
-                    else printDebug("Insertion of a new autopilot objective error");
+                    else printDebug("[e] Insertion of a new autopilot objective error");
                 }
-                else printDebug("Autopilot objective speed, or destination is incorrect");
+                else printDebug("[e] Autopilot objective speed, or destination is incorrect");
 
-                }
-            else printDebug("Autopilot objective type is incorrect");
+            }
+            else printDebug("[e] Autopilot objective type is incorrect");
         }
-        printDebug("Objectives added to Autopilot FIFO");
+        printDebug("[i] Objectives added to Autopilot FIFO");
         lineNumber = 0;
         fclose(writtenObjectives);
     }
@@ -764,81 +769,64 @@ void* autopilotHandler(void* arg)
 
     while (1) // This loop iterates each time an objective is reached
     {
-        receivedMessage = retrieveMessage(autopilotITMHandler);
-        if (receivedMessage != NULL)
+        if(!objectiveBypass)
         {
-            // TODO : process message and decide priorities
-            printDebug("New ITM message received by autopilot");
-            /*if(receivedMessage->message == "???_autopilot_order_newobjective")
-            {
-                //TODO : behaviour
 
-                insertObjective(receivedMessage->data,autopilotObjectiveFifo);//autopilot_new_objective sous forme de message.data ?
+
+            currentObjective = readCurrentObjective(autopilotObjectiveFifo);
+            if (currentObjective == NULL)
+            {
+                // If we don't have any objective :
+                pthread_mutex_lock(&autopilotSharedState.readWrite);    // Locking shared state mutex, because we need state
+                if (autopilotSharedState.landed == 1 || autopilotSharedState.crashed == 1)
+                {
+                    // let's Put the autopilot in pause mode :
+                    autopilotSharedState.engaged = 0;
+
+                }
+                else
+                {
+                    // We build a position hold objective :
+                    currentObjective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
+                    currentObjective->code = POSITION_HOLD;
+                }
+                pthread_mutex_unlock(&autopilotSharedState.readWrite);
+
             }
 
-
-            /*else if (receivedMessage->message == "autopilot_emergency_landing")
-            {
-                // TODO : behaviour
-                 insertObjective(receivedMessage->data,autopilotObjectiveFifo);
-            }
-
-             //TODO : add all the events handling
-             else if(receivedMessage->message == "autopilot_imu_order_???")
-             {
-                //TODO : behaviour
-
-             }
-            else
-            {
-                printDebug("Autopilot received an unrecognized ITM message")
-                //TODO : send event to main
-
-                strcpy(message.message, "main_autopilot_info_wrongmessage");
-                sendMessage(mainITMHandler, message );
-            }
-            */
         }
 
-
-        currentObjective = readCurrentObjective(autopilotObjectiveFifo);
-        if (currentObjective == NULL)
+        else
         {
-            // If we don't have any objective :
-            pthread_mutex_lock(&autopilotSharedState.readWrite);    // Locking shared state mutex, because we need state
-            if (autopilotSharedState.landed == 1 || autopilotSharedState.crashed == 1)
-            {
-                // let's Put the autopilot in pause mode :
-                autopilotSharedState.engaged = 0;
+            objectiveBypass = 0;
+        }
 
-            }
-            else
-            {
-                // We build a position hold objective :
-                currentObjective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
-                currentObjective->code = POSITION_HOLD;
-            }
+        pthread_mutex_lock(&autopilotSharedState.readWrite);
+        if(autopilotSharedState.engaged)
+        {
+
             pthread_mutex_unlock(&autopilotSharedState.readWrite);
+            initCalculation(currentObjective);
 
+            currentServoControl = new servoControl_t(currentObjective);
 
-
+            if (currentServoControl == NULL)
+            {
+                printDebug("[e] A servo control structure was returned null to autopilot main Thread, skipping objective...");
+                freeAutopilotObjective(currentObjective);
+                continue;
+            }
 
         }
-        initCalculation(currentObjective);
-
-        currentServoControl = new servoControl_t(currentObjective);
-
-        if (currentServoControl == NULL)
+        else
         {
-            printDebug("A servo control structure was returned null to autopilot main Thread, skipping objective...");
-            freeAutopilotObjective(currentObjective);
-            continue;
+            pthread_mutex_unlock(&autopilotSharedState.readWrite);
         }
 
 
         while (1) // This loop iterates after each ITMhandler execution and calculation
-    {
-        if(tickCounter == MESSAGE_CHECKING_LIMIT)
+        {
+            if(tickCounter == MESSAGE_CHECKING_LIMIT)
             {
                 tickCounter=0;
 
@@ -846,37 +834,118 @@ void* autopilotHandler(void* arg)
                 if (receivedMessage != NULL)
                 {
                     // TODO : process message and decide priorities
-                    printDebug("New ITM message received by autopilot");
+                    printDebug("[i] New ITM message received by autopilot");
 
-                    /*
-                    if(receivedMessage->message == "???_autopilot_order_newobjective")
+
+                    if(!strcmp(receivedMessage->message, "newobjective"))
                     {
-                        //TODO : behaviour
-                         insertObjective(receivedMessage->data,autopilotObjectiveFifo);//autopilot_new_objective sous forme de message.data ?
+                        if(receivedMessage->data != NULL && receivedMessage->dataSize == sizeof(autopilotObjective_t))
+                        {
+                            // Dynamic allocation and copying :
+                            insertedObjective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
+                            autopilotObjective_t* to = (autopilotObjective_t*) receivedMessage->data;
+                            *insertedObjective = *to;
+
+                            // Locking state mutex because we need priority :
+
+                            if (insertedObjective->priority > autopilotSharedState.currentObjectivePriority)
+                            {
+                                printDebug("[i] We got a prioritary objective, removing the current objective and restarting autopilot");
+
+                                free(currentObjective);
+                                free(currentServoControl);
+                                currentObjective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
+                                tempObjective = (autopilotObjective_t*) receivedMessage->data;
+                                *currentObjective = *tempObjective;
+                                free(insertedObjective);
+
+                                objectiveBypass = 1;
+                                break;
+
+                            }
+                            else
+                            {
+                                printDebug("[i] We got a new objective, but its priority was not to high so we inserted it in the fifo");
+                                //TODO : insert objective
+
+                            }
+
+                        }
+
+                        else
+                        {
+                            printDebug("[e] Autopilot received a message to insert an objective, but the associated data was corrupted");
+                        }
+
                     }
 
-                    /*else if (receivedMessage->message == "autopilot_emergency_landing")
+                    else if (!strcmp(receivedMessage->message, "emergencylanding"))
                     {
-                        // TODO : behaviour
-                         insertObjective(receivedMessage->data,autopilotObjectiveFifo);
+                        //TODO
+
                     }
 
-                     //TODO : add all the events handling
-                     else if(receivedMessage->message == "autopilot_imu_order_???")
-                     {
+                    //TODO : add all the events handling
+                    else if(!strcmp(receivedMessage->message, "landing"))
+                    {
                         //TODO : behaviour
 
-                     }
+                    }
+
+                    else if(!strcmp(receivedMessage->message, "play"))
+                    {
+                        // Locking state mutex :
+
+                        pthread_mutex_lock(&autopilotSharedState.readWrite);
+
+                        if (!autopilotSharedState.engaged)
+                        {
+                            printDebug("[i] Autopilot is resuming....");
+                            autopilotSharedState.engaged = 1;
+
+                            if (!autopilotSharedState.landed) objectiveBypass = 1;
+                            pthread_mutex_unlock(&autopilotSharedState.readWrite);
+
+                            break;
+                        }
+
+                        else
+                        {
+                            printDebug("[e] Autopilot was asked to resume and was already engaged");
+                            pthread_mutex_unlock(&autopilotSharedState.readWrite);
+                        }
+
+
+
+
+                    }
+
+                    else if(!strcmp(receivedMessage->message, "pause"))
+                    {
+                        pthread_mutex_lock(&autopilotSharedState.readWrite);
+
+                        if (autopilotSharedState.engaged)
+                        {
+                            printDebug("[i] Autopilot is pausing....");
+                            autopilotSharedState.engaged = 0;
+                        }
+
+                        else
+                        {
+                            printDebug("[e] Autopilot was asked to pause and was already disengaged");
+                        }
+
+
+                        pthread_mutex_unlock(&autopilotSharedState.readWrite);
+
+                    }
+
                     else
                     {
-                        printDebug("Autopilot received an unrecognized ITM message")
-                        //TODO : send event to main
-
-                        strcpy(message.message, "main_autopilot_info_wrongmessage");
-                        sendMessage(mainITMHandler, message );
+                        printDebug("Autopilot received an unrecognized ITM message");
                     }
-                    */
 
+                    free(receivedMessage);
 
                 }
 
@@ -894,22 +963,31 @@ void* autopilotHandler(void* arg)
                 tickCounter++;
                 usleep(AUTOPILOT_REFRESHING_PERIOD);
             }
-            // Calculation Area
-            objectiveReached = updateCalculation(currentObjective);
-            currentServoControl->makeAsserv(currentObjective);
 
-            if(objectiveReached)
+            pthread_mutex_lock(&autopilotSharedState.readWrite);
+
+            if(autopilotSharedState.engaged)
             {
-                //TODO : notify main of the objective completion
+                pthread_mutex_unlock(&autopilotSharedState.readWrite);
+                // Calculation Area
+                objectiveReached = updateCalculation(currentObjective);
+                currentServoControl->makeAsserv(currentObjective);
 
-                strcpy(message.message, "main_autopilot_info_objectivecompleted");
-                sendMessage(mainITMHandler, message );
-                // Now the objective is reached, we need to free the ressources used :
-                currentServoControl->~servoControl_t();
-                freeAutopilotObjective(currentObjective);
+                if(objectiveReached)
+                {
+                    //TODO : notify main of the objective completion
 
+                    strcpy(message.message, "main_autopilot_info_objectivecompleted");
+                    sendMessage(mainITMHandler, message );
+                    // Now the objective is reached, we need to free the ressources used :
+                    currentServoControl->~servoControl_t();
+                    freeAutopilotObjective(currentObjective);
+
+
+                }
 
             }
+            else pthread_mutex_unlock(&autopilotSharedState.readWrite);
 
 
         }

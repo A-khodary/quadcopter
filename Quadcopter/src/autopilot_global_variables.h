@@ -69,6 +69,8 @@ typedef struct autopilotSharedState
     // 3 : things are not going well : landing asap
     // 4 : we're in shit : emergency landing
 
+    int currentObjectivePriority;
+
 
 
 }autopilotSharedState_t;
