@@ -13,7 +13,7 @@
 
 // Quadcopter defines :
 
-#define MAIN_SLEEPING_TIME 10000
+#define MAIN_SLEEPING_TIME 100000
 
 
 #include "shared_librairies.h"
@@ -126,10 +126,10 @@ int main()
     printDebug("[i]Launching components threads...");
 
 
-    //pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
     pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
-    //pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
-    //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
+    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
     //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
 
@@ -145,12 +145,16 @@ int main()
         // In case we don't have any new message :
         if (currentMessage == NULL)
         {
-            printDebug("[i] Main is idle : no messages");
+            //printDebug("[i] Main is idle : no messages");
             continue;
         }
 
 
         currentDecodedMessage = decodeMessageITM(currentMessage);
+        if (!strcmp(currentDecodedMessage.destination, "") || !strcmp(currentDecodedMessage.source, "") || !strcmp(currentDecodedMessage.message, "")   )
+        {
+            continue;
+        }
 
 
 
@@ -188,40 +192,8 @@ int main()
             if(currentDecodedMessage.operation == INFO)
             {
 
-                if (currentDecodedMessage.message == "restartthreadautopilot")
-                {
-                    pthread_cancel(autopilotThread);
-                    pthread_cancel(autopilotThread);
-                    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
 
-                }
-                else if (currentDecodedMessage.message == "restartthreaddatalogger")
-                {
-                    pthread_cancel(dataLoggerThread);
-                    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
-                }
-
-                else if (currentDecodedMessage.message == "restartthreadpilot")
-                {
-                    pthread_cancel(pilotThread);
-                    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
-                }
-
-                else if (currentDecodedMessage.message == "restartthreadimu")
-                {
-                    pthread_cancel(imuThread);
-                    //   pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
-
-                }
-
-                else if (currentDecodedMessage.message == "restartthreadreader")
-                {
-                    pthread_cancel(readerThread);
-                    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
-                }
-
-
-                else if (currentDecodedMessage.message == "emergencylanding") // the autopilot can notify main of such event
+                if (currentDecodedMessage.message == "emergencylanding") // the autopilot can notify main of such event
                 {
                     printDebug("Received order to do an emergency landing, broadcasting to datalogger...");
                     messageToSend.dataSize=0;
@@ -262,25 +234,86 @@ int main()
                 {
                     if (!strcmp(currentDecodedMessage.source, "pilot"))
                     {
-                        printDebug("[e] Pilot failed his init : this is terrible : no command, restarting the pilot component...");
+                        printDebug("[e] Pilot failed its init : this is terrible : no command, restarting the pilot component...");
                         pthread_cancel(pilotThread);
                         pthread_join(pilotThread, NULL); // Join to cleanup (prevents memory leak)
                         pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.source, "reader"))
+                    {
+                        printDebug("[e] Reader failed its init : this is terrible : no user command and no ultrasonic, restarting the reader component...");
+                        pthread_cancel(readerThread);
+                        pthread_join(readerThread, NULL); // Join to cleanup (prevents memory leak)
+                        pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+
+                    }
+                }
+
+                else if (!strcmp(currentDecodedMessage.message,"init")) // the autopilot can notify main of such event
+                {
+                    if (!strcmp(currentDecodedMessage.source, "pilot"))
+                    {
+                        printDebug("[i] Pilot started its init");
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.source, "reader"))
+                    {
+                        printDebug("[i] Reader started its init");
                     }
                 }
 
 
                 else
                 {
-                printDebug("[e]Main thread received an INFO message, but its content was not recognized.");
+                printDebug("[e]Main thread received an INFO message, but its content was not recognized");
                 }
 
 
             }
 
+            else if (currentDecodedMessage.operation == ORDER)
+            {
+                                if (!strcmp(currentDecodedMessage.message, "restartthreadautopilot"))
+                {
+                    pthread_cancel(autopilotThread);
+                    pthread_join(autopilotThread,NULL);
+                    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+
+                }
+                else if (!strcmp(currentDecodedMessage.message, "restartthreaddatalogger"))
+                {
+                    pthread_cancel(dataLoggerThread);
+                    pthread_join(dataLoggerThread, NULL);
+                    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
+                }
+
+                else if (!strcmp(currentDecodedMessage.message, "restartthreadpilot"))
+                {
+                    pthread_cancel(pilotThread);
+                    pthread_join(pilotThread, NULL);
+                    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
+                }
+
+                else if (!strcmp(currentDecodedMessage.message, "restartthreadimu"))
+                {
+                    pthread_cancel(imuThread);
+                    pthread_join(imuThread, NULL);
+                    //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+
+                }
+
+                else if (!strcmp(currentDecodedMessage.message, "restartthreadreader"))
+                {
+                    pthread_cancel(readerThread);
+                    pthread_join(readerThread, NULL);
+                    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+                }
+            }
+
             else
             {
-                printDebug("[e]Main thread received a message, but it was not recognized. NOTE : main messages have to be of INFO type");
+                printDebug("[e] Main thread received a message, but it was not recognized. NOTE : main messages have to be of INFO or ORDER type");
             }
 
 
@@ -289,7 +322,7 @@ int main()
 
         else
         {
-            printDebug("[e]Invalid destination for message !");
+            printDebug("[e] Invalid destination for message !");
         }
         free(currentMessage);
 

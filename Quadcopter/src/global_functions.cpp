@@ -7,7 +7,15 @@ void initialize_mutex(pthread_mutex_t* mutex)
 
 void printDebug(char const *to_print)
 {
-    printf("%s\n",to_print);
+    char destination[256];
+
+    if(strstr(to_print, "[i]") != NULL) sprintf(destination, "%s%s", KGRN, to_print);
+    else if(strstr(to_print, "[e]") != NULL) sprintf(destination, "%s%s", KRED, to_print);
+    else strcpy(destination, to_print);
+
+    printf("%s\n",destination);
+    printf("%s", KNRM);
+
     fflush(stdout);
 
 }

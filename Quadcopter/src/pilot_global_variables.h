@@ -17,6 +17,7 @@
 #define CUTOFF 4
 #define AUTOPILOT_LANDING 5
 #define AUTOPILOT_RTH 6
+#define TEST 7
 
 
 // Global variables structures declaration

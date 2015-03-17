@@ -58,6 +58,21 @@ typedef struct autopilotSharedState
 
     pthread_mutex_t readWrite;
 
+    int landed; // 1 : landed 0 : in flight
+    int crashed; // 1 : crashed 0 : not crashed
+
+    int engaged; // 1 : engaged 0: disengaged
+
+    int stressLevel; // symbolize the autopilot reactions to its environnement : four levels :
+    // 1 : normal stress
+    // 2 : something is not normal
+    // 3 : things are not going well : landing asap
+    // 4 : we're in shit : emergency landing
+
+    int currentObjectivePriority;
+
+
+
 }autopilotSharedState_t;
 
 

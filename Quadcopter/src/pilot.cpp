@@ -20,7 +20,8 @@
 #define ESC_MIN_PWM_VALUE 1
 #define ESC_MAX_PWM_VALUE 2
 
-#define REFRESHING_PERIOD_DEFAULT 200000 // PWM refreshing default period
+#define REFRESHING_PERIOD_DEFAULT 500000 // PWM refreshing default period
+#define MAX_PWM 4096
 
 // Some Hardware defines :
 
@@ -42,38 +43,55 @@
 #define GAZ_CUTOFF_CHAN 9
 #define MANUAL_CHAN 5
 
+#define YAW_CHAN 1
+#define GAZ_CHAN 2
+#define ROLL CHAN 3
+#define PITCH_CHAN 4
+
 // Global variables definitions :
 
 pilotCommandsShared_t pilotCommandsShared;
 pilotStateShared_t pilotStateShared;
 
-int initPca9685()
-{
-    printDebug("[i] Initialisation du Pca9685");
-    if (pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS,PCA_FREQUENCY)  < 0)
-    {
-        printDebug("[e] Error initializing PCA9685 => No PWM output, this is quite terrible !");
-        return -1;
-    }
-
-    // Returns : 0 : init OK
-    //           1 : init FAILED
-
-
-    return 0;
-}
 
 int calcTicks(float impulseMs, int hertz)
 {
 	float cycleMs = 1000.0f / hertz;
-	return (int)(ESC_MAX_PWM_VALUE * impulseMs / cycleMs + 0.5f);
+	return (int)(MAX_PWM * impulseMs / cycleMs + 0.5f);
+}
+
+void armQuadcopter()
+{
+    printDebug("[i] Arming quadcopter motors....");
+    pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+    // TODO : implement arming sequence
+
+
+
+    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+    printDebug("[i] Quadcopter motors are no armed !");
+}
+
+void disarmQuadcopter()
+{
+    printDebug("[i] Disarming quadcopter motors....");
+    pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+    // TODO : implement disarming sequence
+
+
+
+    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+    printDebug("[i] Quadcopter motors are no disarmed !");
+
 }
 
 
 
 void writeCommands()
 {
-    int pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
+    double pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
     int pilotRefreshingPeriodShared = REFRESHING_PERIOD_DEFAULT;
 
@@ -101,13 +119,20 @@ void writeCommands()
         pwmWrite(PCA_PINBASE + 8, calcTicks(pwm9, PCA_FREQUENCY));
 
 
+    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 }
 
 void* pilotHandler(void* arg)
 {
     int isfirst = 1;
 
+    // variables needed for the pilot test function :
+
+    double testCommand = 0;
+
     // Handler global variables init :
+
+    initialize_mutex(&pilotCommandsShared.readWrite);
 
 
     pilotCommandsShared.chan1 = 0;
@@ -120,8 +145,6 @@ void* pilotHandler(void* arg)
     pilotCommandsShared.chan8 = 0;
     pilotCommandsShared.chan9 = 0;
 
-
-    initialize_mutex(&pilotCommandsShared.readWrite);
 
     pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
 
@@ -144,20 +167,22 @@ void* pilotHandler(void* arg)
 
 
 
-    if (initPca9685() <= 0)
+    int fd = pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS, PCA_FREQUENCY);
+    if(fd <0)
     {
         strcpy(message.message,"main_pilot_info_initfailed");
         message.priority = 20;
+        sleep(1);
         sendMessage(mainITMHandler, message);
 
         pthread_exit(NULL);
     }
+    pca9685PWMReset(fd);
 
-    printDebug("[i]Initializing ESC...");
-    writeCommands();
+    armQuadcopter();
 
-    // Waiting 5ms for ESC init :
-    usleep(5000);
+    // Waiting 500ms for ESC to init :
+    usleep(500000);
 
     while(1)
     {
@@ -174,9 +199,9 @@ void* pilotHandler(void* arg)
 
             decoded = decodeMessageITM(receivedMessage);
 
-            if (decoded.destination != "pilot")
+            if (strcmp(decoded.destination,"pilot"))
             {
-                printDebug("Error : pilot component received a message it should not");
+                printDebug("[e] pilot component received a message it should not");
 
             }
 
@@ -184,7 +209,7 @@ void* pilotHandler(void* arg)
             {
                 if (decoded.operation == ORDER)
                 {
-                    if (decoded.message == "cutoff")
+                    if (!strcmp(decoded.message, "cutoff"))
                     {
                         printDebug("Pilot received a cutoff order and cuts everything off");
 
@@ -198,7 +223,7 @@ void* pilotHandler(void* arg)
                         sendMessage(mainITMHandler, message);
                     }
 
-                    else if (decoded.message == "manual")
+                    else if (!strcmp(decoded.message, "manual"))
                     {
                         strcpy(message.message,"main_pilot_info_automanual");
                         sendMessage(mainITMHandler, message);
@@ -213,7 +238,7 @@ void* pilotHandler(void* arg)
 
                     }
 
-                    else if (decoded.message == "normal")
+                    else if (!strcmp(decoded.message, "normal"))
                     {
 
                         strcpy(message.message,"main_pilot_info_autonormal");
@@ -228,6 +253,22 @@ void* pilotHandler(void* arg)
                         sendMessage(mainITMHandler, message);
 
                     }
+
+                    else if (!strcmp(decoded.message, "test"))
+                    {
+
+                        strcpy(message.message,"main_pilot_info_test");
+                        sendMessage(mainITMHandler, message);
+
+
+                        printDebug("Pilot received an autopilot test, performing test");
+                        pthread_mutex_lock(&pilotStateShared.readWriteMutex);
+                        pilotStateShared.pilotMode = TEST;
+                        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
+                        strcpy(message.message, "autopilot_pilot_order_pause");
+                        sendMessage(mainITMHandler, message);
+                    }
+
 
                 }
 
@@ -318,8 +359,10 @@ void* pilotHandler(void* arg)
             sendMessage(mainITMHandler, message);
         }
 
+        pilotStateShared.pilotMode = TEST; // For testing purposes
+
         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-        pthread_mutex_lock(&pilotCommandsShared.readWrite);
+        pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
         switch (pilotStateShared.pilotMode)
         {
@@ -341,6 +384,8 @@ void* pilotHandler(void* arg)
 
         case AUTOPILOT_EMERGENCY_LANDING:
 
+        // Doing nothing to commands : autopilot has control
+
             break;
 
 
@@ -357,24 +402,47 @@ void* pilotHandler(void* arg)
 
         case AUTOPILOT_NORMAL:
 
+        // Doing nothing to commands : autopilot has control
+
             break;
 
 
         case AUTOPILOT_RTH:
+
+         // Doing nothing to commands : autopilot has control
 
             break;
 
 
         case AUTOPILOT_LANDING:
 
+         // Doing nothing to commands : autopilot has control
+
+            break;
+
+        case TEST:
+
+            // Some testing functions that increases and stops all channels
+
+            pilotCommandsShared.chan1 =  testCommand;
+            pilotCommandsShared.chan2 =  testCommand;
+            pilotCommandsShared.chan3 =  testCommand;
+            pilotCommandsShared.chan4 =  testCommand;
+
+            if (testCommand >= 1) testCommand = 0;
+            else testCommand += 0.01;
+
+
             break;
 
         }
+        writeCommands();
+        if (pilotStateShared.pilotMode == CUTOFF) disarmQuadcopter();
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
-        writeCommands();
+
         usleep(pilotCommandsShared.refreshingPeriod);
 
 

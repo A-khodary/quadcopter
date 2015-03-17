@@ -1,5 +1,6 @@
 #include "data_logger.h"
 
+
 /*
 ##############################################
 #   Data logger functionnality                     #
@@ -27,6 +28,10 @@ void* dataLoggerHandler(void* arg)
 
     int tickCounter=0;
 
+    // Message testing area :
+
+    char readBuffer[128];
+
 
     //TODO : notify main handler of end of init
 
@@ -39,7 +44,7 @@ void* dataLoggerHandler(void* arg)
 
         // Message retrieving and handling area :
 
-        receivedMessage = retrieveMessage(dataLoggerITMHandler);
+        //receivedMessage = retrieveMessage(dataLoggerITMHandler);
         //if (receivedMessage->message ==
 
 
@@ -49,7 +54,15 @@ void* dataLoggerHandler(void* arg)
 
 
 
+        // Message sending function for testing :
 
+        printf("\n[i] Enter a command :");
+        scanf("%s", &readBuffer);
+        strcpy(currentMessage.message, readBuffer);
+
+
+        sendMessage(mainITMHandler, currentMessage);
+        usleep(500000);
     }
 
 
