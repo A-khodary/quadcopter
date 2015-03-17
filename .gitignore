@@ -223,10 +223,5 @@ Quadcopter/Quadcopter.layout
 Quadcopter/src/Quadcopter.layout
 Quadcopter/cmake_install.cmake 
 Quadcopter/CMakeFiles/
-<<<<<<< HEAD
 *.Makefile
 *.CMakeCache.txt
-=======
-Quadcopter/Makefile
-CMakeCache.txt 
->>>>>>> 231247e21104897ffc950b585511cfe23b8d2b26
