@@ -42,7 +42,7 @@
 
 // Objective text file list path :
 
-#define OBJECTIVES_PATH "objectives"
+#define OBJECTIVES_PATH "objectives.txt"
 
 
 class oneWayServoControl_t

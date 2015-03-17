@@ -721,7 +721,7 @@ void* autopilotHandler(void* arg)
     if (writtenObjectives == NULL)
     {
         printDebug("[e]Autopilot objective file not found");
-        strcpy(currentMessage.message, "main_autopilot_objectivefilenotfound");
+        strcpy(currentMessage.message, "main_autopilot_info_objectivefilenotfound");
         currentMessage.priority = 5;
         sendMessage(mainITMHandler, currentMessage);
     }
