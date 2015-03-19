@@ -34,12 +34,15 @@ CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
+<<<<<<< HEAD
+=======
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+>>>>>>> 231247e21104897ffc950b585511cfe23b8d2b26
 
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
