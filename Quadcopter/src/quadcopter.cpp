@@ -176,7 +176,7 @@ int main()
 
         else if(!strcmp(currentDecodedMessage.destination,"datalogger"))
         {
-            printDebug("Main Thread is dispatching a message to datalogger : %s", currentDecodedMessage.message);
+            printDebug("Main Thread is dispatching a message to datalogger");
             sendMessage(dataLoggerITMHandler, *currentMessage);
         }
 
