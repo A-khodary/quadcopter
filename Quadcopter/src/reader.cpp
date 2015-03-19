@@ -102,7 +102,7 @@ void* readerHandler(void* arg)
 
                         if (!strcmp(data, "pwm1"))
                         {
-                            printDebug("[i] Got pw1 value");
+                            //printDebug("[i] Got pw1 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[0] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -110,7 +110,7 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "pwm2"))
                         {
-                            printDebug("[i] Got pw2 value");
+                            //printDebug("[i] Got pw2 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[1] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -118,7 +118,7 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "pwm3"))
                         {
-                            printDebug("[i] Got pw3 value");
+                            //printDebug("[i] Got pw3 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[2] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -126,7 +126,7 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "pwm4"))
                         {
-                            printDebug("[i] Got pw4 value");
+                            //printDebug("[i] Got pw4 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[3] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -134,7 +134,7 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "pwm5"))
                         {
-                            printDebug("[i] Got pw5 value");
+                            //printDebug("[i] Got pw5 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[4] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -142,7 +142,7 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "pwm6"))
                         {
-                            printDebug("[i] Got pw6 value");
+                            //printDebug("[i] Got pw6 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[5] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -150,7 +150,7 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "pwm7"))
                         {
-                            printDebug("[i] Got pw7 value");
+                            //printDebug("[i] Got pw7 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[6] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -158,7 +158,7 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "pwm8"))
                         {
-                            printDebug("[i] Got pw8 value");
+                            //printDebug("[i] Got pw8 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[7] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -166,7 +166,7 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "pwm9"))
                         {
-                            printDebug("[i] Got pw9 value");
+                            //printDebug("[i] Got pw9 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[8] = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
@@ -174,11 +174,46 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "ultradist"))
                         {
-                            printDebug("[i] Got ultrasonic value");
+                            //printDebug("[i] Got ultrasonic value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.ultrasonicTelemeter = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
+
+                        else if (!strcmp(data, "status"))
+                        {
+                            //printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            if (!strcmp(numb, "fix")) receivedCommands.gpsStatus = FIX;
+                            if (!strcmp(numb, "nofix")) receivedCommands.gpsStatus = NO_FIX;
+
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "latitude"))
+                        {
+                            //printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.latitude = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "longitude"))
+                        {
+                            //printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.longitude = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "altitude"))
+                        {
+                            //printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.altitude = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
 
 
 
