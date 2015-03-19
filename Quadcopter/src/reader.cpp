@@ -275,6 +275,26 @@ void* readerHandler(void* arg)
 
         */
 
+        printDebug("[i] Beginning reader test");
+        pthread_mutex_lock(&receivedCommands.readWriteMutex);
+        printf("PWM 1 : %f\n", receivedCommands.commands[0]);
+        printf("PWM 2 : %f\n", receivedCommands.commands[1]);
+        printf("PWM 3 : %f\n", receivedCommands.commands[2]);
+        printf("PWM 4 : %f\n", receivedCommands.commands[3]);
+        printf("PWM 5 : %f\n", receivedCommands.commands[4]);
+        printf("PWM 6 : %f\n", receivedCommands.commands[5]);
+        printf("PWM 7 : %f\n", receivedCommands.commands[6]);
+        printf("PWM 8 : %f\n", receivedCommands.commands[7]);
+        printf("PWM 9 : %f\n", receivedCommands.commands[8]);
+
+        printf("Ultrasonic : %f\n", receivedCommands.ultrasonicTelemeter);
+        printf("GPS status : %f\n", receivedCommands.gpsStatus);
+        printf("Latitude : %f\n", receivedCommands.latitude);
+        printf("Longitude : %f\n", receivedCommands.longitude);
+        printf("Altiude : %f\n", receivedCommands.altitude);
+
+        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+
 
 
 
