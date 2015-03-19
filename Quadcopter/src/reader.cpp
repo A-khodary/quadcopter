@@ -41,11 +41,6 @@ void* readerHandler(void* arg)
     message_t* receivedMessage;
     message_t currentMessage;
 
-    strcpy(currentMessage.message, "main_reader_info_init");
-    currentMessage.priority=20;
-
-    sendMessage(mainITMHandler, currentMessage);
-
     int fd ;
     char c;
     char buffer[32];
@@ -56,11 +51,17 @@ void* readerHandler(void* arg)
     int i;
     int finished, started, j, k, number = 0;
 
+    strcpy(currentMessage.message, "main_reader_info_init");
+    currentMessage.priority=20;
+
+    sendMessage(mainITMHandler, currentMessage);
+
+
 
     pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
 
-    for (i=1; i<=9; i++) receivedCommands.commands[i]=0;
+    for (i=0; i<=8; i++) receivedCommands.commands[i]=0;
 
     pthread_mutex_unlock(&receivedCommands.readWriteMutex);
     i=0;
