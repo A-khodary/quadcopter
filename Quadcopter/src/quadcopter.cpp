@@ -156,6 +156,8 @@ int main()
             continue;
         }
 
+        printDebug("[i] NewMessage");
+
 
 
         // TODO handling message :
