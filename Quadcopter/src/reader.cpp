@@ -77,6 +77,11 @@ void* readerHandler(void* arg)
 
         pthread_exit(NULL);
     }
+    // Notifying main thread init sucedded :
+
+    strcpy(currentMessage.message, "main_reader_info_endofinit");
+    currentMessage.priority=20;
+
 
     // Now we're connected, processing incoming data :
 
