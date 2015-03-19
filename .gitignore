@@ -219,9 +219,9 @@ pip-log.txt
 
 #Custom files :
 
-Quadcopter/Quadcopter.layout
-Quadcopter/src/Quadcopter.layout
-Quadcopter/cmake_install.cmake 
-Quadcopter/CMakeFiles/
-*.Makefile
+*.layout
+*.layout
+*cmake_install.cmake 
+*/CMakeFiles/
+*Makefile
 *.CMakeCache.txt
