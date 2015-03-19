@@ -1,11 +1,17 @@
 #ifndef READER
 #define READER
 
+#include <wiringSerial.h>
+
 #include "shared_librairies.h"
 
 // Global variables includes
 
 #include "reader_global_variables.h"
+
+// Some defines relative to Serial :
+
+#define BAUDRATE 115200
 
 //Some defines relative to the median filtering of the ultrasonic sensor :
 

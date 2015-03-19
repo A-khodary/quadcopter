@@ -12,7 +12,6 @@
 
 // Software defines :
 
-#define ARDUINO_ADDRESS 1
 #define SAMPLING_PERIOD_MS 10
 
 // Global variables definitions :
@@ -25,7 +24,6 @@ void* readerHandler(void* arg)
 {
     printDebug("[i] New reader thread launched !");
 
-    int i;
     int isUltrasonicOn = 0;
     sampleList_t* ultrasonicSampleList;
     float filteredValue;
@@ -48,10 +46,16 @@ void* readerHandler(void* arg)
 
     sendMessage(mainITMHandler, currentMessage);
 
+    int fd ;
+    char c;
+    char buffer[32];
+    char *data;
+    char *numb;
+    char data_c[16];
+    char numb_c[16];
+    int i;
+    int finished, started, j, k, number = 0;
 
-
-    long buffer[9];
-    int fd;
 
     pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
@@ -59,11 +63,12 @@ void* readerHandler(void* arg)
     for (i=1; i<=9; i++) receivedCommands.commands[i]=0;
 
     pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+    i=0;
 
 
-    if (true) //fd = wiringPiI2CSetup(ARDUINO_ADDRESS) < 0
+    if ((fd = serialOpen ("/dev/ttyAMA0", BAUDRATE)) < 0) //fd = wiringPiI2CSetup(ARDUINO_ADDRESS) < 0
     {
-        printDebug("[e] Reader : error connecting to Arduino via I2C");
+        printDebug("[e] Reader : error connecting to Arduino via Serial");
         strcpy(currentMessage.message, "main_reader_info_initfailed");
         currentMessage.priority=20;
         sleep(1);
@@ -76,9 +81,134 @@ void* readerHandler(void* arg)
     // Now we're connected, processing incoming data :
 
     while(1)
-{
-    // Message processing AREA :
-    receivedMessage = retrieveMessage(readerITMHandler);
+    {
+        // Serial processing AREA :
+
+
+        while (!finished)
+        {
+
+            c = serialGetchar(fd);
+            if(c == '_')
+            {
+                if (started)
+                {
+                    buffer[i]='\0';
+                    data =  strtok( buffer, "=");
+                    numb = strtok(NULL, "=");
+                    if (data != NULL && numb != NULL)
+                    {
+                        finished = 1;
+
+                        if (!strcmp(data, "pwm1"))
+                        {
+                            printDebug("[i] Got pw1 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[0] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "pwm2"))
+                        {
+                            printDebug("[i] Got pw2 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[1] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "pwm3"))
+                        {
+                            printDebug("[i] Got pw3 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[2] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "pwm4"))
+                        {
+                            printDebug("[i] Got pw4 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[3] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "pwm5"))
+                        {
+                            printDebug("[i] Got pw5 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[4] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "pwm6"))
+                        {
+                            printDebug("[i] Got pw6 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[5] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "pwm7"))
+                        {
+                            printDebug("[i] Got pw7 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[6] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "pwm8"))
+                        {
+                            printDebug("[i] Got pw8 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[7] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "pwm9"))
+                        {
+                            printDebug("[i] Got pw9 value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.commands[8] = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "ultradist"))
+                        {
+                            printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.ultrasonicTelemeter = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+
+
+                    }
+
+
+
+                    strcpy(buffer, "");
+                    i=0;
+                }
+                else
+                {
+                    started=1;
+                    strcpy(buffer, "");
+                }
+            }
+
+            else
+            {
+                buffer[i]=c;
+                i++;
+            }
+
+        }
+        finished = 0;
+
+
+
+        // Message processing AREA :
+        //receivedMessage = retrieveMessage(readerITMHandler);
 
 
         //TODO : make message parser
@@ -107,7 +237,10 @@ void* readerHandler(void* arg)
 
 
 
-        read(fd, buffer, 4*9); //TODO implement connection test and ultrasonic reading
+
+
+
+
 
         if (isUltrasonicOn)
         {
@@ -117,18 +250,7 @@ void* readerHandler(void* arg)
 
         // TODO : integrate ultrasonic
 
-        pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
-        for (i=0; i<=8; i++)
-        {
-            receivedCommands.commands[i] = buffer[i];
-        }
-
-        receivedCommands.ultrasonicTelemeter = filteredValue;
-
-
-
-        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
         sleep(SAMPLING_PERIOD_MS/1000);
 

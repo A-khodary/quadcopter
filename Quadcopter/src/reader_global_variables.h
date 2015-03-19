@@ -9,8 +9,9 @@ typedef struct  receivedCommandsShared_t {
 
         // Commands defined to be 0-100% for each channel
 
-        long commands[9];
-        long ultrasonicTelemeter;
+        float commands[9];
+        float ultrasonicTelemeter;
+
 
         pthread_mutex_t readWriteMutex;
 
