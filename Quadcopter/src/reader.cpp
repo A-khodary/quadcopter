@@ -51,7 +51,7 @@ void* readerHandler(void* arg)
     int i;
     int finished, started, j, k, number = 0;
 
-    strcpy(currentMessage.message, "main_reader_info_initfailed");
+    strcpy(currentMessage.message, "main_reader_info_init");
     currentMessage.priority=20;
 
     sendMessage(mainITMHandler, currentMessage);

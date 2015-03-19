@@ -98,7 +98,8 @@ void* dataLoggerHandler(void* arg)
 
         // Message sending function for testing :
 
-        printf("\n[i] Enter a command :");
+        printDebug("\n[i] Enter a command :");
+
         scanf("%s", &readBuffer);
         strcpy(currentMessage.message, readBuffer);
 

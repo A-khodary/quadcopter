@@ -247,6 +247,7 @@ int main()
                         printDebug("[e] Reader failed its init : this is terrible : no user command and no ultrasonic, restarting the reader component...");
                         pthread_cancel(readerThread);
                         pthread_join(readerThread, NULL); // Join to cleanup (prevents memory leak)
+                        sleep(10);
                         pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
 
                     }
