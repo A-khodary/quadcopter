@@ -1,7 +1,7 @@
 #include <Event.h>
 #include <Timer.h>
 
-// Arduino sketch for sending PWM sampling, Ultrasonic Telemetry, Ublox GPS Management, and current Measurement
+// Arduino sketch for sending PWM sampling, Ultrasonic Telemetry, Ublox GPS Management, voltage and current Measurement
 // Quadcopter project ENSEA
 // October 2014
 // Nicolas de Maubeuge, all rights reserved
@@ -14,12 +14,14 @@
 #define PWM_FREQ 20
 #define GPS_FREQ 5
 #define ULTRASONIC_FREQ 2
+#define VOLTAGE_CURRENT_FREQ 8
 
 int PWMcounter=0;
 int GPScounter=0;
 int ULTRASONICcounter=0;
+int VOLTAGECURRENTCounter=0;
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Timing management Global variables :
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Timing management Global variables :
 
 Timer t;
 
@@ -49,6 +51,19 @@ float pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
 #define trigPin 14
 #define echoPin 15
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Voltage and current Macros :
+
+#define CURRENT_PIN 3
+#define VOLTAGE_PIN 4
+
+#define AMP_COEFF 18 // 18 Amp / Volt 
+#define VOLT_COEFF 4 //4 Volt battery / Volt measured
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Voltage and current global variables :
+
+float voltage=0;
+float current=0;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Ultrasonic Global variables :
 
@@ -565,6 +580,28 @@ void sendUltrasonic()
   interrupts();
 }
 
+////////////////////////////////////////////////////////////////////////////////////////// Voltage and current functions :
+
+void updateVoltCurrent()
+{
+  noInterrupts();
+  
+  voltage = VOLT_COEFF * 5.0 * 1/1024 * analogRead(VOLTAGE_PIN);
+  current = CURREBT_COEFF * 5.0 * 1/1024 * analogRead(CURRENT_PIN);
+  
+  interrupts();
+}
+
+void sendVoltCurrent()
+{
+  noInterrupts();
+  
+  Serial.print("voltage="); Serial.print(voltage); Serial.print("_");
+  Serial.print("current="); Serial.print(current); Serial.print("_");
+  
+  interrupts();
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////// Timing management functions :
 void timingIRQ()
 {
@@ -593,6 +630,14 @@ void timingIRQ()
     GPScounter = 1;
   }
   else GPScounter ++;
+  
+    if (VOLTAGECURRENTcounter >= 1000 / VOLTAGE_CURRENT_FREQ)
+  {
+    updateVoltCurrent();
+    sendVoltCurrent();
+    VOLTAGECURRENTcounter = 1;
+  }
+  else VOLTAGECURRENTcounter ++;
 
 interrupts();
 }
