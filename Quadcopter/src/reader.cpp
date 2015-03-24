@@ -249,10 +249,10 @@ void* readerHandler(void* arg)
 
 
         // Message processing AREA :
-        //receivedMessage = retrieveMessage(readerITMHandler);
+        receivedMessage = retrieveMessage(readerITMHandler);
 
 
-        //TODO : make message parser
+        //TODO : make ultrasonic message parser
         /*
 
         if(receivedMessage.message == "ultrasonicon")
