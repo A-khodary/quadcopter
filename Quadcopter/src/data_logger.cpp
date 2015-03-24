@@ -105,6 +105,7 @@ void* dataLoggerHandler(void* arg)
 
         scanf("%s", readBuffer);
         strcpy(currentMessage.message, readBuffer);
+        currentMessage.priority = 5;
 
         sendMessage(mainITMHandler, currentMessage);
         usleep(500000);
