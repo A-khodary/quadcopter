@@ -126,10 +126,17 @@ int main()
     printDebug("[i]Launching components threads...");
 
 
+<<<<<<< HEAD
     //pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
     //pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     //pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
     pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+=======
+    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+    //pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
+    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
+    //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+>>>>>>> 520e20d8f17be07ec7ffc02e5f94b18f184f2ddd
     //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
 
 
@@ -156,6 +163,8 @@ int main()
             continue;
         }
 
+        printDebug("[i] NewMessage");
+
 
 
         // TODO handling message :
@@ -176,7 +185,7 @@ int main()
 
         else if(!strcmp(currentDecodedMessage.destination,"datalogger"))
         {
-            //printDebug("Main Thread is dispatching a message to datalogger : %s", currentDecodedMessage.message);
+            printDebug("[i] Main Thread is dispatching a message to datalogger");
             sendMessage(dataLoggerITMHandler, *currentMessage);
         }
 
@@ -245,6 +254,7 @@ int main()
                         printDebug("[e] Reader failed its init : this is terrible : no user command and no ultrasonic, restarting the reader component...");
                         pthread_cancel(readerThread);
                         pthread_join(readerThread, NULL); // Join to cleanup (prevents memory leak)
+                        sleep(10);
                         pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
 
                     }
