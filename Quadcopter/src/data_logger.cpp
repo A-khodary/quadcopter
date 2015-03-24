@@ -48,7 +48,7 @@ void* dataLoggerHandler(void* arg)
         receivedMessage = retrieveMessage(dataLoggerITMHandler);
         if (receivedMessage != NULL)
         {
-            printDebug("[i] Reader received a new message");
+            printDebug("[i] Data logger received a new message");
             currentDecoded = decodeMessageITM(receivedMessage);
             if (!strcmp(currentDecoded.destination, "datalogger"))
             {
@@ -103,8 +103,8 @@ void* dataLoggerHandler(void* arg)
         printDebug("\n[i] Enter a command :");
         fflush(stdout);
 
-        //scanf("%s", readBuffer);
-        strcpy(currentMessage.message, "main_reader_info_init");
+        scanf("%s", readBuffer);
+        strcpy(currentMessage.message, readBuffer);
 
         sendMessage(mainITMHandler, currentMessage);
         usleep(500000);
