@@ -155,6 +155,7 @@ int main()
             continue;
         }
         printf("New message : %s\n", currentDecodedMessage.message);
+        fflush(stdout);
 
 
 
