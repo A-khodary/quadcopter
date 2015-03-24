@@ -67,7 +67,7 @@ void* readerHandler(void* arg)
     i=0;
 
 
-    if (true) //fd = wiringPiI2CSetup(ARDUINO_ADDRESS) < 0
+    if ((fd = serialOpen("/dev/ttyAMA0", BAUDRATE)) < 0) //fd = wiringPiI2CSetup(ARDUINO_ADDRESS) < 0
     {
         printDebug("[e] Reader : error connecting to Arduino via Serial");
         strcpy(currentMessage.message, "main_reader_info_initfailed");
