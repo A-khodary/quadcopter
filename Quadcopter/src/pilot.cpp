@@ -191,7 +191,7 @@ void* pilotHandler(void* arg)
         receivedMessage =retrieveMessage(pilotITMHandler);
         if (receivedMessage == NULL)
         {
-            printDebug("[i] No message for pilot");
+            //printDebug("[i] No message for pilot");
         }
         else
         {
@@ -287,77 +287,77 @@ void* pilotHandler(void* arg)
 
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
-
-        if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
-        {
-            pilotStateShared.pilotMode = CUTOFF;
-            // TODO : notify main of cut off and pausing autopilot :
-
-            strcpy(message.message,"main_pilot_info_cutoff");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_pause");
-            sendMessage(mainITMHandler, message);
-        }
-
-        else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
-        {
-            pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
-
-            strcpy(message.message,"main_pilot_info_emergencylanding");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_emergencylanding");
-            sendMessage(mainITMHandler, message);
-
-        }
-
-        else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
-        {
-            pilotStateShared.pilotMode = MANUAL;
-            // TODO : notify main of manual piloting and adapt speed to manual
-
-            strcpy(message.message,"main_pilot_info_automanual");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_pause");
-            sendMessage(mainITMHandler, message);
-        }
-
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
-        {
-            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-            // TODO : notify main of normal landing
-
-            strcpy(message.message,"main_pilot_info_autolanding");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_land");
-            sendMessage(mainITMHandler, message);
-        }
-
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
-        {
-            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-            // TODO : notify main of return to home
-
-            strcpy(message.message,"main_pilot_info_gohome");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_rth");
-            sendMessage(mainITMHandler, message);
-        }
-
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
-        {
-            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-            message_t message;
-            strcpy(message.message,"main_pilot_info_autonormal");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_pause");
-            sendMessage(mainITMHandler, message);
-        }
+//
+//        if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
+//        {
+//            pilotStateShared.pilotMode = CUTOFF;
+//            // TODO : notify main of cut off and pausing autopilot :
+//
+//            strcpy(message.message,"main_pilot_info_cutoff");
+//            sendMessage(mainITMHandler, message);
+//
+//            strcpy(message.message, "autopilot_pilot_order_pause");
+//            sendMessage(mainITMHandler, message);
+//        }
+//
+//        else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
+//        {
+//            pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
+//
+//            strcpy(message.message,"main_pilot_info_emergencylanding");
+//            sendMessage(mainITMHandler, message);
+//
+//            strcpy(message.message, "autopilot_pilot_order_emergencylanding");
+//            sendMessage(mainITMHandler, message);
+//
+//        }
+//
+//        else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
+//        {
+//            pilotStateShared.pilotMode = MANUAL;
+//            // TODO : notify main of manual piloting and adapt speed to manual
+//
+//            strcpy(message.message,"main_pilot_info_automanual");
+//            sendMessage(mainITMHandler, message);
+//
+//            strcpy(message.message, "autopilot_pilot_order_pause");
+//            sendMessage(mainITMHandler, message);
+//        }
+//
+//        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
+//        {
+//            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+//            // TODO : notify main of normal landing
+//
+//            strcpy(message.message,"main_pilot_info_autolanding");
+//            sendMessage(mainITMHandler, message);
+//
+//            strcpy(message.message, "autopilot_pilot_order_land");
+//            sendMessage(mainITMHandler, message);
+//        }
+//
+//        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
+//        {
+//            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+//            // TODO : notify main of return to home
+//
+//            strcpy(message.message,"main_pilot_info_gohome");
+//            sendMessage(mainITMHandler, message);
+//
+//            strcpy(message.message, "autopilot_pilot_order_rth");
+//            sendMessage(mainITMHandler, message);
+//        }
+//
+//        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
+//        {
+//            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+//            message_t message;
+//            strcpy(message.message,"main_pilot_info_autonormal");
+//            sendMessage(mainITMHandler, message);
+//
+//            strcpy(message.message, "autopilot_pilot_order_pause");
+//            sendMessage(mainITMHandler, message);
+//        }
 
         pilotStateShared.pilotMode = TEST; // For testing purposes
 
