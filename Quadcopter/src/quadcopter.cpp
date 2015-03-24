@@ -144,7 +144,7 @@ int main()
         // In case we don't have any new message :
         if (currentMessage == NULL)
         {
-            printDebug("[i] Main is idle : no messages");
+            //printDebug("[i] Main is idle : no messages");
             continue;
         }
 
