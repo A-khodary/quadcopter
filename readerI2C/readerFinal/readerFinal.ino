@@ -1,7 +1,7 @@
 #include <Event.h>
 #include <Timer.h>
 
-// Arduino sketch for sending PWM sampling, Ultrasonic Telemetry, Ublox GPS Management, voltage and current Measurement
+// Arduino sketch for PWM sampling, Ultrasonic Telemetry, Ublox GPS Management, voltage and current Measurement and in the future RGB Leds
 // Quadcopter project ENSEA
 // October 2014
 // Nicolas de Maubeuge, all rights reserved
@@ -13,13 +13,13 @@
 
 #define PWM_FREQ 20
 #define GPS_FREQ 5
-#define ULTRASONIC_FREQ 2
-#define VOLTAGE_CURRENT_FREQ 8
+#define ULTRASONIC_FREQ 15
+#define VOLTAGE_CURRENT_FREQ 3
 
 int PWMcounter=0;
 int GPScounter=0;
 int ULTRASONICcounter=0;
-int VOLTAGECURRENTCounter=0;
+int VOLTAGECURRENTcounter=0;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Timing management Global variables :
 
@@ -27,15 +27,15 @@ Timer t;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  PWM Macros
 
-# define RUDDER_PIN 0
-# define THROTTLE_PIN 1
-# define AILERONS_PIN 2
-# define ELEVATOR_PIN 3
-# define AUX1_PIN 6
-# define AUX2_PIN 7
-# define AUX3_PIN 8
-# define AUX4_PIN 9
-# define AUX5_PIN 10
+# define RUDDER_PIN 22
+# define THROTTLE_PIN 24
+# define AILERONS_PIN 26
+# define ELEVATOR_PIN 28
+# define AUX1_PIN 32
+# define AUX2_PIN 34
+# define AUX3_PIN 36
+# define AUX4_PIN 38
+# define AUX5_PIN 40
 
 #define PWM_TIMEOUT 1000
 
@@ -45,17 +45,17 @@ float pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Ultrasonic Macros
 
-#define MAXIMUM_RANGE 5
-#define MINIMUM_RANGE 400
+#define MAXIMUM_RANGE 500
+#define MINIMUM_RANGE 4
 #define ULTRASONIC_TIMEOUT 1000
 
-#define trigPin 14
-#define echoPin 15
+#define trigPin 0
+#define echoPin 1
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Voltage and current Macros :
 
-#define CURRENT_PIN 3
-#define VOLTAGE_PIN 4
+#define CURRENT_PIN 2
+#define VOLTAGE_PIN 3
 
 #define AMP_COEFF 18 // 18 Amp / Volt 
 #define VOLT_COEFF 4 //4 Volt battery / Volt measured
@@ -587,7 +587,7 @@ void updateVoltCurrent()
   noInterrupts();
   
   voltage = VOLT_COEFF * 5.0 * 1/1024 * analogRead(VOLTAGE_PIN);
-  current = CURREBT_COEFF * 5.0 * 1/1024 * analogRead(CURRENT_PIN);
+  current = AMP_COEFF * 5.0 * 1/1024 * analogRead(CURRENT_PIN);
   
   interrupts();
 }
