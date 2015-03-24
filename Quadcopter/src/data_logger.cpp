@@ -43,7 +43,7 @@ void* dataLoggerHandler(void* arg)
 
 
 
-         Message retrieving and handling area :
+         //Message retrieving and handling area :
 
         receivedMessage = retrieveMessage(dataLoggerITMHandler);
         if (receivedMessage != NULL)
