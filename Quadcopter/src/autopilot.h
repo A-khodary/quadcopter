@@ -103,7 +103,7 @@ void * autopilotHandler(void * arg);
 
 // Fifo managing functions prototypes :
 
-int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
 int flushFifoObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);

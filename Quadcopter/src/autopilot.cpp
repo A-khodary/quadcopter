@@ -1,4 +1,5 @@
 #include "autopilot.h"
+#include <errno.h>
 
 /*
 ##############################################
@@ -16,6 +17,8 @@ float gotoStandardCoeff[2][3]; // PID coefficients for goto_standard
 float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
 
 autopilotSharedState_t autopilotSharedState;
+
+rawPositionShared_t rawPositionShared;
 
 servoControl_t::servoControl_t()
 {
@@ -353,33 +356,38 @@ oneWayServoControl_t::~oneWayServoControl_t()
     //dtor
 }
 
-int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t autopilotObjectiveFifo)
 {
-    //TODO : make dynamic copy
-
-    int objectiveIndex;
     autopilotObjective_t* currentObjective;
     autopilotObjective_t* lastObjective;
 
-    // Locating last objective :
+    if(objectiveToInsert->priority < 0 ) return -1; // Negative priority : returning -1
 
+    // Dynamic copy of the parameter :
 
-    currentObjective = autopilotObjectiveFifo.firstObjective;
+    autopilotObjective_t* objective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
+    objective = objectiveToInsert;
 
-    if (currentObjective->priority > objective->priority )
+    // Checking if fifo is empty :
+
+    if (autopilotObjectiveFifo.firstObjective == NULL)
     {
-
         autopilotObjectiveFifo.firstObjective = objective;
-
         objective->previousObjective = NULL;
-        objective->nextObjective = currentObjective;
-        currentObjective->previousObjective = objective;
+        objective->nextObjective = NULL;
+        autopilotObjectiveFifo.numberOfObjectivesPending++;
+
+        return 1;
 
     }
 
 
+    // Locating last objective :
+
+    currentObjective = autopilotObjectiveFifo.firstObjective;
     while (currentObjective->nextObjective != NULL) currentObjective = currentObjective->nextObjective;
     lastObjective = currentObjective;
+
 
     // Checking last objective priority :
 
@@ -390,14 +398,16 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
         currentObjective = lastObjective;
         while (currentObjective->previousObjective != NULL && currentObjective->priority < objective->priority) currentObjective = currentObjective->previousObjective;
 
-        if (currentObjective->previousObjective == NULL)
+        if (currentObjective->previousObjective == NULL) // In case we have reached the first element of the fifo
         {
-            currentObjective->previousObjective = objective; // We have reached the first element of the fifo // TODO : debug on first objective
+            currentObjective->previousObjective = objective;
+            autopilotObjectiveFifo.firstObjective = objective;
+            objective->previousObjective = NULL;
+            objective->nextObjective = currentObjective;
         }
-
-        else // We need to insert our objective between the two
+        else // We need to insert our objective between two
         {
-            // Preparing our objective :
+            // ¨Preparing our objective :
             objective->nextObjective= currentObjective->nextObjective;
             objective->previousObjective = currentObjective;
 
@@ -409,7 +419,7 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
     }
     else
     {
-        // Preparing our Objective :
+        // Preparing our objective :
         objective->previousObjective = lastObjective;
         objective->nextObjective = NULL;
 
@@ -417,8 +427,10 @@ int insertObjective(autopilotObjective_t* objective, autopilotObjectiveFifo_t au
         lastObjective->nextObjective = objective;
     }
 
-    autopilotObjectiveFifo.numberOfObjectivesPending++;
-    return 1;
+        autopilotObjectiveFifo.numberOfObjectivesPending++;
+        //printf("Sended new objective not as first element :%s\n", objective->objective);
+
+        return 0;
 }
 
 
@@ -715,9 +727,13 @@ void* autopilotHandler(void* arg)
     autopilotObjective_t* insertedObjective;
     autopilotObjective_t* tempObjective;
 
+    autopilotObjective_t* newObjective;
+
     // File reading for basic configuration
 
-    writtenObjectives = fopen("objectives.txt", "r");
+    writtenObjectives = fopen(OBJECTIVES_PATH,"r");
+    //fprintf(stderr, "%s\n", strerror(errno));
+
     if (writtenObjectives == NULL)
     {
         printDebug("[e]Autopilot objective file not found");
@@ -749,10 +765,36 @@ void* autopilotHandler(void* arg)
                     }
                     else printDebug("[e] Insertion of a new autopilot objective error");
                 }
-                else printDebug("[e] Autopilot objective speed, or destination is incorrect");
+                else
+                    {
+                        printDebug("[e] Autopilot objective speed, or destination is incorrect");
+                         // We build a position hold objective :
+                        newObjective->code = POSITION_HOLD;
+                        newObjective->destinationLat = rawPositionShared.destinationLat;
+                        newObjective->destinationLong = rawPositionShared.destinationLong
+                        newObjective->destinationAlt = rawPositionShared.destinationAlt;
+                        newObjective->maxSpeed = rawPositionShared.maxSpeed;
+                        newObjective->priority = 100;
+                        insertObjective(&newObjective, autopilotObjectiveFifo)
+                        printDebug("[i] A position hold order was issued due to incorrect autopilot objective speed, or destination ");
+                    }
 
             }
-            else printDebug("[e] Autopilot objective type is incorrect");
+            else
+            {
+                printDebug("[e] Autopilot objective type is incorrect");
+                 // We build a position hold objective :
+                newObjective->code = POSITION_HOLD;
+                newObjective->destinationLat = rawPositionShared.destinationLat;
+                newObjective->destinationLong = rawPositionShared.destinationLong
+                newObjective->destinationAlt = rawPositionShared.destinationAlt;
+                newObjective->maxSpeed = rawPositionShared.maxSpeed;
+                newObjective->priority = 100;
+                insertObjective(&newObjective, autopilotObjectiveFifo)
+                printDebug("[i] A position hold order was issued due to incorrect autopilot objective type ");
+
+            }
+
         }
         printDebug("[i] Objectives added to Autopilot FIFO");
         lineNumber = 0;
@@ -794,8 +836,14 @@ void* autopilotHandler(void* arg)
                 else
                 {
                     // We build a position hold objective :
-                    currentObjective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
-                    currentObjective->code = POSITION_HOLD;
+
+                    newObjective->code = POSITION_HOLD;
+                    newObjective->destinationLat = rawPositionShared.destinationLat;
+                    newObjective->destinationLong = rawPositionShared.destinationLong
+                    newObjective->destinationAlt = rawPositionShared.destinationAlt;
+                    newObjective->maxSpeed = rawPositionShared.maxSpeed;
+                    newObjective->priority = 100;
+                    insertObjective(&newObjective, autopilotObjectiveFifo)
                     printDebug("[i] A position hold order was issued due to in flight state and no objective");
                 }
                 pthread_mutex_unlock(&autopilotSharedState.readWrite);
