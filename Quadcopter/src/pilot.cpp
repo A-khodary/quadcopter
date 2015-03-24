@@ -191,7 +191,7 @@ void* pilotHandler(void* arg)
         receivedMessage =retrieveMessage(pilotITMHandler);
         if (receivedMessage == NULL)
         {
-            printDebug("[i] No message for pilot");
+            //printDebug("[i] No message for pilot");
         }
         else
         {
