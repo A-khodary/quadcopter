@@ -98,16 +98,10 @@ void* dataLoggerHandler(void* arg)
 
         // Message sending function for testing :
 
-<<<<<<< HEAD
-        printf("\n[i] Enter a command :");
-        scanf("%s", readBuffer);
-=======
         printDebug("\n[i] Enter a command :");
 
-        scanf("%s", &readBuffer);
->>>>>>> 520e20d8f17be07ec7ffc02e5f94b18f184f2ddd
+        scanf("%s", readBuffer);
         strcpy(currentMessage.message, readBuffer);
-
 
         sendMessage(mainITMHandler, currentMessage);
         usleep(500000);

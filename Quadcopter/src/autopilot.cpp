@@ -699,7 +699,7 @@ void* autopilotHandler(void* arg)
     pthread_mutex_unlock(&autopilotSharedState.readWrite);
 
 
-    FILE* writtenObjectives;
+    FILE* writtenObjectives = NULL;
     char readLine[1024];
     int lineNumber = 1;
 
@@ -717,7 +717,7 @@ void* autopilotHandler(void* arg)
 
     // File reading for basic configuration
 
-    writtenObjectives = fopen(OBJECTIVES_PATH, "r");
+    writtenObjectives = fopen("objectives.txt", "r");
     if (writtenObjectives == NULL)
     {
         printDebug("[e]Autopilot objective file not found");
