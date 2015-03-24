@@ -104,7 +104,7 @@ void* dataLoggerHandler(void* arg)
         fflush(stdout);
 
         scanf("%s", readBuffer);
-        strcpy(currentMessage.message, readBuffer);
+        strcpy(currentMessage.message, "main_reader_info_init");
 
         sendMessage(mainITMHandler, currentMessage);
         usleep(500000);
