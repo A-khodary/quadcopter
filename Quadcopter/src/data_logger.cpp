@@ -103,7 +103,7 @@ void* dataLoggerHandler(void* arg)
         printDebug("\n[i] Enter a command :");
         fflush(stdout);
 
-        scanf("%s", readBuffer);
+        //scanf("%s", readBuffer);
         strcpy(currentMessage.message, "main_reader_info_init");
 
         sendMessage(mainITMHandler, currentMessage);
