@@ -26,7 +26,9 @@ void* readerHandler(void* arg)
 
     int isUltrasonicOn = 0;
     sampleList_t* ultrasonicSampleList;
-    float filteredValue;
+    float filteredValue=0;
+    float ultrasonic=0;
+    float ultrasonicTemp=0;
 
 
     bidirectionnalHandler_t* bidirectionnalHandler;
@@ -41,6 +43,8 @@ void* readerHandler(void* arg)
     message_t* receivedMessage;
     message_t currentMessage;
 
+    messageDecoded_t currentDecoded;
+
     int fd ;
     char c;
     char buffer[32];
@@ -50,6 +54,7 @@ void* readerHandler(void* arg)
     char numb_c[16];
     int i;
     int finished, started, j, k, number = 0;
+
 
     strcpy(currentMessage.message, "main_reader_info_init");
     currentMessage.priority=20;
@@ -180,10 +185,8 @@ void* readerHandler(void* arg)
 
                         else if (!strcmp(data, "ultradist"))
                         {
-                            //printDebug("[i] Got ultrasonic value");
-                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
-                            receivedCommands.ultrasonicTelemeter = strtof(numb, NULL);
-                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                            ultrasonicTemp = strtof(numb, NULL);
+                            if (ultrasonicTemp != -1) ultrasonic = ultrasonicTemp;
                         }
 
                         else if (!strcmp(data, "status"))
@@ -250,49 +253,57 @@ void* readerHandler(void* arg)
 
         // Message processing AREA :
         receivedMessage = retrieveMessage(readerITMHandler);
+        if (receivedMessage != NULL)
+
+{
+        currentDecoded = decodeMessageITM(receivedMessage);
 
 
-        //TODO : make ultrasonic message parser
-        /*
 
-        if(receivedMessage.message == "ultrasonicon")
+        if(!strcmp(currentDecoded.message,"ultrasonicon"))
         {
             if (isUltrasonicOn)
             {
-                printDebug("Something strange in reader : asked to turn on an already on ultrasonic")
-            }            ultrasonicSampleList = initUltrasonic();
+                printDebug("Something strange in reader : asked to turn on an already on ultrasonic");
+            }
+            ultrasonicSampleList = initUltrasonic();
             isUltrasonicOn = 1;
         }
 
-        if (receivedMessage.message == "ultrasonicoff")
+        else if (strcmp(currentDecoded.message, "ultrasonicoff"))
         {
             if(!isUltrasonicOn)
             {
-                printDebug("Something strange in reader : asked to turn off an already off ultrasonic")
+                printDebug("Something strange in reader : asked to turn off an already off ultrasonic");
             }
             shutdownUltrasonic(ultrasonicSampleList);
             isUltrasonicOn = 0;
         }
 
-        */
 
 
-
-
-
+}
 
 
         if (isUltrasonicOn)
         {
-            //addToSampleList(VALUE. ultrasonicSampleList);
-            filteredValue = getFilteredUltrasonic(*ultrasonicSampleList);
+            addToSampleList(ultrasonic, ultrasonicSampleList);
+            ultrasonicTemp = getFilteredUltrasonic(*ultrasonicSampleList);
+            if (ultrasonicTemp != -1)
+            {
+                filteredValue = ultrasonicTemp;
+                pthread_mutex_lock(&receivedCommands.readWriteMutex);
+
+                receivedCommands.ultrasonicTelemeter = filteredValue;
+
+                pthread_mutex_lock(&receivedCommands.readWriteMutex);
+            }
+
+
         }
 
-        // TODO : integrate ultrasonic
 
-
-
-        //sleep(SAMPLING_PERIOD_MS/1000);
+        sleep(SAMPLING_PERIOD_MS/1000);
 
     }
 
@@ -329,6 +340,10 @@ float getFilteredUltrasonic(sampleList_t sampleList)
     int i;
     float result;
     float sampleCopy[SAMPLESIZE];
+    if (sampleList.numberOfSamples != SAMPLESIZE)
+    {
+        return -1;
+    }
 
     for (i=0; i<SAMPLESIZE; i++) sampleCopy[i] = sampleList.list[i]; // In order to sort the table, we need to copy it
     qsort(sampleCopy, SAMPLESIZE, sizeof(float), comp);

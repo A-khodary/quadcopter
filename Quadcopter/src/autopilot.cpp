@@ -18,7 +18,6 @@ float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
 
 autopilotSharedState_t autopilotSharedState;
 
-rawPositionShared_t rawPositionShared;
 
 servoControl_t::servoControl_t()
 {
@@ -427,10 +426,10 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
         lastObjective->nextObjective = objective;
     }
 
-        autopilotObjectiveFifo.numberOfObjectivesPending++;
-        //printf("Sended new objective not as first element :%s\n", objective->objective);
+    autopilotObjectiveFifo.numberOfObjectivesPending++;
+    //printf("Sended new objective not as first element :%s\n", objective->objective);
 
-        return 0;
+    return 0;
 }
 
 
@@ -765,40 +764,14 @@ void* autopilotHandler(void* arg)
                     }
                     else printDebug("[e] Insertion of a new autopilot objective error");
                 }
-                else
-                    {
-                        printDebug("[e] Autopilot objective speed, or destination is incorrect");
-                         // We build a position hold objective :
-                        newObjective->code = POSITION_HOLD;
-                        newObjective->destinationLat = rawPositionShared.destinationLat;
-                        newObjective->destinationLong = rawPositionShared.destinationLong
-                        newObjective->destinationAlt = rawPositionShared.destinationAlt;
-                        newObjective->maxSpeed = rawPositionShared.maxSpeed;
-                        newObjective->priority = 100;
-                        insertObjective(&newObjective, autopilotObjectiveFifo)
-                        printDebug("[i] A position hold order was issued due to incorrect autopilot objective speed, or destination ");
-                    }
+
+
 
             }
-            else
-            {
-                printDebug("[e] Autopilot objective type is incorrect");
-                 // We build a position hold objective :
-                newObjective->code = POSITION_HOLD;
-                newObjective->destinationLat = rawPositionShared.destinationLat;
-                newObjective->destinationLong = rawPositionShared.destinationLong
-                newObjective->destinationAlt = rawPositionShared.destinationAlt;
-                newObjective->maxSpeed = rawPositionShared.maxSpeed;
-                newObjective->priority = 100;
-                insertObjective(&newObjective, autopilotObjectiveFifo)
-                printDebug("[i] A position hold order was issued due to incorrect autopilot objective type ");
-
-            }
-
+            printDebug("[i] Objectives added to Autopilot FIFO");
+            lineNumber = 0;
+            fclose(writtenObjectives);
         }
-        printDebug("[i] Objectives added to Autopilot FIFO");
-        lineNumber = 0;
-        fclose(writtenObjectives);
     }
 
     //Notify main thread of end of init
@@ -837,13 +810,24 @@ void* autopilotHandler(void* arg)
                 {
                     // We build a position hold objective :
 
-                    newObjective->code = POSITION_HOLD;
-                    newObjective->destinationLat = rawPositionShared.destinationLat;
-                    newObjective->destinationLong = rawPositionShared.destinationLong
-                    newObjective->destinationAlt = rawPositionShared.destinationAlt;
-                    newObjective->maxSpeed = rawPositionShared.maxSpeed;
-                    newObjective->priority = 100;
-                    insertObjective(&newObjective, autopilotObjectiveFifo)
+                    currentObjective->code = POSITION_HOLD;
+
+                    // Locking position mutex to get position :
+
+                    pthread_mutex_lock(&positionShared.readWriteMutex);
+
+                    currentObjective->destinationLat = rawPositionShared.latitude;
+                    currentObjective->destinationLong = rawPositionShared.longitude;
+                    currentObjective->destinationAlt = rawPositionShared.altitude;
+
+                    // Unlocking position mutex :
+
+                    pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+                    currentObjective->maxSpeed = MAXSPEED;
+                    currentObjective->maxSpeedXY = MAXSPEEDXY;
+                    currentObjective->priority = 100;
+
                     printDebug("[i] A position hold order was issued due to in flight state and no objective");
                 }
                 pthread_mutex_unlock(&autopilotSharedState.readWrite);
