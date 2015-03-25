@@ -57,8 +57,8 @@ float pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 #define CURRENT_PIN 2
 #define VOLTAGE_PIN 3
 
-#define AMP_COEFF 18 // 18 Amp / Volt 
-#define VOLT_COEFF 4 //4 Volt battery / Volt measured
+#define AMP_COEFF 20.5530 // Amp / Volt 
+#define VOLT_COEFF 10.125635 //4 Volt battery / Volt measured
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Voltage and current global variables :
 
