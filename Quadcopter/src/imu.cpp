@@ -17,10 +17,9 @@ void imuHandler(void* arg)
     initialize_mutex(&rawPositionShared.readWriteMutex);
     initialize_mutex(&positionShared.readWriteMutex);
 
+    // Initialisation of handler variables :
 
-
-
-    // TODO : fill-in home position
+    int waitingGPS = 1;
 
 
      handler_t* mainITMHandler;
@@ -35,6 +34,18 @@ void imuHandler(void* arg)
 
     // Init IMU
 
+    // Waiting for GPS FIX :
+
+    while(waitingGPS)
+    {
+        pthread_mutex_lock(&receivedCommands.readWriteMutex);
+
+        if(receivedCommands.gpsStatus == FIX) waitingGPS = 0;
+        sleep(1);
+
+        pthread_mutex_lock(&receivedCommands.readWriteMutex);
+    }
+
 
     RTIMU_DATA imuData;
     RTIMUSettings *settings = new RTIMUSettings("RTIMULib");
@@ -43,11 +54,6 @@ void imuHandler(void* arg)
 
     // GPS init TODO : use UBLOX format
 
-    //initializeGPS();
-    gpsData_t gpsData;
-    unsigned int gpsAltitude;
-
-    // TODO : notify main thread of en of GPS init
 
     // BMP085 init
 
@@ -62,11 +68,17 @@ void imuHandler(void* arg)
     // For now, turning ultrasonic ON on startup :
 
     strcpy(currentMessage.message ,"reader_imu_order_ultrasonicon");
+    currentMessage.priority = 20;
     sendMessage(mainITMHandler, currentMessage);
 
 
 
-    // TODO : notify main thread of end of BMP init
+    // Notify main thread of end of init :
+
+    strcpy(currentMessage.message ,"main_imu_info_endofinit");
+    currentMessage.priority = 20;
+    sendMessage(mainITMHandler, currentMessage);
+
 
 
 
@@ -93,9 +105,6 @@ void imuHandler(void* arg)
 
         bmpAltitude = 44330*(1-pow(pow((pressure/101325),(1/5255)),1000));
 
-        // Updating the GPS :
-
-        gpsData = getGpsData();
 
         // Altitude calculation Area :
 
