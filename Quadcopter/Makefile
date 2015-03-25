@@ -156,30 +156,6 @@ src/RTIMULib/BMP085.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.cpp.s
 .PHONY : src/RTIMULib/BMP085.cpp.s
 
-src/RTIMULib/NEO-6M.o: src/RTIMULib/NEO-6M.cpp.o
-.PHONY : src/RTIMULib/NEO-6M.o
-
-# target to build an object file
-src/RTIMULib/NEO-6M.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.cpp.o
-.PHONY : src/RTIMULib/NEO-6M.cpp.o
-
-src/RTIMULib/NEO-6M.i: src/RTIMULib/NEO-6M.cpp.i
-.PHONY : src/RTIMULib/NEO-6M.i
-
-# target to preprocess a source file
-src/RTIMULib/NEO-6M.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.cpp.i
-.PHONY : src/RTIMULib/NEO-6M.cpp.i
-
-src/RTIMULib/NEO-6M.s: src/RTIMULib/NEO-6M.cpp.s
-.PHONY : src/RTIMULib/NEO-6M.s
-
-# target to generate assembly for a file
-src/RTIMULib/NEO-6M.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/NEO-6M.cpp.s
-.PHONY : src/RTIMULib/NEO-6M.cpp.s
-
 src/RTIMULib/RTFusion.o: src/RTIMULib/RTFusion.cpp.o
 .PHONY : src/RTIMULib/RTFusion.o
 
@@ -627,9 +603,6 @@ help:
 	@echo "... src/RTIMULib/BMP085.o"
 	@echo "... src/RTIMULib/BMP085.i"
 	@echo "... src/RTIMULib/BMP085.s"
-	@echo "... src/RTIMULib/NEO-6M.o"
-	@echo "... src/RTIMULib/NEO-6M.i"
-	@echo "... src/RTIMULib/NEO-6M.s"
 	@echo "... src/RTIMULib/RTFusion.o"
 	@echo "... src/RTIMULib/RTFusion.i"
 	@echo "... src/RTIMULib/RTFusion.s"
