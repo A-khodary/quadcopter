@@ -691,8 +691,23 @@ void* autopilotHandler(void* arg)
     landTakeOffCoeff[3][1]=LANDTAKEOFFYAWPD;
     landTakeOffCoeff[3][2]=LANDTAKEOFFYAWPI;
 
-    //TODO : the same for the other modes
+    gotoHoverCoeff[0][0]=GOTOHOVERXP;
+    gotoHoverCoeff[0][1]=GOTOHOVERXPD;
+    gotoHoverCoeff[0][2]=GOTOHOVERXPI;
 
+    gotoHoverCoeff[1][0]=GOTOHOVERYP;
+    gotoHoverCoeff[1][1]=GOTOHOVERYPD;
+    gotoHoverCoeff[1][2]=GOTOHOVERYPI;
+
+    gotoHoverCoeff[2][0]=GOTOHOVERZP;
+    gotoHoverCoeff[2][1]=GOTOHOVERZPD;
+    gotoHoverCoeff[2][2]=GOTOHOVERZPI;
+
+    gotoHoverCoeff[3][0]=GOTOHOVERYAWP;
+    gotoHoverCoeff[3][1]=GOTOHOVERYAWPD;
+    gotoHoverCoeff[3][2]=GOTOHOVERYAWPI;
+
+    //TODO : gotoStandardCoeff
 
     // State initializatin :
 
@@ -911,6 +926,7 @@ void* autopilotHandler(void* arg)
                             {
                                 printDebug("[i] We've got a new objective, but its priority was not to high so we inserted it in the fifo");
                                 //TODO : insert objective
+                                insertObjective(insertedObjective, autopilotObjectiveFifo);
 
                             }
 

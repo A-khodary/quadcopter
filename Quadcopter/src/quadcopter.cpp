@@ -113,6 +113,14 @@ int main()
     readerBidirectionnalHandler.mainITMHandler = mainITMHandler;
     readerBidirectionnalHandler.componentITMHandler = readerITMHandler;
 
+    //IMU
+
+    handler_t* imuITMHandler = initializeHandler();
+    if (imuITMHandler == NULL) printDebug("[e]IMU handler init error");
+
+    bidirectionnalHandler_t imuBidirectionnalHandler;
+    imuBidirectionnalHandler.mainITMHandler = mainITMHandler;
+    imuBidirectionnalHandler.componentITMHandler = imuITMHandler;
 
     // Test initialization :
 
@@ -126,10 +134,10 @@ int main()
     printDebug("[i]Launching components threads...");
 
     pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
-    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
-    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
+    //pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
+    //pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
     //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
-    //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+    pthread_create(&imuThread, NULL, imuHandler, (void*)&imuBidirectionnalHandler);
 
 
     while(1)
@@ -299,7 +307,7 @@ int main()
                 {
                     pthread_cancel(imuThread);
                     pthread_join(imuThread, NULL);
-                    //pthread_create(&imuThread, NULL, imuHandler, (void*)mainITMHandler);
+                    pthread_create(&imuThread, NULL, imuHandler, (void*)&imuBidirectionnalHandler);
 
                 }
 

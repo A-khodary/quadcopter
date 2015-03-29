@@ -27,6 +27,18 @@
 #define LANDTAKEOFFYAWPI 1
 #define LANDTAKEOFFYAWPD 1
 
+#define GOTOHOVERXP 1
+#define GOTOHOVERXPI 1
+#define GOTOHOVERXPD 1
+#define GOTOHOVERYP 1
+#define GOTOHOVERYPI 1
+#define GOTOHOVERYPD 1
+#define GOTOHOVERZP 1
+#define GOTOHOVERZPI 1
+#define GOTOHOVERZPD 1
+#define GOTOHOVERYAWP 1
+#define GOTOHOVERYAWPI 1
+#define GOTOHOVERYAWPD 1
 // Some speed definitions :
 
 #define MAXSPEED 3

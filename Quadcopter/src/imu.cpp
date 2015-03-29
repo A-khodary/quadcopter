@@ -6,12 +6,18 @@ rawPositionShared_t homeRawPosition;
 rawPositionShared_t rawPositionShared;
 homePosition_t homePosition;
 
-void imuHandler(void* arg)
+void* imuHandler(void* arg)
  {
+    bidirectionnalHandler_t* bidirectionnalHandler;
+    bidirectionnalHandler = (bidirectionnalHandler_t*)arg;
 
-     // Initialization of shared variables :
+    handler_t* mainITMHandler;
+    handler_t* imuITMHandler;
 
+    mainITMHandler = bidirectionnalHandler->mainITMHandler;
+    imuITMHandler = bidirectionnalHandler->componentITMHandler;
 
+    // Initialization of shared variables :
 
     initialize_mutex(&flightStateShared.readWriteMutex);
     initialize_mutex(&rawPositionShared.readWriteMutex);
@@ -20,10 +26,6 @@ void imuHandler(void* arg)
     // Initialisation of handler variables :
 
     int waitingGPS = 1;
-
-
-     handler_t* mainITMHandler;
-     mainITMHandler = (handler_t*)arg;
 
     // Notifying main thread of init :
 
@@ -127,7 +129,7 @@ void imuHandler(void* arg)
 
         pthread_mutex_lock(&flightStateShared.readWriteMutex);
 
-        // Sending the attitude data to the global variables
+        // Sending the altitude data to the global variables
 
         flightStateShared.roll = imuData.fusionPose.x()* RTMATH_RAD_TO_DEGREE ;
         flightStateShared.pitch = imuData.fusionPose.y()* RTMATH_RAD_TO_DEGREE;

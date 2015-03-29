@@ -10,7 +10,7 @@
 #include "RTIMULib/RTIMULib.h"
 
 //Handler prototype :
-void imuHandler(void* arg);
+void* imuHandler(void* arg);
 
 #endif
 
