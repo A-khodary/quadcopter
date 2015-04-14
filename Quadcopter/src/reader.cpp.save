@@ -289,7 +289,7 @@ void* readerHandler(void* arg)
             shutdownUltrasonic(ultrasonicSampleList);
             isUltrasonicOn = 0;
         }
-
+        
          else if (strcmp(currentDecoded.message, "testpwm"))
          {
              if (testpwm) testpwm = 1;
