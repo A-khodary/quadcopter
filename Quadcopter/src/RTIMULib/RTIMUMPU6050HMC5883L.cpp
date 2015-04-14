@@ -247,6 +247,7 @@ bool RTIMUMPU6050HMC5883L::IMUInit()
     if (!I2CWrite(HMC5883L_ADDRESS, HMC5883L_RA_MODE, HMC5883L_MODE_CONTINUOUS << (HMC5883L_MODEREG_BIT - HMC5883L_MODEREG_LENGTH + 1), "Failed to set mode")) {
         bypassOff();
         return false;
+
     }
 
     /*
@@ -327,10 +328,10 @@ bool RTIMUMPU6050HMC5883L::IMUInit()
     if (!I2CWrite(m_slaveAddr, MPU6050_I2C_MST_DELAY_CTRL, 0x1, "Failed to set mst delay"))
         return false;
 
-    /*
+
     if (!I2CWrite(m_slaveAddr, MPU6050_YG_OFFS_TC, 0x80, "Failed to set yg offs tc"))
         return false;
-    */
+
 
     if (!setCompassRate())
         return false;

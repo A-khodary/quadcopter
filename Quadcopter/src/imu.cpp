@@ -5,9 +5,11 @@ positionShared_t positionShared;
 rawPositionShared_t homeRawPosition;
 rawPositionShared_t rawPositionShared;
 homePosition_t homePosition;
+//receivedCommandsShared_t receivedCommands;
 
 void* imuHandler(void* arg)
  {
+    /*
     bidirectionnalHandler_t* bidirectionnalHandler;
     bidirectionnalHandler = (bidirectionnalHandler_t*)arg;
 
@@ -16,6 +18,9 @@ void* imuHandler(void* arg)
 
     mainITMHandler = bidirectionnalHandler->mainITMHandler;
     imuITMHandler = bidirectionnalHandler->componentITMHandler;
+    */
+    handler_t* mainITMHandler;
+    mainITMHandler = (handler_t*)arg;
 
     // Initialization of shared variables :
 
@@ -34,7 +39,7 @@ void* imuHandler(void* arg)
     currentMessage.priority = 20;
     sendMessage(mainITMHandler, currentMessage);
 
-    // Init IMU
+    double altitude;
 
     // Waiting for GPS FIX :
 
@@ -48,18 +53,19 @@ void* imuHandler(void* arg)
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
     }
 
+    // Init IMU
 
+    int imuType;
+    unsigned char slaveAddress;
     RTIMU_DATA imuData;
     RTIMUSettings *settings = new RTIMUSettings("RTIMULib");
+    settings->discoverIMU(imuType,slaveAddress);
     RTIMU *imu = RTIMU::createIMU(settings);
     imu->IMUInit();
 
-    // GPS init TODO : use UBLOX format
-
-
     // BMP085 init
 
-    bmp085_i2c_Begin(); // TODO : test bmp init
+    //bmp085_i2c_Begin(); // TODO : test bmp init
     unsigned int pressure, temperature;
     unsigned int up, ut;
     unsigned int bmpAltitude;
@@ -73,16 +79,11 @@ void* imuHandler(void* arg)
     currentMessage.priority = 20;
     sendMessage(mainITMHandler, currentMessage);
 
-
-
     // Notify main thread of end of init :
 
     strcpy(currentMessage.message ,"main_imu_info_endofinit");
     currentMessage.priority = 20;
     sendMessage(mainITMHandler, currentMessage);
-
-
-
 
     // Entering handler loop Area :
 
@@ -115,34 +116,51 @@ void* imuHandler(void* arg)
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
-        // TODO : calculate altitude
+        if (receivedCommands.altitude<1 && bmpAltitude<1)//1m du sol???
+        {
+            altitude = (0,2*ultrasonicAltitude + 0.3*bmpAltitude +0.5*receivedCommands.altitude)/3;//filtre à complémentarité
+             if (bmpAltitude>0.05 && bmpAltitude<0.5)// de 10 à 50 cm du sol ???
+             {
+                 altitude = (0,6*ultrasonicAltitude + 0.4*bmpAltitude)/2; // ou 0.4*receivedCommands.altitude : le capteur le  lus rapide et précis dans ces conditions
+             }
+        }
+
+        else {altitude = (0.5*bmpAltitude + 0.5*receivedCommands.altitude)/2;}
+
 
 
 
         // Position calculation Area :
 
+        double x,y;
+        double* px = &x;
+        double* py = &y;
 
+        convertPlanarToHome(px,py,receivedCommands.latitude, receivedCommands.longitude);
 
-
-
-        // Locking the relative Mutex :
+        // Locking the relatives Mutexs :
 
         pthread_mutex_lock(&flightStateShared.readWriteMutex);
+        pthread_mutex_lock(&rawPositionShared.readWriteMutex);
+        pthread_mutex_lock(&positionShared.readWriteMutex);
 
-        // Sending the altitude data to the global variables
+        // Sending the data to the global variables
 
         flightStateShared.roll = imuData.fusionPose.x()* RTMATH_RAD_TO_DEGREE ;
         flightStateShared.pitch = imuData.fusionPose.y()* RTMATH_RAD_TO_DEGREE;
         flightStateShared.yaw = imuData.fusionPose.z()* RTMATH_RAD_TO_DEGREE;
 
-        // Sending the altitude data to global variables :
+        rawPositionShared.altitude = altitude;
+        rawPositionShared.longitude = receivedCommands.longitude;
+        rawPositionShared.latitude = receivedCommands.latitude;
 
-        //TODO
+        positionShared.x = x;
+        positionShared.y = y;
+        positionShared.z = altitude;
 
-
-        // Sending the position data to global variables :
-
-        // TDODO
+        pthread_mutex_unlock(&flightStateShared.readWriteMutex);
+        pthread_mutex_unlock(&rawPositionShared.readWriteMutex);
+        pthread_mutex_unlock(&positionShared.readWriteMutex);
 
     }
 

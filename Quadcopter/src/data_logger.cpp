@@ -35,6 +35,10 @@ void* dataLoggerHandler(void* arg)
 
 
     //TODO : notify main handler of end of init
+    printDebug("[e]Data logger init done");
+    strcpy(currentMessage.message, "main_datalogger_info_endofinit");
+    currentMessage.priority = 5;//to choose
+    sendMessage(mainITMHandler, currentMessage);
 
     while(1)
     {

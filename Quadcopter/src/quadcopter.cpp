@@ -115,12 +115,17 @@ int main()
 
     //IMU
 
+    /*
     handler_t* imuITMHandler = initializeHandler();
     if (imuITMHandler == NULL) printDebug("[e]IMU handler init error");
 
     bidirectionnalHandler_t imuBidirectionnalHandler;
     imuBidirectionnalHandler.mainITMHandler = mainITMHandler;
     imuBidirectionnalHandler.componentITMHandler = imuITMHandler;
+    */
+
+    handler_t* imuITMHandler = initializeHandler();
+    if (imuITMHandler == NULL) printDebug("[e]IMU handler init error");
 
     // Test initialization :
 
@@ -133,12 +138,14 @@ int main()
 
     printDebug("[i]Launching components threads...");
 
-    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+    //pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
     //pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     //pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
     //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
-    pthread_create(&imuThread, NULL, imuHandler, (void*)&imuBidirectionnalHandler);
-
+    /*
+        pthread_create(&imuThread, NULL, imuHandler, (void*)&imuBidirectionnalHandler);
+    */
+    pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
 
     while(1)
     {
@@ -220,6 +227,10 @@ int main()
                 {
 
                     // TODO
+                    printDebug("Quadcopter has crashed");
+                    messageToSend.dataSize=0;
+                    strcpy(messageToSend.message, "pilot_main_order_cutoff");
+                    sendMessage(mainITMHandler, messageToSend);
 
                 }
 
@@ -307,7 +318,10 @@ int main()
                 {
                     pthread_cancel(imuThread);
                     pthread_join(imuThread, NULL);
+                    /*
                     pthread_create(&imuThread, NULL, imuHandler, (void*)&imuBidirectionnalHandler);
+                    */
+                    pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
 
                 }
 

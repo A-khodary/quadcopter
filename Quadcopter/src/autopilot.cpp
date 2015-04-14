@@ -606,7 +606,6 @@ int updateCalculation(autopilotObjective_t* autopilotObjective)
     if (autopilotObjective->code == GOTO_STANDARD)
     {
 
-
         //Updating bearing :
         autopilotObjective->directionBearing = calculateBearing(positionShared.x, positionShared.y, autopilotObjective->destinationX, autopilotObjective->destinationY);
 
@@ -656,7 +655,7 @@ void* autopilotHandler(void* arg)
     servoControl_t* currentServoControl;
     currentServoControl = new servoControl_t;
 
-    strcpy(currentMessage.message, "main_autopilot_init");
+    strcpy(currentMessage.message, "main_autopilot_info_init");
     currentMessage.priority = 20;
 
     //Send init message to main
@@ -941,7 +940,15 @@ void* autopilotHandler(void* arg)
 
                     else if (!strcmp(receivedMessage->message, "emergencylanding"))
                     {
-                        //TODO
+                        //Message
+                        printDebug("Need to land in emergency");
+                        currentMessage.dataSize=0;
+                        strcpy(currentMessage.message, "main_autopilot_info_emergencylanding");
+                        sendMessage(mainITMHandler, currentMessage);
+
+                        //TODO : behaviour
+
+
 
                     }
 
@@ -949,6 +956,7 @@ void* autopilotHandler(void* arg)
                     else if(!strcmp(receivedMessage->message, "landing"))
                     {
                         //TODO : behaviour
+                        printDebug("Land quadcopter");
 
                     }
 

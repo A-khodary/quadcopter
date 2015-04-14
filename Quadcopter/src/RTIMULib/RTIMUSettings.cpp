@@ -79,8 +79,7 @@ bool RTIMUSettings::loadSettings()
 
     //  preset general defaults
 
-    m_imuType = RTIMU_TYPE_MPU6050;
-    m_I2CSlaveAddress = 0;
+    m_I2CSlaveAddress = MPU6050_ADDRESS0 ; //ou MPU6050_ADDRESS1
     m_I2CBus = 1;
     m_fusionType = RTFUSION_TYPE_RTQF;
     m_compassCalValid = false;
