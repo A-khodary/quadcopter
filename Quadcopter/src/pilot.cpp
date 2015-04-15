@@ -447,8 +447,8 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan3 =  testCommand;
             pilotCommandsShared.chan4 =  testCommand;
 
-            if (testCommand >= 1) testCommand = 0;
-            else testCommand += 0.01;
+//            if (testCommand >= 1) testCommand = 0;
+//            else testCommand += 0.01;
 
 
             break;
