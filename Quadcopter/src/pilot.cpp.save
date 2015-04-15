@@ -67,9 +67,9 @@ void armQuadcopter()
 
     pilotCommandsShared.chan3 = 0;
     pilotCommandsShared.chan4 = 1;
-
+    
     writeCommands();
-
+    
     usleep(1000000);
 
 
@@ -273,14 +273,14 @@ void* pilotHandler(void* arg)
                         strcpy(message.message, "autopilot_pilot_order_pause");
                         sendMessage(mainITMHandler, message);
                     }
-
+                    
                     else if (!strcmp(decoded.message, "arm"))
                     {
                         printDebug("[i] Received the order to arm motors, arming");
                         armQuadcopter();
 
                     }
-
+                    
                     else if (!strcmp(decoded.message, "disarm"))
                     {
                         printDebug("[i] Received the order to disarm motors, disarming");
