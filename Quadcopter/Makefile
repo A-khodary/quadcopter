@@ -468,6 +468,30 @@ src/imu.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.s
 .PHONY : src/imu.cpp.s
 
+src/imu_RTIMU.o: src/imu_RTIMU.cpp.o
+.PHONY : src/imu_RTIMU.o
+
+# target to build an object file
+src/imu_RTIMU.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu_RTIMU.cpp.o
+.PHONY : src/imu_RTIMU.cpp.o
+
+src/imu_RTIMU.i: src/imu_RTIMU.cpp.i
+.PHONY : src/imu_RTIMU.i
+
+# target to preprocess a source file
+src/imu_RTIMU.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu_RTIMU.cpp.i
+.PHONY : src/imu_RTIMU.cpp.i
+
+src/imu_RTIMU.s: src/imu_RTIMU.cpp.s
+.PHONY : src/imu_RTIMU.s
+
+# target to generate assembly for a file
+src/imu_RTIMU.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu_RTIMU.cpp.s
+.PHONY : src/imu_RTIMU.cpp.s
+
 src/inter-thread-messages.o: src/inter-thread-messages.cpp.o
 .PHONY : src/inter-thread-messages.o
 
@@ -642,6 +666,9 @@ help:
 	@echo "... src/imu.o"
 	@echo "... src/imu.i"
 	@echo "... src/imu.s"
+	@echo "... src/imu_RTIMU.o"
+	@echo "... src/imu_RTIMU.i"
+	@echo "... src/imu_RTIMU.s"
 	@echo "... src/inter-thread-messages.o"
 	@echo "... src/inter-thread-messages.i"
 	@echo "... src/inter-thread-messages.s"

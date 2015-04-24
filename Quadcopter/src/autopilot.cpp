@@ -1,5 +1,7 @@
+
 #include "autopilot.h"
 #include <errno.h>
+#include "pilot.h"
 
 /*
 ##############################################
@@ -15,9 +17,9 @@
 float landTakeOffCoeff[4][3]; // PID coefficients for Land/Takeoff
 float gotoStandardCoeff[2][3]; // PID coefficients for goto_standard
 float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
+float positionHoldCoeff[3][3]; // PID coefficients for position_hold
 
 autopilotSharedState_t autopilotSharedState;
-
 
 servoControl_t::servoControl_t()
 {
@@ -101,16 +103,19 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
         // Basic initialization of commands :
         strcpy(ServoControlData[0]->type, "z");
         strcpy(ServoControlData[1]->type, "yaw");
-        strcpy(ServoControlData[2]->type, "dist");
+        strcpy(ServoControlData[2]->type, "dist");//none asserv on x or y => deviation ??
 
 
-        ServoControlData[0]->consign = autopilotObjective->destinationZ;
-
+        // Dealing with altitude :
+        //locking position mutex in order to get position
+        pthread_mutex_lock(&positionShared.readWriteMutex);
+        ServoControlData[0]->consign = positionShared.z;
+        //Unlocking mutex now we don't need the position anymore :
+        pthread_mutex_unlock(&positionShared.readWriteMutex);
         //Linking distance and bearing to the autopilot Objective ones :
         ServoControlData[1]->consign = autopilotObjective->directionBearing;
 
-        // Dealing with altitude :
-        ServoControlData[2]->consign = autopilotObjective->destinationZ;
+        ServoControlData[2]->consign = autopilotObjective->destinationDist;
 
 
         for (i=0 ; i < oneWayNumber ; i++)
@@ -119,9 +124,9 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
             for (j=0 ; j < 3 ; j++)
             {
                 // Filling-in coefficients :
-                if (j==0) ServoControlData[i]->kp = landTakeOffCoeff[i][j];
-                if (j==1) ServoControlData[i]->kd = landTakeOffCoeff[i][j];
-                if (j==2) ServoControlData[i]->ki = landTakeOffCoeff[i][j];
+                if (j==0) ServoControlData[i]->kp = gotoStandardCoeff[i][j];
+                if (j==1) ServoControlData[i]->kd = gotoStandardCoeff[i][j];
+                if (j==2) ServoControlData[i]->ki = gotoStandardCoeff[i][j];
 
             }
 
@@ -136,7 +141,43 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
 
     case GOTO_HOVERING: //mode GOTO_HOVERING
 
-        // TODO
+        oneWayNumber = 4;
+
+        for (i=0; i< 4; i++);
+        {
+            ServoControlData[i] = new oneWayServoControl_t;
+        }
+
+        // Basic initialization of commands :
+        strcpy(ServoControlData[0]->type, "x");
+        strcpy(ServoControlData[1]->type, "y");
+        strcpy(ServoControlData[2]->type, "yaw");
+        strcpy(ServoControlData[3]->type, "dist");
+
+        ServoControlData[0]->consign = autopilotObjective->destinationX;
+        ServoControlData[1]->consign = autopilotObjective->destinationY;
+        ServoControlData[2]->consign = autopilotObjective->directionBearing;
+        ServoControlData[3]->consign = autopilotObjective->destinationDistXY;
+
+        for (i=0 ; i < oneWayNumber ; i++)
+        {
+
+            for (j=0 ; j < 3 ; j++)
+            {
+                // Filling-in coefficients :
+                if (j==0) ServoControlData[i]->kp = gotoHoverCoeff[i][j];
+                if (j==1) ServoControlData[i]->kd = gotoHoverCoeff[i][j];
+                if (j==2) ServoControlData[i]->ki = gotoHoverCoeff[i][j];
+
+            }
+
+            // Creating the PID instance :
+
+
+            ServoControlData[i]->pid = new PID;
+            ServoControlData[i]->pid->setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+
+        }
 
 
         break;
@@ -144,6 +185,49 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
     case POSITION_HOLD: // mode POSITION_HOLD
 
         // TODO
+        oneWayNumber = 3;
+
+        for (i=0; i< 3; i++);
+        {
+            ServoControlData[i] = new oneWayServoControl_t;
+        }
+
+        // Basic initialization of commands :
+        strcpy(ServoControlData[0]->type, "x");
+        strcpy(ServoControlData[1]->type, "y");
+        strcpy(ServoControlData[2]->type, "z");
+
+        //locking position mutex in order to get position
+        pthread_mutex_lock(&positionShared.readWriteMutex);
+
+        ServoControlData[0]->consign = positionShared.x;
+        ServoControlData[1]->consign = positionShared.y;
+        ServoControlData[2]->consign = positionShared.z;
+
+
+        //Unlocking mutex now we don't need the position anymore :
+        pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+
+        for (i=0 ; i < oneWayNumber ; i++)
+        {
+
+            for (j=0 ; j < 3 ; j++)
+            {
+                // Filling-in coefficients :
+                if (j==0) ServoControlData[i]->kp = positionHoldCoeff[i][j];
+                if (j==1) ServoControlData[i]->kd = positionHoldCoeff[i][j];
+                if (j==2) ServoControlData[i]->ki = positionHoldCoeff[i][j];
+
+            }
+
+            // Creating the PID instance :
+
+
+            ServoControlData[i]->pid = new PID;
+            ServoControlData[i]->pid->setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+
+        }
 
         break;
 
@@ -569,16 +653,12 @@ autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilot
     return NULL;
 }
 
-void freeAutopilotObjective(autopilotObjective_t* obj)
-{
-    free(obj);
-}
 
-/*
+
 void freeAutopilotObjective (autopilotObjective_t* autopilotObjective)
 {
     free(autopilotObjective);
-}*/
+}
 
 int initCalculation(autopilotObjective_t* autopilotObjective)
 {
@@ -620,11 +700,24 @@ int updateCalculation(autopilotObjective_t* autopilotObjective)
 
     //Objective reaching determination :
 
-    //TODO
+    if (autopilotObjective->destinationDist == 0)
+    {
+        return 1;
+    }
 
-    return 0;
+    else return 0;
 
+    //TODO : algotithme de modification de maxspeed en fonction de la distance restante
 
+   /* if(autopilotObjective->destinationDistXY>)
+    {
+        autopilotObjective->maxSpeed =;
+    }
+    else if(autopilotObjective->destinationDistXY>&&autopilotObjective->destinationDistXY<)
+    {
+        autopilotObjective->maxSpeed =;
+    }
+    */
 } // For now just computes the bearing and several distances, will modify max_speed in the future relative to distance to objective. Returns a boolean that indicates when objective is reached
 
 
@@ -698,15 +791,37 @@ void* autopilotHandler(void* arg)
     gotoHoverCoeff[1][1]=GOTOHOVERYPD;
     gotoHoverCoeff[1][2]=GOTOHOVERYPI;
 
-    gotoHoverCoeff[2][0]=GOTOHOVERZP;
-    gotoHoverCoeff[2][1]=GOTOHOVERZPD;
-    gotoHoverCoeff[2][2]=GOTOHOVERZPI;
+    gotoHoverCoeff[2][0]=GOTOHOVERYAWP;
+    gotoHoverCoeff[2][1]=GOTOHOVERYAWPD;
+    gotoHoverCoeff[2][2]=GOTOHOVERYAWPI;
 
-    gotoHoverCoeff[3][0]=GOTOHOVERYAWP;
-    gotoHoverCoeff[3][1]=GOTOHOVERYAWPD;
-    gotoHoverCoeff[3][2]=GOTOHOVERYAWPI;
+    gotoHoverCoeff[3][0]=GOTOHOVERDISTP;
+    gotoHoverCoeff[3][1]=GOTOHOVERDISTPD;
+    gotoHoverCoeff[3][2]=GOTOHOVERDISTPI;
 
-    //TODO : gotoStandardCoeff
+    gotoStandardCoeff[0][0]=GOTOSTANDARDZP;
+    gotoStandardCoeff[0][1]=GOTOSTANDARDZPD;
+    gotoStandardCoeff[0][2]=GOTOSTANDARDZPI;
+
+    gotoStandardCoeff[1][0]=GOTOSTANDARDYAWP;
+    gotoStandardCoeff[1][1]=GOTOSTANDARDYAWPD;
+    gotoStandardCoeff[1][2]=GOTOSTANDARDYAWPI;
+
+    gotoStandardCoeff[2][0]=GOTOSTANDARDDISTP;
+    gotoStandardCoeff[2][1]=GOTOSTANDARDDISTPD;
+    gotoStandardCoeff[2][2]=GOTOSTANDARDDISTPI;
+
+    positionHoldCoeff[0][0]=POSITIONHOLDXP;
+    positionHoldCoeff[0][1]=POSITIONHOLDXPD;
+    positionHoldCoeff[0][2]=POSITIONHOLDXPI;
+
+    positionHoldCoeff[1][0]=POSITIONHOLDYP;
+    positionHoldCoeff[1][1]=POSITIONHOLDYPD;
+    positionHoldCoeff[1][2]=POSITIONHOLDYPI;
+
+    positionHoldCoeff[2][0]=POSITIONHOLDZP;
+    positionHoldCoeff[2][1]=POSITIONHOLDZPD;
+    positionHoldCoeff[2][2]=POSITIONHOLDZPI;
 
     // State initializatin :
 
@@ -940,15 +1055,14 @@ void* autopilotHandler(void* arg)
 
                     else if (!strcmp(receivedMessage->message, "emergencylanding"))
                     {
+
+                        //TODO : behaviour
+                        disarmQuadcopter();//dcrémenter par 4, 10 ... pour l'urgence ?
                         //Message
                         printDebug("Need to land in emergency");
                         currentMessage.dataSize=0;
                         strcpy(currentMessage.message, "main_autopilot_info_emergencylanding");
                         sendMessage(mainITMHandler, currentMessage);
-
-                        //TODO : behaviour
-
-
 
                     }
 
@@ -957,6 +1071,9 @@ void* autopilotHandler(void* arg)
                     {
                         //TODO : behaviour
                         printDebug("Land quadcopter");
+                        strcpy(currentMessage.message, "main_autopilot_info_landing");
+                        sendMessage(mainITMHandler, currentMessage);
+                        disarmQuadcopter();
 
                     }
 

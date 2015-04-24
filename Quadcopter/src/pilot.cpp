@@ -72,8 +72,6 @@ void armQuadcopter()
 
     usleep(1000000);
 
-
-
     pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are no armed !");
 }
@@ -85,7 +83,56 @@ void disarmQuadcopter()
 
     // TODO : implement disarming sequence
 
-
+    while((pilotCommandsShared.chan1 != 0)&&(pilotCommandsShared.chan2 != 0)&&(pilotCommandsShared.chan3 != 0)&&(pilotCommandsShared.chan4 != 0)&&(pilotCommandsShared.chan5 != 0)&&(pilotCommandsShared.chan6 != 0)&&(pilotCommandsShared.chan7 != 0)&&(pilotCommandsShared.chan8 != 0)&&(pilotCommandsShared.chan9 != 0))
+    {
+        if((pilotCommandsShared.chan1 - 2)>0)
+        {
+            pilotCommandsShared.chan1 = pilotCommandsShared.chan1 - 2;
+        }
+        else {pilotCommandsShared.chan1 = 0;}
+        if((pilotCommandsShared.chan2 - 2)>0)
+        {
+            pilotCommandsShared.chan2 = pilotCommandsShared.chan2 - 2;
+        }
+        else {pilotCommandsShared.chan2 = 0;}
+        if((pilotCommandsShared.chan3 - 2)>0)
+        {
+            pilotCommandsShared.chan3 = pilotCommandsShared.chan3 - 2;
+        }
+        else {pilotCommandsShared.chan3 = 0;}
+        if((pilotCommandsShared.chan4 - 2)>0)
+        {
+            pilotCommandsShared.chan4 = pilotCommandsShared.chan4 - 2;
+        }
+        else {pilotCommandsShared.chan4 = 0;}
+        if((pilotCommandsShared.chan5 - 2)>0)
+        {
+            pilotCommandsShared.chan5 = pilotCommandsShared.chan5 - 2;
+        }
+        else {pilotCommandsShared.chan5 = 0;}
+        if((pilotCommandsShared.chan6 - 2)>0)
+        {
+            pilotCommandsShared.chan6 = pilotCommandsShared.chan6 - 2;
+        }
+        else {pilotCommandsShared.chan6 = 0;}
+        if((pilotCommandsShared.chan7 - 2)>0)
+        {
+            pilotCommandsShared.chan7 = pilotCommandsShared.chan7 - 2;
+        }
+        else {pilotCommandsShared.chan7 = 0;}
+        if((pilotCommandsShared.chan8 - 2)>0)
+        {
+            pilotCommandsShared.chan8 = pilotCommandsShared.chan8 - 2;
+        }
+        else {pilotCommandsShared.chan8 = 0;}
+        if((pilotCommandsShared.chan9 - 2)>0)
+        {
+            pilotCommandsShared.chan9 = pilotCommandsShared.chan9 - 2;
+        }
+        else {pilotCommandsShared.chan9 = 0;}
+        writeCommands();
+        usleep(100000);//temps à déternimer pour avoir baisse du régime progressive
+    }
 
     pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are no disarmed !");
@@ -369,7 +416,7 @@ void* pilotHandler(void* arg)
 //        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
 //        {
 //            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-//            message_t message;
+
 //            strcpy(message.message,"main_pilot_info_autonormal");
 //            sendMessage(mainITMHandler, message);
 //
@@ -397,6 +444,7 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan7 = 0;
             pilotCommandsShared.chan8 = 0;
             pilotCommandsShared.chan9 = 0;
+            writeCommands();//???
 
             break;
 
@@ -414,6 +462,7 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan2 =  receivedCommands.commands[1];
             pilotCommandsShared.chan3 =  receivedCommands.commands[2];
             pilotCommandsShared.chan4 =  receivedCommands.commands[3];
+            writeCommands();//????
 
             break;
 
@@ -469,4 +518,5 @@ void* pilotHandler(void* arg)
     }
 
 }
+
 
