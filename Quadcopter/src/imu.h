@@ -6,7 +6,6 @@
 #include "imu_globals_variables.h"
 #include "reader_global_variables.h"
 
-#include "RTIMULib/BMP085.h"
 #include "RTIMULib/RTIMULib.h"
 
 //Handler prototype :

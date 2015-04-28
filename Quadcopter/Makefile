@@ -132,29 +132,293 @@ src/PID.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
 .PHONY : src/PID.cpp.s
 
-src/RTIMULib/BMP085.o: src/RTIMULib/BMP085.cpp.o
-.PHONY : src/RTIMULib/BMP085.o
+src/RTIMULib/IMUDrivers/RTIMU.o: src/RTIMULib/IMUDrivers/RTIMU.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMU.o
 
 # target to build an object file
-src/RTIMULib/BMP085.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.cpp.o
-.PHONY : src/RTIMULib/BMP085.cpp.o
+src/RTIMULib/IMUDrivers/RTIMU.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMU.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMU.cpp.o
 
-src/RTIMULib/BMP085.i: src/RTIMULib/BMP085.cpp.i
-.PHONY : src/RTIMULib/BMP085.i
+src/RTIMULib/IMUDrivers/RTIMU.i: src/RTIMULib/IMUDrivers/RTIMU.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMU.i
 
 # target to preprocess a source file
-src/RTIMULib/BMP085.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.cpp.i
-.PHONY : src/RTIMULib/BMP085.cpp.i
+src/RTIMULib/IMUDrivers/RTIMU.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMU.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMU.cpp.i
 
-src/RTIMULib/BMP085.s: src/RTIMULib/BMP085.cpp.s
-.PHONY : src/RTIMULib/BMP085.s
+src/RTIMULib/IMUDrivers/RTIMU.s: src/RTIMULib/IMUDrivers/RTIMU.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMU.s
 
 # target to generate assembly for a file
-src/RTIMULib/BMP085.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/BMP085.cpp.s
-.PHONY : src/RTIMULib/BMP085.cpp.s
+src/RTIMULib/IMUDrivers/RTIMU.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMU.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMU.cpp.s
+
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.o: src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.o
+
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.i: src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.i
+
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.s: src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.cpp.s
+
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.o: src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.o
+
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.i: src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.i
+
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.s: src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.cpp.s
+
+src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.o: src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.o
+
+src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.i: src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.i
+
+src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.s: src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.cpp.s
+
+src/RTIMULib/IMUDrivers/RTIMULSM9DS0.o: src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMULSM9DS0.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.o
+
+src/RTIMULib/IMUDrivers/RTIMULSM9DS0.i: src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMULSM9DS0.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.i
+
+src/RTIMULib/IMUDrivers/RTIMULSM9DS0.s: src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMULSM9DS0.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMULSM9DS0.cpp.s
+
+src/RTIMULib/IMUDrivers/RTIMUMPU9150.o: src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9150.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.o
+
+src/RTIMULib/IMUDrivers/RTIMUMPU9150.i: src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9150.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.i
+
+src/RTIMULib/IMUDrivers/RTIMUMPU9150.s: src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9150.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9150.cpp.s
+
+src/RTIMULib/IMUDrivers/RTIMUMPU9250.o: src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9250.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.o
+
+src/RTIMULib/IMUDrivers/RTIMUMPU9250.i: src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9250.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.i
+
+src/RTIMULib/IMUDrivers/RTIMUMPU9250.s: src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9250.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUMPU9250.cpp.s
+
+src/RTIMULib/IMUDrivers/RTIMUNull.o: src/RTIMULib/IMUDrivers/RTIMUNull.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUNull.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTIMUNull.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUNull.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUNull.cpp.o
+
+src/RTIMULib/IMUDrivers/RTIMUNull.i: src/RTIMULib/IMUDrivers/RTIMUNull.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUNull.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTIMUNull.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUNull.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUNull.cpp.i
+
+src/RTIMULib/IMUDrivers/RTIMUNull.s: src/RTIMULib/IMUDrivers/RTIMUNull.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUNull.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTIMUNull.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTIMUNull.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTIMUNull.cpp.s
+
+src/RTIMULib/IMUDrivers/RTPressure.o: src/RTIMULib/IMUDrivers/RTPressure.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTPressure.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTPressure.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressure.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTPressure.cpp.o
+
+src/RTIMULib/IMUDrivers/RTPressure.i: src/RTIMULib/IMUDrivers/RTPressure.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTPressure.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTPressure.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressure.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTPressure.cpp.i
+
+src/RTIMULib/IMUDrivers/RTPressure.s: src/RTIMULib/IMUDrivers/RTPressure.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTPressure.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTPressure.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressure.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTPressure.cpp.s
+
+src/RTIMULib/IMUDrivers/RTPressureBMP180.o: src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureBMP180.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.o
+
+src/RTIMULib/IMUDrivers/RTPressureBMP180.i: src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureBMP180.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.i
+
+src/RTIMULib/IMUDrivers/RTPressureBMP180.s: src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureBMP180.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureBMP180.cpp.s
+
+src/RTIMULib/IMUDrivers/RTPressureLPS25H.o: src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureLPS25H.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.o
+
+src/RTIMULib/IMUDrivers/RTPressureLPS25H.i: src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureLPS25H.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.i
+
+src/RTIMULib/IMUDrivers/RTPressureLPS25H.s: src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureLPS25H.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureLPS25H.cpp.s
+
+src/RTIMULib/IMUDrivers/RTPressureMS5611.o: src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureMS5611.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.o
+
+src/RTIMULib/IMUDrivers/RTPressureMS5611.i: src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureMS5611.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.i
+
+src/RTIMULib/IMUDrivers/RTPressureMS5611.s: src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureMS5611.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/RTPressureMS5611.cpp.s
 
 src/RTIMULib/RTFusion.o: src/RTIMULib/RTFusion.cpp.o
 .PHONY : src/RTIMULib/RTFusion.o
@@ -228,29 +492,29 @@ src/RTIMULib/RTFusionRTQF.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTFusionRTQF.cpp.s
 .PHONY : src/RTIMULib/RTFusionRTQF.cpp.s
 
-src/RTIMULib/RTIMU.o: src/RTIMULib/RTIMU.cpp.o
-.PHONY : src/RTIMULib/RTIMU.o
+src/RTIMULib/RTIMUAccelCal.o: src/RTIMULib/RTIMUAccelCal.cpp.o
+.PHONY : src/RTIMULib/RTIMUAccelCal.o
 
 # target to build an object file
-src/RTIMULib/RTIMU.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.o
-.PHONY : src/RTIMULib/RTIMU.cpp.o
+src/RTIMULib/RTIMUAccelCal.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUAccelCal.cpp.o
+.PHONY : src/RTIMULib/RTIMUAccelCal.cpp.o
 
-src/RTIMULib/RTIMU.i: src/RTIMULib/RTIMU.cpp.i
-.PHONY : src/RTIMULib/RTIMU.i
+src/RTIMULib/RTIMUAccelCal.i: src/RTIMULib/RTIMUAccelCal.cpp.i
+.PHONY : src/RTIMULib/RTIMUAccelCal.i
 
 # target to preprocess a source file
-src/RTIMULib/RTIMU.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.i
-.PHONY : src/RTIMULib/RTIMU.cpp.i
+src/RTIMULib/RTIMUAccelCal.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUAccelCal.cpp.i
+.PHONY : src/RTIMULib/RTIMUAccelCal.cpp.i
 
-src/RTIMULib/RTIMU.s: src/RTIMULib/RTIMU.cpp.s
-.PHONY : src/RTIMULib/RTIMU.s
+src/RTIMULib/RTIMUAccelCal.s: src/RTIMULib/RTIMUAccelCal.cpp.s
+.PHONY : src/RTIMULib/RTIMUAccelCal.s
 
 # target to generate assembly for a file
-src/RTIMULib/RTIMU.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMU.cpp.s
-.PHONY : src/RTIMULib/RTIMU.cpp.s
+src/RTIMULib/RTIMUAccelCal.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUAccelCal.cpp.s
+.PHONY : src/RTIMULib/RTIMUAccelCal.cpp.s
 
 src/RTIMULib/RTIMUHal.o: src/RTIMULib/RTIMUHal.cpp.o
 .PHONY : src/RTIMULib/RTIMUHal.o
@@ -276,53 +540,29 @@ src/RTIMULib/RTIMUHal.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUHal.cpp.s
 .PHONY : src/RTIMULib/RTIMUHal.cpp.s
 
-src/RTIMULib/RTIMUMPU6050HMC5883L.o: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
-.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.o
+src/RTIMULib/RTIMUMagCal.o: src/RTIMULib/RTIMUMagCal.cpp.o
+.PHONY : src/RTIMULib/RTIMUMagCal.o
 
 # target to build an object file
-src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
-.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.o
+src/RTIMULib/RTIMUMagCal.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMagCal.cpp.o
+.PHONY : src/RTIMULib/RTIMUMagCal.cpp.o
 
-src/RTIMULib/RTIMUMPU6050HMC5883L.i: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
-.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.i
-
-# target to preprocess a source file
-src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
-.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.i
-
-src/RTIMULib/RTIMUMPU6050HMC5883L.s: src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
-.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.s
-
-# target to generate assembly for a file
-src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
-.PHONY : src/RTIMULib/RTIMUMPU6050HMC5883L.cpp.s
-
-src/RTIMULib/RTIMUNull.o: src/RTIMULib/RTIMUNull.cpp.o
-.PHONY : src/RTIMULib/RTIMUNull.o
-
-# target to build an object file
-src/RTIMULib/RTIMUNull.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.o
-.PHONY : src/RTIMULib/RTIMUNull.cpp.o
-
-src/RTIMULib/RTIMUNull.i: src/RTIMULib/RTIMUNull.cpp.i
-.PHONY : src/RTIMULib/RTIMUNull.i
+src/RTIMULib/RTIMUMagCal.i: src/RTIMULib/RTIMUMagCal.cpp.i
+.PHONY : src/RTIMULib/RTIMUMagCal.i
 
 # target to preprocess a source file
-src/RTIMULib/RTIMUNull.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.i
-.PHONY : src/RTIMULib/RTIMUNull.cpp.i
+src/RTIMULib/RTIMUMagCal.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMagCal.cpp.i
+.PHONY : src/RTIMULib/RTIMUMagCal.cpp.i
 
-src/RTIMULib/RTIMUNull.s: src/RTIMULib/RTIMUNull.cpp.s
-.PHONY : src/RTIMULib/RTIMUNull.s
+src/RTIMULib/RTIMUMagCal.s: src/RTIMULib/RTIMUMagCal.cpp.s
+.PHONY : src/RTIMULib/RTIMUMagCal.s
 
 # target to generate assembly for a file
-src/RTIMULib/RTIMUNull.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUNull.cpp.s
-.PHONY : src/RTIMULib/RTIMUNull.cpp.s
+src/RTIMULib/RTIMUMagCal.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/RTIMUMagCal.cpp.s
+.PHONY : src/RTIMULib/RTIMUMagCal.cpp.s
 
 src/RTIMULib/RTIMUSettings.o: src/RTIMULib/RTIMUSettings.cpp.o
 .PHONY : src/RTIMULib/RTIMUSettings.o
@@ -468,30 +708,6 @@ src/imu.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu.cpp.s
 .PHONY : src/imu.cpp.s
 
-src/imu_RTIMU.o: src/imu_RTIMU.cpp.o
-.PHONY : src/imu_RTIMU.o
-
-# target to build an object file
-src/imu_RTIMU.cpp.o:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu_RTIMU.cpp.o
-.PHONY : src/imu_RTIMU.cpp.o
-
-src/imu_RTIMU.i: src/imu_RTIMU.cpp.i
-.PHONY : src/imu_RTIMU.i
-
-# target to preprocess a source file
-src/imu_RTIMU.cpp.i:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu_RTIMU.cpp.i
-.PHONY : src/imu_RTIMU.cpp.i
-
-src/imu_RTIMU.s: src/imu_RTIMU.cpp.s
-.PHONY : src/imu_RTIMU.s
-
-# target to generate assembly for a file
-src/imu_RTIMU.cpp.s:
-	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/imu_RTIMU.cpp.s
-.PHONY : src/imu_RTIMU.cpp.s
-
 src/inter-thread-messages.o: src/inter-thread-messages.cpp.o
 .PHONY : src/inter-thread-messages.o
 
@@ -624,9 +840,42 @@ help:
 	@echo "... src/PID.o"
 	@echo "... src/PID.i"
 	@echo "... src/PID.s"
-	@echo "... src/RTIMULib/BMP085.o"
-	@echo "... src/RTIMULib/BMP085.i"
-	@echo "... src/RTIMULib/BMP085.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMU.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMU.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMU.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20HM303D.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20HM303DLHC.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUGD20M303DLHC.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMULSM9DS0.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMULSM9DS0.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMULSM9DS0.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUMPU9150.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUMPU9150.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUMPU9150.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUMPU9250.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUMPU9250.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUMPU9250.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUNull.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUNull.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTIMUNull.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressure.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressure.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressure.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureBMP180.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureBMP180.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureBMP180.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureLPS25H.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureLPS25H.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureLPS25H.s"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureMS5611.o"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureMS5611.i"
+	@echo "... src/RTIMULib/IMUDrivers/RTPressureMS5611.s"
 	@echo "... src/RTIMULib/RTFusion.o"
 	@echo "... src/RTIMULib/RTFusion.i"
 	@echo "... src/RTIMULib/RTFusion.s"
@@ -636,18 +885,15 @@ help:
 	@echo "... src/RTIMULib/RTFusionRTQF.o"
 	@echo "... src/RTIMULib/RTFusionRTQF.i"
 	@echo "... src/RTIMULib/RTFusionRTQF.s"
-	@echo "... src/RTIMULib/RTIMU.o"
-	@echo "... src/RTIMULib/RTIMU.i"
-	@echo "... src/RTIMULib/RTIMU.s"
+	@echo "... src/RTIMULib/RTIMUAccelCal.o"
+	@echo "... src/RTIMULib/RTIMUAccelCal.i"
+	@echo "... src/RTIMULib/RTIMUAccelCal.s"
 	@echo "... src/RTIMULib/RTIMUHal.o"
 	@echo "... src/RTIMULib/RTIMUHal.i"
 	@echo "... src/RTIMULib/RTIMUHal.s"
-	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.o"
-	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.i"
-	@echo "... src/RTIMULib/RTIMUMPU6050HMC5883L.s"
-	@echo "... src/RTIMULib/RTIMUNull.o"
-	@echo "... src/RTIMULib/RTIMUNull.i"
-	@echo "... src/RTIMULib/RTIMUNull.s"
+	@echo "... src/RTIMULib/RTIMUMagCal.o"
+	@echo "... src/RTIMULib/RTIMUMagCal.i"
+	@echo "... src/RTIMULib/RTIMUMagCal.s"
 	@echo "... src/RTIMULib/RTIMUSettings.o"
 	@echo "... src/RTIMULib/RTIMUSettings.i"
 	@echo "... src/RTIMULib/RTIMUSettings.s"
@@ -666,9 +912,6 @@ help:
 	@echo "... src/imu.o"
 	@echo "... src/imu.i"
 	@echo "... src/imu.s"
-	@echo "... src/imu_RTIMU.o"
-	@echo "... src/imu_RTIMU.i"
-	@echo "... src/imu_RTIMU.s"
 	@echo "... src/inter-thread-messages.o"
 	@echo "... src/inter-thread-messages.i"
 	@echo "... src/inter-thread-messages.s"

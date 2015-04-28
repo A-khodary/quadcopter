@@ -1,23 +1,30 @@
-//
-//  Copyright (c) 2014 richards-tech
+////////////////////////////////////////////////////////////////////////////
 //
 //  This file is part of RTIMULib
 //
-//  RTIMULib is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
+//  Copyright (c) 2014-2015, richards-tech
 //
-//  RTIMULib is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of
+//  this software and associated documentation files (the "Software"), to deal in
+//  the Software without restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+//  Software, and to permit persons to whom the Software is furnished to do so,
+//  subject to the following conditions:
 //
-//  You should have received a copy of the GNU General Public License
-//  along with RTIMULib.  If not, see <http://www.gnu.org/licenses/>.
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
 //
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//  INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+//  PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+//  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+//  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "RTMath.h"
+#ifdef WIN32
+#include <qdatetime.h>
+#endif
 
 //  Strings are put here. So the display functions are no re-entrant!
 
@@ -25,10 +32,15 @@ char RTMath::m_string[1000];
 
 uint64_t RTMath::currentUSecsSinceEpoch()
 {
+#ifdef WIN32
+#include <qdatetime.h>
+    return QDateTime::currentMSecsSinceEpoch();
+#else
     struct timeval tv;
 
     gettimeofday(&tv, NULL);
     return (uint64_t)tv.tv_sec * 1000000 + (uint64_t)tv.tv_usec;
+#endif
 }
 
 const char *RTMath::displayRadians(const char *label, RTVector3& vec)
@@ -59,6 +71,30 @@ const char *RTMath::display(const char *label, RTMatrix4x4& mat)
             label, mat.val(3,0), mat.val(3,1), mat.val(3,2), mat.val(3,3));
     return m_string;
 }
+
+//  convertPressureToHeight() - the conversion uses the formula:
+//
+//  h = (T0 / L0) * ((p / P0)**(-(R* * L0) / (g0 * M)) - 1)
+//
+//  where:
+//  h  = height above sea level
+//  T0 = standard temperature at sea level = 288.15
+//  L0 = standard temperatur elapse rate = -0.0065
+//  p  = measured pressure
+//  P0 = static pressure = 1013.25 (but can be overridden)
+//  g0 = gravitational acceleration = 9.80665
+//  M  = mloecular mass of earth's air = 0.0289644
+//  R* = universal gas constant = 8.31432
+//
+//  Given the constants, this works out to:
+//
+//  h = 44330.8 * (1 - (p / P0)**0.190263)
+
+RTFLOAT RTMath::convertPressureToHeight(RTFLOAT pressure, RTFLOAT staticPressure)
+{
+    return 44330.8 * (1 - pow(pressure / staticPressure, (RTFLOAT)0.190263));
+}
+
 
 RTVector3 RTMath::poseFromAccelMag(const RTVector3& accel, const RTVector3& mag)
 {
@@ -209,6 +245,12 @@ void RTVector3::normalize()
     m_data[0] /= length;
     m_data[1] /= length;
     m_data[2] /= length;
+}
+
+RTFLOAT RTVector3::length()
+{
+    return sqrt(m_data[0] * m_data[0] + m_data[1] * m_data[1] +
+            m_data[2] * m_data[2]);
 }
 
 //----------------------------------------------------------

@@ -21,31 +21,34 @@
 //  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#include "RTIMUNull.h"
+#include "../RTIMUSettings.h"
 
-#ifndef _RTIMULIB_H
-#define	_RTIMULIB_H
+RTIMUNull::RTIMUNull(RTIMUSettings *settings) : RTIMU(settings)
+{
+}
 
-#include "RTIMULibDefs.h"
+RTIMUNull::~RTIMUNull()
+{
+}
 
-#include "RTMath.h"
+bool RTIMUNull::IMUInit()
+{
+    return true;
+}
 
-#include "RTFusion.h"
-#include "RTFusionKalman4.h"
+int RTIMUNull::IMUGetPollInterval()
+{
+    return (100);                                           // just a dummy value really
+}
 
-#include "RTIMUHal.h"
-#include "IMUDrivers/RTIMU.h"
-#include "IMUDrivers/RTIMUNull.h"
-#include "IMUDrivers/RTIMUMPU9150.h"
-#include "IMUDrivers/RTIMUGD20HM303D.h"
-#include "IMUDrivers/RTIMUGD20M303DLHC.h"
-#include "IMUDrivers/RTIMULSM9DS0.h"
+bool RTIMUNull::IMURead()
+{
+    updateFusion();
+    return true;
+}
 
-#include "IMUDrivers/RTPressure.h"
-#include "IMUDrivers/RTPressureBMP180.h"
-#include "IMUDrivers/RTPressureLPS25H.h"
-#include "IMUDrivers/RTPressureMS5611.h"
-
-#include "RTIMUSettings.h"
-
-
-#endif // _RTIMULIB_H
+void RTIMUNull::setIMUData(const RTIMU_DATA& data)
+{
+    m_imuData = data;
+}

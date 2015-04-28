@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////
 //
-//  This file is part of RTIMULib
+//  This file is part of RTPRESSURELib
 //
 //  Copyright (c) 2014-2015, richards-tech
 //
@@ -21,31 +21,35 @@
 //  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#ifndef _RTPRESSURE_H
+#define	_RTPRESSURE_H
 
-#ifndef _RTIMULIB_H
-#define	_RTIMULIB_H
+#include "../RTIMUSettings.h"
+#include "../RTIMULibDefs.h"
+#include "RTPressureDefs.h"
 
-#include "RTIMULibDefs.h"
+class RTPressure
+{
+public:
+    //  Pressure sensor objects should always be created with the following call
 
-#include "RTMath.h"
+    static RTPressure *createPressure(RTIMUSettings *settings);
 
-#include "RTFusion.h"
-#include "RTFusionKalman4.h"
+    //  Constructor/destructor
 
-#include "RTIMUHal.h"
-#include "IMUDrivers/RTIMU.h"
-#include "IMUDrivers/RTIMUNull.h"
-#include "IMUDrivers/RTIMUMPU9150.h"
-#include "IMUDrivers/RTIMUGD20HM303D.h"
-#include "IMUDrivers/RTIMUGD20M303DLHC.h"
-#include "IMUDrivers/RTIMULSM9DS0.h"
+    RTPressure(RTIMUSettings *settings);
+    virtual ~RTPressure();
 
-#include "IMUDrivers/RTPressure.h"
-#include "IMUDrivers/RTPressureBMP180.h"
-#include "IMUDrivers/RTPressureLPS25H.h"
-#include "IMUDrivers/RTPressureMS5611.h"
+    //  These functions must be provided by sub classes
 
-#include "RTIMUSettings.h"
+    virtual const char *pressureName() = 0;                 // the name of the pressure sensor
+    virtual int pressureType() = 0;                         // the type code of the pressure sensor
+    virtual bool pressureInit() = 0;                        // set up the pressure sensor
+    virtual bool pressureRead(RTIMU_DATA& data) = 0;        // get latest value
 
+protected:
+    RTIMUSettings *m_settings;                              // the settings object pointer
 
-#endif // _RTIMULIB_H
+};
+
+#endif // _RTPRESSURE_H
