@@ -66,7 +66,13 @@ void* imuHandler(void* arg)
 
     imu->IMUInit();
 
-    //  set up pressure sensor
+    // this is a convenient place to change fusion parameters
+/*   
+    imu->setGyroEnable(true);
+    imu->setAccelEnable(true);
+    imu->setCompassEnable(true);
+*/   
+ //  set up pressure sensor
 
     if (pressure != NULL)
         pressure->pressureInit();
@@ -84,7 +90,7 @@ void* imuHandler(void* arg)
         if(receivedCommands.gpsStatus == FIX) waitingGPS = 0;
         sleep(1);
 
-        pthread_mutex_lock(&receivedCommands.readWriteMutex);
+        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
     }
 
     // Init IMU
@@ -172,12 +178,12 @@ void* imuHandler(void* arg)
 */
 
         // Altitude calculation Area :
-
+/*
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         ultrasonicAltitude = receivedCommands.ultrasonicTelemeter;
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
-
+*/
         /*if (receivedCommands.altitude<1 && bmpAltitude<1)//1m du sol???
         {
             altitude = (0,2*ultrasonicAltitude + 0.3*bmpAltitude +0.5*receivedCommands.altitude)/3;//filtre à complémentarité
@@ -193,7 +199,7 @@ void* imuHandler(void* arg)
 
 
         // Position calculation Area :
-
+/*
         double x,y;
         double* px = &x;
         double* py = &y;
@@ -223,7 +229,7 @@ void* imuHandler(void* arg)
         pthread_mutex_unlock(&flightStateShared.readWriteMutex);
         pthread_mutex_unlock(&rawPositionShared.readWriteMutex);
         pthread_mutex_unlock(&positionShared.readWriteMutex);
-
+*/
 
         }
 
