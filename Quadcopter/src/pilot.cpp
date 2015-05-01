@@ -164,9 +164,6 @@ void* pilotHandler(void* arg)
     pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
 
-    printDebug("[i] New pilot Handler Launched");
-
-
     bidirectionnalHandler_t* bidirectionnalHandler;
     bidirectionnalHandler = (bidirectionnalHandler_t*)arg;
 
@@ -181,6 +178,11 @@ void* pilotHandler(void* arg)
     messageDecoded_t decoded;
     char* dataDecoded;
 
+    // Notifying main thread of init :
+
+    strcpy(message.message,"main_pilot_info_init");
+    message.priority = 20;
+    sendMessage(mainITMHandler, message);
 
 
     int fd = pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS, PCA_FREQUENCY);
@@ -188,14 +190,18 @@ void* pilotHandler(void* arg)
     {
         strcpy(message.message,"main_pilot_info_initfailed");
         message.priority = 20;
-        sleep(1);
         sendMessage(mainITMHandler, message);
+        sleep(1);
 
         pthread_exit(NULL);
     }
     pca9685PWMReset(fd);
 
     armQuadcopter();
+
+    strcpy(message.message,"main_pilot_info_endofinit");
+    message.priority = 20;
+    sendMessage(mainITMHandler, message);
 
 
     while(1)

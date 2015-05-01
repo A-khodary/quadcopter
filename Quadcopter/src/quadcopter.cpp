@@ -172,7 +172,7 @@ int main()
 
 
 
-        // TODO handling message :
+        // Message redirection area :
 
         if(!strcmp(currentDecodedMessage.destination,"autopilot"))
         {
@@ -278,6 +278,26 @@ int main()
 
                     }
 
+                    else if (!strcmp(currentDecodedMessage.source, "autopilot"))
+                    {
+                        printDebug("[e] Autopilot failed its init : this is terrible : no intelligence, restarting the autopilot component...");
+                        pthread_cancel(imuThread);
+                        pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
+                        sleep(1);
+                        pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
+
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.source, "datalogger"))
+                    {
+                        printDebug("[e] Datalogger failed its init : this is terrible : no user command and logging, restarting the datalogger component...");
+                        pthread_cancel(imuThread);
+                        pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
+                        sleep(1);
+                        pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
+
+                    }
+
 
                 }
 
@@ -291,6 +311,21 @@ int main()
                     else if (!strcmp(currentDecodedMessage.source, "reader"))
                     {
                         printDebug("[i] Reader started its init");
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.source, "datalogger"))
+                    {
+                        printDebug("[i] Datalogger started its init");
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.source, "autopilot"))
+                    {
+                        printDebug("[i] Autopilot started its init");
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.source, "imu"))
+                    {
+                        printDebug("[i] Imu started its init");
                     }
                 }
 
