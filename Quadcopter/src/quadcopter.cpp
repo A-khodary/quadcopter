@@ -263,10 +263,22 @@ int main()
                         printDebug("[e] Reader failed its init : this is terrible : no user command and no ultrasonic, restarting the reader component...");
                         pthread_cancel(readerThread);
                         pthread_join(readerThread, NULL); // Join to cleanup (prevents memory leak)
-                        sleep(10);
+                        sleep(1);
                         pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
 
                     }
+
+                    else if (!strcmp(currentDecodedMessage.source, "imu"))
+                    {
+                        printDebug("[e] IMU failed its init : this is terrible : no user command and no positionning, restarting the imu component...");
+                        pthread_cancel(imuThread);
+                        pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
+                        sleep(1);
+                        pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
+
+                    }
+
+
                 }
 
                 else if (!strcmp(currentDecodedMessage.message,"init")) // the autopilot can notify main of such event

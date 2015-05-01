@@ -21,7 +21,7 @@ typedef struct
 
     double latitude;
     double longitude;
-    double altitude;
+    double altitude; // Distance from sea-level
 
     pthread_mutex_t readWriteMutex;
 
@@ -35,6 +35,8 @@ typedef struct
     double y;
     double z;
 
+    double distanceFromGround; // from ultrasonic : -1 : unavailable
+
     pthread_mutex_t readWriteMutex;
 
 } positionShared_t;
@@ -46,9 +48,12 @@ typedef struct
 
     double x;
     double y;
+    double z;
 
     double latitude; // in °
     double longitude; // in °
+
+    pthread_mutex_t readWriteMutex;
 
 } homePosition_t;
 

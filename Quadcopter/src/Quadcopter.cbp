@@ -68,7 +68,9 @@
 		<Unit filename="RTIMULib/RTFusion.h" />
 		<Unit filename="RTIMULib/RTFusionKalman4.cpp" />
 		<Unit filename="RTIMULib/RTFusionKalman4.h" />
-		<Unit filename="RTIMULib/RTFusionRTQF.cpp" />
+		<Unit filename="RTIMULib/RTFusionRTQF.cpp">
+			<Option virtualFolder="Shared ressources/Sources/" />
+		</Unit>
 		<Unit filename="RTIMULib/RTFusionRTQF.h" />
 		<Unit filename="RTIMULib/RTIMUAccelCal.cpp" />
 		<Unit filename="RTIMULib/RTIMUAccelCal.h" />
@@ -128,9 +130,6 @@
 			<Option virtualFolder="Components/Headers/PILOT/" />
 		</Unit>
 		<Unit filename="pilot_global_variables.h">
-			<Option virtualFolder="Shared ressources/Headers/" />
-		</Unit>
-		<Unit filename="proj/proj_api.h">
 			<Option virtualFolder="Shared ressources/Headers/" />
 		</Unit>
 		<Unit filename="quadcopter.cpp">
