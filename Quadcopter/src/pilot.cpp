@@ -233,7 +233,7 @@ void* pilotHandler(void* arg)
     }
     pca9685PWMReset(fd);
 
-    armQuadcopter();
+    //armQuadcopter();
 
     // Waiting 500ms for ESC to init :
     usleep(500000);
