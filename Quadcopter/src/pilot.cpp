@@ -64,7 +64,7 @@ int calcTicks(float impulseMs, int hertz)
 void armQuadcopter()
 {
     printDebug("[i] Arming quadcopter motors....");
-    pthread_mutex_lock(&pilotCommandsShared.readWrite);
+    //pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
     pilotCommandsShared.chan3 = 0;
     pilotCommandsShared.chan4 = 1;
