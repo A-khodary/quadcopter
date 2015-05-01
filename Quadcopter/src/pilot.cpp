@@ -85,53 +85,53 @@ void disarmQuadcopter()
 
     // TODO : implement disarming sequence
 
-    while((pilotCommandsShared.chan1 != 0)&&(pilotCommandsShared.chan2 != 0)&&(pilotCommandsShared.chan3 != 0)&&(pilotCommandsShared.chan4 != 0)&&(pilotCommandsShared.chan5 != 0)&&(pilotCommandsShared.chan6 != 0)&&(pilotCommandsShared.chan7 != 0)&&(pilotCommandsShared.chan8 != 0)&&(pilotCommandsShared.chan9 != 0))
-    {
-        if((pilotCommandsShared.chan1 - 2)>0)
-        {
-            pilotCommandsShared.chan1 = pilotCommandsShared.chan1 - 2;
-        }
-        else {pilotCommandsShared.chan1 = 0;}
-        if((pilotCommandsShared.chan2 - 2)>0)
-        {
-            pilotCommandsShared.chan2 = pilotCommandsShared.chan2 - 2;
-        }
-        else {pilotCommandsShared.chan2 = 0;}
-        if((pilotCommandsShared.chan3 - 2)>0)
-        {
-            pilotCommandsShared.chan3 = pilotCommandsShared.chan3 - 2;
-        }
-        else {pilotCommandsShared.chan3 = 0;}
-        if((pilotCommandsShared.chan4 - 2)>0)
-        {
-            pilotCommandsShared.chan4 = pilotCommandsShared.chan4 - 2;
-        }
-        else {pilotCommandsShared.chan4 = 0;}
-        if((pilotCommandsShared.chan5 - 2)>0)
-        {
-            pilotCommandsShared.chan5 = pilotCommandsShared.chan5 - 2;
-        }
-        else {pilotCommandsShared.chan5 = 0;}
-        if((pilotCommandsShared.chan6 - 2)>0)
-        {
-            pilotCommandsShared.chan6 = pilotCommandsShared.chan6 - 2;
-        }
-        else {pilotCommandsShared.chan6 = 0;}
-        if((pilotCommandsShared.chan7 - 2)>0)
-        {
-            pilotCommandsShared.chan7 = pilotCommandsShared.chan7 - 2;
-        }
-        else {pilotCommandsShared.chan7 = 0;}
-        if((pilotCommandsShared.chan8 - 2)>0)
-        {
-            pilotCommandsShared.chan8 = pilotCommandsShared.chan8 - 2;
-        }
-        else {pilotCommandsShared.chan8 = 0;}
-        if((pilotCommandsShared.chan9 - 2)>0)
-        {
-            pilotCommandsShared.chan9 = pilotCommandsShared.chan9 - 2;
-        }
-        else {pilotCommandsShared.chan9 = 0;}
+//    while((pilotCommandsShared.chan1 != 0)&&(pilotCommandsShared.chan2 != 0)&&(pilotCommandsShared.chan3 != 0)&&(pilotCommandsShared.chan4 != 0)&&(pilotCommandsShared.chan5 != 0)&&(pilotCommandsShared.chan6 != 0)&&(pilotCommandsShared.chan7 != 0)&&(pilotCommandsShared.chan8 != 0)&&(pilotCommandsShared.chan9 != 0))
+//    {
+//        if((pilotCommandsShared.chan1 - 2)>0)
+//        {
+//            pilotCommandsShared.chan1 = pilotCommandsShared.chan1 - 2;
+//        }
+//        else {pilotCommandsShared.chan1 = 0;}
+//        if((pilotCommandsShared.chan2 - 2)>0)
+//        {
+//            pilotCommandsShared.chan2 = pilotCommandsShared.chan2 - 2;
+//        }
+//        else {pilotCommandsShared.chan2 = 0;}
+//        if((pilotCommandsShared.chan3 - 2)>0)
+//        {
+//            pilotCommandsShared.chan3 = pilotCommandsShared.chan3 - 2;
+//        }
+//        else {pilotCommandsShared.chan3 = 0;}
+//        if((pilotCommandsShared.chan4 - 2)>0)
+//        {
+//            pilotCommandsShared.chan4 = pilotCommandsShared.chan4 - 2;
+//        }
+//        else {pilotCommandsShared.chan4 = 0;}
+//        if((pilotCommandsShared.chan5 - 2)>0)
+//        {
+//            pilotCommandsShared.chan5 = pilotCommandsShared.chan5 - 2;
+//        }
+//        else {pilotCommandsShared.chan5 = 0;}
+//        if((pilotCommandsShared.chan6 - 2)>0)
+//        {
+//            pilotCommandsShared.chan6 = pilotCommandsShared.chan6 - 2;
+//        }
+//        else {pilotCommandsShared.chan6 = 0;}
+//        if((pilotCommandsShared.chan7 - 2)>0)
+//        {
+//            pilotCommandsShared.chan7 = pilotCommandsShared.chan7 - 2;
+//        }
+//        else {pilotCommandsShared.chan7 = 0;}
+//        if((pilotCommandsShared.chan8 - 2)>0)
+//        {
+//            pilotCommandsShared.chan8 = pilotCommandsShared.chan8 - 2;
+//        }
+//        else {pilotCommandsShared.chan8 = 0;}
+//        if((pilotCommandsShared.chan9 - 2)>0)
+//        {
+//            pilotCommandsShared.chan9 = pilotCommandsShared.chan9 - 2;
+//        }
+//        else {pilotCommandsShared.chan9 = 0;} WTF ???
         writeCommands();
         usleep(100000);//temps à déternimer pour avoir baisse du régime progressive
     }
@@ -146,8 +146,6 @@ void disarmQuadcopter()
 void writeCommands()
 {
     double pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
-
-    int pilotRefreshingPeriodShared = REFRESHING_PERIOD_DEFAULT;
 
     pthread_mutex_lock(&pilotCommandsShared.readWrite); // Locking mutex to prevent race conditions
 
@@ -182,7 +180,7 @@ void* pilotHandler(void* arg)
 
     // variables needed for the pilot test function :
 
-    double testCommand = 0.4;
+    double testCommand = 1;
 
     // Handler global variables init :
 
