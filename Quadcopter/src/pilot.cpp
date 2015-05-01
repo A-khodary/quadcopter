@@ -335,20 +335,16 @@ void* pilotHandler(void* arg)
                         disarmQuadcopter();
                     }
 
-                    else if (!strcmp(decoded.message, "setmax"))
+                    else if (!strcmp(decoded.message, "increasepwm"))
                     {
-                        printDebug("[i] Setting max pwm...");
-                        dataDecoded = strtok(decoded.message, "_");
-                        dataDecoded = strtok(NULL, "_");
-                        printf("[i] Changed min pwm to %f\n", atof(dataDecoded));
-                        fflush(stdout);
-
+                        printDebug("[i] Increasing pwm...");
+                        testCommand +=0.1;
                     }
 
-                    else if (!strcmp(decoded.message, "setmin"))
+                    else if (!strcmp(decoded.message, "decreasepwm"))
                     {
-                        printDebug("[i] Setting min pwm...");
-
+                        printDebug("[i] Decreasing pwm...");
+                        testCommand -=0.1;
                     }
 
 
