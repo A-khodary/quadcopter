@@ -44,6 +44,7 @@
 #include "IMUDrivers/RTPressureBMP180.h"
 #include "IMUDrivers/RTPressureLPS25H.h"
 #include "IMUDrivers/RTPressureMS5611.h"
+#include "IMUDrivers/BMP085.h"
 
 #include "RTIMUSettings.h"
 
