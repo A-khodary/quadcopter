@@ -464,7 +464,6 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan2 =  receivedCommands.commands[1];
             pilotCommandsShared.chan3 =  receivedCommands.commands[2];
             pilotCommandsShared.chan4 =  receivedCommands.commands[3];
-            writeCommands();//????
 
             break;
 
@@ -499,7 +498,7 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan4 =  testCommand;
 
             if (testCommand >= 1) testCommand = 0;
-            else testCommand += 0.01;
+            else testCommand += 0.001;
 
 
             break;
