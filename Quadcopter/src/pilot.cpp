@@ -498,7 +498,8 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan4 =  testCommand;
 
             if (testCommand >= 1) testCommand = 0;
-            else testCommand += 0.001;
+            else testCommand += 0.01;
+            usleep(200000);
 
 
             break;
