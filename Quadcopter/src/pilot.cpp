@@ -216,7 +216,7 @@ void* pilotHandler(void* arg)
     message_t* receivedMessage;
     message_t message;
     messageDecoded_t decoded;
-    char dataDecoded[16];
+    char* dataDecoded;
 
 
 
