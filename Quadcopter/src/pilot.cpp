@@ -64,7 +64,6 @@ int calcTicks(float impulseMs, int hertz)
 void armQuadcopter()
 {
     printDebug("[i] Arming quadcopter motors....");
-    //pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
     pilotCommandsShared.chan1 = 0.5;
     pilotCommandsShared.chan2 = 0.5;
@@ -75,15 +74,12 @@ void armQuadcopter()
 
     usleep(2000000);
 
-
-    //pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are now armed !");
 }
 
 void disarmQuadcopter()
 {
     printDebug("[i] Disarming quadcopter motors....");
-    //pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
     pilotCommandsShared.chan1 = 0.5;
     pilotCommandsShared.chan2 = 0.5;
@@ -94,7 +90,6 @@ void disarmQuadcopter()
 
     usleep(2000000);
 
-    //pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are no disarmed !");
 
 }
@@ -138,25 +133,35 @@ void* pilotHandler(void* arg)
 
     // variables needed for the pilot test function :
 
-    double testCommand = 1.3;
+    double testCommand = 0;
 
     // Handler global variables init :
 
     initialize_mutex(&pilotCommandsShared.readWrite);
+    initialize_mutex(&pilotStateShared.readWriteMutex);
+
+    pthread_mutex_lock(&pilotStateShared.readWriteMutex);
+    pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+    pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
 
 
-    pilotCommandsShared.chan1 = 0;
-    pilotCommandsShared.chan2 = 0;
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
     pilotCommandsShared.chan3 = 0;
-    pilotCommandsShared.chan4 = 0;
-    pilotCommandsShared.chan5 = 0;
-    pilotCommandsShared.chan6 = 0;
-    pilotCommandsShared.chan7 = 0;
-    pilotCommandsShared.chan8 = 0;
-    pilotCommandsShared.chan9 = 0;
+    pilotCommandsShared.chan4 = 0.5;
+    pilotCommandsShared.chan5 = 0.5;
+    pilotCommandsShared.chan6 = 0.5;
+    pilotCommandsShared.chan7 = 0.5;
+    pilotCommandsShared.chan8 = 0.5;
+    pilotCommandsShared.chan9 = 0.5;
+
 
 
     pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
+
+    pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
+    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
 
     printDebug("[i] New pilot Handler Launched");
@@ -190,10 +195,8 @@ void* pilotHandler(void* arg)
     }
     pca9685PWMReset(fd);
 
-    //armQuadcopter();
+    armQuadcopter();
 
-    // Waiting 500ms for ESC to init :
-    usleep(500000);
 
     while(1)
     {
@@ -397,7 +400,6 @@ void* pilotHandler(void* arg)
 //            sendMessage(mainITMHandler, message);
 //        }
 
-        pilotStateShared.pilotMode = TEST; // For testing purposes
 
         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
@@ -463,14 +465,14 @@ void* pilotHandler(void* arg)
 
             // Some testing functions that increases and stops all channels
 
-            pilotCommandsShared.chan1 =  0.5;
-            pilotCommandsShared.chan2 =  0.5;
-            pilotCommandsShared.chan3 =  0.0;
-            pilotCommandsShared.chan4 =  0.5;
+            pilotCommandsShared.chan1 =  testCommand;
+            pilotCommandsShared.chan2 =  testCommand;
+            pilotCommandsShared.chan3 =  testCommand;
+            pilotCommandsShared.chan4 =  testCommand;
 
-//            if (testCommand >= 1) testCommand = 0;
-//            else testCommand += 0.01;
-//            usleep(200000000);
+            if (testCommand >= 1) testCommand = 0;
+            else testCommand += 0.01;
+            usleep(1000000);
 
 
             break;
