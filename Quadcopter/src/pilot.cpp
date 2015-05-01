@@ -70,7 +70,7 @@ void armQuadcopter()
 
     writeCommands();
 
-    usleep(1000000);
+    usleep(10000000);
 
     pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are no armed !");
