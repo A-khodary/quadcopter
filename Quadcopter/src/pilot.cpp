@@ -66,8 +66,8 @@ void armQuadcopter()
     printDebug("[i] Arming quadcopter motors....");
     //pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
-    pilotCommandsShared.chan1 = 0.5:
-    pilotCommandsShared.chan2 = 0.5:
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
     pilotCommandsShared.chan3 = 0;
     pilotCommandsShared.chan4 = 1;
 
@@ -509,7 +509,7 @@ void* pilotHandler(void* arg)
             // Some testing functions that increases and stops all channels
 
             pilotCommandsShared.chan1 =  0.5;
-            pilotCommandsShared.chan2 =  0.5
+            pilotCommandsShared.chan2 =  0.5;
             pilotCommandsShared.chan3 =  0.0;
             pilotCommandsShared.chan4 =  0.5;
 
