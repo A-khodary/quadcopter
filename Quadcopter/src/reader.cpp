@@ -117,7 +117,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw1 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[0] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 1 :%d", receivedCommands.commands[0]);
+                            if (testpwm) printf("[i] PWM 1 :%f\n", receivedCommands.commands[0]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -126,7 +126,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw2 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[1] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 2 :%d", receivedCommands.commands[1]);
+                            if (testpwm) printf("[i] PWM 2 :%f\n", receivedCommands.commands[1]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -135,7 +135,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw3 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[2] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 3 :%d", receivedCommands.commands[2]);
+                            if (testpwm) printf("[i] PWM 3 :%f\n", receivedCommands.commands[2]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -144,7 +144,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw4 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[3] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 4 :%d", receivedCommands.commands[3]);
+                            if (testpwm) printf("[i] PWM 4 :%f\n", receivedCommands.commands[3]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -153,7 +153,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw5 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[4] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 5 :%d", receivedCommands.commands[4]);
+                            if (testpwm) printf("[i] PWM 5 :%f\n", receivedCommands.commands[4]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -162,7 +162,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw6 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[5] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 6 :%d", receivedCommands.commands[5]);
+                            if (testpwm) printf("[i] PWM 6 :%f\n", receivedCommands.commands[5]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -171,7 +171,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw7 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[6] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 7 :%d", receivedCommands.commands[6]);
+                            if (testpwm) printf("[i] PWM 7 :%f\n", receivedCommands.commands[6]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -180,7 +180,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw8 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[7] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 8 :%d", receivedCommands.commands[7]);
+                            if (testpwm) printf("[i] PWM 8 :%f\n", receivedCommands.commands[7]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -189,7 +189,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw9 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[8] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 9 :%s", receivedCommands.commands[8]);
+                            if (testpwm) printf("[i] PWM 9 :%f\n", receivedCommands.commands[8]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -232,6 +232,8 @@ void* readerHandler(void* arg)
                             receivedCommands.altitude = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
+
+                        if(testpwm) sleep(2);
 
 
 
