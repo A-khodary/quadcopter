@@ -73,73 +73,28 @@ void armQuadcopter()
 
     writeCommands();
 
-    usleep(1000000);
+    usleep(200000);
 
-    printDebug("DONE");
 
-    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+    //pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are now armed !");
 }
 
 void disarmQuadcopter()
 {
     printDebug("[i] Disarming quadcopter motors....");
-    pthread_mutex_lock(&pilotCommandsShared.readWrite);
+    //pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
-    // TODO : implement disarming sequence
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
+    pilotCommandsShared.chan3 = 0;
+    pilotCommandsShared.chan4 = 1;
 
-//    while((pilotCommandsShared.chan1 != 0)&&(pilotCommandsShared.chan2 != 0)&&(pilotCommandsShared.chan3 != 0)&&(pilotCommandsShared.chan4 != 0)&&(pilotCommandsShared.chan5 != 0)&&(pilotCommandsShared.chan6 != 0)&&(pilotCommandsShared.chan7 != 0)&&(pilotCommandsShared.chan8 != 0)&&(pilotCommandsShared.chan9 != 0))
-//    {
-//        if((pilotCommandsShared.chan1 - 2)>0)
-//        {
-//            pilotCommandsShared.chan1 = pilotCommandsShared.chan1 - 2;
-//        }
-//        else {pilotCommandsShared.chan1 = 0;}
-//        if((pilotCommandsShared.chan2 - 2)>0)
-//        {
-//            pilotCommandsShared.chan2 = pilotCommandsShared.chan2 - 2;
-//        }
-//        else {pilotCommandsShared.chan2 = 0;}
-//        if((pilotCommandsShared.chan3 - 2)>0)
-//        {
-//            pilotCommandsShared.chan3 = pilotCommandsShared.chan3 - 2;
-//        }
-//        else {pilotCommandsShared.chan3 = 0;}
-//        if((pilotCommandsShared.chan4 - 2)>0)
-//        {
-//            pilotCommandsShared.chan4 = pilotCommandsShared.chan4 - 2;
-//        }
-//        else {pilotCommandsShared.chan4 = 0;}
-//        if((pilotCommandsShared.chan5 - 2)>0)
-//        {
-//            pilotCommandsShared.chan5 = pilotCommandsShared.chan5 - 2;
-//        }
-//        else {pilotCommandsShared.chan5 = 0;}
-//        if((pilotCommandsShared.chan6 - 2)>0)
-//        {
-//            pilotCommandsShared.chan6 = pilotCommandsShared.chan6 - 2;
-//        }
-//        else {pilotCommandsShared.chan6 = 0;}
-//        if((pilotCommandsShared.chan7 - 2)>0)
-//        {
-//            pilotCommandsShared.chan7 = pilotCommandsShared.chan7 - 2;
-//        }
-//        else {pilotCommandsShared.chan7 = 0;}
-//        if((pilotCommandsShared.chan8 - 2)>0)
-//        {
-//            pilotCommandsShared.chan8 = pilotCommandsShared.chan8 - 2;
-//        }
-//        else {pilotCommandsShared.chan8 = 0;}
-//        if((pilotCommandsShared.chan9 - 2)>0)
-//        {
-//            pilotCommandsShared.chan9 = pilotCommandsShared.chan9 - 2;
-//        }
-//        else {pilotCommandsShared.chan9 = 0;} WTF ???
-        writeCommands();
-        usleep(100000);//temps à déternimer pour avoir baisse du régime progressive
- //   }
+    writeCommands();
 
-    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+    usleep(200000);
+
+    //pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are no disarmed !");
 
 }
