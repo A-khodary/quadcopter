@@ -18,7 +18,7 @@
 #define PCA_PINBASE 300
 
 #define ESC_MIN_PWM_VALUE 1
-#define ESC_MAX_PWM_VALUE 2
+#define ESC_MAX_PWM_VALUE 2.1
 #define GLOBAL_OFFSET 0.07
 
 #define REFRESHING_PERIOD_DEFAULT 500000 // PWM refreshing default period
