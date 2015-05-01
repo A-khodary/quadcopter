@@ -71,7 +71,7 @@ void armQuadcopter()
 
     writeCommands();
 
-    usleep(1000);
+    usleep(1000000);
 
     printDebug("DONE");
 
