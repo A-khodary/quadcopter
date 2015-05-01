@@ -280,7 +280,7 @@ void* readerHandler(void* arg)
             isUltrasonicOn = 1;
         }
 
-        else if (strcmp(currentDecoded.message, "ultrasonicoff"))
+        else if (!strcmp(currentDecoded.message, "ultrasonicoff"))
         {
             if(!isUltrasonicOn)
             {
