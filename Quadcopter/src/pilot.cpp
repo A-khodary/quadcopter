@@ -134,7 +134,7 @@ void disarmQuadcopter()
 //        else {pilotCommandsShared.chan9 = 0;} WTF ???
         writeCommands();
         usleep(100000);//temps à déternimer pour avoir baisse du régime progressive
-    }
+ //   }
 
     pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are no disarmed !");
