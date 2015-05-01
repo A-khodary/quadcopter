@@ -336,6 +336,19 @@ void* pilotHandler(void* arg)
                         disarmQuadcopter();
                     }
 
+                    else if (!strcmp(decoded.message, "setmax"))
+                    {
+                        printDebug("[i] Setting max pwm...");
+                        decoded.message =
+
+                    }
+
+                    else if (!strcmp(decoded.message, "setmin"))
+                    {
+                        printDebug("[i] Setting min pwm...");
+
+                    }
+
 
                 }
 
@@ -499,7 +512,7 @@ void* pilotHandler(void* arg)
 
             if (testCommand >= 1) testCommand = 0;
             else testCommand += 0.01;
-            usleep(200000);
+            usleep(2000000);
 
 
             break;
