@@ -512,7 +512,7 @@ void* pilotHandler(void* arg)
 
             if (testCommand >= 1) testCommand = 0;
             else testCommand += 0.01;
-            usleep(20000000);
+            usleep(200000000);
 
 
             break;
