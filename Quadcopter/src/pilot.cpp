@@ -339,12 +339,14 @@ void* pilotHandler(void* arg)
                     {
                         printDebug("[i] Increasing pwm...");
                         testCommand +=0.1;
+                        printf("[i] PWM is now %f", testCommand);
                     }
 
                     else if (!strcmp(decoded.message, "decreasepwm"))
                     {
                         printDebug("[i] Decreasing pwm...");
                         testCommand -=0.1;
+                        printf("[i] PWM is now %f", testCommand);
                     }
 
 
