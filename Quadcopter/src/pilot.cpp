@@ -339,7 +339,7 @@ void* pilotHandler(void* arg)
                     else if (!strcmp(decoded.message, "setmax"))
                     {
                         printDebug("[i] Setting max pwm...");
-                        decoded.message =
+
 
                     }
 
