@@ -19,6 +19,7 @@
 
 #define ESC_MIN_PWM_VALUE 1
 #define ESC_MAX_PWM_VALUE 2
+#define GLOBAL_OFFSET 0.07
 
 #define REFRESHING_PERIOD_DEFAULT 500000 // PWM refreshing default period
 #define MAX_PWM 4096
@@ -149,15 +150,15 @@ void writeCommands()
 
     pthread_mutex_lock(&pilotCommandsShared.readWrite); // Locking mutex to prevent race conditions
 
-    pwm1 = pilotCommandsShared.chan1*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm2 = pilotCommandsShared.chan2*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm3 = pilotCommandsShared.chan3*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm4 = pilotCommandsShared.chan4*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm5 = pilotCommandsShared.chan5*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm6 = pilotCommandsShared.chan6*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm7 = pilotCommandsShared.chan7*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm8 = pilotCommandsShared.chan8*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm9 = pilotCommandsShared.chan9*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm1 = pilotCommandsShared.chan1*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm2 = pilotCommandsShared.chan2*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm3 = pilotCommandsShared.chan3*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm4 = pilotCommandsShared.chan4*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm5 = pilotCommandsShared.chan5*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm6 = pilotCommandsShared.chan6*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm7 = pilotCommandsShared.chan7*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm8 = pilotCommandsShared.chan8*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm9 = pilotCommandsShared.chan9*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
 
 
         pwmWrite(PCA_PINBASE + 0, calcTicks(pwm1, PCA_FREQUENCY));
