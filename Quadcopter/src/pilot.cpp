@@ -69,7 +69,7 @@ void armQuadcopter()
     pilotCommandsShared.chan1 = 0.5;
     pilotCommandsShared.chan2 = 0.5;
     pilotCommandsShared.chan3 = 0;
-    pilotCommandsShared.chan4 = 1;
+    pilotCommandsShared.chan4 = 0;
 
     writeCommands();
 
