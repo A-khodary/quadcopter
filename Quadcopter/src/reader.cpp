@@ -292,12 +292,13 @@ void* readerHandler(void* arg)
 
          else if (!strcmp(currentDecoded.message, "testpwm"))
          {
-             if (testpwm)
+             if (!testpwm)
              {
                  testpwm = 1;
                  printDebug("[i] Turning on pwm reading test");
 
              }
+
              else
              {
                  testpwm = 0;
