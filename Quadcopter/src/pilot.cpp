@@ -182,7 +182,7 @@ void* pilotHandler(void* arg)
 
     // variables needed for the pilot test function :
 
-    double testCommand = 0.9;
+    double testCommand = 0.4;
 
     // Handler global variables init :
 
@@ -510,9 +510,9 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan3 =  testCommand;
             pilotCommandsShared.chan4 =  testCommand;
 
-            if (testCommand >= 1) testCommand = 0;
-            else testCommand += 0.01;
-            usleep(200000000);
+//            if (testCommand >= 1) testCommand = 0;
+//            else testCommand += 0.01;
+//            usleep(200000000);
 
 
             break;
