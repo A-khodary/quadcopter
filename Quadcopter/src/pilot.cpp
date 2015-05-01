@@ -73,7 +73,7 @@ void armQuadcopter()
 
     writeCommands();
 
-    usleep(200000);
+    usleep(2000000);
 
 
     //pthread_mutex_unlock(&pilotCommandsShared.readWrite);
@@ -92,7 +92,7 @@ void disarmQuadcopter()
 
     writeCommands();
 
-    usleep(200000);
+    usleep(2000000);
 
     //pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are no disarmed !");
