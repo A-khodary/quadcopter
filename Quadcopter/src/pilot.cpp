@@ -216,6 +216,7 @@ void* pilotHandler(void* arg)
     message_t* receivedMessage;
     message_t message;
     messageDecoded_t decoded;
+    char dataDecoded[16];
 
 
 
@@ -337,7 +338,10 @@ void* pilotHandler(void* arg)
                     else if (!strcmp(decoded.message, "setmax"))
                     {
                         printDebug("[i] Setting max pwm...");
-
+                        dataDecoded = strtok(decoded.message, "_");
+                        dataDecoded = strtok(NULL, "_");
+                        printf("[i] Changed min pwm to %f\n", atof(dataDecoded));
+                        fflush(stdout);
 
                     }
 
