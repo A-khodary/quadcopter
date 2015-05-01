@@ -180,7 +180,7 @@ void* pilotHandler(void* arg)
 
     // variables needed for the pilot test function :
 
-    double testCommand = 1;
+    double testCommand = 1.3;
 
     // Handler global variables init :
 

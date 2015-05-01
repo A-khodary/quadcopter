@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -30,16 +30,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
+
+# Escaping for special characters.
+EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
+CMAKE_SOURCE_DIR = /home/niki-vivi/quadcopter/Quadcopter
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
+CMAKE_BINARY_DIR = /home/niki-vivi/quadcopter/Quadcopter
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -47,7 +50,7 @@ CMAKE_BINARY_DIR = /home/nikita/Scripting/quadcopter/Quadcopter
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/local/bin/cmake -i .
+	/usr/bin/cmake -i .
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -57,7 +60,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -66,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/niki-vivi/quadcopter/Quadcopter/CMakeFiles /home/niki-vivi/quadcopter/Quadcopter/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Scripting/quadcopter/Quadcopter/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/niki-vivi/quadcopter/Quadcopter/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -131,6 +134,30 @@ src/PID.s: src/PID.cpp.s
 src/PID.cpp.s:
 	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/PID.cpp.s
 .PHONY : src/PID.cpp.s
+
+src/RTIMULib/IMUDrivers/BMP085.o: src/RTIMULib/IMUDrivers/BMP085.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/BMP085.o
+
+# target to build an object file
+src/RTIMULib/IMUDrivers/BMP085.cpp.o:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/BMP085.cpp.o
+.PHONY : src/RTIMULib/IMUDrivers/BMP085.cpp.o
+
+src/RTIMULib/IMUDrivers/BMP085.i: src/RTIMULib/IMUDrivers/BMP085.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/BMP085.i
+
+# target to preprocess a source file
+src/RTIMULib/IMUDrivers/BMP085.cpp.i:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/BMP085.cpp.i
+.PHONY : src/RTIMULib/IMUDrivers/BMP085.cpp.i
+
+src/RTIMULib/IMUDrivers/BMP085.s: src/RTIMULib/IMUDrivers/BMP085.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/BMP085.s
+
+# target to generate assembly for a file
+src/RTIMULib/IMUDrivers/BMP085.cpp.s:
+	$(MAKE) -f CMakeFiles/Quadcopter_.dir/build.make CMakeFiles/Quadcopter_.dir/src/RTIMULib/IMUDrivers/BMP085.cpp.s
+.PHONY : src/RTIMULib/IMUDrivers/BMP085.cpp.s
 
 src/RTIMULib/IMUDrivers/RTIMU.o: src/RTIMULib/IMUDrivers/RTIMU.cpp.o
 .PHONY : src/RTIMULib/IMUDrivers/RTIMU.o
@@ -840,6 +867,9 @@ help:
 	@echo "... src/PID.o"
 	@echo "... src/PID.i"
 	@echo "... src/PID.s"
+	@echo "... src/RTIMULib/IMUDrivers/BMP085.o"
+	@echo "... src/RTIMULib/IMUDrivers/BMP085.i"
+	@echo "... src/RTIMULib/IMUDrivers/BMP085.s"
 	@echo "... src/RTIMULib/IMUDrivers/RTIMU.o"
 	@echo "... src/RTIMULib/IMUDrivers/RTIMU.i"
 	@echo "... src/RTIMULib/IMUDrivers/RTIMU.s"
