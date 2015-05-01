@@ -274,7 +274,7 @@ void* readerHandler(void* arg)
         {
             if (isUltrasonicOn)
             {
-                printDebug("Something strange in reader : asked to turn on an already on ultrasonic");
+                printDebug("[e] Something strange in reader : asked to turn on an already on ultrasonic");
             }
             ultrasonicSampleList = initUltrasonic();
             isUltrasonicOn = 1;
@@ -284,7 +284,7 @@ void* readerHandler(void* arg)
         {
             if(!isUltrasonicOn)
             {
-                printDebug("Something strange in reader : asked to turn off an already off ultrasonic");
+                printDebug("[e] Something strange in reader : asked to turn off an already off ultrasonic");
             }
             shutdownUltrasonic(ultrasonicSampleList);
             isUltrasonicOn = 0;
@@ -292,8 +292,17 @@ void* readerHandler(void* arg)
 
          else if (!strcmp(currentDecoded.message, "testpwm"))
          {
-             if (testpwm) testpwm = 1;
-             else testpwm = 0;
+             if (testpwm)
+             {
+                 testpwm = 1;
+                 printDebug("[i] Turning on pwm reading test");
+
+             }
+             else
+             {
+                 testpwm = 0;
+                 printDebug("[i] Turning off pwm reading test");
+             }
          }
 
 
