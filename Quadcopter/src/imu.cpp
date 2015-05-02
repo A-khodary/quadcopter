@@ -130,7 +130,7 @@ void* imuHandler(void* arg)
 
 
     // Making home position :
-     makeHome(pressureAltitude);
+//     makeHome(pressureAltitude);
 
 
     // Notify main thread of end of init :
@@ -156,10 +156,13 @@ void* imuHandler(void* arg)
             if (pressure != NULL)
                 pressure->pressureRead(imuData);
 
-            sampleCount++;
+            if(DISPLAY)
+	    {
+
+	    sampleCount++;
 
             now = RTMath::currentUSecsSinceEpoch();
-
+	
             //  display 10 times per second
             if ((now - displayTimer) > 100000) {
                 printf("Sample rate %d: %s\n", sampleRate, RTMath::displayDegrees("", imuData.fusionPose));
@@ -179,7 +182,7 @@ void* imuHandler(void* arg)
                 sampleCount = 0;
                 rateTimer = now;
             }
-
+	    }
         // Updating BMP :
         bmpAltitude = calculateBmpAlt();
 
@@ -260,7 +263,7 @@ void* imuHandler(void* arg)
 
 
         // Position calculation Area :
-/*
+
         double x,y;
         double* px = &x;
         double* py = &y;
@@ -290,7 +293,7 @@ void* imuHandler(void* arg)
         pthread_mutex_unlock(&flightStateShared.readWriteMutex);
         pthread_mutex_unlock(&rawPositionShared.readWriteMutex);
         pthread_mutex_unlock(&positionShared.readWriteMutex);
-*/
+
 
         }
 
