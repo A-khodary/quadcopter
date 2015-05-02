@@ -15,7 +15,7 @@
 // Global variables definitions :
 
 float landTakeOffCoeff[4][3]; // PID coefficients for Land/Takeoff
-float gotoStandardCoeff[2][3]; // PID coefficients for goto_standard
+float gotoStandardCoeff[3][3]; // PID coefficients for goto_standard
 float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
 float positionHoldCoeff[3][3]; // PID coefficients for position_hold
 
