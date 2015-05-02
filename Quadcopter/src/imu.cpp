@@ -96,16 +96,16 @@ void* imuHandler(void* arg)
 
     // Waiting for GPS FIX :
 
-/*    if (!waitForGPS())
-    {
-        printDebug("[e] Failed to obtain 3D fix from GPS after several attemps, killing IMU...");
-        strcpy(currentMessage.message ,"main_imu_info_initfailed");
-        currentMessage.priority = 20;
-        sendMessage(mainITMHandler, currentMessage);
-        pthread_exit(NULL);
+//    if (!waitForGPS())
+//    {
+//        printDebug("[e] Failed to obtain 3D fix from GPS after several attemps, killing IMU...");
+//        strcpy(currentMessage.message ,"main_imu_info_initfailed");
+//        currentMessage.priority = 20;
+//        sendMessage(mainITMHandler, currentMessage);
+//        pthread_exit(NULL);
+//
+//    }
 
-    }
-*/
     // Init IMU
 
     double air_bmp_trust = AIR_BMP_TRUST;
@@ -148,7 +148,7 @@ void* imuHandler(void* arg)
          //  poll at the rate recommended by the IMU
 
         usleep(imu->IMUGetPollInterval() * 1000);
- 
+
         while (imu->IMURead()) {
             RTIMU_DATA imuData = imu->getIMUData();
 

@@ -41,6 +41,60 @@
 #include "reader_global_variables.h"
 #include "pilot_global_variables.h"
 
+//          ###     Module number defines          ###
+
+#define IMU 1
+#define AUTOPILOT 2
+#define READER 3
+#define PILOT 4
+#define DATALOGGER 5
+
+
+//         ###      Behavioural declarations        ###
+
+#define MAX_NUMBER_OF_FAILURE 15
+
+int imuInitComplete;
+int readerInitComplete;
+int pilotInitComplete;
+int dataloggerInitComplete;
+int autopilotInitComplete;
+
+int numberOfFailures;
+
+void initBehaviour()
+{
+    int imuInitComplete=0;
+    int readerInitComplete=0;
+    int pilotInitComplete=0;
+    int dataloggerInitComplete=0;
+    int autopilotInitComplete=0;
+
+    int numberOfFailures=0;
+}
+
+int notifyInitFailure(int component)
+{
+    if (numberOfFailures >= MAX_NUMBER_OF_FAILURE)
+    {
+        printDebug("[e] To much failures, program cannot continue...");
+        return 1;
+    }
+    else return 0;
+}
+
+void notifyInitSucess(int component)
+{
+    if (component == AUTOPILOT) autopilotInitComplete = 1;
+    else if (component == IMU) imuInitComplete = 1;
+    else if (component == DATALOGGER) dataloggerInitComplete = 1;
+    else if (component == READER) readerInitComplete = 1;
+    else if (component == PILOT) pilotInitComplete = 1;
+
+    if (autopilotInitComplete && readerInitComplete && pilotInitComplete && dataloggerInitComplete && imuInitComplete) return 1; // In this case, we are ready to go !
+    else return 0;
+}
+
 
 int main()
 {
@@ -59,6 +113,7 @@ int main()
     message_t* currentMessage;
     messageDecoded_t currentDecodedMessage;
     message_t messageToSend;
+
 
     // Global variables definition : (normally defined in specific component handler init)
 
@@ -115,25 +170,8 @@ int main()
 
     //IMU
 
-    /*
     handler_t* imuITMHandler = initializeHandler();
     if (imuITMHandler == NULL) printDebug("[e]IMU handler init error");
-
-    bidirectionnalHandler_t imuBidirectionnalHandler;
-    imuBidirectionnalHandler.mainITMHandler = mainITMHandler;
-    imuBidirectionnalHandler.componentITMHandler = imuITMHandler;
-    */
-
-    handler_t* imuITMHandler = initializeHandler();
-    if (imuITMHandler == NULL) printDebug("[e]IMU handler init error");
-
-    // Test initialization :
-
-
-
-
-
-    // End of test initialization
 
 
     printDebug("[i]Launching components threads...");
@@ -249,6 +287,7 @@ int main()
                 {
                     if (!strcmp(currentDecodedMessage.source, "pilot"))
                     {
+                        if (notifyInitFailure(PILOT)) return 1;
                         printDebug("[e] Pilot failed its init : this is terrible : no command, restarting the pilot component...");
                         pthread_cancel(pilotThread);
                         pthread_join(pilotThread, NULL); // Join to cleanup (prevents memory leak)
@@ -257,6 +296,7 @@ int main()
 
                     else if (!strcmp(currentDecodedMessage.source, "reader"))
                     {
+                        if (notifyInitFailure(READER)) return 1;
                         printDebug("[e] Reader failed its init : this is terrible : no user command and no ultrasonic, restarting the reader component...");
                         pthread_cancel(readerThread);
                         pthread_join(readerThread, NULL); // Join to cleanup (prevents memory leak)
@@ -267,6 +307,7 @@ int main()
 
                     else if (!strcmp(currentDecodedMessage.source, "imu"))
                     {
+                        if (notifyInitFailure(IMU)) return 1;
                         printDebug("[e] IMU failed its init : this is terrible : no user command and no positionning, restarting the imu component...");
                         pthread_cancel(imuThread);
                         pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
@@ -277,6 +318,7 @@ int main()
 
                     else if (!strcmp(currentDecodedMessage.source, "autopilot"))
                     {
+                        if (notifyInitFailure(AUTOPILOT)) return 1;
                         printDebug("[e] Autopilot failed its init : this is terrible : no intelligence, restarting the autopilot component...");
                         pthread_cancel(imuThread);
                         pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
@@ -287,6 +329,7 @@ int main()
 
                     else if (!strcmp(currentDecodedMessage.source, "datalogger"))
                     {
+                        if (notifyInitFailure(DATALOGGER)) return 1;
                         printDebug("[e] Datalogger failed its init : this is terrible : no user command and logging, restarting the datalogger component...");
                         pthread_cancel(imuThread);
                         pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
@@ -324,6 +367,70 @@ int main()
                     {
                         printDebug("[i] Imu started its init");
                     }
+                }
+
+                else if (!strcmp(currentDecodedMessage.message,"endofinit")) // The components notify main of such events
+                {
+                    if (!strcmp(currentDecodedMessage.source, "pilot"))
+                    {
+                        printDebug("[i] Pilot completed its init");
+                        if (notifyInitSucess(PILOT))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_play");
+                            sendMessage(mainITMHandler, messageToSend);
+                        }
+                    }
+
+                    if (!strcmp(currentDecodedMessage.source, "autopilot"))
+                    {
+                        printDebug("[i] Autopilot completed its init");
+                        if (notifyInitSucess(AUTOPILOT))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_play");
+                            sendMessage(mainITMHandler, messageToSend);
+                        }
+                    }
+
+                    if (!strcmp(currentDecodedMessage.source, "reader"))
+                    {
+                        printDebug("[i] Reader completed its init");
+                        if (notifyInitSucess(READER))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_play");
+                            sendMessage(mainITMHandler, messageToSend);
+                        }
+                    }
+
+                    if (!strcmp(currentDecodedMessage.source, "datalogger"))
+                    {
+                        printDebug("[i] Datalogger completed its init");
+                        if (notifyInitSucess(DATALOGGER))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_play");
+                            sendMessage(mainITMHandler, messageToSend);
+                        }
+                    }
+
+                    if (!strcmp(currentDecodedMessage.source, "imu"))
+                    {
+                        printDebug("[i] IMU completed its init");
+                        if (notifyInitSucess(IMU))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_play");
+                            sendMessage(mainITMHandler, messageToSend);
+                        }
+                    }
+
                 }
 
 
@@ -400,3 +507,4 @@ int main()
 
     return 0;
 }
+
