@@ -176,7 +176,7 @@ int main()
 
     printDebug("[i]Launching components threads...");
 
-   /* pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+    /*pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
     pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
     pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
