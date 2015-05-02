@@ -162,7 +162,7 @@ void* imuHandler(void* arg)
 	    sampleCount++;
 
             now = RTMath::currentUSecsSinceEpoch();
-	
+
             //  display 10 times per second
             if ((now - displayTimer) > 100000) {
                 printf("Sample rate %d: %s\n", sampleRate, RTMath::displayDegrees("", imuData.fusionPose));
@@ -267,6 +267,7 @@ void* imuHandler(void* arg)
         double x,y;
         double* px = &x;
         double* py = &y;
+        RTVector3 *RollPitchYaw = new RTVector3();
 
         convertPlanarToHome(px,py,receivedCommands.latitude, receivedCommands.longitude);
 
@@ -278,9 +279,11 @@ void* imuHandler(void* arg)
 
         // Sending the data to the global variables
 
-        flightStateShared.roll = imuData.fusionPose.x()* RTMATH_RAD_TO_DEGREE ;
-        flightStateShared.pitch = imuData.fusionPose.y()* RTMATH_RAD_TO_DEGREE;
-        flightStateShared.yaw = imuData.fusionPose.z()* RTMATH_RAD_TO_DEGREE;
+        imuData.fusionPose.accelToEuler(*RollPitchYaw);
+
+        flightStateShared.roll = RollPitchYaw->x();
+        flightStateShared.pitch = RollPitchYaw->y();
+        flightStateShared.yaw = RollPitchYaw->z();
 
         rawPositionShared.altitude = altitude;
         rawPositionShared.longitude = receivedCommands.longitude;
