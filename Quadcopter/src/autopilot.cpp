@@ -899,9 +899,9 @@ void* autopilotHandler(void* arg)
             }
             printDebug("[i] Objectives added to Autopilot FIFO");
             lineNumber = 0;
-            fclose(writtenObjectives);
         }
     }
+    if (writtenObjectives != NULL) fclose(writtenObjectives);
 
     //Notify main thread of end of init
 
