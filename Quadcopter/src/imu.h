@@ -19,7 +19,7 @@
 
 #define NUMBER_OF_AVERAGE 200
 
-#define DISPLAY 1 //1 to display data on console
+#define DISPLAY 0 //1 to display accel data on console
 
 //Handler prototype :
 void* imuHandler(void* arg);

@@ -80,12 +80,12 @@ void* imuHandler(void* arg)
     imu->IMUInit();
 
     // this is a convenient place to change fusion parameters
-/*
+
     imu->setGyroEnable(true);
     imu->setAccelEnable(true);
     imu->setCompassEnable(true);
-*/
- //  set up pressure sensor
+
+    //  set up pressure sensor
 
     if (pressure != NULL)
         pressure->pressureInit();
@@ -114,9 +114,9 @@ void* imuHandler(void* arg)
 
 
     // BMP085 init and first calculation :
-   bmp085_i2c_Begin();
+    bmp085_i2c_Begin();
     unsigned int bmpAltitude=0;
-   bmpAltitude = calculateBmpAlt();
+    bmpAltitude = calculateBmpAlt();
 
 
     // Ultrasonic init :
@@ -355,11 +355,11 @@ void* imuHandler(void* arg)
         unsigned int pressure, temperature;
         unsigned int up, ut;
 
-//        ut = bmp085_ReadUT();
-//        up = bmp085_ReadUP();
-//
-//        pressureAltitude = bmp085_GetPressure(up);
-//        temperature = bmp085_GetTemperature(ut);
+        ut = bmp085_ReadUT();
+        up = bmp085_ReadUP();
+
+        pressure = bmp085_GetPressure(up);
+        temperature = bmp085_GetTemperature(ut);
 
         // Calculating bmp altitude :
         return 44330*(1-pow(pow((pressure/101325),(1/5255)),1000));
