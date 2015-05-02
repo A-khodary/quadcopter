@@ -27,6 +27,10 @@ void* dataLoggerHandler(void* arg)
     message_t currentMessage;
     messageDecoded_t currentDecoded;
 
+    strcpy(currentMessage.message, "main_datalogger_info_init");
+    currentMessage.priority = 5;//to choose
+    sendMessage(mainITMHandler, currentMessage);
+
     int tickCounter=0;
 
     // Message testing area :
@@ -34,8 +38,7 @@ void* dataLoggerHandler(void* arg)
     char readBuffer[128];
 
 
-    //TODO : notify main handler of end of init
-    printDebug("[e]Data logger init done");
+    // Notify main handler of end of init
     strcpy(currentMessage.message, "main_datalogger_info_endofinit");
     currentMessage.priority = 5;//to choose
     sendMessage(mainITMHandler, currentMessage);
