@@ -98,9 +98,9 @@ void* imuHandler(void* arg)
 
     if (DEBUG)
     { 
-       receivedCommands.latitude = 100;
-       receivedCommands.longitude = 100;
-       receivedCommands.altitude = 100;  
+       receivedCommands.latitude = 1;
+       receivedCommands.longitude = 1;
+       receivedCommands.altitude = 1;  
   }
     else 
     {
@@ -134,7 +134,7 @@ void* imuHandler(void* arg)
     sendMessage(mainITMHandler, currentMessage);
    
     // Making home position :
-    makeHome(bmpAltitude);
+//    makeHome(bmpAltitude);
 
 
     // Notify main thread of end of init :
@@ -280,7 +280,7 @@ void* imuHandler(void* arg)
         double* py = &y;
         RTVector3 *RollPitchYaw = new RTVector3();
 
-        convertPlanarToHome(px,py,receivedCommands.latitude, receivedCommands.longitude);
+        //convertPlanarToHome(px,py,receivedCommands.latitude, receivedCommands.longitude);
 
         // Locking the relatives Mutexs :
 
