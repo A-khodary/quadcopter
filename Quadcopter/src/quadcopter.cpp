@@ -43,8 +43,8 @@
 
 //          ###     Module number defines          ###
 
-#define IMU 1
-#define AUTOPILOT 2
+#define IMU 2
+#define AUTOPILOT 1
 #define READER 3
 #define PILOT 4
 #define DATALOGGER 5
@@ -83,7 +83,7 @@ int notifyInitFailure(int component)
     else return 0;
 }
 
-void notifyInitSucess(int component)
+int notifyInitSucess(int component)
 {
     if (component == AUTOPILOT) autopilotInitComplete = 1;
     else if (component == IMU) imuInitComplete = 1;

@@ -1,5 +1,5 @@
-#ifndef READER
-#define READER
+#ifndef READER_h
+#define READER_h
 
 #include <wiringSerial.h>
 

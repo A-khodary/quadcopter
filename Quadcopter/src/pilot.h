@@ -6,8 +6,8 @@
 #include <pca9685.h>
 #include <wiringPi.h>
 
-#ifndef PILOT
-#define PILOT
+#ifndef PILOT_h
+#define PILOT_h
 
 
 void writeCommands();

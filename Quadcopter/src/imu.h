@@ -1,5 +1,5 @@
-#ifndef IMU
-#define IMU
+#ifndef IMU_h
+#define IMU_h
 
 #include "shared_librairies.h"
 
