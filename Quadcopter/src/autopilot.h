@@ -75,7 +75,7 @@
 
 // Objective text file list path :
 
-#define OBJECTIVES_PATH "objectives.txt"
+#define OBJECTIVES_PATH "/home/niki-vivi/quadcopter/Quadcopter/build/Release/objectives.txt"
 
 
 class oneWayServoControl_t
