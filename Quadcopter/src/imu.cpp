@@ -39,7 +39,7 @@ void* imuHandler(void* arg)
 
     // Initialization of some handler variables :
     double gpsAltitude=0;
-    double pressureAltitude=0;
+    unsigned int bmpAltitude=0;
     double altitude=0;
 
     int sampleCount = 0;
@@ -96,27 +96,32 @@ void* imuHandler(void* arg)
 
     // Waiting for GPS FIX :
 
-//    if (!waitForGPS())
-//    {
-//        printDebug("[e] Failed to obtain 3D fix from GPS after several attemps, killing IMU...");
-//        strcpy(currentMessage.message ,"main_imu_info_initfailed");
-//        currentMessage.priority = 20;
-//        sendMessage(mainITMHandler, currentMessage);
-//        pthread_exit(NULL);
-//
-//    }
-
+    if (DEBUG)
+    { 
+       receivedCommands.latitude = 100;
+       receivedCommands.longitude = 100;
+       receivedCommands.altitude = 100;  
+  }
+    else 
+    {
+      if (!waitForGPS())
+      {
+          printDebug("[e] Failed to obtain 3D fix from GPS after several attemps, killing IMU...");
+          strcpy(currentMessage.message ,"main_imu_info_initfailed");
+          currentMessage.priority = 20;
+          sendMessage(mainITMHandler, currentMessage);
+          pthread_exit(NULL);
+      }
+    }
     // Init IMU
 
     double air_bmp_trust = AIR_BMP_TRUST;
     double air_gps_trust = AIR_GPS_TRUST;
 
-
-
     // BMP085 init and first calculation :
+   
     bmp085_i2c_Begin();
-    unsigned int bmpAltitude=0;
-    bmpAltitude = calculateBmpAlt();
+    if (DEBUG) {bmpAltitude = 10;} else { bmpAltitude = calculateBmpAlt();}
 
 
     // Ultrasonic init :
@@ -127,10 +132,9 @@ void* imuHandler(void* arg)
     strcpy(currentMessage.message ,"reader_imu_order_ultrasonicon");
     currentMessage.priority = 20;
     sendMessage(mainITMHandler, currentMessage);
-
-
+   
     // Making home position :
-//     makeHome(pressureAltitude);
+    makeHome(bmpAltitude);
 
 
     // Notify main thread of end of init :
@@ -184,14 +188,21 @@ void* imuHandler(void* arg)
             }
 	    }
         // Updating BMP :
-        bmpAltitude = calculateBmpAlt();
-
+        if (DEBUG) {bmpAltitude = 10;} else {bmpAltitude = calculateBmpAlt();}
 
         // Altitude calculation Area :
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
-
-        ultrasonicAltitude = receivedCommands.ultrasonicTelemeter;
-        gpsAltitude = receivedCommands.altitude;
+	
+	if (DEBUG)
+	{
+		 ultrasonicAltitude = 10;
+		 gpsAltitude = 10;
+	}
+	else
+	{
+        	ultrasonicAltitude = receivedCommands.ultrasonicTelemeter;
+        	gpsAltitude = receivedCommands.altitude;
+	}
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
@@ -336,7 +347,7 @@ void* imuHandler(void* arg)
      pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
      homeRawPosition.longitude = receivedCommands.longitude;
-     homeRawPosition.latitude = receivedCommands.longitude;
+     homeRawPosition.latitude = receivedCommands.latitude;
      homeRawPosition.altitude = (GROUND_BMP_TRUST*bmpAlt + GROUND_GPS_TRUST*receivedCommands.altitude) / 100;
 
      homePosition.latitude = homeRawPosition.latitude;
@@ -344,7 +355,7 @@ void* imuHandler(void* arg)
      homePosition.z = homeRawPosition.altitude;
 
      convertPlanarToHome(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
-
+     
      pthread_mutex_unlock(&homeRawPosition.readWriteMutex);
      pthread_mutex_unlock(&receivedCommands.readWriteMutex);
  }
