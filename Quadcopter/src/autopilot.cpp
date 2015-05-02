@@ -860,7 +860,7 @@ void* autopilotHandler(void* arg)
     // File reading for basic configuration
 
     writtenObjectives = fopen(OBJECTIVES_PATH,"r");
-    //fprintf(stderr, "%s\n", strerror(errno));
+    fprintf(stderr, "%s\n", strerror(errno));
 
     if (writtenObjectives == NULL)
     {
