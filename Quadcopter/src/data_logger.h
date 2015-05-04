@@ -7,7 +7,8 @@
 #include "imu_globals_variables.h"
 #include "reader_global_variables.h"
 #include "autopilot_global_variables.h"
-//#include <mavlink/v1.0/common/mavlink.h>
+
+#include "mavlink/common/mavlink.h"
 
 // Structures :
 
@@ -21,15 +22,22 @@
 #define LOG_AUTOPILOT 1
 #define AUTOPILOT_LOGGING_PERIOD 1
 
-// TODO : continue
+// Some mavlink defines:
+
+#define BUFFER_LENGTH 2041
+
+#define GCS_IP "192.168.1.107"
+#define GCS_PORT 14550
 
 
 
 // Functions prototypes
 
 void* dataLoggerHandler(void * arg);
-int sendData();
-int receiveData();
+
+// Mavlink prototypes :
+
+int initSocket(char targetIp[100], int targetPort, struct sockaddr_in gcAddr);
 
 
 #endif

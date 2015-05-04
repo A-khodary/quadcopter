@@ -62,6 +62,19 @@ double calculateBearing(double positionX, double positionY, double destinationX,
     return bearing*180/PI;
 }
 
+uint64_t microsSinceEpoch()
+{
+
+	struct timeval tv;
+
+	uint64_t micros = 0;
+
+	gettimeofday(&tv, NULL);
+	micros =  ((uint64_t)tv.tv_sec) * 1000000 + tv.tv_usec;
+
+	return micros;
+}
+
 
 
 

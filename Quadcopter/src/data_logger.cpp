@@ -33,20 +33,57 @@ void* dataLoggerHandler(void* arg)
 
     int tickCounter=0;
 
-    // Message testing area :
+    // Message area :
 
     char readBuffer[128];
 
+    // Mavlink initialization :
 
-    // Notify main handler of end of init
+    int sock;
+    struct sockaddr_in gcAddr;
+    mavlink_message_t msg;
+    uint16_t len;
+    int bytes_sent;
+    uint8_t buf[BUFFER_LENGTH];
+
+    memset(&gcAddr, 0, sizeof(gcAddr));
+	gcAddr.sin_family = AF_INET;
+	gcAddr.sin_addr.s_addr = inet_addr(GCS_IP);
+	gcAddr.sin_port = htons(GCS_PORT);
+
+
+    sock = initSocket(GCS_IP, GCS_PORT, gcAddr);
+    if (sock == 0)
+    {
+        printDebug("[e] Error in datalogger : can't set the GSC socket !");
+
+        // Notifying main thread of failure :
+        strcpy(currentMessage.message, "main_datalogger_info_initfailed");
+        currentMessage.priority = 5;//to choose
+        sendMessage(mainITMHandler, currentMessage);
+
+        sleep(1);
+        pthread_exit(NULL);
+    }
+
+
+    // Notifying main handler of end of init
     strcpy(currentMessage.message, "main_datalogger_info_endofinit");
     currentMessage.priority = 5;//to choose
     sendMessage(mainITMHandler, currentMessage);
 
     while(1)
     {
-        // External connection management Area : (Mavlink)
+        // Mavlink Area :
 
+        // Senfing heartbeat :
+        printDebug("[i] Sending heartbeat...");
+
+        mavlink_msg_heartbeat_pack(1, 200, &msg, MAV_TYPE_QUADROTOR, MAV_AUTOPILOT_GENERIC, MAV_MODE_AUTO_ARMED, 0, MAV_STATE_BOOT);
+		len = mavlink_msg_to_send_buffer(buf, &msg);
+		bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
+
+        sleep(1);
 
 
 
@@ -107,129 +144,54 @@ void* dataLoggerHandler(void* arg)
 
         // Message sending function for testing :
 
-        printDebug("\n[i] Enter a command :");
-        fflush(stdout);
-
-        scanf("%s", readBuffer);
-        strcpy(currentMessage.message, readBuffer);
-        currentMessage.priority = 5;
-
-        sendMessage(mainITMHandler, currentMessage);
-        usleep(500000);
+//        printDebug("\n[i] Enter a command :");
+//        fflush(stdout);
+//
+//        scanf("%s", readBuffer);
+//        strcpy(currentMessage.message, readBuffer);
+//        currentMessage.priority = 5;
+//
+//        sendMessage(mainITMHandler, currentMessage);
     }
 
 
 }
 
 
-
-
-
-/*
-
-sendData()
+int initSocket(char targetIp[100], int targetPort, struct sockaddr_in gcAddr)
 {
-    //The default UART header for your MCU
-#include "uart.h" // TODO : adapt to Rpi
-#include <mavlink/v1.0/common/mavlink.h>
+    int sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	struct sockaddr_in locAddr;
 
-mavlink_system_t mavlink_system;
+	memset(&locAddr, 0, sizeof(locAddr));
+	locAddr.sin_family = AF_INET;
+	locAddr.sin_addr.s_addr = INADDR_ANY;
+	locAddr.sin_port = htons(targetPort);
 
-mavlink_system.sysid = 20;                   ///< ID 20 for this airplane
-mavlink_system.compid = MAV_COMP_ID_IMU;     ///< The component sending the message is the IMU, it could be also a Linux process
+    /* Bind the socket to port 14551 - necessary to receive packets from qgroundcontrol */
 
-// Define the system type, in this case an airplane
-uint8_t system_type = MAV_TYPE_FIXED_WING;
-uint8_t autopilot_type = MAV_AUTOPILOT_GENERIC;
+	if (-1 == bind(sock,(struct sockaddr *)&locAddr, sizeof(struct sockaddr)))
+    {
+		printDebug("[e] Error mavlink socket bind failed");
+		close(sock);
+		return 0;
+    }
 
-uint8_t system_mode = MAV_MODE_PREFLIGHT; ///< Booting up
-uint32_t custom_mode = 0;                 ///< Custom mode, can be defined by user/adopter
-uint8_t system_state = MAV_STATE_STANDBY; ///< System ready for flight
+    /* Attempt to make it non blocking */
+	if (fcntl(sock, F_SETFL, O_NONBLOCK | FASYNC) < 0)
+    {
+		printDebug("[e] Error setting mavlink socket nonblocking");
+		close(sock);
+		return 0;
+    }
 
-// Initialize the required buffers
-mavlink_message_t msg;
-uint8_t buf[MAVLINK_MAX_PACKET_LEN];
-
-// Pack the message
-mavlink_msg_heartbeat_pack(mavlink_system.sysid, mavlink_system.compid, &msg, system_type, autopilot_type, system_mode, custom_mode, system_state);
-
-// Copy the message to the send buffer
-uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
-
-// Send the message with the standard UART send function
-// uart0_send might be named differently depending on
-// the individual microcontroller / library in use.
-uart0_send(buf, len); // TODO : adapt to Rpi
-
+	return sock;
 }
 
-receivedData()
-{
-    #include <mavlink/v1.0/common/mavlink.h>
-
-// Example variable, by declaring them static they're persistent
-// and will thus track the system state
-static int packet_drops = 0;
-static int mode = MAV_MODE_UNINIT; /* Defined in mavlink_types.h, which is included by mavlink.h
 
 
-static void communication_receive(void)
-{
-	mavlink_message_t msg;
-	mavlink_status_t status;
 
-	// COMMUNICATION THROUGH EXTERNAL UART PORT (XBee serial)
 
-	while(uart0_char_available())
-	{
-		uint8_t c = uart0_get_char();
-		// Try to get a new message
-		if(mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status)) {
-			// Handle message
 
-			switch(msg.msgid)
-			{
-			        case MAVLINK_MSG_ID_HEARTBEAT:
-			        {
-				  // E.g. read GCS heartbeat and go into
-                                  // comm lost mode if timer times out
-			        }
-			        break;
-			case MAVLINK_MSG_ID_COMMAND_LONG:
-				// EXECUTE ACTION
-				break;
-			default:
-				//Do nothing
-				break;
-			}
-		}
 
-		// And get the next one
-	}
 
-	// Update global packet drops counter
-	packet_drops += status.packet_rx_drop_count;
-
-	// COMMUNICATION THROUGH SECOND UART
-
-	while(uart1_char_available())
-	{
-		uint8_t c = uart1_get_char();
-		// Try to get a new message
-		if(mavlink_parse_char(MAVLINK_COMM_1, c, &msg, &status))
-		{
-			// Handle message the same way like in for UART0
-                        // you can also consider to write a handle function like
-                        // handle_mavlink(mavlink_channel_t chan, mavlink_message_t* msg)
-                        // Which handles the messages for both or more UARTS
-		}
-
-		// And get the next one
-	}
-
-	// Update global packet drops counter
-	packet_drops += status.packet_rx_drop_count;
-}
-
-}
-*/
