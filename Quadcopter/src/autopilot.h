@@ -136,14 +136,14 @@ void * autopilotHandler(void * arg);
 
 // Fifo managing functions prototypes :
 
-int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int flushFifoObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+int flushFifoObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+int removeCurrentObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
 void freeAutopilotObjective (autopilotObjective_t* autopilotObjective);
 
 // Objective calculations prototypes :

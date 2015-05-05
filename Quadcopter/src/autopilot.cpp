@@ -439,7 +439,7 @@ oneWayServoControl_t::~oneWayServoControl_t()
     //dtor
 }
 
-int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
     autopilotObjective_t* lastObjective;
@@ -449,16 +449,17 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
     // Dynamic copy of the parameter :
 
     autopilotObjective_t* objective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
-    objective = objectiveToInsert;
+    *objective = *objectiveToInsert;
 
     // Checking if fifo is empty :
 
-    if (autopilotObjectiveFifo.firstObjective == NULL)
+    if (autopilotObjectiveFifo->firstObjective == NULL)
     {
-        autopilotObjectiveFifo.firstObjective = objective;
+        autopilotObjectiveFifo->firstObjective = objective;
         objective->previousObjective = NULL;
         objective->nextObjective = NULL;
-        autopilotObjectiveFifo.numberOfObjectivesPending++;
+        autopilotObjectiveFifo->numberOfObjectivesPending++;
+        autopilotObjectiveFifo->currentObjectivePriority = objective->priority;
 
         return 1;
 
@@ -467,7 +468,7 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
 
     // Locating last objective :
 
-    currentObjective = autopilotObjectiveFifo.firstObjective;
+    currentObjective = autopilotObjectiveFifo->firstObjective;
     while (currentObjective->nextObjective != NULL) currentObjective = currentObjective->nextObjective;
     lastObjective = currentObjective;
 
@@ -484,7 +485,7 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
         if (currentObjective->previousObjective == NULL) // In case we have reached the first element of the fifo
         {
             currentObjective->previousObjective = objective;
-            autopilotObjectiveFifo.firstObjective = objective;
+            autopilotObjectiveFifo->firstObjective = objective;
             objective->previousObjective = NULL;
             objective->nextObjective = currentObjective;
         }
@@ -510,18 +511,20 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
         lastObjective->nextObjective = objective;
     }
 
-    autopilotObjectiveFifo.numberOfObjectivesPending++;
+    autopilotObjectiveFifo->numberOfObjectivesPending++;
+    autopilotObjectiveFifo->currentObjectivePriority = autopilotObjectiveFifo->firstObjective->priority;
+
     //printf("Sended new objective not as first element :%s\n", objective->objective);
 
     return 0;
 }
 
 
-int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
 
-    if (autopilotObjectiveFifo.numberOfObjectivesPending < objectiveNumber)
+    if (autopilotObjectiveFifo->numberOfObjectivesPending < objectiveNumber)
     {
         printDebug("[e] Autopilot : there is objectives less than asked");
         return -1;
@@ -532,7 +535,7 @@ int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_
         if (objectiveNumber == 0)  removeCurrentObjective(autopilotObjectiveFifo);
         else
         {
-            currentObjective = autopilotObjectiveFifo.firstObjective;
+            currentObjective = autopilotObjectiveFifo->firstObjective;
 
             for (int i=0; i <= objectiveNumber; i++)
             {
@@ -545,67 +548,68 @@ int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_
             currentObjective->previousObjective = NULL;
             currentObjective->nextObjective = NULL;
             freeAutopilotObjective(currentObjective);
-            autopilotObjectiveFifo.numberOfObjectivesPending--;
+            autopilotObjectiveFifo->numberOfObjectivesPending--;
 
             return 0;
         }
     }
 }
 
-int flushFifo(autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int flushFifo(autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
-    if (autopilotObjectiveFifo.numberOfObjectivesPending !=0)
+    if (autopilotObjectiveFifo->numberOfObjectivesPending !=0)
     {
 
         autopilotObjective_t* currentObjective;
         autopilotObjective_t* nextCurrentObjective;
 
-        currentObjective =  autopilotObjectiveFifo.firstObjective;
+        currentObjective =  autopilotObjectiveFifo->firstObjective;
 
         while(currentObjective != NULL)
         {
             nextCurrentObjective = currentObjective->nextObjective;
             free(currentObjective); // Freiing the ressources
-            autopilotObjectiveFifo.numberOfObjectivesPending--;
+            autopilotObjectiveFifo->numberOfObjectivesPending--;
 
             currentObjective = nextCurrentObjective;
 
         }
-        autopilotObjectiveFifo.firstObjective = NULL;
-        autopilotObjectiveFifo.currentObjectivePriority = 0;
+        autopilotObjectiveFifo->firstObjective = NULL;
+        autopilotObjectiveFifo->currentObjectivePriority = 0;
         return 1;
     }
     else return -1;
 }
 
-autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo)
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
-    return autopilotObjectiveFifo.firstObjective;
+    autopilotObjectiveFifo->currentObjectivePriority = autopilotObjectiveFifo->firstObjective->priority;
+    return autopilotObjectiveFifo->firstObjective;
 }
 
 
-int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int removeCurrentObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* objective;
-    objective = autopilotObjectiveFifo.firstObjective->nextObjective;
+    objective = autopilotObjectiveFifo->firstObjective->nextObjective;
 
-    autopilotObjectiveFifo.firstObjective->nextObjective->previousObjective = NULL;
-    freeAutopilotObjective(autopilotObjectiveFifo.firstObjective);
+    autopilotObjectiveFifo->firstObjective->nextObjective->previousObjective = NULL;
+    freeAutopilotObjective(autopilotObjectiveFifo->firstObjective);
 
-    autopilotObjectiveFifo.firstObjective = objective;
-    autopilotObjectiveFifo.numberOfObjectivesPending--;
-    autopilotObjectiveFifo.currentObjectivePriority = autopilotObjectiveFifo.firstObjective->priority; //TODO : clarify priorities
+    autopilotObjectiveFifo->firstObjective = objective;
+    autopilotObjectiveFifo->numberOfObjectivesPending--;
+    autopilotObjectiveFifo->currentObjectivePriority = autopilotObjectiveFifo->firstObjective->priority; //TODO : clarify priorities
     return 1;
 }
 
 
-autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
 
 
 
-    if (autopilotObjectiveFifo.numberOfObjectivesPending < objectiveNumber)
+    if (autopilotObjectiveFifo->numberOfObjectivesPending < objectiveNumber)
     {
         printDebug("[e] Autopilot : not as many objectives as asked");
         return NULL;
@@ -613,10 +617,10 @@ autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopil
     else
     {
 
-        if (objectiveNumber == 0)  return autopilotObjectiveFifo.firstObjective;
+        if (objectiveNumber == 0)  return autopilotObjectiveFifo->firstObjective;
         else
         {
-            currentObjective = autopilotObjectiveFifo.firstObjective;
+            currentObjective = autopilotObjectiveFifo->firstObjective;
 
             for (int i=0; i <= objectiveNumber; i++)
             {
@@ -630,10 +634,10 @@ autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopil
 }
 
 
-autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
-    currentObjective = autopilotObjectiveFifo.firstObjective;
+    currentObjective = autopilotObjectiveFifo->firstObjective;
 
     int i = 1;
 
@@ -859,7 +863,7 @@ void* autopilotHandler(void* arg)
 
     // File reading for basic configuration
 
-    writtenObjectives = fopen(OBJECTIVES_PATH,"r");
+    writtenObjectives = fopen("objectives.txt","r");
     fprintf(stderr, "%s\n", strerror(errno));
 
     if (writtenObjectives == NULL)
@@ -871,7 +875,7 @@ void* autopilotHandler(void* arg)
     }
     else
     {
-        while (fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != 0)
+        while (feof(writtenObjectives)==0 &&fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != EOF)
         {
             // Verifying the readed objective :
             if ((readObjectiveCode == GOTO_STANDARD) || (readObjectiveCode == GOTO_HOVERING) || (readObjectiveCode == LAND_TAKEOFF) || (readObjectiveCode == POSITION_HOLD))
@@ -879,25 +883,30 @@ void* autopilotHandler(void* arg)
                 if ((readObjectiveDestinationLat >= 0) && (readObjectiveDestinationLong >= 0) && (readObjectiveDestinationAlt >= 0) && (readObjectiveMaxSpeed >= 0))
                 {
                     // Now we're clear, we have to fill in the readObjective strucuture
+
+                    strcpy(readObjective.name,readObjectiveName);
                     readObjective.code = readObjectiveCode;
                     readObjective.destinationLat = readObjectiveDestinationLat;
                     readObjective.destinationLong = readObjectiveDestinationLong;
                     readObjective.destinationAlt = readObjectiveDestinationAlt;
                     readObjective.maxSpeed = readObjectiveMaxSpeed;
+                    readObjective.priority = 1; //assuming same priority for each objectives in objectives.txt
 
                     // Now we add the objective to the fifo
-                    if (insertObjective(&readObjective, autopilotObjectiveFifo))
+                    if (insertObjective(&readObjective, &autopilotObjectiveFifo))
                     {
                         printDebug("[i] Insertion of a new autopilot objective success !");
                         lineNumber++;
                     }
                     else printDebug("[e] Insertion of a new autopilot objective error");
                 }
-
-
+                else printDebug("[e] Wrong objective code");
 
             }
+            else printDebug("[e] Wrong parameters");
+
             printDebug("[i] Objectives added to Autopilot FIFO");
+
             lineNumber = 0;
         }
     }
@@ -919,7 +928,7 @@ void* autopilotHandler(void* arg)
         {
 
 
-            currentObjective = readCurrentObjective(autopilotObjectiveFifo);
+            currentObjective = readCurrentObjective(&autopilotObjectiveFifo);
             if (currentObjective == NULL)
             {
                 // If we don't have any objective :
@@ -1040,7 +1049,7 @@ void* autopilotHandler(void* arg)
                             {
                                 printDebug("[i] We've got a new objective, but its priority was not to high so we inserted it in the fifo");
                                 //TODO : insert objective
-                                insertObjective(insertedObjective, autopilotObjectiveFifo);
+                                insertObjective(insertedObjective, &autopilotObjectiveFifo);
 
                             }
 
