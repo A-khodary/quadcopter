@@ -436,7 +436,7 @@ int main()
 
                 else
                 {
-                printDebug("[e]Main thread received an INFO message, but its content was not recognized");
+                    printDebug("[e]Main thread received an INFO message, but its content was not recognized");
                 }
 
 

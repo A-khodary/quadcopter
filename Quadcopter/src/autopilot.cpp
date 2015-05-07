@@ -837,7 +837,6 @@ void* autopilotHandler(void* arg)
     autopilotSharedState.landed = 1;  // Assuming we're landed on startup, TODO : actualize in case of in-flight relaunch
     autopilotSharedState.crashed = 0;
     autopilotSharedState.stressLevel = 1;
-    autopilotSharedState.stressLevel = 1;
     autopilotSharedState.currentObjectivePriority = 0;
 
     pthread_mutex_unlock(&autopilotSharedState.readWrite);
@@ -942,6 +941,13 @@ void* autopilotHandler(void* arg)
                         printDebug("[i] Autopilot was put in pause due to landed state and no objective");
 
                     }
+                    else
+                    {
+                        printDebug("[i] Quadcopter has crashed");
+                        //end autopilot thread from here/via message sended to main thread ?
+                    }
+
+
 
                 }
                 else

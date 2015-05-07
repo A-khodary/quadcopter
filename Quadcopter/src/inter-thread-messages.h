@@ -48,8 +48,8 @@ typedef struct messageDecoded_t
 {
     char destination[16];
     char source[16];
-    char message[64];
     int operation;
+    char message[64];
 
 } messageDecoded_t;
 
