@@ -41,7 +41,6 @@
 
 #define AUTOPILOT_MANAGE_CHAN 7
 #define EL_CHAN 8
-#define GAZ_CUTOFF_CHAN 9
 #define MANUAL_CHAN 5
 
 #define YAW_CHAN 4
@@ -359,33 +358,22 @@ void* pilotHandler(void* arg)
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
 
-        if (receivedCommands.commands[GAZ_CUTOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != CUTOFF)
-        {
-            pilotStateShared.pilotMode = CUTOFF;
-            // TODO : notify main of cut off and pausing autopilot :
 
-            strcpy(message.message,"main_pilot_info_cutoff");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_pause");
-            sendMessage(mainITMHandler, message);
-        }
-
-        else if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != CUTOFF)
+        if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING )
         {
             pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
 
+            printDebug("Emergency landing");
+
             strcpy(message.message,"main_pilot_info_emergencylanding");
             sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_emergencylanding");
-            sendMessage(mainITMHandler, message);
-
         }
 
-        else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING)
+        else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL )
         {
             pilotStateShared.pilotMode = MANUAL;
+
+            printDebug("Manual mode");
             // TODO : notify main of manual piloting and adapt speed to manual
 
             strcpy(message.message,"main_pilot_info_automanual");
@@ -395,7 +383,7 @@ void* pilotHandler(void* arg)
             sendMessage(mainITMHandler, message);
         }
 
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
+        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
         {
             pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
             // TODO : notify main of normal landing
@@ -436,22 +424,6 @@ void* pilotHandler(void* arg)
 
         switch (pilotStateShared.pilotMode)
         {
-
-
-        case CUTOFF:
-
-            pilotCommandsShared.chan1 = 0;
-            pilotCommandsShared.chan2 = 0;
-            pilotCommandsShared.chan3 = 0;
-            pilotCommandsShared.chan4 = 0;
-            pilotCommandsShared.chan5 = 0;
-            pilotCommandsShared.chan6 = 0;
-            pilotCommandsShared.chan7 = 0;
-            pilotCommandsShared.chan8 = 0;
-            pilotCommandsShared.chan9 = 0;
-            writeCommands();//???
-
-            break;
 
         case AUTOPILOT_EMERGENCY_LANDING:
 
@@ -509,7 +481,6 @@ void* pilotHandler(void* arg)
 
         }
         writeCommands();
-        if (pilotStateShared.pilotMode == CUTOFF) disarmQuadcopter();
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
