@@ -343,7 +343,7 @@ void* readerHandler(void* arg)
                 filteredValue = ultrasonicTemp;
                 pthread_mutex_lock(&receivedCommands.readWriteMutex);
                 printDebug("[i]New ultrasonic filtred value");
-                printf(filteredValue);
+                printf("%f\n", filteredValue);
 
                 receivedCommands.ultrasonicTelemeter = filteredValue;
 
