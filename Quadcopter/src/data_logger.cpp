@@ -142,7 +142,7 @@ void* dataLoggerHandler(void* arg)
 
 
 
-         Message sending function for testing :
+         //Message sending function for testing :
 
         printDebug("\n[i] Enter a command :");
         fflush(stdout);
