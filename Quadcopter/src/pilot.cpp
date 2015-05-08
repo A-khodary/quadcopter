@@ -174,9 +174,7 @@ void* pilotHandler(void* arg)
     pilotCommandsShared.chan8 = 0.5;
     pilotCommandsShared.chan9 = 0.5;
 
-    // Disarming motors on startup to patch armed motors bug :
 
-    disarmQuadcopter();
 
 
 
@@ -184,6 +182,10 @@ void* pilotHandler(void* arg)
 
     pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
     pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+
+     // Disarming motors on startup to patch armed motors bug :
+    disarmQuadcopter();
 
 
     bidirectionnalHandler_t* bidirectionnalHandler;
