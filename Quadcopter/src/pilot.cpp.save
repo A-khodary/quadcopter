@@ -18,7 +18,8 @@
 #define PCA_PINBASE 300
 
 #define ESC_MIN_PWM_VALUE 1
-#define ESC_MAX_PWM_VALUE 2
+#define ESC_MAX_PWM_VALUE 2.1
+#define GLOBAL_OFFSET 0.07
 
 #define REFRESHING_PERIOD_DEFAULT 500000 // PWM refreshing default period
 #define MAX_PWM 4096
@@ -63,31 +64,37 @@ int calcTicks(float impulseMs, int hertz)
 void armQuadcopter()
 {
     printDebug("[i] Arming quadcopter motors....");
-    pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
     pilotCommandsShared.chan3 = 0;
-    pilotCommandsShared.chan4 = 1;
-    
+    pilotCommandsShared.chan4 = 0;
+
     writeCommands();
+
+    usleep(2000000);
     
-    usleep(1000000);
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
+    pilotCommandsShared.chan3 = 0;
+    pilotCommandsShared.chan4 = 0.5;
 
-
-
-    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
-    printDebug("[i] Quadcopter motors are no armed !");
+    printDebug("[i] Quadcopter motors are now armed !");
 }
 
 void disarmQuadcopter()
 {
     printDebug("[i] Disarming quadcopter motors....");
-    pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
-    // TODO : implement disarming sequence
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
+    pilotCommandsShared.chan3 = 0;
+    pilotCommandsShared.chan4 = 1;
 
+    writeCommands();
 
+    usleep(2000000);
 
-    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
     printDebug("[i] Quadcopter motors are no disarmed !");
 
 }
@@ -98,19 +105,17 @@ void writeCommands()
 {
     double pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
-    int pilotRefreshingPeriodShared = REFRESHING_PERIOD_DEFAULT;
-
     pthread_mutex_lock(&pilotCommandsShared.readWrite); // Locking mutex to prevent race conditions
 
-    pwm1 = pilotCommandsShared.chan1*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm2 = pilotCommandsShared.chan2*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm3 = pilotCommandsShared.chan3*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm4 = pilotCommandsShared.chan4*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm5 = pilotCommandsShared.chan5*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm6 = pilotCommandsShared.chan6*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm7 = pilotCommandsShared.chan7*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm8 = pilotCommandsShared.chan8*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
-    pwm9 = pilotCommandsShared.chan9*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE;
+    pwm1 = pilotCommandsShared.chan1*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm2 = pilotCommandsShared.chan2*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm3 = pilotCommandsShared.chan3*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm4 = pilotCommandsShared.chan4*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm5 = pilotCommandsShared.chan5*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm6 = pilotCommandsShared.chan6*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm7 = pilotCommandsShared.chan7*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm8 = pilotCommandsShared.chan8*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
+    pwm9 = pilotCommandsShared.chan9*(ESC_MAX_PWM_VALUE - ESC_MIN_PWM_VALUE) + ESC_MIN_PWM_VALUE + GLOBAL_OFFSET;
 
 
         pwmWrite(PCA_PINBASE + 0, calcTicks(pwm1, PCA_FREQUENCY));
@@ -138,23 +143,30 @@ void* pilotHandler(void* arg)
     // Handler global variables init :
 
     initialize_mutex(&pilotCommandsShared.readWrite);
+    initialize_mutex(&pilotStateShared.readWriteMutex);
+
+    pthread_mutex_lock(&pilotStateShared.readWriteMutex);
+    pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+    pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
 
 
-    pilotCommandsShared.chan1 = 0;
-    pilotCommandsShared.chan2 = 0;
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
     pilotCommandsShared.chan3 = 0;
-    pilotCommandsShared.chan4 = 0;
-    pilotCommandsShared.chan5 = 0;
-    pilotCommandsShared.chan6 = 0;
-    pilotCommandsShared.chan7 = 0;
-    pilotCommandsShared.chan8 = 0;
-    pilotCommandsShared.chan9 = 0;
+    pilotCommandsShared.chan4 = 0.5;
+    pilotCommandsShared.chan5 = 0.5;
+    pilotCommandsShared.chan6 = 0.5;
+    pilotCommandsShared.chan7 = 0.5;
+    pilotCommandsShared.chan8 = 0.5;
+    pilotCommandsShared.chan9 = 0.5;
+
 
 
     pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
 
-
-    printDebug("[i] New pilot Handler Launched");
+    pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
+    pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
 
     bidirectionnalHandler_t* bidirectionnalHandler;
@@ -169,7 +181,13 @@ void* pilotHandler(void* arg)
     message_t* receivedMessage;
     message_t message;
     messageDecoded_t decoded;
+    char* dataDecoded;
 
+    // Notifying main thread of init :
+
+    strcpy(message.message,"main_pilot_info_init");
+    message.priority = 20;
+    sendMessage(mainITMHandler, message);
 
 
     int fd = pca9685Setup(PCA_PINBASE, PCA_I2C_ADDRESS, PCA_FREQUENCY);
@@ -177,8 +195,8 @@ void* pilotHandler(void* arg)
     {
         strcpy(message.message,"main_pilot_info_initfailed");
         message.priority = 20;
-        sleep(1);
         sendMessage(mainITMHandler, message);
+        sleep(1);
 
         pthread_exit(NULL);
     }
@@ -186,8 +204,10 @@ void* pilotHandler(void* arg)
 
     armQuadcopter();
 
-    // Waiting 500ms for ESC to init :
-    usleep(500000);
+    strcpy(message.message,"main_pilot_info_endofinit");
+    message.priority = 20;
+    sendMessage(mainITMHandler, message);
+
 
     while(1)
     {
@@ -273,18 +293,32 @@ void* pilotHandler(void* arg)
                         strcpy(message.message, "autopilot_pilot_order_pause");
                         sendMessage(mainITMHandler, message);
                     }
-                    
+
                     else if (!strcmp(decoded.message, "arm"))
                     {
                         printDebug("[i] Received the order to arm motors, arming");
                         armQuadcopter();
 
                     }
-                    
+
                     else if (!strcmp(decoded.message, "disarm"))
                     {
                         printDebug("[i] Received the order to disarm motors, disarming");
                         disarmQuadcopter();
+                    }
+
+                    else if (!strcmp(decoded.message, "increasepwm"))
+                    {
+                        printDebug("[i] Increasing pwm...");
+                        testCommand +=0.1;
+                        printf("[i] PWM is now %f", testCommand);
+                    }
+
+                    else if (!strcmp(decoded.message, "decreasepwm"))
+                    {
+                        printDebug("[i] Decreasing pwm...");
+                        testCommand -=0.1;
+                        printf("[i] PWM is now %f", testCommand);
                     }
 
 
@@ -369,7 +403,7 @@ void* pilotHandler(void* arg)
 //        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
 //        {
 //            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-//            message_t message;
+
 //            strcpy(message.message,"main_pilot_info_autonormal");
 //            sendMessage(mainITMHandler, message);
 //
@@ -377,7 +411,6 @@ void* pilotHandler(void* arg)
 //            sendMessage(mainITMHandler, message);
 //        }
 
-        pilotStateShared.pilotMode = TEST; // For testing purposes
 
         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
@@ -397,6 +430,7 @@ void* pilotHandler(void* arg)
             pilotCommandsShared.chan7 = 0;
             pilotCommandsShared.chan8 = 0;
             pilotCommandsShared.chan9 = 0;
+            writeCommands();//???
 
             break;
 
@@ -449,6 +483,7 @@ void* pilotHandler(void* arg)
 
             if (testCommand >= 1) testCommand = 0;
             else testCommand += 0.01;
+            usleep(1000000);
 
 
             break;
@@ -469,4 +504,5 @@ void* pilotHandler(void* arg)
     }
 
 }
+
 

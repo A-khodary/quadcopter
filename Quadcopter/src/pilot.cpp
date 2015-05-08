@@ -74,6 +74,15 @@ void armQuadcopter()
 
     usleep(2000000);
 
+    // Returning command to idle state :
+
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
+    pilotCommandsShared.chan3 = 0;
+    pilotCommandsShared.chan4 = 0.5;
+
+    writeCommands();
+
     printDebug("[i] Quadcopter motors are now armed !");
 }
 
@@ -89,6 +98,15 @@ void disarmQuadcopter()
     writeCommands();
 
     usleep(2000000);
+
+        // Returning command to idle state :
+
+    pilotCommandsShared.chan1 = 0.5;
+    pilotCommandsShared.chan2 = 0.5;
+    pilotCommandsShared.chan3 = 0;
+    pilotCommandsShared.chan4 = 0.5;
+
+    writeCommands();
 
     printDebug("[i] Quadcopter motors are no disarmed !");
 
@@ -155,6 +173,10 @@ void* pilotHandler(void* arg)
     pilotCommandsShared.chan7 = 0.5;
     pilotCommandsShared.chan8 = 0.5;
     pilotCommandsShared.chan9 = 0.5;
+
+    // Disarming motors on startup to patch armed motors bug :
+
+    disarmQuadcopter();
 
 
 
