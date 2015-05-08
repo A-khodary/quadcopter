@@ -349,6 +349,7 @@ void* readerHandler(void* arg)
 
                 pthread_mutex_lock(&receivedCommands.readWriteMutex);
             }
+            else printDebug("Not enough elements in samplesize");
 
 
         }
