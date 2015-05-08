@@ -108,7 +108,7 @@ void disarmQuadcopter()
 
     writeCommands();
 
-    printDebug("[i] Quadcopter motors are no disarmed !");
+    printDebug("[i] Quadcopter motors are now disarmed !");
 
 }
 

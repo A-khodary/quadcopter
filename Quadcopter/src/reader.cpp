@@ -52,7 +52,7 @@ void* readerHandler(void* arg)
     char *data;
     char *numb;
     char data_c[16];
-    char numb_c[16];
+    char numb_c[16]; // Disarming motors on startup to patch armed motors bug :
     int i;
     int finished, started, j, k, number = 0;
 
@@ -63,7 +63,7 @@ void* readerHandler(void* arg)
     sendMessage(mainITMHandler, currentMessage);
 
 
-
+    initialize_mutex(&receivedCommands.readWriteMutex);
     pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
 
@@ -184,14 +184,6 @@ void* readerHandler(void* arg)
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
-                        else if (!strcmp(data, "pwm9"))
-                        {
-                            //printDebug("[i] Got pw9 value");
-                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
-                            receivedCommands.commands[8] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 9 :%f\n", receivedCommands.commands[8]);
-                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
-                        }
 
                         else if (!strcmp(data, "ultradist"))
                         {
@@ -232,6 +224,24 @@ void* readerHandler(void* arg)
                             receivedCommands.altitude = strtof(numb, NULL);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
+
+                        else if (!strcmp(data, "voltage"))
+                        {
+                            //printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.voltage = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+                        else if (!strcmp(data, "current"))
+                        {
+                            //printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.current = strtof(numb, NULL);
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+
 
                         if(testpwm) sleep(2);
 
