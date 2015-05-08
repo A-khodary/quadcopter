@@ -297,6 +297,7 @@ void* readerHandler(void* arg)
             {
                 printDebug("[e] Something strange in reader : asked to turn on an already on ultrasonic");
             }
+            else printDebug("[i] Turning ultrasonic filtering on");
             ultrasonicSampleList = initUltrasonic();
             isUltrasonicOn = 1;
         }
@@ -307,6 +308,7 @@ void* readerHandler(void* arg)
             {
                 printDebug("[e] Something strange in reader : asked to turn off an already off ultrasonic");
             }
+            else printDebug("[i] Turning ultrasonic filtering off");
             shutdownUltrasonic(ultrasonicSampleList);
             isUltrasonicOn = 0;
         }
@@ -340,6 +342,8 @@ void* readerHandler(void* arg)
             {
                 filteredValue = ultrasonicTemp;
                 pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                printDebug("[i]New ultrasonic filtred value");
+                printf(filteredValue);
 
                 receivedCommands.ultrasonicTelemeter = filteredValue;
 

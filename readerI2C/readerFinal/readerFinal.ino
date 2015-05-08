@@ -11,9 +11,9 @@
 //Frequencies in Hertz :
 
 
-#define PWM_FREQ 400
+#define PWM_FREQ 20
 #define GPS_FREQ 1
-#define ULTRASONIC_FREQ 1
+#define ULTRASONIC_FREQ 15
 #define VOLTAGE_CURRENT_FREQ 1
 
 int PWMcounter=0;
@@ -49,10 +49,10 @@ float pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
 #define MAXIMUM_RANGE 500
 #define MINIMUM_RANGE 4
-#define ULTRASONIC_TIMEOUT 200
+#define ULTRASONIC_TIMEOUT 30000
 
-#define trigPin 31
-#define echoPin 33
+#define trigPin 43
+#define echoPin 45
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Voltage and current Macros :
 
