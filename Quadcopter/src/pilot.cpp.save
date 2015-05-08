@@ -39,9 +39,8 @@
 
 // Some controlling defines :
 
-#define AUTOPILOT_MANAGE_CHAN 7
-#define EL_CHAN 8
-#define MANUAL_CHAN 5
+#define LAND_TAKEOFF_CHAN 5 // Gear switch on radio
+#define AUTO_MANUAL_CHAN 6 // Throttle hold on radio
 
 #define YAW_CHAN 4
 #define GAZ_CHAN 3
@@ -146,7 +145,8 @@ void writeCommands()
 
 void* pilotHandler(void* arg)
 {
-    int isfirst = 1;
+    int previousLandTakeOffCommand = 0; // 0 : land 1 : takeoff
+    int previousAutoManual = 1; // 1 : Auto 0 : Manual
 
     // variables needed for the pilot test function :
 
@@ -160,7 +160,7 @@ void* pilotHandler(void* arg)
     pthread_mutex_lock(&pilotStateShared.readWriteMutex);
     pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
-    pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
+    pilotStateShared.pilotMode = AUTO;
 
 
     pilotCommandsShared.chan1 = 0.5;
@@ -252,19 +252,6 @@ void* pilotHandler(void* arg)
             {
                 if (decoded.operation == ORDER)
                 {
-                    if (!strcmp(decoded.message, "cutoff"))
-                    {
-                        printDebug("Pilot received a cutoff order and cuts everything off");
-
-                        strcpy(message.message,"main_pilot_info_cutoff");
-                        sendMessage(mainITMHandler, message);
-
-                        pthread_mutex_lock(&pilotStateShared.readWriteMutex);
-                        pilotStateShared.pilotMode = CUTOFF;
-                        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-                        strcpy(message.message, "autopilot_pilot_order_pause");
-                        sendMessage(mainITMHandler, message);
-                    }
 
                     else if (!strcmp(decoded.message, "manual"))
                     {
@@ -353,85 +340,39 @@ void* pilotHandler(void* arg)
 
 
 
-        // Behaviour determination :
+        // Response to user commands :
 
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
 
 
-        if (receivedCommands.commands[EL_CHAN] > 0.5 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING )
+        if (receivedCommands.commands[LAND_TAKEOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
         {
-            pilotStateShared.pilotMode = AUTOPILOT_EMERGENCY_LANDING;
-            
-            printDebug("Emergency landing");
+            printDebug("[i] User requested takeoff, sending a takeoff order to autopilot");
+            previousLandTakeOffCommand = 1;
 
-            strcpy(message.message,"main_pilot_info_emergencylanding");
-            sendMessage(mainITMHandler, message);
         }
 
-        else if (receivedCommands.commands[MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL )
+        else if (receivedCommands.commands[LAND_TAKEOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
         {
-            pilotStateShared.pilotMode = MANUAL;
-            
-            printDebug("Manual mode");
-            // TODO : notify main of manual piloting and adapt speed to manual
-
-            strcpy(message.message,"main_pilot_info_automanual");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_pause");
-            sendMessage(mainITMHandler, message);
+            printDebug("[i] User requested landing, sending a landing order to autopilot");
+            previousLandTakeOffCommand = 1;
         }
 
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.33 && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_LANDING)
+        if (receivedCommands.commands[AUTO_MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL)
         {
-            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-            // TODO : notify main of normal landing
-
-            strcpy(message.message,"main_pilot_info_autolanding");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_land");
-            sendMessage(mainITMHandler, message);
+            printDebug("[i] User requested manual commands, giving user the drone control...");
         }
-
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.33 && receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] < 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode!= AUTOPILOT_RTH)
+        
+                if (receivedCommands.commands[AUTO_MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL)
         {
-            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-            // TODO : notify main of return to home
-
-            strcpy(message.message,"main_pilot_info_gohome");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_rth");
-            sendMessage(mainITMHandler, message);
-        }
-
-        else if (receivedCommands.commands[AUTOPILOT_MANAGE_CHAN] > 0.66 && pilotStateShared.pilotMode != CUTOFF && pilotStateShared.pilotMode != AUTOPILOT_EMERGENCY_LANDING && pilotStateShared.pilotMode != AUTOPILOT_NORMAL)
-        {
-            pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-
-            strcpy(message.message,"main_pilot_info_autonormal");
-            sendMessage(mainITMHandler, message);
-
-            strcpy(message.message, "autopilot_pilot_order_pause");
-            sendMessage(mainITMHandler, message);
+            printDebug("[i] User requested manual commands, giving user the drone control...");
         }
 
 
-        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-        pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
         switch (pilotStateShared.pilotMode)
         {
-
-        case AUTOPILOT_EMERGENCY_LANDING:
-
-        // Doing nothing to commands : autopilot has control
-
-            break;
-
-
 
         case MANUAL:
 
@@ -443,23 +384,10 @@ void* pilotHandler(void* arg)
             break;
 
 
-        case AUTOPILOT_NORMAL:
+        case AUTO:
 
         // Doing nothing to commands : autopilot has control
 
-            break;
-
-
-        case AUTOPILOT_RTH:
-
-         // Doing nothing to commands : autopilot has control
-
-            break;
-
-
-        case AUTOPILOT_LANDING:
-
-         // Doing nothing to commands : autopilot has control
 
             break;
 
