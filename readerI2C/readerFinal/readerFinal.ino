@@ -11,10 +11,10 @@
 //Frequencies in Hertz :
 
 
-#define PWM_FREQ 20
-#define GPS_FREQ 5
-#define ULTRASONIC_FREQ 15
-#define VOLTAGE_CURRENT_FREQ 2
+#define PWM_FREQ 400
+#define GPS_FREQ 1
+#define ULTRASONIC_FREQ 1
+#define VOLTAGE_CURRENT_FREQ 1
 
 int PWMcounter=0;
 int GPScounter=0;
@@ -38,6 +38,9 @@ Timer t;
 
 #define PWM_TIMEOUT 20000
 
+#define PWM_MAX 1890
+#define PWM_MIN 1000
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  PWM Global variables :
 
 float pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
@@ -46,7 +49,7 @@ float pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
 #define MAXIMUM_RANGE 500
 #define MINIMUM_RANGE 4
-#define ULTRASONIC_TIMEOUT 20000
+#define ULTRASONIC_TIMEOUT 200
 
 #define trigPin 31
 #define echoPin 33
@@ -478,15 +481,30 @@ void updatePWM()
   pwm7=pulseIn(AUX3_PIN, HIGH, PWM_TIMEOUT);
   pwm8=pulseIn(AUX4_PIN, HIGH, PWM_TIMEOUT);
 
-//  pwm1= pwm1*1000/1303;
-//  pwm2 = pwm2*1000/1303;
-//  pwm3 = pwm3*1000/1303;
-//  pwm4 = pwm4*1000/1303;
-//  pwm5 = pwm5*1000/1303;
-//  pwm6 = pwm6*1000/1303;
-//  pwm7 = pwm7*1000/1303;
-//  pwm8 = pwm8*1000/1303;
-//  pwm9 = pwm9*1000/1303;
+  if (pwm1 != 0) pwm1 = (pwm1 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm1 = -1;
+  
+  if (pwm2 != 0) pwm2 = (pwm2 - PWM_MIN ) / ( PWM_MAX - PWM_MIN );
+  else pwm2 = -1;
+  
+  if (pwm3 != 0) pwm3 = (pwm3 - PWM_MIN ) / ( PWM_MAX - PWM_MIN );
+  else pwm3 = -1; 
+  
+  if (pwm4 != 0) pwm4 = (pwm4 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm4 = -1;
+  
+  if (pwm5 != 0) pwm5 = (pwm5 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm5 = -1;
+  
+  if (pwm6 != 0) pwm6 = (pwm6 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm6 = -1;
+  
+  if (pwm7 != 0) pwm7 = (pwm7 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm8 = -1;
+  
+  if (pwm8 != 0) pwm8 = (pwm8 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm8 = -1;
+
 
   interrupts();
 }
