@@ -252,7 +252,7 @@ void* readerHandler(void* arg)
 
 
 
-                        if(testpwm) sleep(1);
+                        //if(testpwm) sleep(1);
 
 
 
