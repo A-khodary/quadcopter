@@ -40,7 +40,7 @@ void addToSampleList(float sample, sampleList_t* sampleList);
 float getFilteredUltrasonic(sampleList_t sampleList);
 void shutdownUltrasonic(sampleList_t* sampleList);
 int comp(const void *a, const void *b);
-int notifyPwmChannelNull()
+int notifyPwmChannelNull();
 
 
 
