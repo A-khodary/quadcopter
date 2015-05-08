@@ -189,14 +189,16 @@ void* readerHandler(void* arg)
                         {
                             ultrasonicTemp = strtof(numb, NULL);
                             if (ultrasonicTemp != -1) ultrasonic = ultrasonicTemp;
+                            if (testpwm) printf("[i] Ultrasonic :%f\n", ultrasonicTemp);
                         }
 
                         else if (!strcmp(data, "status"))
                         {
-                            //printDebug("[i] Got ultrasonic value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             if (!strcmp(numb, "fix")) receivedCommands.gpsStatus = FIX;
                             if (!strcmp(numb, "nofix")) receivedCommands.gpsStatus = NO_FIX;
+
+                            if (testpwm) printf("Got GPS Status : %d\n", receivedCommands.gpsStatus);
 
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
@@ -230,7 +232,11 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got ultrasonic value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.voltage = strtof(numb, NULL);
+
+                            if (testpwm) printf("Got voltage : %f\n", receivedCommands.voltage);
+
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+
                         }
 
                         else if (!strcmp(data, "current"))
@@ -238,12 +244,15 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got ultrasonic value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.current = strtof(numb, NULL);
+
+                            if (testpwm) printf("Got current : %f\n", receivedCommands.current);
+
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
 
 
-                        if(testpwm) sleep(2);
+                        if(testpwm) sleep(1);
 
 
 
