@@ -413,6 +413,11 @@ int comp(const void *a, const void *b)
     return *x - *y;
 }
 
+int notifyPwmChannelNull()
+{
+    return 0;
+}
+
 
 
 
