@@ -15,7 +15,7 @@
 
 //Some defines relative to the median filtering of the ultrasonic sensor :
 
-#define SAMPLESIZE 256 // NEED TO BE A PAIR NUMBER
+#define SAMPLESIZE 32 // NEED TO BE A PAIR NUMBER
 
 // Functions prototypes :
 
