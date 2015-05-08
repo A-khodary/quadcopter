@@ -146,7 +146,6 @@ void writeCommands()
 void* pilotHandler(void* arg)
 {
     int previousLandTakeOffCommand = 0; // 0 : land 1 : takeoff
-    int previousAutoManual = 1; // 1 : Auto 0 : Manual
 
     // variables needed for the pilot test function :
 
@@ -253,7 +252,7 @@ void* pilotHandler(void* arg)
                 if (decoded.operation == ORDER)
                 {
 
-                    else if (!strcmp(decoded.message, "manual"))
+                    if (!strcmp(decoded.message, "manual"))
                     {
                         strcpy(message.message,"main_pilot_info_automanual");
                         sendMessage(mainITMHandler, message);
@@ -363,10 +362,10 @@ void* pilotHandler(void* arg)
         {
             printDebug("[i] User requested manual commands, giving user the drone control...");
         }
-        
-                if (receivedCommands.commands[AUTO_MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL)
+
+        if (receivedCommands.commands[AUTO_MANUAL_CHAN] < 0.5 && pilotStateShared.pilotMode != AUTO)
         {
-            printDebug("[i] User requested manual commands, giving user the drone control...");
+            printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
         }
 
 

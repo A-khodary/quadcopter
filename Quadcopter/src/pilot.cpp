@@ -252,7 +252,7 @@ void* pilotHandler(void* arg)
                 if (decoded.operation == ORDER)
                 {
 
-                    else if (!strcmp(decoded.message, "manual"))
+                    if (!strcmp(decoded.message, "manual"))
                     {
                         strcpy(message.message,"main_pilot_info_automanual");
                         sendMessage(mainITMHandler, message);
@@ -267,21 +267,7 @@ void* pilotHandler(void* arg)
 
                     }
 
-                    else if (!strcmp(decoded.message, "normal"))
-                    {
 
-                        strcpy(message.message,"main_pilot_info_autonormal");
-                        sendMessage(mainITMHandler, message);
-
-
-                        printDebug("Pilot received an autopilot normal order, switching to autopilot normal mode and notifying autopilot");
-                        pthread_mutex_lock(&pilotStateShared.readWriteMutex);
-                        pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-                        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-                        strcpy(message.message, "autopilot_pilot_order_play");
-                        sendMessage(mainITMHandler, message);
-
-                    }
 
                     else if (!strcmp(decoded.message, "test"))
                     {
@@ -290,7 +276,7 @@ void* pilotHandler(void* arg)
                         sendMessage(mainITMHandler, message);
 
 
-                        printDebug("Pilot received an autopilot test, performing test");
+                        printDebug("Pilot received a test order, performing test");
                         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
                         pilotStateShared.pilotMode = TEST;
                         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
@@ -363,7 +349,7 @@ void* pilotHandler(void* arg)
             printDebug("[i] User requested manual commands, giving user the drone control...");
         }
 
-        if (receivedCommands.commands[AUTO_MANUAL_CHAN] < 0.5 && pilotStateShared.pilotMode != AUTO)
+        else if (receivedCommands.commands[AUTO_MANUAL_CHAN] < 0.5 && pilotStateShared.pilotMode != AUTO)
         {
             printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
         }
