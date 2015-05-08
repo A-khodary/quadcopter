@@ -72,7 +72,7 @@ void armQuadcopter()
 
     writeCommands();
 
-    usleep(3);
+    sleep(3);
 
     // Returning command to idle state :
 
