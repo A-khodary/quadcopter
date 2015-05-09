@@ -378,7 +378,6 @@ void* pilotHandler(void* arg)
         if (testCom)
         {
             fflush(stdout);
-            sleep(1);
         }
 
 
@@ -431,7 +430,12 @@ void* pilotHandler(void* arg)
 
 
 
-        //usleep(pilotCommandsShared.refreshingPeriod);
+        if (testCom)
+        {
+            sleep(1);
+        }
+
+        else usleep(100000);
 
 
 
