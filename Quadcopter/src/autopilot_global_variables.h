@@ -81,7 +81,8 @@ typedef struct autopilotSharedState
 
 extern float landTakeOffCoeff[4][3]; // PID coefficients for Land/Takeoff
 extern float gotoStandardCoeff[3][3]; // PID coefficients for goto_standard
-extern float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
+//extern float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
+extern float gotoHoverCoeff[3][3]; // PID coefficients for goto_hovering
 extern float positionHoldCoeff[3][3]; // PID coefficients for position_hold
 
 

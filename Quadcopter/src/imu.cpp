@@ -39,7 +39,6 @@ void* imuHandler(void* arg)
 
     // Initialization of some handler variables :
     double gpsAltitude=0;
-    unsigned int bmpAltitude=0;
     double altitude=0;
 
     int sampleCount = 0;
@@ -49,9 +48,9 @@ void* imuHandler(void* arg)
     uint64_t now;
 
     int transitionToUltrasonic = 0;
-    int transitionToGPSBMP = 0;
+    int transitionToGPSMS5611 = 0;
     int firstTimeUltra =1;
-    int firstTimeGPSBMP=1;
+    int firstTimeGPSMS5611=1;
     int averageCounter = 0;
 
 
@@ -97,12 +96,12 @@ void* imuHandler(void* arg)
     // Waiting for GPS FIX :
 
     if (DEBUG)
-    { 
+    {
        receivedCommands.latitude = 1;
        receivedCommands.longitude = 1;
-       receivedCommands.altitude = 1;  
+       receivedCommands.altitude = 1;
   }
-    else 
+    else
     {
       if (!waitForGPS())
       {
@@ -115,14 +114,14 @@ void* imuHandler(void* arg)
     }
     // Init IMU
 
-    double air_bmp_trust = AIR_BMP_TRUST;
+    double air_MS5611_trust = AIR_MS5611_TRUST;
     double air_gps_trust = AIR_GPS_TRUST;
 
     // BMP085 init and first calculation :
-   
-    bmp085_i2c_Begin();
-    if (DEBUG) {bmpAltitude = 10;} else { bmpAltitude = calculateBmpAlt();}
 
+    /*bmp085_i2c_Begin();
+    if (DEBUG) {imuData.pressure = 10;} else { imuData.pressure = calculateBmpAlt();}
+    */
 
     // Ultrasonic init :
     unsigned int ultrasonicAltitude=0;
@@ -132,9 +131,9 @@ void* imuHandler(void* arg)
     strcpy(currentMessage.message ,"reader_imu_order_ultrasonicon");
     currentMessage.priority = 20;
     sendMessage(mainITMHandler, currentMessage);
-   
+
     // Making home position :
-//    makeHome(bmpAltitude);
+//    makeHome(imuData.pressure);
 
 
     // Notify main thread of end of init :
@@ -188,11 +187,11 @@ void* imuHandler(void* arg)
             }
 	    }
         // Updating BMP :
-        if (DEBUG) {bmpAltitude = 10;} else {bmpAltitude = calculateBmpAlt();}
+        //if (DEBUG) {imuData.pressure = 10;} else {imuData.pressure = calculateBmpAlt();}
 
         // Altitude calculation Area :
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
-	
+
 	if (DEBUG)
 	{
 		 ultrasonicAltitude = 10;
@@ -211,45 +210,45 @@ void* imuHandler(void* arg)
 
         if (ultrasonicAltitude == -1) // We are far from ground
         {
-            if ((!transitionToGPSBMP) && firstTimeUltra)
+            if ((!transitionToGPSMS5611) && firstTimeUltra)
             {
-                transitionToGPSBMP = 1;
+                transitionToGPSMS5611 = 1;
                 transitionToUltrasonic = 0;
                 firstTimeUltra = 0;
-                firstTimeGPSBMP = 1;
+                firstTimeGPSMS5611 = 1;
             }
 
-            if ( abs(bmpAltitude - gpsAltitude) / bmpAltitude >= MAX_ALT_DIFF )
+            if ( abs(imuData.pressure - gpsAltitude) / imuData.pressure >= MAX_ALT_DIFF )
             {
                 printf("[e] Error in IMU : to high divergence between gps altitude and bmp altitude");
                 // Switching altitude to pressure-only :
-                air_bmp_trust=100;
+                air_MS5611_trust=100;
                 air_gps_trust=0;
             }
 
-            if (transitionToGPSBMP)
+            if (transitionToGPSMS5611)
             {
-                altitude = (averageCounter*((air_bmp_trust*bmpAltitude + air_gps_trust*gpsAltitude) / 100) + (NUMBER_OF_AVERAGE-averageCounter)*ultrasonicAltitudeLastValue);
+                altitude = (averageCounter*((air_MS5611_trust*imuData.pressure + air_gps_trust*gpsAltitude) / 100) + (NUMBER_OF_AVERAGE-averageCounter)*ultrasonicAltitudeLastValue);
                 if (averageCounter <= NUMBER_OF_AVERAGE) averageCounter++;
-                else transitionToGPSBMP = 0;
+                else transitionToGPSMS5611 = 0;
             }
 
-            else altitude = (air_bmp_trust*bmpAltitude + air_gps_trust*gpsAltitude) / 100;
+            else altitude = (air_MS5611_trust*imuData.pressure + air_gps_trust*gpsAltitude) / 100;
         }
 
         else // We are close to ground
         {
-            if ((!transitionToUltrasonic) && firstTimeGPSBMP)
+            if ((!transitionToUltrasonic) && firstTimeGPSMS5611)
             {
                 transitionToUltrasonic = 1;
-                transitionToGPSBMP = 0;
-                firstTimeGPSBMP = 0;
+                transitionToGPSMS5611 = 0;
+                firstTimeGPSMS5611 = 0;
                 firstTimeUltra = 1;
             }
 
             if (transitionToUltrasonic)
             {
-                altitude = ((NUMBER_OF_AVERAGE - averageCounter)*((air_bmp_trust*bmpAltitude + air_gps_trust*gpsAltitude) / 100) + (averageCounter)*ultrasonicAltitude);
+                altitude = ((NUMBER_OF_AVERAGE - averageCounter)*((air_MS5611_trust*imuData.pressure + air_gps_trust*gpsAltitude) / 100) + (averageCounter)*ultrasonicAltitude);
                 if (averageCounter <= NUMBER_OF_AVERAGE) averageCounter++;
                 else transitionToUltrasonic = 0;
             }
@@ -259,16 +258,16 @@ void* imuHandler(void* arg)
 
 
 
-        /*if (receivedCommands.altitude<1 && bmpAltitude<1)//1m du sol???
+        /*if (receivedCommands.altitude<1 && imuData.pressure<1)//1m du sol???
         {
-            altitude = (0,2*ultrasonicAltitude + 0.3*bmpAltitude +0.5*receivedCommands.altitude)/3;//filtre à complémentarité
-             if (bmpAltitude>0.05 && bmpAltitude<0.5)// de 10 à 50 cm du sol ???
+            altitude = (0,2*ultrasonicAltitude + 0.3*imuData.pressure +0.5*receivedCommands.altitude)/3;//filtre à complémentarité
+             if (imuData.pressure>0.05 && imuData.pressure<0.5)// de 10 à 50 cm du sol ???
              {
-                 altitude = (0,6*ultrasonicAltitude + 0.4*bmpAltitude)/2; // ou 0.4*receivedCommands.altitude : le capteur le  lus rapide et précis dans ces conditions
+                 altitude = (0,6*ultrasonicAltitude + 0.4*imuData.pressure)/2; // ou 0.4*receivedCommands.altitude : le capteur le  lus rapide et précis dans ces conditions
              }
         }
 
-        else {altitude = (0.5*bmpAltitude + 0.5*receivedCommands.altitude)/2;}
+        else {altitude = (0.5*imuData.pressure + 0.5*receivedCommands.altitude)/2;}
 */
 
 
@@ -348,20 +347,20 @@ void* imuHandler(void* arg)
 
      homeRawPosition.longitude = receivedCommands.longitude;
      homeRawPosition.latitude = receivedCommands.latitude;
-     homeRawPosition.altitude = (GROUND_BMP_TRUST*bmpAlt + GROUND_GPS_TRUST*receivedCommands.altitude) / 100;
+     homeRawPosition.altitude = (GROUND_MS5611_TRUST*bmpAlt + GROUND_GPS_TRUST*receivedCommands.altitude) / 100;
 
      homePosition.latitude = homeRawPosition.latitude;
      homePosition.longitude = homeRawPosition.longitude;
      homePosition.z = homeRawPosition.altitude;
 
      convertPlanarToHome(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
-     
+
      pthread_mutex_unlock(&homeRawPosition.readWriteMutex);
      pthread_mutex_unlock(&receivedCommands.readWriteMutex);
  }
 
 
- double calculateBmpAlt()
+ /*double calculateBmpAlt()
  {
         unsigned int pressure, temperature;
         unsigned int up, ut;
@@ -375,7 +374,7 @@ void* imuHandler(void* arg)
         // Calculating bmp altitude :
         return 44330*(1-pow(pow((pressure/101325),(1/5255)),1000));
  }
-
+*/
 
 
 

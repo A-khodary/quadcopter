@@ -27,12 +27,24 @@
 #define LANDTAKEOFFYAWPI 1
 #define LANDTAKEOFFYAWPD 1
 
+/*
 #define GOTOHOVERXP 1
 #define GOTOHOVERXPI 1
 #define GOTOHOVERXPD 1
 #define GOTOHOVERYP 1
 #define GOTOHOVERYPI 1
 #define GOTOHOVERYPD 1
+#define GOTOHOVERYAWP 1
+#define GOTOHOVERYAWPI 1
+#define GOTOHOVERYAWPD 1
+#define GOTOHOVERDISTP 1
+#define GOTOHOVERDISTPI 1
+#define GOTOHOVERDISTPD 1
+*/
+
+#define GOTOHOVERZP 1
+#define GOTOHOVERZPI 1
+#define GOTOHOVERZPD 1
 #define GOTOHOVERYAWP 1
 #define GOTOHOVERYAWPI 1
 #define GOTOHOVERYAWPD 1
@@ -77,6 +89,7 @@
 
 #define OBJECTIVES_PATH "/home/niki-vivi/quadcopter/Quadcopter/build/Release/objectives.txt"
 
+#define OFFSETZ 1 //security altitude distance over the objective
 
 class oneWayServoControl_t
 {
