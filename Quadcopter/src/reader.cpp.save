@@ -301,6 +301,10 @@ void* readerHandler(void* arg)
             else printDebug("[i] Turning ultrasonic filtering on");
             ultrasonicSampleList = initUltrasonic();
             isUltrasonicOn = 1;
+            
+            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+            receivedCommands.ultrasonicTelemeter = -1;
+            
         }
 
         else if (!strcmp(currentDecoded.message, "ultrasonicoff"))
@@ -312,6 +316,7 @@ void* readerHandler(void* arg)
             else printDebug("[i] Turning ultrasonic filtering off");
             shutdownUltrasonic(ultrasonicSampleList);
             isUltrasonicOn = 0;
+            
         }
 
          else if (!strcmp(currentDecoded.message, "testpwm"))
@@ -329,7 +334,7 @@ void* readerHandler(void* arg)
                  printDebug("[i] Turning off pwm reading test");
              }
          }
-         
+
          else if (!strcmp(currentDecoded.message, "testultrasonic"))
          {
              if (!testUltrasonic)
@@ -355,18 +360,26 @@ void* readerHandler(void* arg)
         {
             addToSampleList(ultrasonic, ultrasonicSampleList);
             ultrasonicTemp = getFilteredUltrasonic(*ultrasonicSampleList);
+
+            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+
             if (ultrasonicTemp != -1)
             {
                 filteredValue = ultrasonicTemp;
-                pthread_mutex_lock(&receivedCommands.readWriteMutex);
                 if (testUltrasonic) printDebug("[i]New ultrasonic filtered value");
                 if (testUltrasonic) printf("%f\n", filteredValue);
 
                 receivedCommands.ultrasonicTelemeter = filteredValue;
 
-                pthread_mutex_lock(&receivedCommands.readWriteMutex);
+
             }
-            else if(testUltrasonic) printDebug("Not enough elements in sample list");
+            else
+            {
+                if(testUltrasonic) printDebug("Not enough elements in sample list");
+                receivedCommands.ultrasonicTelemeter = -1;
+            }
+
+            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
 
         }

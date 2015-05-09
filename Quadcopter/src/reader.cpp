@@ -189,8 +189,8 @@ void* readerHandler(void* arg)
                         else if (!strcmp(data, "ultradist"))
                         {
                             ultrasonicTemp = strtof(numb, NULL);
-                            if (ultrasonicTemp != -1) ultrasonic = ultrasonicTemp;
-                            //if (testpwm) printf("[i] Ultrasonic :%f\n", ultrasonicTemp);
+                            ultrasonic = ultrasonicTemp;
+                            if (testUltrasonic) printf("[i] Ultrasonic :%f\n", ultrasonicTemp);
                         }
 
                         else if (!strcmp(data, "status"))
@@ -301,6 +301,10 @@ void* readerHandler(void* arg)
             else printDebug("[i] Turning ultrasonic filtering on");
             ultrasonicSampleList = initUltrasonic();
             isUltrasonicOn = 1;
+
+            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+            receivedCommands.ultrasonicTelemeter = -1;
+            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
         }
 
         else if (!strcmp(currentDecoded.message, "ultrasonicoff"))
@@ -312,6 +316,10 @@ void* readerHandler(void* arg)
             else printDebug("[i] Turning ultrasonic filtering off");
             shutdownUltrasonic(ultrasonicSampleList);
             isUltrasonicOn = 0;
+
+            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+            receivedCommands.ultrasonicTelemeter = -1;
+            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
         }
 
          else if (!strcmp(currentDecoded.message, "testpwm"))
@@ -353,20 +361,28 @@ void* readerHandler(void* arg)
 
         if (isUltrasonicOn)
         {
-            addToSampleList(ultrasonic, ultrasonicSampleList);
+            if ultrasonic != -1; addToSampleList(ultrasonic, ultrasonicSampleList);
             ultrasonicTemp = getFilteredUltrasonic(*ultrasonicSampleList);
+
+            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+
             if (ultrasonicTemp != -1)
             {
                 filteredValue = ultrasonicTemp;
-                pthread_mutex_lock(&receivedCommands.readWriteMutex);
                 if (testUltrasonic) printDebug("[i]New ultrasonic filtered value");
                 if (testUltrasonic) printf("%f\n", filteredValue);
 
                 receivedCommands.ultrasonicTelemeter = filteredValue;
 
-                pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+
             }
-            else if(testUltrasonic) printDebug("Not enough elements in sample list");
+            else
+            {
+                if(testUltrasonic) printDebug("Not enough elements in sample list");
+                receivedCommands.ultrasonicTelemeter = -1;
+            }
+
+            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
 
         }
