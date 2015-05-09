@@ -105,6 +105,8 @@ void* imuHandler(void* arg)
           sendMessage(mainITMHandler, currentMessage);
           pthread_exit(NULL);
       }
+
+      else printDebug("[i] Got 3D fix from GPS !")
     }
     // Init IMU
 
