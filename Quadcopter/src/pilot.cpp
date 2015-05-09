@@ -396,9 +396,10 @@ void* pilotHandler(void* arg)
             break;
 
         }
-        writeCommands();
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+        writeCommands();
+
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
 
