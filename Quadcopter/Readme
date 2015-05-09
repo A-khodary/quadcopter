@@ -47,7 +47,7 @@ NB : The file shared_librairies.h gathers all needed librairies in order to run 
 
 Run :
 	
-	The project can be run with the executable in the directory "build" ou "build/RELEASE/"
+	The project can be run with the executable in the directory "build" or "build/RELEASE/"
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -55,13 +55,13 @@ Components :
 
 	MPU650 + HMC5883L + MS5611 (IMU)
 	PCA9685 (pwm driver)
-	Arduino ?
+	Arduino Mega 2560
 	Raspberry Pi model B+
 	HC-SR04 (ultrasonic sensor)
 	NEO6-M (GPS)
 	Turnigy 9X 9Ch Transmitter w/ Module & 8ch Receiver (Mode 2) (v2 Firmware)
-	Logic voltage adpatator ?
-	KK board 2 (flight servo controler)
+	Logic voltage adpatator
+	KK board 2 (flight controler)
 	
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -121,24 +121,48 @@ List of messages (with their priority in descending order (the less the more imp
 		restartthreadimu
 		restartthreadreader
 
+
 	reader : 
 
-		ultrasonicon
-		ultrasonicoff
-		testpwm
-		testreader
-		//readBuffer
+
+		send :
+
+
+
+
+		receive :
+	
+			order_ultrasonicon
+			order_ultrasonicoff
+			order_testpwm
+			order_testreader
+
 
 	pilot : 
 
-		cutoff
-		manual
-		normal
-		automanual
-		autonormal
-		test
-		autolanding
-		land
-		gohome
-		rth
+		send :
+
+			info_init
+			info_endofinit
+			info_initfailed
+
+			info_userauto
+			info_usermanual
+			info_userland
+			info_usertakeoff
+
+		receive :
+
+			order_manual
+			order_auto
+
+			order_arm
+			order_disarm
+
+			order_test
+			order_testcommands
+			order_increasepwm
+			order_decreasepwm
+
+	
 

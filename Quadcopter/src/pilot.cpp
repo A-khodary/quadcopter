@@ -256,18 +256,31 @@ void* pilotHandler(void* arg)
 
                     if (!strcmp(decoded.message, "manual"))
                     {
-                        strcpy(message.message,"main_pilot_info_automanual");
-                        sendMessage(mainITMHandler, message);
 
 
-                        printDebug("Pilot received a manual order, switching to manual and notifying autopilot");
+                        printDebug("Pilot received a manual order, switching to manual and notifying main");
                         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
                         pilotStateShared.pilotMode = MANUAL;
                         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-                        strcpy(message.message, "autopilot_pilot_order_pause");
+
+                        strcpy(message.message, "main_pilot_info_usermanual");
                         sendMessage(mainITMHandler, message);
 
                     }
+
+                    if (!strcmp(decoded.message, "auto"))
+                    {
+
+
+                        printDebug("Pilot received an auto order, switching to manual and notifying main");
+                        pthread_mutex_lock(&pilotStateShared.readWriteMutex);
+                        pilotStateShared.pilotMode = AUTO;
+                        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
+
+                        strcpy(message.message, "main_pilot_info_userauto");
+                        sendMessage(mainITMHandler, message);
+                    }
+
 
 
 
@@ -357,24 +370,44 @@ void* pilotHandler(void* arg)
             if (testCom) printDebug("[i] User requested takeoff, sending a takeoff order to autopilot");
             previousLandTakeOffCommand = 1;
 
+            // Broadcasting order to main :
+            strcpy(message.message, "main_pilot_info_usertakeoff");
+            sendMessage(mainITMHandler, message);
+
+
         }
 
         else if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != MANUAL && previousLandTakeOffCommand)
         {
             if (testCom) printDebug("[i] User requested landing, sending a landing order to autopilot");
             previousLandTakeOffCommand = 0;
+
+            // Broadcasting order to main :
+
+            strcpy(message.message, "main_pilot_info_userland");
+            sendMessage(mainITMHandler, message);
         }
 
         if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL)
         {
             if (testCom) printDebug("[i] User requested manual commands, giving user the drone control...");
             pilotStateShared.pilotMode = MANUAL;
+
+            // Broadcasting order to main :
+
+            strcpy(message.message, "main_pilot_info_usermanual");
+            sendMessage(mainITMHandler, message);
         }
 
         else if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != AUTO)
         {
             if (testCom) printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
             pilotStateShared.pilotMode = AUTO;
+
+            // Broadcasting order to main :
+
+            strcpy(message.message, "main_pilot_info_userauto");
+            sendMessage(mainITMHandler, message);
         }
 
         if (testCom)
