@@ -268,12 +268,12 @@ void* imuHandler(void* arg)
 
         // Position calculation area :
 
-        pthread_mutext_lock(&receivedCommands.readWriteMutex);
+        pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
         latitude = receivedCommands.latitude;
         longitude = receivedCommands.longitude;
 
-        pthread_mutext_unlock(&receivedCommands.readWriteMutex);
+        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
         convertPlanarToHome(&xComputed, &yComputed, latitude, longitude);
 
