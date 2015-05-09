@@ -362,17 +362,19 @@ void* pilotHandler(void* arg)
         else if (receivedCommands.commands[LAND_TAKEOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
         {
             if (testCom) printDebug("[i] User requested landing, sending a landing order to autopilot");
-            previousLandTakeOffCommand = 1;
+            previousLandTakeOffCommand = 0;
         }
 
         if (receivedCommands.commands[AUTO_MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL)
         {
             if (testCom) printDebug("[i] User requested manual commands, giving user the drone control...");
+            pilotStateShared = MANUAL;
         }
 
         else if (receivedCommands.commands[AUTO_MANUAL_CHAN] < 0.5 && pilotStateShared.pilotMode != AUTO)
         {
             if (testCom) printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
+            pilotStateShared = AUTO;
         }
 
         if (testCom)
