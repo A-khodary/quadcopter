@@ -368,13 +368,13 @@ void* pilotHandler(void* arg)
         if (receivedCommands.commands[AUTO_MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL)
         {
             if (testCom) printDebug("[i] User requested manual commands, giving user the drone control...");
-            pilotStateShared = MANUAL;
+            pilotStateShared.pilotMode = MANUAL;
         }
 
         else if (receivedCommands.commands[AUTO_MANUAL_CHAN] < 0.5 && pilotStateShared.pilotMode != AUTO)
         {
             if (testCom) printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
-            pilotStateShared = AUTO;
+            pilotStateShared.pilotMode = AUTO;
         }
 
         if (testCom)
