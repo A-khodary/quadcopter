@@ -315,7 +315,7 @@ void* pilotHandler(void* arg)
 
                     else if (!strcmp(decoded.message, "testcommands"))
                     {
-                        if (!testComm)
+                        if (!testCom)
                         {
                             printDebug("[i] Testing commands...");
                             testCom = 1;
@@ -323,7 +323,7 @@ void* pilotHandler(void* arg)
 
                         else
                         {
-                            printDebug("[i] Desactivating command test...")
+                            printDebug("[i] Desactivating command test...");
                             testCom = 0;
                         }
                     }
@@ -377,7 +377,7 @@ void* pilotHandler(void* arg)
 
         if (testCom)
         {
-            flush(stdout);
+            fflush(stdout);
             sleep(1);
         }
 
