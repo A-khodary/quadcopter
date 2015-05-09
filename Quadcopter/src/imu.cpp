@@ -327,10 +327,10 @@ void* imuHandler(void* arg)
         {
             attemps ++;
             if (attemps >= GPS_MAX_ATTEMPS) return 0;
-            else sleep(1);
         }
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+        else sleep(1);
     }
     return 1;
 
