@@ -402,7 +402,7 @@ void* pilotHandler(void* arg)
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
 
 
-        usleep(pilotCommandsShared.refreshingPeriod);
+        //usleep(pilotCommandsShared.refreshingPeriod);
 
 
 
