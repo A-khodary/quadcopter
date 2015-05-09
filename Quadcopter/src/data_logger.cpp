@@ -46,6 +46,11 @@ void* dataLoggerHandler(void* arg)
     int bytes_sent;
     uint8_t buf[BUFFER_LENGTH];
 
+    unsigned int temp = 0;
+
+    ssize_t recsize;
+    socklen_t fromlen;
+
     memset(&gcAddr, 0, sizeof(gcAddr));
 	gcAddr.sin_family = AF_INET;
 	gcAddr.sin_addr.s_addr = inet_addr(GCS_IP);
@@ -85,9 +90,7 @@ void* dataLoggerHandler(void* arg)
 
         sleep(1);
 
-
-
-         //giMessage retrieving and handling area :
+        //Message retrieving and handling area :
 
         receivedMessage = retrieveMessage(dataLoggerITMHandler);
         if (receivedMessage != NULL)
@@ -139,7 +142,30 @@ void* dataLoggerHandler(void* arg)
 
         // DataLogging area :
 
+        memset(buf, 0, BUFFER_LENGTH);
+        recsize = recvfrom(sock, (void *)buf, BUFFER_LENGTH, 0, (struct sockaddr *)&gcAddr, &fromlen);
+        if (recsize > 0)
+        {
+            // Something received - print out all bytes and parse packet
+            mavlink_message_t msg;
+            mavlink_status_t status;
+            printf("Bytes Received: %d\nDatagram: ", (int)recsize);
+            for (int i = 0; i < recsize; ++i)
+            {
+                temp = buf[i];
+                printf("%02x ", (unsigned char)temp);
+                if (mavlink_parse_char(MAVLINK_COMM_0, buf[i], &msg, &status))
+                {
+                    // Packet received
+                    printf("\nReceived packet: SYS: %d, COMP: %d, LEN: %d, MSG ID: %d\n", msg.sysid, msg.compid, msg.len, msg.msgid);
 
+                    //TODO : Message handling
+                }
+            }
+            printf("\n");
+        }
+        memset(buf, 0, BUFFER_LENGTH);
+        sleep(1); // Sleep one second
 
 
          //Message sending function for testing :
