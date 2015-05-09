@@ -190,7 +190,7 @@ void* readerHandler(void* arg)
                         {
                             ultrasonicTemp = strtof(numb, NULL);
                             ultrasonic = ultrasonicTemp;
-                            if (testUltrasonic) printf("[i] Ultrasonic :%f\n", ultrasonicTemp);
+                            //if (testUltrasonic) printf("[i] Ultrasonic :%f\n", ultrasonicTemp);
                         }
 
                         else if (!strcmp(data, "status"))

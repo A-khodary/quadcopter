@@ -13,7 +13,7 @@
 
 #define PWM_FREQ 20
 #define GPS_FREQ 1
-#define ULTRASONIC_FREQ 15
+#define ULTRASONIC_FREQ 25
 #define VOLTAGE_CURRENT_FREQ 1
 
 int PWMcounter=0;
