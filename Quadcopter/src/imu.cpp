@@ -106,7 +106,7 @@ void* imuHandler(void* arg)
           pthread_exit(NULL);
       }
 
-      else printDebug("[i] Got 3D fix from GPS !")
+      else printDebug("[i] Got 3D fix from GPS !");
     }
     // Init IMU
 
