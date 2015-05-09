@@ -330,7 +330,7 @@ void* imuHandler(void* arg)
         }
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
-        else sleep(1);
+        sleep(1);
     }
     return 1;
 
