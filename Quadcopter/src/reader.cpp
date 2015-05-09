@@ -364,7 +364,7 @@ void* readerHandler(void* arg)
 
                 receivedCommands.ultrasonicTelemeter = filteredValue;
 
-                pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                pthread_mutex_unlock(&receivedCommands.readWriteMutex);
             }
             else if(testUltrasonic) printDebug("Not enough elements in sample list");
 
