@@ -30,6 +30,7 @@ void* readerHandler(void* arg)
     float ultrasonic=0;
     float ultrasonicTemp=0;
     int testpwm = 0;
+    int testUltrasonic = 0;
 
 
     bidirectionnalHandler_t* bidirectionnalHandler;
@@ -328,6 +329,22 @@ void* readerHandler(void* arg)
                  printDebug("[i] Turning off pwm reading test");
              }
          }
+         
+         else if (!strcmp(currentDecoded.message, "testultrasonic"))
+         {
+             if (!testUltrasonic)
+             {
+                 testUltrasonic = 1;
+                 printDebug("[i] Turning on ultrasonic test");
+
+             }
+
+             else
+             {
+                 testUltrasonic = 0;
+                 printDebug("[i] Turning off ultrasonic reading test");
+             }
+         }
 
 
 
@@ -342,14 +359,14 @@ void* readerHandler(void* arg)
             {
                 filteredValue = ultrasonicTemp;
                 pthread_mutex_lock(&receivedCommands.readWriteMutex);
-                printDebug("[i]New ultrasonic filtred value");
-                printf("%f\n", filteredValue);
+                if (testUltrasonic) printDebug("[i]New ultrasonic filtered value");
+                if (testUltrasonic) printf("%f\n", filteredValue);
 
                 receivedCommands.ultrasonicTelemeter = filteredValue;
 
                 pthread_mutex_lock(&receivedCommands.readWriteMutex);
             }
-            else printDebug("Not enough elements in samplesize");
+            else if(testUltrasonic) printDebug("Not enough elements in sample list");
 
 
         }

@@ -470,7 +470,7 @@ void* pilotHandler(void* arg)
             sleep(1);
         }
 
-        else usleep(100000);
+        else usleep(PILOT_REFRESHING_PERIOD_MS*1000);
 
 
 

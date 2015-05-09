@@ -262,12 +262,12 @@ void* pilotHandler(void* arg)
                         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
                         pilotStateShared.pilotMode = MANUAL;
                         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-                        
+
                         strcpy(message.message, "main_pilot_info_usermanual");
                         sendMessage(mainITMHandler, message);
 
                     }
-                    
+
                     if (!strcmp(decoded.message, "auto"))
                     {
 
@@ -276,7 +276,7 @@ void* pilotHandler(void* arg)
                         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
                         pilotStateShared.pilotMode = AUTO;
                         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-                        
+
                         strcpy(message.message, "main_pilot_info_userauto");
                         sendMessage(mainITMHandler, message);
                     }
@@ -470,7 +470,7 @@ void* pilotHandler(void* arg)
             sleep(1);
         }
 
-        else usleep(100000);
+        else usleep(PILOT_REFRESHING_PERIOD*1000);
 
 
 
