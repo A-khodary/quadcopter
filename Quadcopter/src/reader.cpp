@@ -361,7 +361,7 @@ void* readerHandler(void* arg)
 
         if (isUltrasonicOn)
         {
-            if ultrasonic != -1; addToSampleList(ultrasonic, ultrasonicSampleList);
+            if (ultrasonic != -1) addToSampleList(ultrasonic, ultrasonicSampleList);
             ultrasonicTemp = getFilteredUltrasonic(*ultrasonicSampleList);
 
             pthread_mutex_lock(&receivedCommands.readWriteMutex);
