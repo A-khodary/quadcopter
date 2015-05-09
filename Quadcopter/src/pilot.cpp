@@ -281,7 +281,6 @@ void* pilotHandler(void* arg)
                     }
 
 
-reader_main_order_ultrasonicoff
 
                     else if (!strcmp(decoded.message, "test"))
                     {
