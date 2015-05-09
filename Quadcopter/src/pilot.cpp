@@ -218,6 +218,7 @@ void* pilotHandler(void* arg)
         pthread_exit(NULL);
     }
     pca9685PWMReset(fd);
+    sleep(2);
 
     armQuadcopter();
 
@@ -322,7 +323,6 @@ void* pilotHandler(void* arg)
 
             free(receivedMessage);
         }
-
 
 
         // Response to user commands :
