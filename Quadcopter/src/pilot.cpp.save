@@ -218,6 +218,7 @@ void* pilotHandler(void* arg)
         pthread_exit(NULL);
     }
     pca9685PWMReset(fd);
+    sleep(2);
 
     armQuadcopter();
 
@@ -267,21 +268,7 @@ void* pilotHandler(void* arg)
 
                     }
 
-                    else if (!strcmp(decoded.message, "normal"))
-                    {
 
-                        strcpy(message.message,"main_pilot_info_autonormal");
-                        sendMessage(mainITMHandler, message);
-
-
-                        printDebug("Pilot received an autopilot normal order, switching to autopilot normal mode and notifying autopilot");
-                        pthread_mutex_lock(&pilotStateShared.readWriteMutex);
-                        pilotStateShared.pilotMode = AUTOPILOT_NORMAL;
-                        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-                        strcpy(message.message, "autopilot_pilot_order_play");
-                        sendMessage(mainITMHandler, message);
-
-                    }
 
                     else if (!strcmp(decoded.message, "test"))
                     {
@@ -290,7 +277,7 @@ void* pilotHandler(void* arg)
                         sendMessage(mainITMHandler, message);
 
 
-                        printDebug("Pilot received an autopilot test, performing test");
+                        printDebug("Pilot received a test order, performing test");
                         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
                         pilotStateShared.pilotMode = TEST;
                         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
@@ -338,11 +325,13 @@ void* pilotHandler(void* arg)
         }
 
 
-
         // Response to user commands :
 
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
+        
+        printf("LAND / TAKEOFF : %f", receivedCommands.commands[LAND_TAKEOFF_CHAN]);
+        printf("MANUAL / AUTO : %f", receivedCommands.commands[LAND_TAKEOFF_CHAN]);
 
 
         if (receivedCommands.commands[LAND_TAKEOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
@@ -363,7 +352,7 @@ void* pilotHandler(void* arg)
             printDebug("[i] User requested manual commands, giving user the drone control...");
         }
 
-        if (receivedCommands.commands[AUTO_MANUAL_CHAN] < 0.5 && pilotStateShared.pilotMode != AUTO)
+        else if (receivedCommands.commands[AUTO_MANUAL_CHAN] < 0.5 && pilotStateShared.pilotMode != AUTO)
         {
             printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
         }

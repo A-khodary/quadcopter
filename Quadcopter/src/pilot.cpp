@@ -330,6 +330,9 @@ void* pilotHandler(void* arg)
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
 
+        printf("LAND / TAKEOFF : %f", receivedCommands.commands[LAND_TAKEOFF_CHAN]);
+        printf("MANUAL / AUTO : %f", receivedCommands.commands[AUTO_MANUAL_CHAN]);
+
 
         if (receivedCommands.commands[LAND_TAKEOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
         {
