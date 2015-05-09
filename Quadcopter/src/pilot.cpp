@@ -359,7 +359,7 @@ void* pilotHandler(void* arg)
 
         }
 
-        else if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
+        else if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
         {
             if (testCom) printDebug("[i] User requested landing, sending a landing order to autopilot");
             previousLandTakeOffCommand = 0;
