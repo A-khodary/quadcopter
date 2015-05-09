@@ -162,7 +162,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw6 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[5] = strtof(numb, NULL);
-                            //if (testpwm) printf("[i] PWM 6 :%f\n", receivedCommands.commands[5]);
+                            if (testpwm) printf("[i] PWM 6 :%f\n", receivedCommands.commands[5]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 

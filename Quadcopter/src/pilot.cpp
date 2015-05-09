@@ -150,6 +150,7 @@ void* pilotHandler(void* arg)
     // variables needed for the pilot test function :
 
     double testCommand = 0;
+    int testCom = 0;
 
     // Handler global variables init :
 
@@ -312,6 +313,23 @@ void* pilotHandler(void* arg)
                         printf("[i] PWM is now %f", testCommand);
                     }
 
+                    else if (!strcmp(decoded.message, "testcommands"))
+                    {
+                        if (!testComm)
+                        {
+                            printDebug("[i] Testing commands...");
+                            testCom = 1;
+                        }
+
+                        else
+                        {
+                            printDebug("[i] Desactivating command test...")
+                            testCom = 0;
+                        }
+                    }
+
+
+
 
                 }
 
@@ -330,31 +348,37 @@ void* pilotHandler(void* arg)
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
 
-        printf("LAND / TAKEOFF : %f", receivedCommands.commands[LAND_TAKEOFF_CHAN]);
-        printf("MANUAL / AUTO : %f", receivedCommands.commands[AUTO_MANUAL_CHAN]);
+        if (testCom) printf("LAND / TAKEOFF : %f\n", receivedCommands.commands[LAND_TAKEOFF_CHAN - 1]);
+        if (testCom) printf("MANUAL / AUTO : %f\n", receivedCommands.commands[AUTO_MANUAL_CHAN - 1]);
 
 
         if (receivedCommands.commands[LAND_TAKEOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
         {
-            printDebug("[i] User requested takeoff, sending a takeoff order to autopilot");
+            if (testCom) printDebug("[i] User requested takeoff, sending a takeoff order to autopilot");
             previousLandTakeOffCommand = 1;
 
         }
 
         else if (receivedCommands.commands[LAND_TAKEOFF_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
         {
-            printDebug("[i] User requested landing, sending a landing order to autopilot");
+            if (testCom) printDebug("[i] User requested landing, sending a landing order to autopilot");
             previousLandTakeOffCommand = 1;
         }
 
         if (receivedCommands.commands[AUTO_MANUAL_CHAN] > 0.5 && pilotStateShared.pilotMode != MANUAL)
         {
-            printDebug("[i] User requested manual commands, giving user the drone control...");
+            if (testCom) printDebug("[i] User requested manual commands, giving user the drone control...");
         }
 
         else if (receivedCommands.commands[AUTO_MANUAL_CHAN] < 0.5 && pilotStateShared.pilotMode != AUTO)
         {
-            printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
+            if (testCom) printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
+        }
+
+        if (testCom)
+        {
+            flush(stdout);
+            sleep(1);
         }
 
 
@@ -397,9 +421,12 @@ void* pilotHandler(void* arg)
 
         }
 
+
+        writeCommands();
+
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
         pthread_mutex_unlock(&pilotCommandsShared.readWrite);
-        writeCommands();
+        pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
 
 
 
