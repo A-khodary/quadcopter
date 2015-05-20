@@ -179,8 +179,13 @@ int main()
     //pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
     //pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
-    //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
     //pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
+
+    // Sending booting info to datalogger :
+    messageToSend.dataSize=0;
+    strcpy(messageToSend.message, "datalogger_main_info_booting");
+    sendMessage(dataLoggerITMHandler, messageToSend);
 
     while(1)
     {
@@ -207,7 +212,8 @@ int main()
 
 
 
-        // Message redirection area :
+        //              ### Message redirection AREA    ###
+
 
         if(!strcmp(currentDecodedMessage.destination,"autopilot"))
         {
@@ -237,55 +243,166 @@ int main()
 
         else if(!strcmp(currentDecodedMessage.destination,"main"))
         {
+            //      ### MAIN messages processing area       ###
 
-            if(currentDecodedMessage.operation == INFO)
+
+            if (!strcmp(currentDecodedMessage.source, "autopilot"))
             {
-
-
-                if (currentDecodedMessage.message == "emergencylanding") // the autopilot can notify main of such event
+                if(currentDecodedMessage.operation == INFO)
                 {
-                    printDebug("Received order to do an emergency landing, broadcasting to datalogger...");
-                    messageToSend.dataSize=0;
-                    strcpy(messageToSend.message, "datalogger_main_info_emergencylanding");
-                    sendMessage(dataLoggerITMHandler, messageToSend);
+                    // Initialization relative messages :
+
+                    if (!strcmp(currentDecodedMessage.message,"init")) printDebug("[i] Autopilot started its init");
+
+                    else if(!strcmp(currentDecodedMessage.message,"endofinit"))
+                    {
+                        printDebug("[i] Autopilot completed its init");
+                        if (notifyInitSucess(AUTOPILOT))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_ready");
+                            sendMessage(mainITMHandler, messageToSend);
+
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "datalogger_main_info_standby");
+                            sendMessage(dataLoggerITMHandler, messageToSend);
+                        }
+
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.message,"initfailed"))
+                    {
+                        if (notifyInitFailure(AUTOPILOT)) return 1;
+                        printDebug("[e] Autopilot failed its init : this is terrible : no intelligence, restarting the autopilot component...");
+                        pthread_cancel(imuThread);
+                        pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
+                        sleep(1);
+                        pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
+                    }
+
+                    // Autopilot state notification :
+
+                    else if (currentDecodedMessage.message == "engaged") // the autopilot can notify main of such event
+                    {
+                        printDebug("[i] Autopilot engaged !");
+
+                        messageToSend.dataSize=0;
+                        messageToSend.priority = 20;
+                        strcpy(messageToSend.message, "datalogger_main_info_engaged");
+                        sendMessage(pilotITMHandler, messageToSend);
+
+
+                    }
+
+                    else if (currentDecodedMessage.message == "disengaged") // the autopilot can notify main of such event
+                    {
+                        printDebug("[i] Autopilot disengaged !");
+
+                        messageToSend.dataSize=0;
+                        messageToSend.priority = 20;
+                        strcpy(messageToSend.message, "datalogger_main_info_disengaged");
+                        sendMessage(pilotITMHandler, messageToSend);
+                    }
+
+                    else if (currentDecodedMessage.message == "crashed") // the autopilot can notify main of such event
+                    {
+                        printDebug("Quadcopter has crashed");
+                        messageToSend.dataSize=0;
+                        messageToSend.priority = 20;
+                        strcpy(messageToSend.message, "pilot_main_order_cutoff");
+                        sendMessage(pilotITMHandler, messageToSend);
+
+                        // Broadcasting to data logger :
+
+                        strcpy(messageToSend.message, "datalogger_main_info_crashed");
+                        messageToSend.priority = 20;
+                        sendMessage(dataLoggerITMHandler, messageToSend);
+                    }
+
+                    else if (currentDecodedMessage.message == "takeoffed") // the autopilot can notify main of such event
+                    {
+                        printDebug("[i] Autopilot notified sucessfull takeoff");
+                        messageToSend.dataSize=0 ;
+                        messageToSend.priority = 20;
+                        strcpy(messageToSend.message, "datalogger_main_info_takeoffed");
+                        sendMessage(dataLoggerITMHandler, messageToSend);
+                    }
+
+                    else if (currentDecodedMessage.message == "landed") // the autopilot can notify main of such event
+                    {
+                        printDebug("[i] Autopilot notified sucessfull landing");
+                        messageToSend.dataSize=0 ;
+                        messageToSend.priority = 20;
+                        strcpy(messageToSend.message, "datalogger_main_info_landed");
+                        sendMessage(dataLoggerITMHandler, messageToSend);
+                    }
+
+                    else if (currentDecodedMessage.message == "nowork") // the autopilot can notify main of such event
+                    {
+                        printDebug("[i] Autopilot notified to be idle");
+                        messageToSend.dataSize=0 ;
+                        messageToSend.priority = 20;
+                        strcpy(messageToSend.message, "datalogger_main_info_nowork");
+                        sendMessage(dataLoggerITMHandler, messageToSend);
+                    }
+
+                    else if (currentDecodedMessage.message == "objectivereached") // the autopilot can notify main of such event
+                    {
+                        printDebug("[i] Autopilot notified to have reach an objective!");
+                        messageToSend.dataSize=0 ;
+                        messageToSend.priority = 20;
+                        strcpy(messageToSend.message, "datalogger_main_info_objectivereached");
+                        sendMessage(dataLoggerITMHandler, messageToSend);
+                    }
+
+
+
+                    // Autopilot errors :
+
+                    else if (currentDecodedMessage.message == "invalidobjectivepath") // the autopilot can notify main of such event
+                    {
+
+                    }
+
+                    else printDebug("[e] Main received an unknown info from autopilot");
+
+
+
+
+
                 }
 
-                else if (currentDecodedMessage.message == "landed") // the autopilot can notify main of such event
+                else printDebug("[e] Main received an unknown action from autopilot");
+
+            }
+
+            if (!strcmp(currentDecodedMessage.source, "pilot"))
+            {
+                if(currentDecodedMessage.operation == INFO)
                 {
-                    printDebug("Received a landed info, broadcasting to datalogger...");
-                    messageToSend.dataSize=0;
-                    strcpy(messageToSend.message, "datalogger_main_info_landed");
-                    sendMessage(dataLoggerITMHandler, messageToSend);
-                }
+                    // Initialization relative messages :
+                    if (!strcmp(currentDecodedMessage.message,"init")) printDebug("[i] Pilot started its init");
 
-                else if (currentDecodedMessage.message == "crashed") // the autopilot can notify main of such event
-                {
+                    else if(!strcmp(currentDecodedMessage.message,"endofinit"))
+                    {
+                        printDebug("[i] Pilot completed its init");
+                        if (notifyInitSucess(PILOT))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_ready");
+                            sendMessage(mainITMHandler, messageToSend);
 
-                    // TODO
-                    printDebug("Quadcopter has crashed");
-                    messageToSend.dataSize=0;
-                    strcpy(messageToSend.message, "pilot_main_order_cutoff");
-                    sendMessage(mainITMHandler, messageToSend);
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "datalogger_main_info_standby");
+                            sendMessage(dataLoggerITMHandler, messageToSend);
+                        }
+                    }
 
-                }
-
-                else if (currentDecodedMessage.message == "takeoffed") // the autopilot can notify main of such event
-                {
-                    printDebug("Received a takeoffed info, broadcasting to datalogger...");
-                    messageToSend.dataSize=0;
-                    strcpy(messageToSend.message, "datalogger_main_info_takeoffed");
-                    sendMessage(dataLoggerITMHandler, messageToSend);
-
-                }
-
-                else if (currentDecodedMessage.message == "invalidobjectivepath") // the autopilot can notify main of such event
-                {
-                    printDebug("Autopilot have notified main of invalid objective path for autopilot");
-                }
-
-                else if (!strcmp(currentDecodedMessage.message,"initfailed")) // the autopilot can notify main of such event
-                {
-                    if (!strcmp(currentDecodedMessage.source, "pilot"))
+                    else if (!strcmp(currentDecodedMessage.message,"initfailed"))
                     {
                         if (notifyInitFailure(PILOT)) return 1;
                         printDebug("[e] Pilot failed its init : this is terrible : no command, restarting the pilot component...");
@@ -294,18 +411,61 @@ int main()
                         pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
                     }
 
-                    else if (!strcmp(currentDecodedMessage.source, "reader"))
+                    else if (!strcmp(currentDecodedMessage.message,"armed"))
                     {
-                        if (notifyInitFailure(READER)) return 1;
-                        printDebug("[e] Reader failed its init : this is terrible : no user command and no ultrasonic, restarting the reader component...");
-                        pthread_cancel(readerThread);
-                        pthread_join(readerThread, NULL); // Join to cleanup (prevents memory leak)
-                        sleep(1);
-                        pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
-
+                        printDebug("[i] Pilot has notified armed motors");
+                        messageToSend.dataSize=0;
+                        messageToSend.priority=20;
+                        strcpy(messageToSend.message, "datalogger_main_info_armed");
+                        sendMessage(dataLoggerITMHandler, messageToSend);
                     }
 
-                    else if (!strcmp(currentDecodedMessage.source, "imu"))
+                    else if (!strcmp(currentDecodedMessage.message,"disarmed"))
+                    {
+                        printDebug("[i] Pilot has notified disarmed motors");
+                        messageToSend.dataSize=0;
+                        messageToSend.priority=20;
+                        strcpy(messageToSend.message, "datalogger_main_info_disarmed");
+                        sendMessage(dataLoggerITMHandler, messageToSend);
+                    }
+
+                    else printDebug("[e] Main received an unknown info from Pilot");
+
+                }
+
+                else
+                {
+                    printDebug("[e] Main received an unauthorized action from pilot");
+
+                }
+
+            }
+
+            if (!strcmp(currentDecodedMessage.source, "imu"))
+            {
+                if(currentDecodedMessage.operation == INFO)
+                {
+                    // Initialization relative messages :
+                    if (!strcmp(currentDecodedMessage.message,"init")) printDebug("[i] Imu started its init");
+
+                    else if(!strcmp(currentDecodedMessage.message,"endofinit"))
+                {
+                    printDebug("[i] Imu completed its init");
+                        if (notifyInitSucess(IMU))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_ready");
+                            sendMessage(mainITMHandler, messageToSend);
+
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "datalogger_main_info_standby");
+                            sendMessage(dataLoggerITMHandler, messageToSend);
+                        }
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.message,"initfailed"))
                     {
                         if (notifyInitFailure(IMU)) return 1;
                         printDebug("[e] IMU failed its init : this is terrible : no user command and no positionning, restarting the imu component...");
@@ -313,21 +473,90 @@ int main()
                         pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
                         sleep(1);
                         pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
-
                     }
 
-                    else if (!strcmp(currentDecodedMessage.source, "autopilot"))
+                    else printDebug("[e] Main received an unknow info from IMU");
+
+
+                }
+
+                else
+                {
+                    printDebug("[e] Main received an unauthorized action from IMU");
+                }
+
+            }
+
+            if (!strcmp(currentDecodedMessage.source, "reader"))
+            {
+                if(currentDecodedMessage.operation == INFO)
+                {
+                    // Initialization relative messages :
+                    if (!strcmp(currentDecodedMessage.message,"init")) printDebug("[i] Reader started its init");
+
+                    else if(!strcmp(currentDecodedMessage.message,"endofinit"))
                     {
-                        if (notifyInitFailure(AUTOPILOT)) return 1;
-                        printDebug("[e] Autopilot failed its init : this is terrible : no intelligence, restarting the autopilot component...");
-                        pthread_cancel(imuThread);
-                        pthread_join(imuThread, NULL); // Join to cleanup (prevents memory leak)
-                        sleep(1);
-                        pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
+                        printDebug("[i] Reader completed its init");
+                        if (notifyInitSucess(READER))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_ready");
+                            sendMessage(mainITMHandler, messageToSend);
 
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "datalogger_main_info_standby");
+                            sendMessage(dataLoggerITMHandler, messageToSend);
+                        }
                     }
 
-                    else if (!strcmp(currentDecodedMessage.source, "datalogger"))
+                    else if (!strcmp(currentDecodedMessage.message,"initfailed"))
+                    {
+                        if (notifyInitFailure(READER)) return 1;
+                        printDebug("[e] Reader failed its init : this is terrible : no user command and no ultrasonic, restarting the reader component...");
+                        pthread_cancel(readerThread);
+                        pthread_join(readerThread, NULL); // Join to cleanup (prevents memory leak)
+                        sleep(1);
+                        pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+                    }
+
+                    else printDebug("[e] Main received an unknown info from reader");
+
+                }
+
+                else
+                {
+                    printDebug("[e] Main received an unthaurized action from reader");
+                }
+
+            }
+
+            if (!strcmp(currentDecodedMessage.source, "datalogger"))
+            {
+                if(currentDecodedMessage.operation == INFO)
+                {
+                    // Initialization relative messages :
+                    if (!strcmp(currentDecodedMessage.message,"init")) printDebug("[i] Datalogger started its init");
+
+                    else if(!strcmp(currentDecodedMessage.message,"endofinit"))
+                    {
+                        printDebug("[i] Datalogger completed its init");
+                        if (notifyInitSucess(DATALOGGER))
+                        {
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "autopilot_main_order_ready");
+                            sendMessage(mainITMHandler, messageToSend);
+
+                            messageToSend.dataSize=0;
+                            messageToSend.priority=5;
+                            strcpy(messageToSend.message, "datalogger_main_info_standby");
+                            sendMessage(dataLoggerITMHandler, messageToSend);
+                        }
+                    }
+
+                    else if (!strcmp(currentDecodedMessage.message,"initfailed"))
                     {
                         if (notifyInitFailure(DATALOGGER)) return 1;
                         printDebug("[e] Datalogger failed its init : this is terrible : no user command and logging, restarting the datalogger component...");
@@ -338,151 +567,64 @@ int main()
 
                     }
 
+                    else printDebug("[e] Main received an unknown info from datalogger");
 
                 }
 
-                else if (!strcmp(currentDecodedMessage.message,"init")) // the autopilot can notify main of such event
+                else if (currentDecodedMessage.operation == ORDER)
                 {
-                    if (!strcmp(currentDecodedMessage.source, "pilot"))
+                    if (!strcmp(currentDecodedMessage.message, "restartthreadautopilot"))
                     {
-                        printDebug("[i] Pilot started its init");
+                        pthread_cancel(autopilotThread);
+                        pthread_join(autopilotThread,NULL);
+                        pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
+
+                    }
+                    else if (!strcmp(currentDecodedMessage.message, "restartthreaddatalogger"))
+                    {
+                        pthread_cancel(dataLoggerThread);
+                        pthread_join(dataLoggerThread, NULL);
+                        pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
                     }
 
-                    else if (!strcmp(currentDecodedMessage.source, "reader"))
+                    else if (!strcmp(currentDecodedMessage.message, "restartthreadpilot"))
                     {
-                        printDebug("[i] Reader started its init");
+                        pthread_cancel(pilotThread);
+                        pthread_join(pilotThread, NULL);
+                        pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
                     }
 
-                    else if (!strcmp(currentDecodedMessage.source, "datalogger"))
+                    else if (!strcmp(currentDecodedMessage.message, "restartthreadimu"))
                     {
-                        printDebug("[i] Datalogger started its init");
+                        pthread_cancel(imuThread);
+                        pthread_join(imuThread, NULL);
+                        /*
+                        pthread_create(&imuThread, NULL, imuHandler, (void*)&imuBidirectionnalHandler);
+                        */
+                        pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
+
                     }
 
-                    else if (!strcmp(currentDecodedMessage.source, "autopilot"))
+                    else if (!strcmp(currentDecodedMessage.message, "restartthreadreader"))
                     {
-                        printDebug("[i] Autopilot started its init");
+                        pthread_cancel(readerThread);
+                        pthread_join(readerThread, NULL);
+                        pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
                     }
 
-                    else if (!strcmp(currentDecodedMessage.source, "imu"))
-                    {
-                        printDebug("[i] Imu started its init");
-                    }
+                    else printDebug("[e] Main received an unknow order from datalogger");
                 }
-
-                else if (!strcmp(currentDecodedMessage.message,"endofinit")) // The components notify main of such events
-                {
-                    if (!strcmp(currentDecodedMessage.source, "pilot"))
-                    {
-                        printDebug("[i] Pilot completed its init");
-                        if (notifyInitSucess(PILOT))
-                        {
-                            messageToSend.dataSize=0;
-                            messageToSend.priority=5;
-                            strcpy(messageToSend.message, "autopilot_main_order_play");
-                            sendMessage(mainITMHandler, messageToSend);
-                        }
-                    }
-
-                    if (!strcmp(currentDecodedMessage.source, "autopilot"))
-                    {
-                        printDebug("[i] Autopilot completed its init");
-                        if (notifyInitSucess(AUTOPILOT))
-                        {
-                            messageToSend.dataSize=0;
-                            messageToSend.priority=5;
-                            strcpy(messageToSend.message, "autopilot_main_order_play");
-                            sendMessage(mainITMHandler, messageToSend);
-                        }
-                    }
-
-                    if (!strcmp(currentDecodedMessage.source, "reader"))
-                    {
-                        printDebug("[i] Reader completed its init");
-                        if (notifyInitSucess(READER))
-                        {
-                            messageToSend.dataSize=0;
-                            messageToSend.priority=5;
-                            strcpy(messageToSend.message, "autopilot_main_order_play");
-                            sendMessage(mainITMHandler, messageToSend);
-                        }
-                    }
-
-                    if (!strcmp(currentDecodedMessage.source, "datalogger"))
-                    {
-                        printDebug("[i] Datalogger completed its init");
-                        if (notifyInitSucess(DATALOGGER))
-                        {
-                            messageToSend.dataSize=0;
-                            messageToSend.priority=5;
-                            strcpy(messageToSend.message, "autopilot_main_order_play");
-                            sendMessage(mainITMHandler, messageToSend);
-                        }
-                    }
-
-                    if (!strcmp(currentDecodedMessage.source, "imu"))
-                    {
-                        printDebug("[i] IMU completed its init");
-                        if (notifyInitSucess(IMU))
-                        {
-                            messageToSend.dataSize=0;
-                            messageToSend.priority=5;
-                            strcpy(messageToSend.message, "autopilot_main_order_play");
-                            sendMessage(mainITMHandler, messageToSend);
-                        }
-                    }
-
-                }
-
 
                 else
                 {
-                printDebug("[e]Main thread received an INFO message, but its content was not recognized");
-                }
-
-
-            }
-
-            else if (currentDecodedMessage.operation == ORDER)
-            {
-                                if (!strcmp(currentDecodedMessage.message, "restartthreadautopilot"))
-                {
-                    pthread_cancel(autopilotThread);
-                    pthread_join(autopilotThread,NULL);
-                    pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
-
-                }
-                else if (!strcmp(currentDecodedMessage.message, "restartthreaddatalogger"))
-                {
-                    pthread_cancel(dataLoggerThread);
-                    pthread_join(dataLoggerThread, NULL);
-                    pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
-                }
-
-                else if (!strcmp(currentDecodedMessage.message, "restartthreadpilot"))
-                {
-                    pthread_cancel(pilotThread);
-                    pthread_join(pilotThread, NULL);
-                    pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
-                }
-
-                else if (!strcmp(currentDecodedMessage.message, "restartthreadimu"))
-                {
-                    pthread_cancel(imuThread);
-                    pthread_join(imuThread, NULL);
-                    /*
-                    pthread_create(&imuThread, NULL, imuHandler, (void*)&imuBidirectionnalHandler);
-                    */
-                    pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
-
-                }
-
-                else if (!strcmp(currentDecodedMessage.message, "restartthreadreader"))
-                {
-                    pthread_cancel(readerThread);
-                    pthread_join(readerThread, NULL);
-                    pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
+                    printDebug("[e] Main received an unknown operation from datalogger");
                 }
             }
+
+
+
+
+
 
             else
             {

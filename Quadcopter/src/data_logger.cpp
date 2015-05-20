@@ -46,6 +46,11 @@ void* dataLoggerHandler(void* arg)
     int bytes_sent;
     uint8_t buf[BUFFER_LENGTH];
 
+    int heartBeatMode = MAV_MODE_PREFLIGHT;
+    int heartBeatState = MAV_STATE_UNINIT;
+
+    int motorsArmed = 0;
+
     memset(&gcAddr, 0, sizeof(gcAddr));
 	gcAddr.sin_family = AF_INET;
 	gcAddr.sin_addr.s_addr = inet_addr(GCS_IP);
@@ -77,13 +82,13 @@ void* dataLoggerHandler(void* arg)
         // Mavlink Area :
 
         // Senfing heartbeat :
-        printDebug("[i] Sending heartbeat...");
 
-        mavlink_msg_heartbeat_pack(1, 200, &msg, MAV_TYPE_QUADROTOR, MAV_AUTOPILOT_GENERIC, MAV_MODE_AUTO_ARMED, 0, MAV_STATE_BOOT);
+        mavlink_msg_heartbeat_pack(1, 200, &msg, MAV_TYPE_QUADROTOR, MAV_AUTOPILOT_GENERIC, heartBeatMode, 0, heartBeatState);
 		len = mavlink_msg_to_send_buffer(buf, &msg);
 		bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
 
-        sleep(1);
+
+
 
 
 
@@ -122,6 +127,70 @@ void* dataLoggerHandler(void* arg)
                         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
                     }
+
+
+                }
+
+                else if (currentDecoded.operation == INFO)
+                {
+
+                    // System states messages :
+
+                    if (!strcmp(currentDecoded.message, "engaged"))
+                    {
+                        heartBeatState = MAV_STATE_ACTIVE;
+                    }
+
+                    if (!strcmp(currentDecoded.message, "disengaged"))
+                    {
+                        heartBeatState = MAV_STATE_STANDBY;
+                    }
+
+                    if (!strcmp(currentDecoded.message, "crashed"))
+                    {
+                        heartBeatState = MAV_STATE_EMERGENCY;
+                    }
+
+                    // System mode messages :
+
+                    if (!strcmp(currentDecoded.message, "armed"))
+                    {
+                        motorsArmed = 1;
+
+                    }
+
+                    if (!strcmp(currentDecoded.message, "disarmed"))
+                    {
+                        motorsArmed = 0;
+                    }
+
+
+                    if (!strcmp(currentDecoded.message, "takeoffed"))
+                    {
+
+                    }
+
+
+
+                    if (!strcmp(currentDecoded.message, "nowork"))
+                    {
+
+                    }
+
+
+
+
+
+                    // Messages to handle :
+                    // Crashed
+                    // Takeoffed
+                    // Armed
+                    // Disarmed
+                    // Nowork
+                    // engaged
+                    // disengaged
+
+
 
 
                 }
