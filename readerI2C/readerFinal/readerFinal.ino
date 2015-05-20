@@ -12,9 +12,9 @@
 
 
 #define PWM_FREQ 20
-#define GPS_FREQ 5
-#define ULTRASONIC_FREQ 15
-#define VOLTAGE_CURRENT_FREQ 4
+#define GPS_FREQ 1
+#define ULTRASONIC_FREQ 25
+#define VOLTAGE_CURRENT_FREQ 1
 
 int PWMcounter=0;
 int GPScounter=0;
@@ -27,17 +27,19 @@ Timer t;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  PWM Macros
 
-# define RUDDER_PIN 22
-# define THROTTLE_PIN 24
-# define AILERONS_PIN 26
-# define ELEVATOR_PIN 28
-# define AUX1_PIN 32
-# define AUX2_PIN 34
-# define AUX3_PIN 36
-# define AUX4_PIN 38
-# define AUX5_PIN 40
+# define RUDDER_PIN 28
+# define THROTTLE_PIN 26
+# define AIL_PIN 24
+# define ELEV_PIN 22
+# define AUX1_PIN 30
+# define AUX2_PIN 32
+# define AUX3_PIN 34
+# define AUX4_PIN 36
 
-#define PWM_TIMEOUT 1000
+#define PWM_TIMEOUT 20000
+
+#define PWM_MAX 1890
+#define PWM_MIN 1000
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  PWM Global variables :
 
@@ -47,10 +49,10 @@ float pwm1, pwm2, pwm3, pwm4, pwm5, pwm6, pwm7, pwm8, pwm9;
 
 #define MAXIMUM_RANGE 500
 #define MINIMUM_RANGE 4
-#define ULTRASONIC_TIMEOUT 20000
+#define ULTRASONIC_TIMEOUT 30000
 
-#define trigPin 31
-#define echoPin 33
+#define trigPin 43
+#define echoPin 45
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  Voltage and current Macros :
 
@@ -470,40 +472,55 @@ void updatePWM()
 {
   noInterrupts();
   
-  pwm1=pulseIn(RUDDER_PIN, HIGH, PWM_TIMEOUT);
-  pwm2=pulseIn(THROTTLE_PIN, HIGH, PWM_TIMEOUT);
-  pwm3=pulseIn(AILERONS_PIN, HIGH, PWM_TIMEOUT);
-  pwm4=pulseIn(ELEVATOR_PIN, HIGH, PWM_TIMEOUT);
+  pwm1=pulseIn(AIL_PIN, HIGH, PWM_TIMEOUT);
+  pwm2=pulseIn(ELEV_PIN, HIGH, PWM_TIMEOUT);
+  pwm3=pulseIn(THROTTLE_PIN, HIGH, PWM_TIMEOUT);
+  pwm4=pulseIn(RUDDER_PIN, HIGH, PWM_TIMEOUT);
   pwm5=pulseIn(AUX1_PIN, HIGH, PWM_TIMEOUT);
   pwm6=pulseIn(AUX2_PIN, HIGH, PWM_TIMEOUT);
   pwm7=pulseIn(AUX3_PIN, HIGH, PWM_TIMEOUT);
   pwm8=pulseIn(AUX4_PIN, HIGH, PWM_TIMEOUT);
-  pwm9=pulseIn(AUX5_PIN, HIGH, PWM_TIMEOUT);
 
-  pwm1= pwm1*1000/1303;
-  pwm2 = pwm2*1000/1303;
-  pwm3 = pwm3*1000/1303;
-  pwm4 = pwm4*1000/1303;
-  pwm5 = pwm5*1000/1303;
-  pwm6 = pwm6*1000/1303;
-  pwm7 = pwm7*1000/1303;
-  pwm8 = pwm8*1000/1303;
-  pwm9 = pwm9*1000/1303;
+  if (pwm1 != 0) pwm1 = (pwm1 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm1 = -1;
   
-  pwm1= random(1,200)/random(1,50) + 0.0;
+  if (pwm2 != 0) pwm2 = (pwm2 - PWM_MIN ) / ( PWM_MAX - PWM_MIN );
+  else pwm2 = -1;
+  
+  if (pwm3 != 0) pwm3 = (pwm3 - PWM_MIN ) / ( PWM_MAX - PWM_MIN );
+  else pwm3 = -1; 
+  
+  if (pwm4 != 0) pwm4 = (pwm4 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm4 = -1;
+  
+  if (pwm5 != 0) pwm5 = (pwm5 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm5 = -1;
+  
+  if (pwm6 != 0) pwm6 = (pwm6 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm6 = -1;
+  
+  if (pwm7 != 0) pwm7 = (pwm7 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm8 = -1;
+  
+  if (pwm8 != 0) pwm8 = (pwm8 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+  else pwm8 = -1;
+
+
+  interrupts();
 }
 
 void initializePWM()
 {
+  noInterrupts();
+  
    pinMode(RUDDER_PIN, INPUT);
    pinMode(THROTTLE_PIN, INPUT);
-   pinMode(AILERONS_PIN, INPUT);
-   pinMode(ELEVATOR_PIN, INPUT);
+   pinMode(AIL_PIN, INPUT);
+   pinMode(ELEV_PIN, INPUT);
    pinMode(AUX1_PIN, INPUT);
    pinMode(AUX2_PIN, INPUT);
    pinMode(AUX3_PIN, INPUT);
    pinMode(AUX4_PIN, INPUT);
-   pinMode(AUX5_PIN, INPUT);
   
   pwm1 = 0.0;
   pwm2 = 0.0;
@@ -513,7 +530,6 @@ void initializePWM()
   pwm6 = 0.0;
   pwm7 = 0.0;
   pwm8 = 0.0;
-  pwm9 = 0.0;
   
   interrupts();
 }
@@ -530,8 +546,6 @@ void sendPWM()
   Serial.print("pwm6="); Serial.print(pwm6); Serial.print("_");
   Serial.print("pwm7="); Serial.print(pwm7); Serial.print("_");
   Serial.print("pwm8="); Serial.print(pwm8); Serial.print("_");
-  Serial.print("pwm9="); Serial.print(pwm9); Serial.print("_");
-  
   
   interrupts();
 }

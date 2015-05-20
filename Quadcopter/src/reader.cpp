@@ -30,6 +30,7 @@ void* readerHandler(void* arg)
     float ultrasonic=0;
     float ultrasonicTemp=0;
     int testpwm = 0;
+    int testUltrasonic = 0;
 
 
     bidirectionnalHandler_t* bidirectionnalHandler;
@@ -52,7 +53,7 @@ void* readerHandler(void* arg)
     char *data;
     char *numb;
     char data_c[16];
-    char numb_c[16];
+    char numb_c[16]; // Disarming motors on startup to patch armed motors bug :
     int i;
     int finished, started, j, k, number = 0;
 
@@ -63,7 +64,7 @@ void* readerHandler(void* arg)
     sendMessage(mainITMHandler, currentMessage);
 
 
-
+    initialize_mutex(&receivedCommands.readWriteMutex);
     pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
 
@@ -117,7 +118,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw1 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[0] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 1 :%f\n", receivedCommands.commands[0]);
+                            //if (testpwm) printf("[i] PWM 1 :%f\n", receivedCommands.commands[0]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -126,7 +127,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw2 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[1] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 2 :%f\n", receivedCommands.commands[1]);
+                            //if (testpwm) printf("[i] PWM 2 :%f\n", receivedCommands.commands[1]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -135,7 +136,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw3 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[2] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 3 :%f\n", receivedCommands.commands[2]);
+                            //if (testpwm) printf("[i] PWM 3 :%f\n", receivedCommands.commands[2]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -144,7 +145,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw4 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[3] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 4 :%f\n", receivedCommands.commands[3]);
+                            //if (testpwm) printf("[i] PWM 4 :%f\n", receivedCommands.commands[3]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -171,7 +172,7 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw7 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[6] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 7 :%f\n", receivedCommands.commands[6]);
+                            //if (testpwm) printf("[i] PWM 7 :%f\n", receivedCommands.commands[6]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -180,31 +181,25 @@ void* readerHandler(void* arg)
                             //printDebug("[i] Got pw8 value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             receivedCommands.commands[7] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 8 :%f\n", receivedCommands.commands[7]);
+                            //if (testpwm) printf("[i] PWM 8 :%f\n", receivedCommands.commands[7]);
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
-                        else if (!strcmp(data, "pwm9"))
-                        {
-                            //printDebug("[i] Got pw9 value");
-                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
-                            receivedCommands.commands[8] = strtof(numb, NULL);
-                            if (testpwm) printf("[i] PWM 9 :%f\n", receivedCommands.commands[8]);
-                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
-                        }
 
                         else if (!strcmp(data, "ultradist"))
                         {
                             ultrasonicTemp = strtof(numb, NULL);
-                            if (ultrasonicTemp != -1) ultrasonic = ultrasonicTemp;
+                            ultrasonic = ultrasonicTemp;
+                            //if (testUltrasonic) printf("[i] Ultrasonic :%f\n", ultrasonicTemp);
                         }
 
                         else if (!strcmp(data, "status"))
                         {
-                            //printDebug("[i] Got ultrasonic value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
                             if (!strcmp(numb, "fix")) receivedCommands.gpsStatus = FIX;
                             if (!strcmp(numb, "nofix")) receivedCommands.gpsStatus = NO_FIX;
+
+                            //if (testpwm) printf("Got GPS Status : %d\n", receivedCommands.gpsStatus);
 
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
@@ -233,7 +228,32 @@ void* readerHandler(void* arg)
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
-                        if(testpwm) sleep(2);
+                        else if (!strcmp(data, "voltage"))
+                        {
+                            //printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.voltage = strtof(numb, NULL);
+
+                            //if (testpwm) printf("Got voltage : %f\n", receivedCommands.voltage);
+
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+
+                        }
+
+                        else if (!strcmp(data, "current"))
+                        {
+                            //printDebug("[i] Got ultrasonic value");
+                            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                            receivedCommands.current = strtof(numb, NULL);
+
+                            //if (testpwm) printf("Got current : %f\n", receivedCommands.current);
+
+                            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+                        }
+
+
+
+                        //if(testpwm) sleep(1);
 
 
 
@@ -278,8 +298,13 @@ void* readerHandler(void* arg)
             {
                 printDebug("[e] Something strange in reader : asked to turn on an already on ultrasonic");
             }
+            else printDebug("[i] Turning ultrasonic filtering on");
             ultrasonicSampleList = initUltrasonic();
             isUltrasonicOn = 1;
+
+            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+            receivedCommands.ultrasonicTelemeter = -1;
+            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
         }
 
         else if (!strcmp(currentDecoded.message, "ultrasonicoff"))
@@ -288,8 +313,13 @@ void* readerHandler(void* arg)
             {
                 printDebug("[e] Something strange in reader : asked to turn off an already off ultrasonic");
             }
+            else printDebug("[i] Turning ultrasonic filtering off");
             shutdownUltrasonic(ultrasonicSampleList);
             isUltrasonicOn = 0;
+
+            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+            receivedCommands.ultrasonicTelemeter = -1;
+            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
         }
 
          else if (!strcmp(currentDecoded.message, "testpwm"))
@@ -308,6 +338,22 @@ void* readerHandler(void* arg)
              }
          }
 
+         else if (!strcmp(currentDecoded.message, "testultrasonic"))
+         {
+             if (!testUltrasonic)
+             {
+                 testUltrasonic = 1;
+                 printDebug("[i] Turning on ultrasonic test");
+
+             }
+
+             else
+             {
+                 testUltrasonic = 0;
+                 printDebug("[i] Turning off ultrasonic reading test");
+             }
+         }
+
 
 
 }
@@ -315,17 +361,28 @@ void* readerHandler(void* arg)
 
         if (isUltrasonicOn)
         {
-            addToSampleList(ultrasonic, ultrasonicSampleList);
+            if (ultrasonic != -1) addToSampleList(ultrasonic, ultrasonicSampleList);
             ultrasonicTemp = getFilteredUltrasonic(*ultrasonicSampleList);
+
+            pthread_mutex_lock(&receivedCommands.readWriteMutex);
+
             if (ultrasonicTemp != -1)
             {
                 filteredValue = ultrasonicTemp;
-                pthread_mutex_lock(&receivedCommands.readWriteMutex);
+                if (testUltrasonic) printDebug("[i]New ultrasonic filtered value");
+                if (testUltrasonic) printf("%f\n", filteredValue);
 
                 receivedCommands.ultrasonicTelemeter = filteredValue;
 
-                pthread_mutex_lock(&receivedCommands.readWriteMutex);
+
             }
+            else
+            {
+                if(testUltrasonic) printDebug("Not enough elements in sample list");
+                receivedCommands.ultrasonicTelemeter = -1;
+            }
+
+            pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
 
         }
@@ -392,6 +449,11 @@ int comp(const void *a, const void *b)
     int *x = (int *) a;
     int *y = (int *) b;
     return *x - *y;
+}
+
+int notifyPwmChannelNull()
+{
+    return 0;
 }
 
 

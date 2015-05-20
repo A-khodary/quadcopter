@@ -15,7 +15,7 @@
 
 //Some defines relative to the median filtering of the ultrasonic sensor :
 
-#define SAMPLESIZE 256 // NEED TO BE A PAIR NUMBER
+#define SAMPLESIZE 32 // NEED TO BE A PAIR NUMBER
 
 // Functions prototypes :
 
@@ -40,6 +40,7 @@ void addToSampleList(float sample, sampleList_t* sampleList);
 float getFilteredUltrasonic(sampleList_t sampleList);
 void shutdownUltrasonic(sampleList_t* sampleList);
 int comp(const void *a, const void *b);
+int notifyPwmChannelNull();
 
 
 

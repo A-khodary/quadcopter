@@ -22,6 +22,9 @@ typedef struct  receivedCommandsShared_t {
         float longitude;
         float altitude;
 
+        float voltage;
+        float current;
+
 
         pthread_mutex_t readWriteMutex;
 

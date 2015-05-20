@@ -49,6 +49,9 @@ void* imuHandler(void* arg)
     double latitude;
     double longitude;
 
+    double xRaw;
+    double yRaw;
+
     double xComputed;
     double yComputed;
 
@@ -268,13 +271,14 @@ void* imuHandler(void* arg)
 
         // Position calculation area :
 
-        pthread_mutex_lock(&receivedCommands.readWriteMutex);
+        pthread_mutext_lock(&receivedCommands.readWriteMutex);
 
         latitude = receivedCommands.latitude;
         longitude = receivedCommands.longitude;
 
-        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
+        pthread_mutext_unlock(&receivedCommands.readWriteMutex);
 
+        convertPlanar(&xRaw, &yRaw, latitude, longitude);
         convertPlanarToHome(&xComputed, &yComputed, latitude, longitude);
 
         if (DISPLAY_GPS)
@@ -301,7 +305,7 @@ void* imuHandler(void* arg)
         rawPositionShared.latitude = receivedCommands.latitude;
 
         positionShared.x = xComputed;
-        positionShared.y = yComputed;
+        positionShared.y = y;
         positionShared.z = altitude;
 
         pthread_mutex_unlock(&flightStateShared.readWriteMutex);

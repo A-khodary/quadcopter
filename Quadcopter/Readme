@@ -1,0 +1,184 @@
+/*
+###############################################
+#                                                                               #
+#   Quadcopter V0.0                                                   #
+#   Vivien Billaud and Nicolas de Maubeuge                  #
+#   Ensea 2014                                                          #
+#   All rights reserved                                                 #
+#                                                                              #
+##############################################
+
+
+*/
+
+
+
+The project is composed of several threads which communicates with a main thread called quadcopter via a system of message
+
+The threads are :
+
+	quadcopter : main thread which manages others threads
+
+	autopilot : has several modes with objectives given by the user (via code or the transmitter) (The servo control is ensured via PID)
+
+	pilot : deals with commands sended from the transmitter
+
+	reader : retrieves data from several devices
+
+	data_logger : send data to the ground interface (MAVLINK)
+
+	imu : retrieves position and in-flight data from an MPU and others sensors
+
+Communication between threads :
+
+	The threads communicate via a system of message implemented in the file "inter-thread-messages.cpp".
+
+	The communication between threads is also ensured by global variables.
+
+Librairies and API :
+
+	The project uses several library such as POSIX Threads, i2c libraries (wiringPi and libi2c-dev) and a projection library (proj_api).
+
+	The directory "RTIMULib" and the directory "IMUDrivers" in it gather the file from the library RTIMULib from richards-tech.
+
+	The ground control interface is MAVLINK.
+
+NB : The file shared_librairies.h gathers all needed librairies in order to run the project
+
+Run :
+
+	The project can be run with the executable in the directory "build" or "build/RELEASE/"
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Components :
+
+	MPU650 + HMC5883L + MS5611 (IMU)
+	PCA9685 (pwm driver)
+	Arduino Mega 2560
+	Raspberry Pi model B+
+	HC-SR04 (ultrasonic sensor)
+	NEO6-M (GPS)
+	Turnigy 9X 9Ch Transmitter w/ Module & 8ch Receiver (Mode 2) (v2 Firmware)
+	Logic voltage adpatator
+	KK board 2 (flight controler)
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Objective model :
+
+	ObjectiveName ObjectiveCode ObjectiveDestinationLat ObjectiveDestinationLong ObjectiveDestinationAlt ObjectiveMaxSpeed
+
+with :
+
+	ObjectiveCode = GOTO_STANDARD/GOTO_HOVERING/LAND_TAKEOFF/POSITION_HOLD
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Message model :
+
+	destination_source_operation_message
+
+with :
+
+	destination/source = main/datalogger/reader/imu/pilot/autopilot
+
+operation = info/order/answ (int)
+          = 1/2/3
+
+message = char[64]
+
+------------------------------------------------------------------------------------------------------------------------
+
+List of messages (with their priority in descending order (the less the more important)) :
+
+	for all threads :
+
+		send :
+
+            info_init
+            info_initfailed
+            info_endofinit
+
+	autopilot :
+
+		send :
+
+            info_objectivefilenotfound
+            info_invalidobjectivepath
+
+            info_objectivecompleted
+
+            info_landed
+            info_crashed
+            info_takeoffed
+
+		received :
+
+            info_newobjective
+
+            order_emergencylanding
+            order_landing
+            order_play
+            order_pause
+
+
+
+
+
+	quadcopter :
+
+        received :
+
+            order_restartthreadautopilot
+            order_restartthreadpilot
+            order_restartthreaddatalogger
+            order_restartthreadimu
+            order_restartthreadreader
+
+
+	reader :
+
+
+		send :
+
+
+
+
+		receive :
+
+			order_ultrasonicon
+			order_ultrasonicoff
+			order_testpwm
+			order_testreader
+
+
+	pilot :
+
+		send :
+
+			info_init
+			info_endofinit
+			info_initfailed
+
+			info_userauto
+			info_usermanual
+			info_userland
+			info_usertakeoff
+
+		receive :
+
+			order_manual
+			order_auto
+
+			order_arm
+			order_disarm
+
+			order_test
+			order_testcommands
+			order_increasepwm
+			order_decreasepwm
+
+
+

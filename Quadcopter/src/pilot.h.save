@@ -9,7 +9,7 @@
 #ifndef PILOT_h
 #define PILOT_h
 
-#define PILOT_REFRESHING_PERIOD_MS 100
+#define PILO_REFRESHING_PERIOD 
 
 
 void writeCommands();

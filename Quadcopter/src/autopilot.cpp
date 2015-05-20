@@ -16,7 +16,8 @@
 
 float landTakeOffCoeff[4][3]; // PID coefficients for Land/Takeoff
 float gotoStandardCoeff[3][3]; // PID coefficients for goto_standard
-float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
+//float gotoHoverCoeff[4][3]; // PID coefficients for goto_hovering
+float gotoHoverCoeff[3][3]; // PID coefficients for goto_hovering
 float positionHoldCoeff[3][3]; // PID coefficients for position_hold
 
 autopilotSharedState_t autopilotSharedState;
@@ -65,7 +66,7 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
         //Unlocking mutex now we don't need the position anymore :
         pthread_mutex_unlock(&positionShared.readWriteMutex);
 
-        ServoControlData[2]->consign = autopilotObjective->destinationZ;
+        ServoControlData[2]->consign = autopilotObjective->destinationZ + OFFSETZ;
         ServoControlData[3]->consign = autopilotObjective->directionBearing;
 
         for (i=0 ; i < oneWayNumber ; i++)
@@ -103,15 +104,19 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
         // Basic initialization of commands :
         strcpy(ServoControlData[0]->type, "z");
         strcpy(ServoControlData[1]->type, "yaw");
-        strcpy(ServoControlData[2]->type, "dist");//none asserv on x or y => deviation ??
+        strcpy(ServoControlData[2]->type, "dist");
 
-
+/*
         // Dealing with altitude :
-        //locking position mutex in order to get position
+        //locking position mutex in order to get position assuming the previous mode was LAND_TAKEOFF and that the quadcopter is at the same altitude that the objective
         pthread_mutex_lock(&positionShared.readWriteMutex);
         ServoControlData[0]->consign = positionShared.z;
         //Unlocking mutex now we don't need the position anymore :
         pthread_mutex_unlock(&positionShared.readWriteMutex);
+*/
+
+        // Dealing with altitude :
+        ServoControlData[0]->consign = autopilotObjective->destinationZ;
         //Linking distance and bearing to the autopilot Objective ones :
         ServoControlData[1]->consign = autopilotObjective->directionBearing;
 
@@ -139,7 +144,7 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
 
         break;
 
-    case GOTO_HOVERING: //mode GOTO_HOVERING
+/*    case GOTO_HOVERING: //mode GOTO_HOVERING
 
         oneWayNumber = 4;
 
@@ -158,6 +163,54 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
         ServoControlData[1]->consign = autopilotObjective->destinationY;
         ServoControlData[2]->consign = autopilotObjective->directionBearing;
         ServoControlData[3]->consign = autopilotObjective->destinationDistXY;
+
+        for (i=0 ; i < oneWayNumber ; i++)
+        {
+
+            for (j=0 ; j < 3 ; j++)
+            {
+                // Filling-in coefficients :
+                if (j==0) ServoControlData[i]->kp = gotoHoverCoeff[i][j];
+                if (j==1) ServoControlData[i]->kd = gotoHoverCoeff[i][j];
+                if (j==2) ServoControlData[i]->ki = gotoHoverCoeff[i][j];
+
+            }
+
+            // Creating the PID instance :
+
+
+            ServoControlData[i]->pid = new PID;
+            ServoControlData[i]->pid->setConstants(ServoControlData[i]->kp, ServoControlData[i]->ki, ServoControlData[i]->kd);
+
+        }
+
+
+        break;
+*/
+
+    case GOTO_HOVERING: //mode GOTO_HOVERING
+
+        oneWayNumber = 3;
+
+        for (i=0; i< 3; i++);
+        {
+            ServoControlData[i] = new oneWayServoControl_t;
+        }
+
+        // Basic initialization of commands :
+        strcpy(ServoControlData[0]->type, "z");
+        strcpy(ServoControlData[1]->type, "yaw");
+        strcpy(ServoControlData[2]->type, "dist");
+
+        // Dealing with altitude :
+        //locking position mutex in order to get position assuming the previous mode was LAND_TAKEOFF and that the quadcopter is at the same altitude that the objective
+        pthread_mutex_lock(&positionShared.readWriteMutex);
+        ServoControlData[0]->consign = positionShared.z;
+        //Unlocking mutex now we don't need the position anymore :
+        pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+        ServoControlData[1]->consign = autopilotObjective->directionBearing;
+        ServoControlData[2]->consign = autopilotObjective->destinationDistXY;
 
         for (i=0 ; i < oneWayNumber ; i++)
         {
@@ -203,7 +256,6 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
         ServoControlData[0]->consign = positionShared.x;
         ServoControlData[1]->consign = positionShared.y;
         ServoControlData[2]->consign = positionShared.z;
-
 
         //Unlocking mutex now we don't need the position anymore :
         pthread_mutex_unlock(&positionShared.readWriteMutex);
@@ -291,7 +343,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
             pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
-            pilotCommandsShared.chan1 = command; //TODO : identify the right channel
+            pilotCommandsShared.chan4 = command;
 
             //We're done, unlocking the mutex :
             pthread_mutex_unlock(&pilotCommandsShared.readWrite);
@@ -386,7 +438,7 @@ void servoControl_t::makeAsserv(autopilotObjective_t* relativeObjective)
 
             pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
-            pilotCommandsShared.chan4 = command; //TODO : identify the right channel (GAZ)
+            pilotCommandsShared.chan3 = command;
 
             //We're done, unlocking the mutex :
             pthread_mutex_unlock(&pilotCommandsShared.readWrite);
@@ -439,7 +491,7 @@ oneWayServoControl_t::~oneWayServoControl_t()
     //dtor
 }
 
-int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
     autopilotObjective_t* lastObjective;
@@ -449,16 +501,17 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
     // Dynamic copy of the parameter :
 
     autopilotObjective_t* objective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
-    objective = objectiveToInsert;
+    *objective = *objectiveToInsert;
 
     // Checking if fifo is empty :
 
-    if (autopilotObjectiveFifo.firstObjective == NULL)
+    if (autopilotObjectiveFifo->firstObjective == NULL)
     {
-        autopilotObjectiveFifo.firstObjective = objective;
+        autopilotObjectiveFifo->firstObjective = objective;
         objective->previousObjective = NULL;
         objective->nextObjective = NULL;
-        autopilotObjectiveFifo.numberOfObjectivesPending++;
+        autopilotObjectiveFifo->numberOfObjectivesPending++;
+        autopilotObjectiveFifo->currentObjectivePriority = objective->priority;
 
         return 1;
 
@@ -467,7 +520,7 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
 
     // Locating last objective :
 
-    currentObjective = autopilotObjectiveFifo.firstObjective;
+    currentObjective = autopilotObjectiveFifo->firstObjective;
     while (currentObjective->nextObjective != NULL) currentObjective = currentObjective->nextObjective;
     lastObjective = currentObjective;
 
@@ -484,7 +537,7 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
         if (currentObjective->previousObjective == NULL) // In case we have reached the first element of the fifo
         {
             currentObjective->previousObjective = objective;
-            autopilotObjectiveFifo.firstObjective = objective;
+            autopilotObjectiveFifo->firstObjective = objective;
             objective->previousObjective = NULL;
             objective->nextObjective = currentObjective;
         }
@@ -510,18 +563,20 @@ int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveF
         lastObjective->nextObjective = objective;
     }
 
-    autopilotObjectiveFifo.numberOfObjectivesPending++;
+    autopilotObjectiveFifo->numberOfObjectivesPending++;
+    autopilotObjectiveFifo->currentObjectivePriority = autopilotObjectiveFifo->firstObjective->priority;
+
     //printf("Sended new objective not as first element :%s\n", objective->objective);
 
     return 0;
 }
 
 
-int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
 
-    if (autopilotObjectiveFifo.numberOfObjectivesPending < objectiveNumber)
+    if (autopilotObjectiveFifo->numberOfObjectivesPending < objectiveNumber)
     {
         printDebug("[e] Autopilot : there is objectives less than asked");
         return -1;
@@ -532,7 +587,7 @@ int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_
         if (objectiveNumber == 0)  removeCurrentObjective(autopilotObjectiveFifo);
         else
         {
-            currentObjective = autopilotObjectiveFifo.firstObjective;
+            currentObjective = autopilotObjectiveFifo->firstObjective;
 
             for (int i=0; i <= objectiveNumber; i++)
             {
@@ -545,67 +600,68 @@ int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_
             currentObjective->previousObjective = NULL;
             currentObjective->nextObjective = NULL;
             freeAutopilotObjective(currentObjective);
-            autopilotObjectiveFifo.numberOfObjectivesPending--;
+            autopilotObjectiveFifo->numberOfObjectivesPending--;
 
             return 0;
         }
     }
 }
 
-int flushFifo(autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int flushFifo(autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
-    if (autopilotObjectiveFifo.numberOfObjectivesPending !=0)
+    if (autopilotObjectiveFifo->numberOfObjectivesPending !=0)
     {
 
         autopilotObjective_t* currentObjective;
         autopilotObjective_t* nextCurrentObjective;
 
-        currentObjective =  autopilotObjectiveFifo.firstObjective;
+        currentObjective =  autopilotObjectiveFifo->firstObjective;
 
         while(currentObjective != NULL)
         {
             nextCurrentObjective = currentObjective->nextObjective;
             free(currentObjective); // Freiing the ressources
-            autopilotObjectiveFifo.numberOfObjectivesPending--;
+            autopilotObjectiveFifo->numberOfObjectivesPending--;
 
             currentObjective = nextCurrentObjective;
 
         }
-        autopilotObjectiveFifo.firstObjective = NULL;
-        autopilotObjectiveFifo.currentObjectivePriority = 0;
+        autopilotObjectiveFifo->firstObjective = NULL;
+        autopilotObjectiveFifo->currentObjectivePriority = 0;
         return 1;
     }
     else return -1;
 }
 
-autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo)
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
-    return autopilotObjectiveFifo.firstObjective;
+    autopilotObjectiveFifo->currentObjectivePriority = autopilotObjectiveFifo->firstObjective->priority;
+    return autopilotObjectiveFifo->firstObjective;
 }
 
 
-int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo)
+int removeCurrentObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* objective;
-    objective = autopilotObjectiveFifo.firstObjective->nextObjective;
+    objective = autopilotObjectiveFifo->firstObjective->nextObjective;
 
-    autopilotObjectiveFifo.firstObjective->nextObjective->previousObjective = NULL;
-    freeAutopilotObjective(autopilotObjectiveFifo.firstObjective);
+    autopilotObjectiveFifo->firstObjective->nextObjective->previousObjective = NULL;
+    freeAutopilotObjective(autopilotObjectiveFifo->firstObjective);
 
-    autopilotObjectiveFifo.firstObjective = objective;
-    autopilotObjectiveFifo.numberOfObjectivesPending--;
-    autopilotObjectiveFifo.currentObjectivePriority = autopilotObjectiveFifo.firstObjective->priority; //TODO : clarify priorities
+    autopilotObjectiveFifo->firstObjective = objective;
+    autopilotObjectiveFifo->numberOfObjectivesPending--;
+    autopilotObjectiveFifo->currentObjectivePriority = autopilotObjectiveFifo->firstObjective->priority; //TODO : clarify priorities
     return 1;
 }
 
 
-autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
 
 
 
-    if (autopilotObjectiveFifo.numberOfObjectivesPending < objectiveNumber)
+    if (autopilotObjectiveFifo->numberOfObjectivesPending < objectiveNumber)
     {
         printDebug("[e] Autopilot : not as many objectives as asked");
         return NULL;
@@ -613,10 +669,10 @@ autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopil
     else
     {
 
-        if (objectiveNumber == 0)  return autopilotObjectiveFifo.firstObjective;
+        if (objectiveNumber == 0)  return autopilotObjectiveFifo->firstObjective;
         else
         {
-            currentObjective = autopilotObjectiveFifo.firstObjective;
+            currentObjective = autopilotObjectiveFifo->firstObjective;
 
             for (int i=0; i <= objectiveNumber; i++)
             {
@@ -630,10 +686,10 @@ autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopil
 }
 
 
-autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo)
+autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t* autopilotObjectiveFifo)
 {
     autopilotObjective_t* currentObjective;
-    currentObjective = autopilotObjectiveFifo.firstObjective;
+    currentObjective = autopilotObjectiveFifo->firstObjective;
 
     int i = 1;
 
@@ -698,6 +754,27 @@ int updateCalculation(autopilotObjective_t* autopilotObjective)
     //Now we're done, unlocking the position mutex :
     pthread_mutex_unlock(&positionShared.readWriteMutex);
 
+    //TODO : algotithme de modification de maxspeedXY en fonction de la distance restante
+
+   /*if(autopilotObjective->destinationDistXY>)
+    {
+        autopilotObjective->maxSpeedXY = ;
+    }
+    else if(autopilotObjective->destinationDistXY>&&autopilotObjective->destinationDistXY<)
+    {
+        autopilotObjective->maxSpeedXY =;
+    }
+
+   if(autopilotObjective->destinationDist>)
+    {
+        autopilotObjective->maxSpeed = ;
+    }
+    else if(autopilotObjective->destinationDist>&&autopilotObjective->destinationDist<)
+    {
+        autopilotObjective->maxSpeed =;
+    }
+*/
+
     //Objective reaching determination :
 
     if (autopilotObjective->destinationDist == 0)
@@ -707,17 +784,8 @@ int updateCalculation(autopilotObjective_t* autopilotObjective)
 
     else return 0;
 
-    //TODO : algotithme de modification de maxspeed en fonction de la distance restante
 
-   /* if(autopilotObjective->destinationDistXY>)
-    {
-        autopilotObjective->maxSpeed =;
-    }
-    else if(autopilotObjective->destinationDistXY>&&autopilotObjective->destinationDistXY<)
-    {
-        autopilotObjective->maxSpeed =;
-    }
-    */
+
 } // For now just computes the bearing and several distances, will modify max_speed in the future relative to distance to objective. Returns a boolean that indicates when objective is reached
 
 
@@ -783,7 +851,7 @@ void* autopilotHandler(void* arg)
     landTakeOffCoeff[3][1]=LANDTAKEOFFYAWPD;
     landTakeOffCoeff[3][2]=LANDTAKEOFFYAWPI;
 
-    gotoHoverCoeff[0][0]=GOTOHOVERXP;
+/*  gotoHoverCoeff[0][0]=GOTOHOVERXP;
     gotoHoverCoeff[0][1]=GOTOHOVERXPD;
     gotoHoverCoeff[0][2]=GOTOHOVERXPI;
 
@@ -798,6 +866,19 @@ void* autopilotHandler(void* arg)
     gotoHoverCoeff[3][0]=GOTOHOVERDISTP;
     gotoHoverCoeff[3][1]=GOTOHOVERDISTPD;
     gotoHoverCoeff[3][2]=GOTOHOVERDISTPI;
+*/
+
+    gotoHoverCoeff[0][0]=GOTOHOVERZP;
+    gotoHoverCoeff[0][1]=GOTOHOVERZPD;
+    gotoHoverCoeff[0][2]=GOTOHOVERZPI;
+
+    gotoHoverCoeff[1][0]=GOTOHOVERYAWP;
+    gotoHoverCoeff[1][1]=GOTOHOVERYAWPD;
+    gotoHoverCoeff[1][2]=GOTOHOVERYAWPI;
+
+    gotoHoverCoeff[2][0]=GOTOHOVERDISTP;
+    gotoHoverCoeff[2][1]=GOTOHOVERDISTPD;
+    gotoHoverCoeff[2][2]=GOTOHOVERDISTPI;
 
     gotoStandardCoeff[0][0]=GOTOSTANDARDZP;
     gotoStandardCoeff[0][1]=GOTOSTANDARDZPD;
@@ -823,7 +904,7 @@ void* autopilotHandler(void* arg)
     positionHoldCoeff[2][1]=POSITIONHOLDZPD;
     positionHoldCoeff[2][2]=POSITIONHOLDZPI;
 
-    // State initializatin :
+    // State initialization :
 
     initialize_mutex(&autopilotSharedState.readWrite);
     pthread_mutex_lock(&autopilotSharedState.readWrite);
@@ -832,7 +913,6 @@ void* autopilotHandler(void* arg)
 
     autopilotSharedState.landed = 1;  // Assuming we're landed on startup, TODO : actualize in case of in-flight relaunch
     autopilotSharedState.crashed = 0;
-    autopilotSharedState.stressLevel = 1;
     autopilotSharedState.stressLevel = 1;
     autopilotSharedState.currentObjectivePriority = 0;
 
@@ -859,7 +939,7 @@ void* autopilotHandler(void* arg)
 
     // File reading for basic configuration
 
-    writtenObjectives = fopen(OBJECTIVES_PATH,"r");
+    writtenObjectives = fopen("objectives.txt","r");
     fprintf(stderr, "%s\n", strerror(errno));
 
     if (writtenObjectives == NULL)
@@ -871,7 +951,7 @@ void* autopilotHandler(void* arg)
     }
     else
     {
-        while (fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != 0)
+        while (feof(writtenObjectives)==0 &&fscanf(writtenObjectives, "%s %d %lf %lf %lf %lf", readObjectiveName, &readObjectiveCode, &readObjectiveDestinationLat, &readObjectiveDestinationLong, &readObjectiveDestinationAlt, &readObjectiveMaxSpeed) != EOF)
         {
             // Verifying the readed objective :
             if ((readObjectiveCode == GOTO_STANDARD) || (readObjectiveCode == GOTO_HOVERING) || (readObjectiveCode == LAND_TAKEOFF) || (readObjectiveCode == POSITION_HOLD))
@@ -879,25 +959,31 @@ void* autopilotHandler(void* arg)
                 if ((readObjectiveDestinationLat >= 0) && (readObjectiveDestinationLong >= 0) && (readObjectiveDestinationAlt >= 0) && (readObjectiveMaxSpeed >= 0))
                 {
                     // Now we're clear, we have to fill in the readObjective strucuture
+
+                    strcpy(readObjective.name,readObjectiveName);
                     readObjective.code = readObjectiveCode;
                     readObjective.destinationLat = readObjectiveDestinationLat;
                     readObjective.destinationLong = readObjectiveDestinationLong;
                     readObjective.destinationAlt = readObjectiveDestinationAlt;
                     readObjective.maxSpeed = readObjectiveMaxSpeed;
+                    readObjective.maxSpeedXY = readObjectiveMaxSpeed;//assuming this maxspeed is the same
+                    readObjective.priority = 1; //assuming same priority for each objectives in objectives.txt
 
                     // Now we add the objective to the fifo
-                    if (insertObjective(&readObjective, autopilotObjectiveFifo))
+                    if (insertObjective(&readObjective, &autopilotObjectiveFifo))
                     {
                         printDebug("[i] Insertion of a new autopilot objective success !");
                         lineNumber++;
                     }
                     else printDebug("[e] Insertion of a new autopilot objective error");
                 }
-
-
+                else printDebug("[e] Wrong objective code");
 
             }
+            else printDebug("[e] Wrong parameters");
+
             printDebug("[i] Objectives added to Autopilot FIFO");
+
             lineNumber = 0;
         }
     }
@@ -919,7 +1005,7 @@ void* autopilotHandler(void* arg)
         {
 
 
-            currentObjective = readCurrentObjective(autopilotObjectiveFifo);
+            currentObjective = readCurrentObjective(&autopilotObjectiveFifo);
             if (currentObjective == NULL)
             {
                 // If we don't have any objective :
@@ -933,6 +1019,13 @@ void* autopilotHandler(void* arg)
                         printDebug("[i] Autopilot was put in pause due to landed state and no objective");
 
                     }
+                    else
+                    {
+                        printDebug("[i] Quadcopter has crashed");
+                        //end autopilot thread from here/via message sended to main thread ?
+                    }
+
+
 
                 }
                 else
@@ -1040,7 +1133,7 @@ void* autopilotHandler(void* arg)
                             {
                                 printDebug("[i] We've got a new objective, but its priority was not to high so we inserted it in the fifo");
                                 //TODO : insert objective
-                                insertObjective(insertedObjective, autopilotObjectiveFifo);
+                                insertObjective(insertedObjective, &autopilotObjectiveFifo);
 
                             }
 
