@@ -179,13 +179,9 @@ int main()
     pthread_create(&readerThread, NULL, readerHandler, (void*)&readerBidirectionnalHandler);
     pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
-<<<<<<< HEAD
     pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
-    //pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
-=======
-    //pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
     pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
->>>>>>> 1e0b609f7c038aa4e5a8847c384d5fcb06164342
+
 
     // Sending booting info to datalogger :
     messageToSend.dataSize=0;
@@ -574,12 +570,10 @@ int main()
 
                     else printDebug("[e] Main received an unknown info from datalogger");
 
-<<<<<<< HEAD
-=======
+
                 else
                 {
                     printDebug("[e]Main thread received an INFO message, but its content was not recognized");
->>>>>>> 1e0b609f7c038aa4e5a8847c384d5fcb06164342
                 }
 
                 else if (currentDecodedMessage.operation == ORDER)
