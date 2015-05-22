@@ -27,12 +27,24 @@
 #define LANDTAKEOFFYAWPI 1
 #define LANDTAKEOFFYAWPD 1
 
+/*
 #define GOTOHOVERXP 1
 #define GOTOHOVERXPI 1
 #define GOTOHOVERXPD 1
 #define GOTOHOVERYP 1
 #define GOTOHOVERYPI 1
 #define GOTOHOVERYPD 1
+#define GOTOHOVERYAWP 1
+#define GOTOHOVERYAWPI 1
+#define GOTOHOVERYAWPD 1
+#define GOTOHOVERDISTP 1
+#define GOTOHOVERDISTPI 1
+#define GOTOHOVERDISTPD 1
+*/
+
+#define GOTOHOVERZP 1
+#define GOTOHOVERZPI 1
+#define GOTOHOVERZPD 1
 #define GOTOHOVERYAWP 1
 #define GOTOHOVERYAWPI 1
 #define GOTOHOVERYAWPD 1
@@ -75,8 +87,9 @@
 
 // Objective text file list path :
 
-#define OBJECTIVES_PATH "objectives.txt"
+#define OBJECTIVES_PATH "/home/niki-vivi/quadcopter/Quadcopter/build/Release/objectives.txt"
 
+#define OFFSETZ 1 //security altitude distance over the objective
 
 class oneWayServoControl_t
 {
@@ -136,14 +149,14 @@ void * autopilotHandler(void * arg);
 
 // Fifo managing functions prototypes :
 
-int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int flushFifoObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
-int removeCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t autopilotObjectiveFifo);
-autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t autopilotObjectiveFifo);
+int insertObjective(autopilotObjective_t* objectiveToInsert, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+int removeSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+int removeSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+int flushFifoObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+int removeCurrentObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+autopilotObjective_t* readCurrentObjective(autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyNumber(int objectiveNumber, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
+autopilotObjective_t* readSpecificObjectivebyName(char* objectiveName, autopilotObjectiveFifo_t* autopilotObjectiveFifo);
 void freeAutopilotObjective (autopilotObjective_t* autopilotObjective);
 
 // Objective calculations prototypes :
