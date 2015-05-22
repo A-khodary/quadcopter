@@ -10,6 +10,10 @@
 ##############################################
 */
 
+//flightStateShared_t flightStateShared;
+//rawPositionShared_t rawPositionShared;
+//positionShared_t positionShared;
+
 void* dataLoggerHandler(void* arg)
 {
     // Initialization :
@@ -32,6 +36,14 @@ void* dataLoggerHandler(void* arg)
     sendMessage(mainITMHandler, currentMessage);
 
     int tickCounter=0;
+
+    float roll, pitch, yaw, rollSpeed, pitchSpeed, yawSpeed,x,y,z,vx,vy,vz;
+
+    int32_t lat,lon,alt,relative_alt;
+
+    int16_t vxBis,vyBis,vzBis;
+
+    uint16_t hdg;//Compass heading in degrees * 100, 0.0..359.99 degrees. If unknown, set to: UINT16_MAX
 
     // Message area :
 
@@ -86,7 +98,7 @@ void* dataLoggerHandler(void* arg)
     {
         // Mavlink Area :
 
-        // Senfing heartbeat :
+        // Sending heartbeat :
         printDebug("[i] Sending heartbeat...");
 
         //mavlink_msg_heartbeat_pack(1, 200, &msg, MAV_TYPE_QUADROTOR, MAV_AUTOPILOT_GENERIC, MAV_MODE_AUTO_ARMED, 0, MAV_STATE_BOOT);
@@ -94,7 +106,61 @@ void* dataLoggerHandler(void* arg)
 		len = mavlink_msg_to_send_buffer(buf, &msg);
 		bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
 
-        sleep(1);
+		/* Send attitude */
+
+        pthread_mutex_lock(&flightStateShared.readWriteMutex);
+
+        roll = flightStateShared.roll;
+        pitch = flightStateShared.pitch;
+        yaw = flightStateShared.yaw;
+        rollSpeed = 0;//integer with previous roll value ?
+        pitchSpeed = 0;
+        yawSpeed = 0;
+
+        pthread_mutex_unlock(&flightStateShared.readWriteMutex);
+
+        mavlink_msg_attitude_pack(1, 200, &msg, microsSinceEpoch(), roll, pitch, yaw, rollSpeed, pitchSpeed, yawSpeed);
+        len = mavlink_msg_to_send_buffer(buf, &msg);
+        bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
+
+        //Send local position
+
+        pthread_mutex_lock(&positionShared.readWriteMutex);
+
+        x = positionShared.x;
+        y = positionShared.y;
+        z = positionShared.z;
+        vx = 0;//integer with previous x value ?
+        vy = 0;
+        vz= 0;
+
+        pthread_mutex_unlock(&positionShared.readWriteMutex);
+
+        mavlink_msg_local_position_ned_pack(1, 200, &msg, microsSinceEpoch(), x, y, z, vx, vy, vz);
+        len = mavlink_msg_to_send_buffer(buf, &msg);
+        bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
+
+        //Send global position
+
+        pthread_mutex_lock(&positionShared.readWriteMutex);
+        pthread_mutex_lock(&rawPositionShared.readWriteMutex);
+
+        lat = rawPositionShared.latitude;
+        lon = rawPositionShared.longitude;
+        alt = rawPositionShared.altitude;
+        relative_alt = positionShared.distanceFromGround;
+        vxBis = 0;//integer with previous x value ?
+        vyBis = 0;
+        vzBis = 0;
+        hdg = 65535;//UINT16_MAX
+
+        pthread_mutex_unlock(&positionShared.readWriteMutex);
+        pthread_mutex_unlock(&rawPositionShared.readWriteMutex);
+
+        mavlink_msg_global_position_int_pack(1, 200, &msg, microsSinceEpoch(), lat, lon, alt, relative_alt, vxBis, vyBis, vzBis, hdg);
+        len = mavlink_msg_to_send_buffer(buf, &msg);
+        bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
+
 
         //Message retrieving and handling area :
 
