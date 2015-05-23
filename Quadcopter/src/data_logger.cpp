@@ -226,6 +226,7 @@ void* dataLoggerHandler(void* arg)
                     if (!strcmp(currentDecoded.message, "armed"))
                     {
                         motorsArmed = 1;
+                        //MAV_MODE_FLAG_SAFETY_ARMED
 
                     }
 
@@ -237,7 +238,7 @@ void* dataLoggerHandler(void* arg)
 
                     if (!strcmp(currentDecoded.message, "takeoffed"))
                     {
-
+                        heartBeatState = MAV_STATE_ACTIVE;//?
                     }
 
 
@@ -247,6 +248,21 @@ void* dataLoggerHandler(void* arg)
 
                     }
 
+                    if (!strcmp(currentDecoded.message, "manual"))
+                    {
+
+                    }
+
+                    if (!strcmp(currentDecoded.message, "autopilot"))
+                    {
+
+                    }
+
+
+                    if (!strcmp(currentDecoded.message, "stabilized"))
+                    {
+
+                    }
 
 
 
@@ -259,6 +275,9 @@ void* dataLoggerHandler(void* arg)
                     // Nowork
                     // engaged
                     // disengaged
+                    // Manual
+                    // Autopilot
+                    // Stabilized
 
 
 
@@ -291,12 +310,50 @@ void* dataLoggerHandler(void* arg)
             {
                 temp = buf[i];
                 printf("%02x ", (unsigned char)temp);
-                if (mavlink_parse_char(MAVLINK_COMM_0, buf[i], &msg, &status))
+                if (mavlink_parse_char(MAVLINK_COMM_0, buf[i], &msg, &status))//MAVLINK_COMM_0 = ???
                 {
                     // Packet received
                     printf("\nReceived packet: SYS: %d, COMP: %d, LEN: %d, MSG ID: %d\n", msg.sysid, msg.compid, msg.len, msg.msgid);
 
                     //TODO : Message handling
+                    switch(msg.msgid)
+                    {
+                        case MAVLINK_MSG_ID_SET_POSITION_TARGET_GLOBAL_INT :
+                        {
+                            // Decode message received
+
+                            mavlink_set_position_target_global_int_t global_position;
+                            mavlink_msg_set_position_target_global_int_decode(&msg, &global_position);
+
+                            // Actualize current objective
+
+                            currentMessage.priority = 1;
+                            strcpy(currentMessage.message, "autopilot_datalogger_order_newobjective");
+                            currentMessage.dataSize = sizeof(autopilotObjective_t);
+                            autopilotObjective_t* objective;
+                            strcpy(objective->name, "newobjective") ;
+                            //objective->code = ;
+                            objective->priority = 1;
+                            objective->destinationAlt = global_position.alt;//Altitude in meters in AMSL altitude, not WGS84 if absolute or relative, above terrain if GLOBAL_TERRAIN_ALT_INT
+                            objective->destinationLat = global_position.lat_int;
+                            objective->destinationLong = global_position.lon_int;
+
+                            message_t* pCurrentMessage = &currentMessage;//Dynamic copy ???
+                            pCurrentMessage->data = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
+
+                            pCurrentMessage->data = objective;
+
+                            sendMessage(mainITMHandler, currentMessage);
+
+
+                        }
+
+                            break;
+
+                    default:
+                        //Do nothing
+                        break;
+                    }
                 }
             }
             printf("\n");
@@ -350,7 +407,6 @@ int initSocket(char targetIp[100], int targetPort, struct sockaddr_in gcAddr)
 
 	return sock;
 }
-
 
 
 
