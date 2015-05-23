@@ -82,7 +82,7 @@ void* imuHandler(void* arg)
 
     imu->setGyroEnable(true);
     imu->setAccelEnable(true);
-    imu->setCompassEnable(true);
+   // imu->setCompassEnable(true);
 
     //  set up pressure sensor
 
@@ -109,7 +109,7 @@ void* imuHandler(void* arg)
           strcpy(currentMessage.message ,"main_imu_info_initfailed");
           currentMessage.priority = 20;
           sendMessage(mainITMHandler, currentMessage);
-          pthread_exit(NULL);
+         // pthread_exit(NULL);
       }
 
       else printDebug("[i] Got 3D fix from GPS !");
@@ -148,7 +148,8 @@ void* imuHandler(void* arg)
         usleep(imu->IMUGetPollInterval() * 1000);
 
         while (imu->IMURead()) {
-            RTIMU_DATA imuData = imu->getIMUData();
+
+ 	  RTIMU_DATA imuData = imu->getIMUData();
 
             //  add the pressure data to the structure
             if (pressure != NULL)

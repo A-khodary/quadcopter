@@ -20,7 +20,7 @@
 #define NUMBER_OF_AVERAGE 200
 
 #define DISPLAY 1 //1 to display accel data on console
-#define DEBUG 1 // 1 to test and debug IMU
+#define DEBUG 0 // 1 to test and debug IMU
 
 #define DISPLAY_GPS 1
 
@@ -29,7 +29,7 @@ void* imuHandler(void* arg);
 
 // Other function prototype :
 int waitForGPS();
-void makeHome(int bmpAlt);
+void makeHome(int MS5611Alt);
 //double calculateBmpAlt();
 
 #endif
