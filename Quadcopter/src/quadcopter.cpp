@@ -218,7 +218,15 @@ int main()
         if(!strcmp(currentDecodedMessage.destination,"autopilot"))
         {
             printDebug("Main Thread is dispatching a message to autopilot");
-            sendMessage(autopilotITMHandler, *currentMessage);
+
+            if (currentDecodedMessage.message == "newobjective")
+            {
+                printDebug("[i] Autopilot new objective !");
+                messageToSend.priority = 1;
+                strcpy(messageToSend.message, "autopilot_datalogger_order_newobjective");
+                sendMessage(autopilotITMHandler, messageToSend);
+            }
+            else sendMessage(autopilotITMHandler, messageToSend);
 
         }
 
@@ -356,7 +364,6 @@ int main()
                         strcpy(messageToSend.message, "datalogger_main_info_objectivereached");
                         sendMessage(dataLoggerITMHandler, messageToSend);
                     }
-
 
 
                     // Autopilot errors :

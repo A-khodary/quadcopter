@@ -1150,7 +1150,7 @@ void* autopilotHandler(void* arg)
                     {
 
                         //TODO : behaviour
-                        disarmQuadcopter();//dcrémenter par 4, 10 ... pour l'urgence ?
+                        disarmQuadcopter();//décrémenter par 4, 10 ... pour l'urgence ?
                         //Message
                         printDebug("Need to land in emergency");
                         currentMessage.dataSize=0;
