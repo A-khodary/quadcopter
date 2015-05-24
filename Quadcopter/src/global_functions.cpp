@@ -36,6 +36,7 @@ int convertPlanarToHome(double* x, double* y, double latitude, double longitude)
 
 int convertPlanar(double* x, double* y, double latitude, double longitude)
 {
+    printDebug("[i] New conversion");
     int p;
     projPJ pj_merc, pj_latlong;
 
@@ -52,7 +53,6 @@ int convertPlanar(double* x, double* y, double latitude, double longitude)
             *x *= DEG_TO_RAD;
             *y *= DEG_TO_RAD;
             p = pj_transform(pj_latlong, pj_merc, 1, 1, x, y, NULL );
-            exit(p);
 }
 
 
