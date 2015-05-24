@@ -159,13 +159,14 @@ void* imuHandler(void* arg)
                 {
                     // Making home position :
                     MS5611Alt = RTMath::convertPressureToHeight(imuData.pressure);
+                    printDebug("[i] Alive before");
                     makeHome(MS5611Alt);
+                    printDebug("[i] Alive after");
                     homeMade = 1;
                 }
             }
             else MS5611Alt = 0;
 
-            printDebug("Alive 1");
 
 
             if(DISPLAY)
