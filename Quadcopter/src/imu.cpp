@@ -359,7 +359,7 @@ void* imuHandler(void* arg)
 
      printDebug("[i] Alive before");
 
-     //convertPlanar(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
+     convertPlanar(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
 
      printDebug("[i] Alive after");
 
