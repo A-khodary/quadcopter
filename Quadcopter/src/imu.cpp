@@ -283,8 +283,9 @@ void* imuHandler(void* arg)
         if (DISPLAY_GPS)
         {
             printf("Got new planar position. x : %f, y : %f\n", xComputed, yComputed);
-            sleep(1);
         }
+        sleep(1);
+
 
         // Locking the global variables Mutexes :
 
