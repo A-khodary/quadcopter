@@ -29,8 +29,8 @@ int convertPlanarToHome(double* x, double* y, double latitude, double longitude)
 
     printf("Incoming latitude / longitude %f, %f \n", latitude, longitude);
     success = convertPlanar(x,y,latitude,longitude);
-    printf("Resulting position : %f, %f", *x, *y);
-    printf("Home position : %f, %f", homePosition.x, homePosition.y);
+    printf("Resulting position : %f, %f\n", *x, *y);
+    printf("Home position : %f, %f\n", homePosition.x, homePosition.y);
     *x -= homePosition.x;
     *y -= homePosition.y;
 
@@ -55,6 +55,7 @@ int convertPlanar(double* x, double* y, double latitude, double longitude)
             *x *= DEG_TO_RAD;
             *y *= DEG_TO_RAD;
             p = pj_transform(pj_latlong, pj_merc, 1, 1, x, y, NULL );
+            printf("Results : %f, %f", *x, *y);
 }
 
 
