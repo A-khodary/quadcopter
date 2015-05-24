@@ -159,9 +159,7 @@ void* imuHandler(void* arg)
                 {
                     // Making home position :
                     MS5611Alt = RTMath::convertPressureToHeight(imuData.pressure);
-                    printDebug("[i] Alive before");
                     makeHome(MS5611Alt);
-                    printDebug("[i] Alive after");
                     homeMade = 1;
                 }
             }
@@ -197,7 +195,6 @@ void* imuHandler(void* arg)
             }
 	    }
 
-	    printDebug("Alive 2");
 
         // Altitude calculation Area :
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
@@ -215,7 +212,6 @@ void* imuHandler(void* arg)
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
-        printDebug("Alive 3");
 
 
         if (ultrasonicAltitude == -1) // We are far from ground
@@ -361,7 +357,11 @@ void* imuHandler(void* arg)
         fflush(stdout);
      }
 
+     printDebug("[i] Alive before");
+
      convertPlanar(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
+
+     printDebug("[i] Alive after");
 
      pthread_mutex_unlock(&homePosition.readWriteMutex);
      pthread_mutex_unlock(&receivedCommands.readWriteMutex);
