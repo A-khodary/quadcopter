@@ -208,7 +208,7 @@ void* readerHandler(void* arg)
                         {
                             //printDebug("[i] Got ultrasonic value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
-                            receivedCommands.latitude = strtof(numb, NULL);
+                            receivedCommands.latitude = strtof(numb, NULL)/10000000;
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
@@ -216,7 +216,7 @@ void* readerHandler(void* arg)
                         {
                             //printDebug("[i] Got ultrasonic value");
                             pthread_mutex_lock(&receivedCommands.readWriteMutex);
-                            receivedCommands.longitude = strtof(numb, NULL);
+                            receivedCommands.longitude = strtof(numb, NULL)/10000000;
                             pthread_mutex_unlock(&receivedCommands.readWriteMutex);
                         }
 
