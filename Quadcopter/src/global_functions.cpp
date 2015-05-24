@@ -40,27 +40,21 @@ int convertPlanarToHome(double* x, double* y, double latitude, double longitude)
 int convertPlanar(double* x, double* y, double latitude, double longitude)
 {
     int p;
-    double xcpy, ycpy = 0;
-    printf("x, y : %f, %f\n", *x, *y);
-    xcpy = *x;
-    ycpy = *y;
 
     projPJ pj_merc, pj_latlong;
+
+    *x = latitude;
+    *y = longitude;
 
     pj_merc = pj_init_plus("+proj=merc +ellps=clrk66 +lat_ts=33");
     pj_latlong = pj_init_plus("+proj=latlong +ellps=clrk66");
 
     printf("xcpy, ycpy : %f, %f\n", xcpy, ycpy);
 
-    xcpy *= DEG_TO_RAD;
-    ycpy *= DEG_TO_RAD;
+    *x *= DEG_TO_RAD;
+    *y *= DEG_TO_RAD;
 
-    printf("xcpy, ycpy : %f, %f\n", xcpy, ycpy);
-    p = pj_transform(pj_latlong, pj_merc, 1, 1, &xcpy, &ycpy, NULL );
-    printf("xcpy, ycpy : %f, %f\n", xcpy, ycpy);
-
-    *x = xcpy;
-    *y = ycpy;
+    p = pj_transform(pj_latlong, pj_merc, 1, 1, x, y, NULL );
 
     return p;
 }
