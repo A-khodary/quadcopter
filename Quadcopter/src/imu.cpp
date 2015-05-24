@@ -174,13 +174,15 @@ void* imuHandler(void* arg)
 
             now = RTMath::currentUSecsSinceEpoch();
 
-            //  display 10 times per second
-            if ((now - displayTimer) > 1000000) {
+            //  display 10 time per second
+            if ((now - displayTimer) > 100000) {
                 printf("Sample rate %d: %s\n", sampleRate, RTMath::displayDegrees("", imuData.fusionPose));
+                fflush(stdout);
 
                 if (pressure != NULL) {
                     printf("Pressure: %4.1f, height above sea level: %4.1f, temperature: %4.1f\n",
                            imuData.pressure, RTMath::convertPressureToHeight(imuData.pressure), imuData.temperature);
+                    fflush(stdout);
                 }
 
                 fflush(stdout);
