@@ -49,7 +49,6 @@ int convertPlanar(double* x, double* y, double latitude, double longitude)
     pj_merc = pj_init_plus("+proj=merc +ellps=clrk66 +lat_ts=33");
     pj_latlong = pj_init_plus("+proj=latlong +ellps=clrk66");
 
-    printf("xcpy, ycpy : %f, %f\n", xcpy, ycpy);
 
     *x *= DEG_TO_RAD;
     *y *= DEG_TO_RAD;
