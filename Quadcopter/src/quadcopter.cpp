@@ -180,10 +180,7 @@ int main()
     pthread_create(&pilotThread, NULL, pilotHandler, (void*)&pilotBidirectionnalHandler);
     pthread_create(&dataLoggerThread, NULL, dataLoggerHandler, (void*)&dataLoggerBidirectionnalHandler);
     pthread_create(&autopilotThread, NULL, autopilotHandler, (void*)&autopilotBidirectionnalHandler);
-    if (waitForGPS())
-    {
-        pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
-    }
+    pthread_create(&imuThread, NULL, imuHandler, (void*)&mainITMHandler);
 
     // Sending booting info to datalogger :
     messageToSend.dataSize=0;

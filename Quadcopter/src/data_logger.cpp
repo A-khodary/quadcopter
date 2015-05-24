@@ -296,7 +296,7 @@ void* dataLoggerHandler(void* arg)
 
 
 
-        // DataLogging area :
+        // Mavlink reception area :
 
         memset(buf, 0, BUFFER_LENGTH);
         recsize = recvfrom(sock, (void *)buf, BUFFER_LENGTH, 0, (struct sockaddr *)&gcAddr, &fromlen);
@@ -362,16 +362,16 @@ void* dataLoggerHandler(void* arg)
         sleep(1); // Sleep one second
 
 
-         //Message sending function for testing :
-
-        printDebug("\n[i] Enter a command :");
-        fflush(stdout);
-
-        scanf("%s", readBuffer);
-        strcpy(currentMessage.message, readBuffer);
-        currentMessage.priority = 5;
-
-        sendMessage(mainITMHandler, currentMessage);
+//         //Message sending function for testing :
+//
+//        printDebug("\n[i] Enter a command :");
+//        fflush(stdout);
+//
+//        scanf("%s", readBuffer);
+//        strcpy(currentMessage.message, readBuffer);
+//        currentMessage.priority = 5;
+//
+//        sendMessage(mainITMHandler, currentMessage);
     }
 
 

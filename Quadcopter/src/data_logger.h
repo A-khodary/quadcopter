@@ -26,7 +26,7 @@
 
 #define BUFFER_LENGTH 2041
 
-#define GCS_IP "192.168.1.107"
+#define GCS_IP "192.168.0.32"
 #define GCS_PORT 14550
 
 
