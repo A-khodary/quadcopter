@@ -99,7 +99,7 @@ void* imuHandler(void* arg)
        receivedCommands.latitude = 1;
        receivedCommands.longitude = 1;
        receivedCommands.altitude = 1;
-  }
+    }
     else
     {
       if (!waitForGPS())
@@ -113,6 +113,7 @@ void* imuHandler(void* arg)
 
       else printDebug("[i] Got 3D fix from GPS !");
     }
+
     // Init IMU
 
     double air_MS5611_trust = AIR_MS5611_TRUST;
@@ -148,7 +149,7 @@ void* imuHandler(void* arg)
 
         while (imu->IMURead()) {
 
- 	  RTIMU_DATA imuData = imu->getIMUData();
+ 	    RTIMU_DATA imuData = imu->getIMUData();
 
             //  add the pressure data to the structure
             if (pressure != NULL)
