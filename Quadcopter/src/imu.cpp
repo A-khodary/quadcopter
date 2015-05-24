@@ -6,7 +6,6 @@ positionShared_t positionShared;
 rawPositionShared_t homeRawPosition;
 rawPositionShared_t rawPositionShared;
 homePosition_t homePosition;
-//receivedCommandsShared_t receivedCommands;
 
 void* imuHandler(void* arg)
  {
@@ -82,7 +81,7 @@ void* imuHandler(void* arg)
 
     imu->setGyroEnable(true);
     imu->setAccelEnable(true);
-   // imu->setCompassEnable(true);
+    imu->setCompassEnable(true);
 
     //  set up pressure sensor
 
@@ -109,7 +108,7 @@ void* imuHandler(void* arg)
           strcpy(currentMessage.message ,"main_imu_info_initfailed");
           currentMessage.priority = 20;
           sendMessage(mainITMHandler, currentMessage);
-         // pthread_exit(NULL);
+        //  pthread_exit(NULL);
       }
 
       else printDebug("[i] Got 3D fix from GPS !");
