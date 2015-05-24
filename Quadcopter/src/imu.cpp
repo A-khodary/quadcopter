@@ -280,7 +280,7 @@ void* imuHandler(void* arg)
 
         if (DISPLAY_GPS)
         {
-            printf("Got new planar position. x : %f, y : %f", xComputed, yComputed);
+            printf("Got new planar position. x : %f, y : %f\n", xComputed, yComputed);
         }
 
         // Locking the global variables Mutexes :
@@ -357,11 +357,7 @@ void* imuHandler(void* arg)
         fflush(stdout);
      }
 
-     printDebug("[i] Alive before");
-
      convertPlanar(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
-
-     printDebug("[i] Alive after");
 
      pthread_mutex_unlock(&homePosition.readWriteMutex);
      pthread_mutex_unlock(&receivedCommands.readWriteMutex);
