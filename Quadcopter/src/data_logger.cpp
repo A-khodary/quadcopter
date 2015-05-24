@@ -99,7 +99,6 @@ void* dataLoggerHandler(void* arg)
         // Mavlink Area :
 
         // Sending heartbeat :
-        printDebug("[i] Sending heartbeat...");
 
         //mavlink_msg_heartbeat_pack(1, 200, &msg, MAV_TYPE_QUADROTOR, MAV_AUTOPILOT_GENERIC, MAV_MODE_AUTO_ARMED, 0, MAV_STATE_BOOT);
 		mavlink_msg_heartbeat_pack(1, 200, &msg, MAV_TYPE_QUADROTOR, MAV_AUTOPILOT_GENERIC, heartBeatMode, 0, heartBeatState);
@@ -359,7 +358,7 @@ void* dataLoggerHandler(void* arg)
             printf("\n");
         }
         memset(buf, 0, BUFFER_LENGTH);
-        sleep(1); // Sleep one second
+        usleep(100);
 
 
 //         //Message sending function for testing :

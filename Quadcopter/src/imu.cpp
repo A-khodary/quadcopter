@@ -69,7 +69,7 @@ void* imuHandler(void* arg)
           strcpy(currentMessage.message ,"main_imu_info_initfailed");
           currentMessage.priority = 20;
           sendMessage(mainITMHandler, currentMessage);
-        //  pthread_exit(NULL);
+          pthread_exit(NULL);
       }
 
       else printDebug("[i] Got 3D fix from GPS !");
@@ -356,7 +356,7 @@ void* imuHandler(void* arg)
         fflush(stdout);
      }
 
-     convertPlanar(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
+     //convertPlanar(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
 
      pthread_mutex_unlock(&homePosition.readWriteMutex);
      pthread_mutex_unlock(&receivedCommands.readWriteMutex);
