@@ -175,7 +175,7 @@ void* imuHandler(void* arg)
             now = RTMath::currentUSecsSinceEpoch();
 
             //  display 10 times per second
-            if ((now - displayTimer) > 100000) {
+            if ((now - displayTimer) > 1000000) {
                 printf("Sample rate %d: %s\n", sampleRate, RTMath::displayDegrees("", imuData.fusionPose));
 
                 if (pressure != NULL) {
