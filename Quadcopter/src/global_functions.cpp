@@ -41,6 +41,7 @@ int convertPlanar(double* x, double* y, double latitude, double longitude)
 {
     int p;
     double xcpy, ycpy = 0;
+    printf("x, y : %f, %f\n", *x, *y);
     xcpy = *x;
     ycpy = *y;
 
