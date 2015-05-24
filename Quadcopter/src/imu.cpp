@@ -165,6 +165,8 @@ void* imuHandler(void* arg)
             }
             else MS5611Alt = 0;
 
+            printDebug("Alive 1");
+
 
             if(DISPLAY)
 	    {
@@ -194,6 +196,8 @@ void* imuHandler(void* arg)
             }
 	    }
 
+	    printDebug("Alive 2");
+
         // Altitude calculation Area :
         pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
@@ -210,7 +214,7 @@ void* imuHandler(void* arg)
 
         pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
-
+        printDebug("Alive 3");
 
 
         if (ultrasonicAltitude == -1) // We are far from ground
@@ -356,7 +360,7 @@ void* imuHandler(void* arg)
         fflush(stdout);
      }
 
-     //convertPlanar(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
+     convertPlanar(&homePosition.x, &homePosition.y, homePosition.latitude, homePosition.longitude);
 
      pthread_mutex_unlock(&homePosition.readWriteMutex);
      pthread_mutex_unlock(&receivedCommands.readWriteMutex);
