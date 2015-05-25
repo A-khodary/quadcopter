@@ -24,13 +24,13 @@ void* readerHandler(void* arg)
 {
     printDebug("[i] New reader thread launched !");
 
-    int isUltrasonicOn = 1;
+    int isUltrasonicOn = 0;
     sampleList_t* ultrasonicSampleList;
     float filteredValue=0;
     float ultrasonic=0;
     float ultrasonicTemp=0;
     int testpwm = 0;
-    int testUltrasonic = 0;
+    int testUltrasonic = 1;
 
 
     bidirectionnalHandler_t* bidirectionnalHandler;
