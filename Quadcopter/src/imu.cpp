@@ -284,8 +284,6 @@ void* imuHandler(void* arg)
         {
             printf("Got new planar position. x : %f, y : %f\n", xComputed, yComputed);
         }
-        sleep(1);
-
 
         // Locking the global variables Mutexes :
 

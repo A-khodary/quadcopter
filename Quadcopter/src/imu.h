@@ -20,9 +20,9 @@
 #define NUMBER_OF_AVERAGE 200
 
 #define DISPLAY 0 //1 to display accel data on console
-#define DEBUG 0 // 1 to test and debug IMU
+#define DEBUG 1 // 1 to test and debug IMU
 
-#define DISPLAY_GPS 1
+#define DISPLAY_GPS 0
 
 //Handler prototype :
 void* imuHandler(void* arg);
