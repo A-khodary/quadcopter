@@ -30,7 +30,7 @@ void* readerHandler(void* arg)
     float ultrasonic=0;
     float ultrasonicTemp=0;
     int testpwm = 0;
-    int testUltrasonic = 1;
+    int testUltrasonic = 0;
 
     ultrasonicSampleList = initUltrasonic();
 
