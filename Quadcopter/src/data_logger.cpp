@@ -146,8 +146,8 @@ void* dataLoggerHandler(void* arg)
         pthread_mutex_lock(&positionShared.readWriteMutex);
         pthread_mutex_lock(&rawPositionShared.readWriteMutex);
 
-        lat = rawPositionShared.latitude;
-        lon = rawPositionShared.longitude;
+        lat = rawPositionShared.latitude*10000000;
+        lon = rawPositionShared.longitude*10000000;
         alt = rawPositionShared.altitude;
         relative_alt = positionShared.distanceFromGround;
         vxBis = 0;//integer with previous x value ?

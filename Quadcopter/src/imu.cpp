@@ -306,7 +306,7 @@ void* imuHandler(void* arg)
         positionShared.x = xComputed;
         positionShared.y = yComputed;
         positionShared.z = altitude;
-        positionShared.distanceFromGround = altitude - homePosition.z;//assuming the ground is falt
+        positionShared.distanceFromGround = altitude - homePosition.z;//assuming the ground is flat
 
         pthread_mutex_unlock(&flightStateShared.readWriteMutex);
         pthread_mutex_unlock(&rawPositionShared.readWriteMutex);
