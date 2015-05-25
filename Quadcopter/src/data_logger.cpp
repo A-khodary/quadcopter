@@ -372,7 +372,7 @@ void* dataLoggerHandler(void* arg)
                     }
                 }
             }
-            printf("\n");
+            //printf("\n");
         }
         memset(buf, 0, BUFFER_LENGTH);
         usleep(100);
