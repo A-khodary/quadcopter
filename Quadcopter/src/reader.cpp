@@ -388,7 +388,7 @@ void* readerHandler(void* arg)
         }
 
 
-        sleep(SAMPLING_PERIOD_MS/1000);
+        usleep(SAMPLING_PERIOD_MS*1000);
 
     }
 
