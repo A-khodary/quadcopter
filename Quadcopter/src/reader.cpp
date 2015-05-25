@@ -27,10 +27,12 @@ void* readerHandler(void* arg)
     int isUltrasonicOn = 0;
     sampleList_t* ultrasonicSampleList;
     float filteredValue=0;
-    float ultrasonic=0;
+    float ultrasonic=1;
     float ultrasonicTemp=0;
     int testpwm = 0;
     int testUltrasonic = 1;
+
+    ultrasonicSampleList = initUltrasonic();
 
 
     bidirectionnalHandler_t* bidirectionnalHandler;

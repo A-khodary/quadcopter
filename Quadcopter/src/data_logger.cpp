@@ -309,11 +309,11 @@ void* dataLoggerHandler(void* arg)
             // Something received - print out all bytes and parse packet
             mavlink_message_t msg;
             mavlink_status_t status;
-            printf("Bytes Received: %d\nDatagram: ", (int)recsize);
+            //printf("Bytes Received: %d\nDatagram: ", (int)recsize);
             for (int i = 0; i < recsize; ++i)
             {
                 temp = buf[i];
-                printf("%02x ", (unsigned char)temp);
+                //printf("%02x ", (unsigned char)temp);
                 if (mavlink_parse_char(MAVLINK_COMM_0, buf[i], &msg, &status))//MAVLINK_COMM_0 = ???
                 {
                     // Packet received

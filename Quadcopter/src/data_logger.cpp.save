@@ -136,7 +136,7 @@ void* dataLoggerHandler(void* arg)
         vy = 0;
         vz= 0;
 
-        pthread_mutex_lock(&receivedCommands.readWriteMutex);
+        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
         pthread_mutex_unlock(&positionShared.readWriteMutex);
 
@@ -309,15 +309,15 @@ void* dataLoggerHandler(void* arg)
             // Something received - print out all bytes and parse packet
             mavlink_message_t msg;
             mavlink_status_t status;
-            printf("Bytes Received: %d\nDatagram: ", (int)recsize);
+            //printf("Bytes Received: %d\nDatagram: ", (int)recsize);
             for (int i = 0; i < recsize; ++i)
             {
                 temp = buf[i];
-                printf("%02x ", (unsigned char)temp);
+                //printf("%02x ", (unsigned char)temp);
                 if (mavlink_parse_char(MAVLINK_COMM_0, buf[i], &msg, &status))//MAVLINK_COMM_0 = ???
                 {
                     // Packet received
-                    printf("\nReceived packet: SYS: %d, COMP: %d, LEN: %d, MSG ID: %d\n", msg.sysid, msg.compid, msg.len, msg.msgid);
+                    //printf("\nReceived packet: SYS: %d, COMP: %d, LEN: %d, MSG ID: %d\n", msg.sysid, msg.compid, msg.len, msg.msgid);
 
                     //TODO : Message handling
                     switch(msg.msgid)
