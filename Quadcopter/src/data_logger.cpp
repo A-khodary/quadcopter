@@ -107,6 +107,8 @@ void* dataLoggerHandler(void* arg)
 
 		/* Send attitude */
 
+		usleep(10000);
+
         pthread_mutex_lock(&flightStateShared.readWriteMutex);
 
         roll = flightStateShared.roll;
