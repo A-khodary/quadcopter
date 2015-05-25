@@ -27,10 +27,7 @@ int convertPlanarToHome(double* x, double* y, double latitude, double longitude)
 {
     int success=1;
 
-    printf("Incoming latitude / longitude %f, %f \n", latitude, longitude);
     success = convertPlanar(x,y,latitude,longitude);
-    printf("Resulting position : %f, %f\n", *x, *y);
-    printf("Home position : %f, %f\n", homePosition.x, homePosition.y);
     *x -= homePosition.x;
     *y -= homePosition.y;
 
