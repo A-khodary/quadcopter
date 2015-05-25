@@ -136,7 +136,7 @@ void* dataLoggerHandler(void* arg)
         vy = 0;
         vz= 0;
 
-        pthread_mutex_lock(&receivedCommands.readWriteMutex);
+        pthread_mutex_unlock(&receivedCommands.readWriteMutex);
 
         pthread_mutex_unlock(&positionShared.readWriteMutex);
 
