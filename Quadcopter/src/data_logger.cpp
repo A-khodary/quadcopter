@@ -152,7 +152,7 @@ void* dataLoggerHandler(void* arg)
         lat = rawPositionShared.latitude*10000000;
         lon = rawPositionShared.longitude*10000000;
         alt = z;
-        relative_alt = z*;
+        relative_alt = z;
         vxBis = 0;//integer with previous x value ?
         vyBis = 0;
         vzBis = 0;
