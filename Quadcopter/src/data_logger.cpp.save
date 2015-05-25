@@ -161,7 +161,7 @@ void* dataLoggerHandler(void* arg)
         pthread_mutex_unlock(&positionShared.readWriteMutex);
         pthread_mutex_unlock(&rawPositionShared.readWriteMutex);
 
-        mavlink_msg_global_position_int_pack(1, 200, &msg, microsSinceEpoch(), lat, lon, alt, relative_alt, vxBis, vyBis, vzBis, hdg);
+        mavlink_msg_global_position_int_pack(1, 200, &msg, microsSinceEpoch(), lat, lon, alt*1000, relative_alt*1000, vxBis, vyBis, vzBis, hdg);
         len = mavlink_msg_to_send_buffer(buf, &msg);
         bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
 
@@ -317,7 +317,7 @@ void* dataLoggerHandler(void* arg)
                 if (mavlink_parse_char(MAVLINK_COMM_0, buf[i], &msg, &status))//MAVLINK_COMM_0 = ???
                 {
                     // Packet received
-                    //printf("\nReceived packet: SYS: %d, COMP: %d, LEN: %d, MSG ID: %d\n", msg.sysid, msg.compid, msg.len, msg.msgid);
+                    printf("\nReceived packet: SYS: %d, COMP: %d, LEN: %d, MSG ID: %d\n", msg.sysid, msg.compid, msg.len, msg.msgid);
 
                     //TODO : Message handling
                     switch(msg.msgid)
@@ -348,6 +348,8 @@ void* dataLoggerHandler(void* arg)
                             pCurrentMessage->data = objective;
 
                             sendMessage(mainITMHandler, currentMessage);
+                            
+                            
 
 
                         }

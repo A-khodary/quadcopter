@@ -317,7 +317,7 @@ void* dataLoggerHandler(void* arg)
                 if (mavlink_parse_char(MAVLINK_COMM_0, buf[i], &msg, &status))//MAVLINK_COMM_0 = ???
                 {
                     // Packet received
-                    //printf("\nReceived packet: SYS: %d, COMP: %d, LEN: %d, MSG ID: %d\n", msg.sysid, msg.compid, msg.len, msg.msgid);
+                    printf("\nReceived packet: SYS: %d, COMP: %d, LEN: %d, MSG ID: %d\n", msg.sysid, msg.compid, msg.len, msg.msgid);
 
                     //TODO : Message handling
                     switch(msg.msgid)
@@ -348,6 +348,8 @@ void* dataLoggerHandler(void* arg)
                             pCurrentMessage->data = objective;
 
                             sendMessage(mainITMHandler, currentMessage);
+
+
 
 
                         }

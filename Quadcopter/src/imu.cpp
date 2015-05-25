@@ -57,8 +57,8 @@ void* imuHandler(void* arg)
 
     if (DEBUG)
     {
-       receivedCommands.latitude = 1;
-       receivedCommands.longitude = 1;
+       receivedCommands.latitude = 49;
+       receivedCommands.longitude = 2.06;
        receivedCommands.altitude = 1;
     }
     else
