@@ -120,7 +120,7 @@ void* dataLoggerHandler(void* arg)
 
         pthread_mutex_unlock(&flightStateShared.readWriteMutex);
 
-        mavlink_msg_attitude_pack(1, 200, &msg, microsSinceEpoch(), roll, pitch, yaw, rollSpeed, pitchSpeed, yawSpeed);
+        mavlink_msg_attitude_pack(1, 200, &msg, microsSinceEpoch(), -1*roll, -1*pitch, yaw, rollSpeed, pitchSpeed, yawSpeed);
         len = mavlink_msg_to_send_buffer(buf, &msg);
         bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
 
@@ -152,16 +152,16 @@ void* dataLoggerHandler(void* arg)
         lat = rawPositionShared.latitude*10000000;
         lon = rawPositionShared.longitude*10000000;
         alt = z;
-        relative_alt = 5;
+        relative_alt = z*;
         vxBis = 0;//integer with previous x value ?
         vyBis = 0;
         vzBis = 0;
-        hdg = 65535;//UINT16_MAX
+        hdg = yaw;//UINT16_MAX
 
         pthread_mutex_unlock(&positionShared.readWriteMutex);
         pthread_mutex_unlock(&rawPositionShared.readWriteMutex);
 
-        mavlink_msg_global_position_int_pack(1, 200, &msg, microsSinceEpoch(), lat, lon, alt, relative_alt, vxBis, vyBis, vzBis, hdg);
+        mavlink_msg_global_position_int_pack(1, 200, &msg, microsSinceEpoch(), lat, lon, alt*1000, relative_alt*1000, vxBis, vyBis, vzBis, hdg);
         len = mavlink_msg_to_send_buffer(buf, &msg);
         bytes_sent = sendto(sock, buf, len, 0, (struct sockaddr*)&gcAddr, sizeof(struct sockaddr_in));
 
