@@ -127,13 +127,16 @@ void* dataLoggerHandler(void* arg)
         //Send local position
 
         pthread_mutex_lock(&positionShared.readWriteMutex);
+        pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
         x = positionShared.x;
         y = positionShared.y;
-        z = positionShared.z;
+        z = receivedCommands.ultrasonicTelemeter; // Sending ultrasonic as ASL for now
         vx = 0;//integer with previous x value ?
         vy = 0;
         vz= 0;
+
+        pthread_mutex_lock(&receivedCommands.readWriteMutex);
 
         pthread_mutex_unlock(&positionShared.readWriteMutex);
 
@@ -148,8 +151,8 @@ void* dataLoggerHandler(void* arg)
 
         lat = rawPositionShared.latitude*10000000;
         lon = rawPositionShared.longitude*10000000;
-        alt = rawPositionShared.altitude;
-        relative_alt = positionShared.distanceFromGround;
+        alt = z;
+        relative_alt = z;
         vxBis = 0;//integer with previous x value ?
         vyBis = 0;
         vzBis = 0;

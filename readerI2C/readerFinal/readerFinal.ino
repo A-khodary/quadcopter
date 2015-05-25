@@ -201,6 +201,7 @@ void updateGps() {
       currentPosition.longitude=gpsData.lon;
       currentPosition.altitude=gpsData.height;
       //Serial.print("Latitutde = ");Serial.print(currentPosition.latitude);Serial.print(" Longitude = ");Serial.print(currentPosition.longitude);Serial.print(" Altitude = ");Serial.println(currentPosition.altitude);
+      sendGps();
     }
   }
 
@@ -478,8 +479,8 @@ void updatePWM()
   pwm4=pulseIn(RUDDER_PIN, HIGH, PWM_TIMEOUT);
   pwm5=pulseIn(AUX1_PIN, HIGH, PWM_TIMEOUT);
   pwm6=pulseIn(AUX2_PIN, HIGH, PWM_TIMEOUT);
-  pwm7=pulseIn(AUX3_PIN, HIGH, PWM_TIMEOUT);
-  pwm8=pulseIn(AUX4_PIN, HIGH, PWM_TIMEOUT);
+  //pwm7=pulseIn(AUX3_PIN, HIGH, PWM_TIMEOUT);
+  //pwm8=pulseIn(AUX4_PIN, HIGH, PWM_TIMEOUT);
 
   if (pwm1 != 0) pwm1 = (pwm1 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
   else pwm1 = -1;
@@ -499,11 +500,11 @@ void updatePWM()
   if (pwm6 != 0) pwm6 = (pwm6 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
   else pwm6 = -1;
   
-  if (pwm7 != 0) pwm7 = (pwm7 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
-  else pwm8 = -1;
-  
-  if (pwm8 != 0) pwm8 = (pwm8 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
-  else pwm8 = -1;
+//  if (pwm7 != 0) pwm7 = (pwm7 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+//  else pwm8 = -1;
+//  
+//  if (pwm8 != 0) pwm8 = (pwm8 - PWM_MIN ) / ( PWM_MAX - PWM_MIN ); 
+//  else pwm8 = -1;
 
 
   interrupts();
@@ -544,8 +545,8 @@ void sendPWM()
   Serial.print("pwm4="); Serial.print(pwm4); Serial.print("_");
   Serial.print("pwm5="); Serial.print(pwm5); Serial.print("_");
   Serial.print("pwm6="); Serial.print(pwm6); Serial.print("_");
-  Serial.print("pwm7="); Serial.print(pwm7); Serial.print("_");
-  Serial.print("pwm8="); Serial.print(pwm8); Serial.print("_");
+//  Serial.print("pwm7="); Serial.print(pwm7); Serial.print("_");
+//  Serial.print("pwm8="); Serial.print(pwm8); Serial.print("_");
   
   interrupts();
 }
@@ -676,5 +677,10 @@ t.every(1, timingIRQ);
 }
 
 void loop()  {
- t.update();
-}
+ updateGps();
+ delay(15);
+ updateUltrasonic();
+ sendUltrasonic();
+ updatePWM();
+ sendPWM();
+ }
