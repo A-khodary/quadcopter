@@ -62,11 +62,17 @@ servoControl_t::servoControl_t(autopilotObjective_t* autopilotObjective)
 
         ServoControlData[0]->consign = positionShared.x;
         ServoControlData[1]->consign = positionShared.y;
+        //ServoControlData[2]->consign = autopilotObjective->destinationZ + OFFSETZ;
+
+        if(positionShared.distanceFromGround == 0 )//ie takeoff
+        {
+            ServoControlData[2]->consign = OFFSETZ;
+        }
+        else ServoControlData[2]->consign = positionShared.z-positionShared.distanceFromGround;//ie landing
 
         //Unlocking mutex now we don't need the position anymore :
         pthread_mutex_unlock(&positionShared.readWriteMutex);
 
-        ServoControlData[2]->consign = autopilotObjective->destinationZ + OFFSETZ;
         ServoControlData[3]->consign = autopilotObjective->directionBearing;
 
         for (i=0 ; i < oneWayNumber ; i++)
@@ -1150,7 +1156,43 @@ void* autopilotHandler(void* arg)
                     {
 
                         //TODO : behaviour
-                        disarmQuadcopter();//décrémenter par 4, 10 ... pour l'urgence ?
+                        //decremental value to determine
+                        pthread_mutex_lock(&pilotCommandsShared.readWrite);
+
+                        // TODO : implement disarming sequence
+
+                        while((pilotCommandsShared.chan1 != 0.5)&&(pilotCommandsShared.chan2 != 0.5)&&(pilotCommandsShared.chan3 != 0)&&(pilotCommandsShared.chan4 != 0.5))
+                        {
+                            if((pilotCommandsShared.chan1 - 0.05)>0.5)
+                            {
+                                pilotCommandsShared.chan1 = pilotCommandsShared.chan1 - 0.05;
+                            }
+                            else {pilotCommandsShared.chan1 = 0.5;}
+                            if((pilotCommandsShared.chan2 - 0.05)>0.5)
+                            {
+                                pilotCommandsShared.chan2 = pilotCommandsShared.chan2 - 0.05;
+                            }
+                            else {pilotCommandsShared.chan2 = 0.5;}
+                            if((pilotCommandsShared.chan3 - 0.05)>0)
+                            {
+                                pilotCommandsShared.chan3 = pilotCommandsShared.chan3 - 0.05;
+                            }
+                            else {pilotCommandsShared.chan3 = 0;}
+
+                            if((pilotCommandsShared.chan4 - 0.05)>0.5)
+                            {
+                                pilotCommandsShared.chan4 = pilotCommandsShared.chan4 - 0.05;
+                            }
+                            else {pilotCommandsShared.chan4 = 0.5;}
+
+
+                            writeCommands();
+                            usleep(100000);//temps à déterminer pour avoir baisse du régime progressive
+                        }
+
+                        pthread_mutex_unlock(&pilotCommandsShared.readWrite);
+
+
                         //Message
                         printDebug("Need to land in emergency");
                         currentMessage.dataSize=0;
@@ -1162,7 +1204,32 @@ void* autopilotHandler(void* arg)
                     //TODO : add all the events handling
                     else if(!strcmp(receivedMessage->message, "landing"))
                     {
-                        //TODO : behaviour
+
+                        strcpy(insertedObjective->name,"landing");
+                        insertedObjective->priority = 5;
+                        insertedObjective->code = 1;
+
+                        if (insertedObjective->priority > autopilotSharedState.currentObjectivePriority)
+                        {
+                            printDebug("[i] We've got a prioritary objective, removing the current objective and restarting autopilot");
+
+                            free(currentObjective);
+                            free(currentServoControl);
+                            currentObjective = (autopilotObjective_t*)malloc(sizeof(autopilotObjective_t));
+                            tempObjective = (autopilotObjective_t*) receivedMessage->data;
+                            *currentObjective = *tempObjective;
+                            free(insertedObjective);
+
+                            objectiveBypass = 1;
+                            break;
+
+                        }
+                        else
+                        {
+                            printDebug("[i] We've got a new objective, but its priority was not to high so we inserted it in the fifo");
+                            insertObjective(insertedObjective, &autopilotObjectiveFifo);
+
+                        }
                         printDebug("Land quadcopter");
                         strcpy(currentMessage.message, "main_autopilot_info_landing");
                         sendMessage(mainITMHandler, currentMessage);

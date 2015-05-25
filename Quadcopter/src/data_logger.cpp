@@ -349,7 +349,17 @@ void* dataLoggerHandler(void* arg)
 
                         }
 
-                            break;
+                        break;
+
+                        /*case MAVLINK_MSG_ID_COMMAND_INT :
+                        {
+                            mavlink_command_int_t command_int;
+                            mavlink_msg_command_int_decode(&msg, &command_int);
+
+
+                        }
+
+                        break;*/
 
                     default:
                         //Do nothing

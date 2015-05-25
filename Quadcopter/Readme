@@ -73,6 +73,7 @@ Objective model :
 with :
 
 	ObjectiveCode = GOTO_STANDARD/GOTO_HOVERING/LAND_TAKEOFF/POSITION_HOLD
+		      = 2/3/1/4
 
 --------------------------------------------------------------------------------------------------------------------------------
 
@@ -117,6 +118,7 @@ List of messages (with their priority in descending order (the less the more imp
 		received :
 
             info_newobjective
+	    order_newobjective (send from data_logger)
 
             order_emergencylanding
             order_landing
@@ -179,6 +181,18 @@ List of messages (with their priority in descending order (the less the more imp
 			order_testcommands
 			order_increasepwm
 			order_decreasepwm
+
+	data_logger :
+		
+		send :
+			
+			order_newobjective
+
+		receive :
+			
+			order_testreader
+
+			info_crashed/takeoffed/armed/disarmed/nowork/engaged/disengaged/manual/autopilot/stabilized
 
 
 
