@@ -363,7 +363,7 @@ void* pilotHandler(void* arg)
         if (testCom) printf("MANUAL / AUTO : %f\n", receivedCommands.commands[AUTO_MANUAL_CHAN - 1]);
 
 
-        if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
+        if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != TEST && !previousLandTakeOffCommand)
         {
             if (testCom) printDebug("[i] User requested takeoff, sending a takeoff order to autopilot");
             previousLandTakeOffCommand = 1;
@@ -375,7 +375,7 @@ void* pilotHandler(void* arg)
 
         }
 
-        else if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != MANUAL && previousLandTakeOffCommand)
+        else if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != MANUAL && previousLandTakeOffCommand && pilotStateShared.pilotMode != TEST)
         {
             if (testCom) printDebug("[i] User requested landing, sending a landing order to autopilot");
             previousLandTakeOffCommand = 0;
@@ -386,7 +386,7 @@ void* pilotHandler(void* arg)
             sendMessage(mainITMHandler, message);
         }
 
-        if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL)
+        if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != TEST)
         {
             if (testCom) printDebug("[i] User requested manual commands, giving user the drone control...");
             pilotStateShared.pilotMode = MANUAL;
@@ -397,7 +397,7 @@ void* pilotHandler(void* arg)
             sendMessage(mainITMHandler, message);
         }
 
-        else if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != AUTO)
+        else if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != AUTO && pilotStateShared.pilotMode != TEST)
         {
             if (testCom) printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
             pilotStateShared.pilotMode = AUTO;
