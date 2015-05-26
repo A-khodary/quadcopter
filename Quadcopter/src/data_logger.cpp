@@ -364,21 +364,27 @@ void* dataLoggerHandler(void* arg)
                             if (command_long.command == 185)
                             {
                                  strcpy(currentMessage.message, "pilot_datalogger_order_disarm");
+                                 currentMessage.priority = 1;
+                                 sendMessage(mainITMHandler, currentMessage);
                             }
                             else if (command_long.command == 81)
                             {
                                 strcpy(currentMessage.message, "pilot_datalogger_order_arm");
+                                currentMessage.priority = 1;
+                                sendMessage(mainITMHandler, currentMessage);
                             }
                             else if (command_long.command == 22)
                             {
                                 strcpy(currentMessage.message, "pilot_datalogger_order_test");
+                                currentMessage.priority = 1;
+                                sendMessage(mainITMHandler, currentMessage);
                             }
                             else if (command_long.command == 31)
                             {
                                 strcpy(currentMessage.message, "pilot_datalogger_order_test");
+                                currentMessage.priority = 1;
+                                sendMessage(mainITMHandler, currentMessage);
                             }
-                            currentMessage.priority = 1;
-                            sendMessage(mainITMHandler, currentMessage);
 
 
                         }
