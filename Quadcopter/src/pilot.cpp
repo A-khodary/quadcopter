@@ -291,7 +291,7 @@ void* pilotHandler(void* arg)
 
                         printDebug("Pilot received a test order, performing test");
                         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
-                        pthread_mutex_lock(&pilotCommandsShared.readWrite)
+                        pthread_mutex_lock(&pilotCommandsShared.readWrite);
                         if (pilotStateShared.pilotMode == TEST)
                         {
                             pilotStateShared.pilotMode = AUTO;
@@ -309,7 +309,7 @@ void* pilotHandler(void* arg)
                         }
 
 
-                        pthread_mutex_lock(&pilotCommandsShared.readWrite)
+                        pthread_mutex_lock(&pilotCommandsShared.readWrite);
                         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
                         //strcpy(message.message, "autopilot_pilot_order_pause");
                         //sendMessage(mainITMHandler, message);
