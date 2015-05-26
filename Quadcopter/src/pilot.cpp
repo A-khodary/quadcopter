@@ -160,7 +160,7 @@ void* pilotHandler(void* arg)
     pthread_mutex_lock(&pilotStateShared.readWriteMutex);
     pthread_mutex_lock(&pilotCommandsShared.readWrite);
 
-    pilotStateShared.pilotMode = TEST;
+    pilotStateShared.pilotMode = AUTO;
 
 
     pilotCommandsShared.chan1 = 0.5;
