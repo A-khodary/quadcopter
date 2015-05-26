@@ -356,16 +356,34 @@ void* dataLoggerHandler(void* arg)
 
                         break;
 
-                        /*case MAVLINK_MSG_ID_COMMAND_INT :
+                        case MAVLINK_MSG_ID_COMMAND_LONG :
                         {
-                            mavlink_command_int_t command_int;
-                            mavlink_msg_command_int_decode(&msg, &command_int);
+                            mavlink_command_long_t command_long;
+                            mavlink_msg_command_long_decode(&msg, &command_long);
+
+                            if (command_long.command == 185)
+                            {
+                                 strcpy(currentMessage.message, "pilot_datalogger_order_disarm");
+                            }
+                            else if (command_long.command == 81)
+                            {
+                                strcpy(currentMessage.message, "pilot_datalogger_order_arm");
+                            }
+                            else if (command_long.command == 22)
+                            {
+                                strcpy(currentMessage.message, "pilot_datalogger_order_test");
+                            }
+                            else if (command_long.command == 31)
+                            {
+                                strcpy(currentMessage.message, "pilot_datalogger_order_test");
+                            }
+                            currentMessage.priority = 1;
+                            sendMessage(mainITMHandler, currentMessage);
 
 
                         }
 
-                        break;*/
-
+                        break;
                     default:
                         //Do nothing
                         break;
