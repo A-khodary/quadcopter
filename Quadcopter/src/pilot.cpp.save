@@ -174,7 +174,7 @@ void* pilotHandler(void* arg)
     pilotCommandsShared.chan9 = 0.5;
 
 
-
+    sleep(2);
 
 
     pilotCommandsShared.refreshingPeriod = REFRESHING_PERIOD_DEFAULT;
@@ -219,7 +219,6 @@ void* pilotHandler(void* arg)
         pthread_exit(NULL);
     }
     pca9685PWMReset(fd);
-    sleep(2);
 
     armQuadcopter();
 
@@ -283,7 +282,6 @@ void* pilotHandler(void* arg)
 
 
 
-
                     else if (!strcmp(decoded.message, "test"))
                     {
 
@@ -293,10 +291,29 @@ void* pilotHandler(void* arg)
 
                         printDebug("Pilot received a test order, performing test");
                         pthread_mutex_lock(&pilotStateShared.readWriteMutex);
-                        pilotStateShared.pilotMode = TEST;
+                        pthread_mutex_lock(&pilotCommandsShared.readWrite)
+                        if (pilotStateShared.pilotMode == TEST)
+                        {
+                            pilotStateShared.pilotMode = AUTO;
+                            pilotCommandsShared.chan1 = 0;
+                            pilotCommandsShared.chan2 = 0;
+                            pilotCommandsShared.chan3 = 0;
+                            pilotCommandsShared.chan4 = 0;
+                            
+                            disarmQuadcopter();
+                        }
+                        else
+                        {
+                            pilotStateShared.pilotMode = TEST;
+                            armQuadcopter();
+                            
+                        }
+                            
+                        
+                        pthread_mutex_lock(&pilotCommandsShared.readWrite)
                         pthread_mutex_unlock(&pilotStateShared.readWriteMutex);
-                        strcpy(message.message, "autopilot_pilot_order_pause");
-                        sendMessage(mainITMHandler, message);
+                        //strcpy(message.message, "autopilot_pilot_order_pause");
+                        //sendMessage(mainITMHandler, message);
                     }
 
                     else if (!strcmp(decoded.message, "arm"))
@@ -365,7 +382,7 @@ void* pilotHandler(void* arg)
         if (testCom) printf("MANUAL / AUTO : %f\n", receivedCommands.commands[AUTO_MANUAL_CHAN - 1]);
 
 
-        if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL && !previousLandTakeOffCommand)
+        if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != TEST && !previousLandTakeOffCommand)
         {
             if (testCom) printDebug("[i] User requested takeoff, sending a takeoff order to autopilot");
             previousLandTakeOffCommand = 1;
@@ -377,7 +394,7 @@ void* pilotHandler(void* arg)
 
         }
 
-        else if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != MANUAL && previousLandTakeOffCommand)
+        else if (receivedCommands.commands[LAND_TAKEOFF_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != MANUAL && previousLandTakeOffCommand && pilotStateShared.pilotMode != TEST)
         {
             if (testCom) printDebug("[i] User requested landing, sending a landing order to autopilot");
             previousLandTakeOffCommand = 0;
@@ -388,7 +405,7 @@ void* pilotHandler(void* arg)
             sendMessage(mainITMHandler, message);
         }
 
-        if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL)
+        if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] > 0.5 && pilotStateShared.pilotMode != MANUAL && pilotStateShared.pilotMode != TEST)
         {
             if (testCom) printDebug("[i] User requested manual commands, giving user the drone control...");
             pilotStateShared.pilotMode = MANUAL;
@@ -399,7 +416,7 @@ void* pilotHandler(void* arg)
             sendMessage(mainITMHandler, message);
         }
 
-        else if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != AUTO)
+        else if (receivedCommands.commands[AUTO_MANUAL_CHAN - 1] < 0.5 && pilotStateShared.pilotMode != AUTO && pilotStateShared.pilotMode != TEST)
         {
             if (testCom) printDebug("[i] User requested autopilot to take control, giving autopilot the drone control...");
             pilotStateShared.pilotMode = AUTO;
@@ -470,7 +487,7 @@ void* pilotHandler(void* arg)
             sleep(1);
         }
 
-        else usleep(PILOT_REFRESHING_PERIOD*1000);
+        else usleep(PILOT_REFRESHING_PERIOD_MS*1000);
 
 
 
