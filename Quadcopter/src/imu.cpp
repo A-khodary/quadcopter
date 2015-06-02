@@ -228,7 +228,7 @@ void* imuHandler(void* arg)
 
             if ( abs(MS5611Alt - gpsAltitude) / MS5611Alt >= MAX_ALT_DIFF )
             {
-                printf("[e] Error in IMU : to high divergence between gps altitude and bmp altitude");
+                printf("[e] Error in IMU : to high divergence between gps altitude and MS5611 altitude");
                 // Switching altitude to pressure-only :
                 air_MS5611_trust=100;
                 air_gps_trust=0;

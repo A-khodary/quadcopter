@@ -53,7 +53,7 @@ Run :
 
 Components :
 
-	MPU650 + HMC5883L + MS5611 (IMU)
+	MPU6050 + HMC5883L + MS5611 (IMU)
 	PCA9685 (pwm driver)
 	Arduino Mega 2560
 	Raspberry Pi model B+
@@ -131,13 +131,13 @@ List of messages (with their priority in descending order (the less the more imp
 
 	quadcopter :
 
-        received :
+        	received :
 
-            order_restartthreadautopilot
-            order_restartthreadpilot
-            order_restartthreaddatalogger
-            order_restartthreadimu
-            order_restartthreadreader
+            		order_restartthreadautopilot
+            		order_restartthreadpilot
+            		order_restartthreaddatalogger
+            		order_restartthreadimu
+            		order_restartthreadreader
 
 
 	reader :
